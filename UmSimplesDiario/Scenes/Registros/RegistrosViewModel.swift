@@ -55,11 +55,11 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
         }.disposed(by: disposeBag)
         
         composeButton.subscribe(onNext: { _ in
-            print("tap composeButton")
+            coordinator.route(to: .compose)
         }).disposed(by: disposeBag)
         
         searchButton.subscribe(onNext: { _ in
-            print("tap searchButton")
+            coordinator.route(to: .search)
         }).disposed(by: disposeBag)
 
     }
