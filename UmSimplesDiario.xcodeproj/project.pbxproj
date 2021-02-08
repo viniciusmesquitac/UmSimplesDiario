@@ -3,19 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21F545F09B5B040647A9FB8D /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */; };
+		3AADFC5D9838860C039D13CA /* Pods_UmSimplesDiarioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */; };
 		81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC225D16A320002D594 /* AppDelegate.swift */; };
 		81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC425D16A320002D594 /* SceneDelegate.swift */; };
-		81BA7BC725D16A320002D594 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC625D16A320002D594 /* ViewController.swift */; };
-		81BA7BCA25D16A320002D594 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BA7BC825D16A320002D594 /* Main.storyboard */; };
 		81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BCB25D16A320002D594 /* UmSimplesDiario.xcdatamodeld */; };
 		81BA7BCF25D16A340002D594 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81BA7BCE25D16A340002D594 /* Assets.xcassets */; };
 		81BA7BD225D16A340002D594 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81BA7BD025D16A340002D594 /* LaunchScreen.storyboard */; };
 		81BA7BDD25D16A340002D594 /* UmSimplesDiarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BDC25D16A340002D594 /* UmSimplesDiarioTests.swift */; };
 		81BA7BE825D16A340002D594 /* UmSimplesDiarioUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BE725D16A340002D594 /* UmSimplesDiarioUITests.swift */; };
+		81BA7BFC25D16B040002D594 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BFB25D16B040002D594 /* AppCoordinator.swift */; };
+		81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C0025D16B1E0002D594 /* Coordinator.swift */; };
+		81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C0B25D16F800002D594 /* RegistrosCoordinator.swift */; };
+		81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C1625D16FB00002D594 /* RegistrosViewController.swift */; };
+		81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C1B25D16FBE0002D594 /* RegistrosViewModel.swift */; };
+		81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C2125D170260002D594 /* RegistrosView.swift */; };
+		81BA7C3C25D1737A0002D594 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C3B25D1737A0002D594 /* Registro.swift */; };
+		81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C4325D173B60002D594 /* ViewModel.swift */; };
+		81BA7C4925D1755E0002D594 /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C4825D1755E0002D594 /* RegistroViewModel.swift */; };
+		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,11 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A81DAA88FA86F6045E31094 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6325CDD0DB65906C0C32626D /* Pods-UmSimplesDiario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.release.xcconfig"; sourceTree = "<group>"; };
+		6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiarioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA7BBF25D16A320002D594 /* UmSimplesDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UmSimplesDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA7BC225D16A320002D594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BA7BC425D16A320002D594 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		81BA7BC625D16A320002D594 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		81BA7BC925D16A320002D594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		81BA7BCC25D16A320002D594 /* UmSimplesDiario.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UmSimplesDiario.xcdatamodel; sourceTree = "<group>"; };
 		81BA7BCE25D16A340002D594 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		81BA7BD125D16A340002D594 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +63,20 @@
 		81BA7BE325D16A340002D594 /* UmSimplesDiarioUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UmSimplesDiarioUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA7BE725D16A340002D594 /* UmSimplesDiarioUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmSimplesDiarioUITests.swift; sourceTree = "<group>"; };
 		81BA7BE925D16A340002D594 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81BA7BFB25D16B040002D594 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		81BA7C0025D16B1E0002D594 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		81BA7C0B25D16F800002D594 /* RegistrosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosCoordinator.swift; sourceTree = "<group>"; };
+		81BA7C1625D16FB00002D594 /* RegistrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewController.swift; sourceTree = "<group>"; };
+		81BA7C1B25D16FBE0002D594 /* RegistrosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewModel.swift; sourceTree = "<group>"; };
+		81BA7C2125D170260002D594 /* RegistrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosView.swift; sourceTree = "<group>"; };
+		81BA7C3B25D1737A0002D594 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
+		81BA7C4325D173B60002D594 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		81BA7C4825D1755E0002D594 /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
+		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBF36D0CB2D0C71D60E701A5 /* Pods-UmSimplesDiario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.debug.xcconfig"; sourceTree = "<group>"; };
+		FF34AC9D6614282604C7E3AE /* Pods-UmSimplesDiarioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3AADFC5D9838860C039D13CA /* Pods_UmSimplesDiarioTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +100,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21F545F09B5B040647A9FB8D /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D3F3392069E9E04878672EE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */,
+				95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */,
+				6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81BA7BB625D16A320002D594 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +124,8 @@
 				81BA7BDB25D16A340002D594 /* UmSimplesDiarioTests */,
 				81BA7BE625D16A340002D594 /* UmSimplesDiarioUITests */,
 				81BA7BC025D16A320002D594 /* Products */,
+				E8A836F27DDD01AE3689DC04 /* Pods */,
+				7D3F3392069E9E04878672EE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +142,11 @@
 		81BA7BC125D16A320002D594 /* UmSimplesDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81BA7C3A25D1736E0002D594 /* Model */,
+				81BA7C0A25D16F690002D594 /* Coordinators */,
+				81BA7C0525D16B6F0002D594 /* Scenes */,
 				81BA7BC225D16A320002D594 /* AppDelegate.swift */,
 				81BA7BC425D16A320002D594 /* SceneDelegate.swift */,
-				81BA7BC625D16A320002D594 /* ViewController.swift */,
-				81BA7BC825D16A320002D594 /* Main.storyboard */,
 				81BA7BCE25D16A340002D594 /* Assets.xcassets */,
 				81BA7BD025D16A340002D594 /* LaunchScreen.storyboard */,
 				81BA7BD325D16A340002D594 /* Info.plist */,
@@ -131,6 +173,73 @@
 			path = UmSimplesDiarioUITests;
 			sourceTree = "<group>";
 		};
+		81BA7C0525D16B6F0002D594 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7C0925D16F510002D594 /* PesquisarRegistros */,
+				81BA7C0825D16F480002D594 /* EscreverDiario */,
+				81BA7C0725D16F380002D594 /* Registros */,
+				81BA7C4325D173B60002D594 /* ViewModel.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		81BA7C0725D16F380002D594 /* Registros */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7C1625D16FB00002D594 /* RegistrosViewController.swift */,
+				81BA7C1B25D16FBE0002D594 /* RegistrosViewModel.swift */,
+				81BA7C2125D170260002D594 /* RegistrosView.swift */,
+				81BA7C4825D1755E0002D594 /* RegistroViewModel.swift */,
+			);
+			path = Registros;
+			sourceTree = "<group>";
+		};
+		81BA7C0825D16F480002D594 /* EscreverDiario */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EscreverDiario;
+			sourceTree = "<group>";
+		};
+		81BA7C0925D16F510002D594 /* PesquisarRegistros */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PesquisarRegistros;
+			sourceTree = "<group>";
+		};
+		81BA7C0A25D16F690002D594 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7C0025D16B1E0002D594 /* Coordinator.swift */,
+				81BA7BFB25D16B040002D594 /* AppCoordinator.swift */,
+				81BA7C0B25D16F800002D594 /* RegistrosCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		81BA7C3A25D1736E0002D594 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7C3B25D1737A0002D594 /* Registro.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8A836F27DDD01AE3689DC04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FBF36D0CB2D0C71D60E701A5 /* Pods-UmSimplesDiario.debug.xcconfig */,
+				6325CDD0DB65906C0C32626D /* Pods-UmSimplesDiario.release.xcconfig */,
+				91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */,
+				3A81DAA88FA86F6045E31094 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig */,
+				5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */,
+				FF34AC9D6614282604C7E3AE /* Pods-UmSimplesDiarioTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81BA7BEC25D16A340002D594 /* Build configuration list for PBXNativeTarget "UmSimplesDiario" */;
 			buildPhases = (
+				ED223DF42A196621382D6F06 /* [CP] Check Pods Manifest.lock */,
 				81BA7BBB25D16A320002D594 /* Sources */,
 				81BA7BBC25D16A320002D594 /* Frameworks */,
 				81BA7BBD25D16A320002D594 /* Resources */,
+				D7FD640D35D231DED0D57176 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,6 +266,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81BA7BEF25D16A340002D594 /* Build configuration list for PBXNativeTarget "UmSimplesDiarioTests" */;
 			buildPhases = (
+				57402ACE3F6AFF345A0855F5 /* [CP] Check Pods Manifest.lock */,
 				81BA7BD425D16A340002D594 /* Sources */,
 				81BA7BD525D16A340002D594 /* Frameworks */,
 				81BA7BD625D16A340002D594 /* Resources */,
@@ -173,9 +285,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 81BA7BF225D16A340002D594 /* Build configuration list for PBXNativeTarget "UmSimplesDiarioUITests" */;
 			buildPhases = (
+				228EA60F3690F765BB2246AB /* [CP] Check Pods Manifest.lock */,
 				81BA7BDF25D16A340002D594 /* Sources */,
 				81BA7BE025D16A340002D594 /* Frameworks */,
 				81BA7BE125D16A340002D594 /* Resources */,
+				6027A910CF9F07BC32802983 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -236,7 +350,6 @@
 			files = (
 				81BA7BD225D16A340002D594 /* LaunchScreen.storyboard in Resources */,
 				81BA7BCF25D16A340002D594 /* Assets.xcassets in Resources */,
-				81BA7BCA25D16A320002D594 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,13 +369,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		228EA60F3690F765BB2246AB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UmSimplesDiario-UmSimplesDiarioUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57402ACE3F6AFF345A0855F5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UmSimplesDiarioTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6027A910CF9F07BC32802983 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7FD640D35D231DED0D57176 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED223DF42A196621382D6F06 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UmSimplesDiario-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		81BA7BBB25D16A320002D594 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81BA7BC725D16A320002D594 /* ViewController.swift in Sources */,
+				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
+				81BA7C4925D1755E0002D594 /* RegistroViewModel.swift in Sources */,
+				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
+				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
+				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,
+				81BA7BFC25D16B040002D594 /* AppCoordinator.swift in Sources */,
+				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
+				81BA7C3C25D1737A0002D594 /* Registro.swift in Sources */,
+				81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */,
 				81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */,
 				81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */,
 			);
@@ -300,14 +524,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		81BA7BC825D16A320002D594 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				81BA7BC925D16A320002D594 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		81BA7BD025D16A340002D594 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -437,6 +653,7 @@
 		};
 		81BA7BED25D16A340002D594 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBF36D0CB2D0C71D60E701A5 /* Pods-UmSimplesDiario.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +673,7 @@
 		};
 		81BA7BEE25D16A340002D594 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6325CDD0DB65906C0C32626D /* Pods-UmSimplesDiario.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -475,6 +693,7 @@
 		};
 		81BA7BF025D16A340002D594 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -497,6 +716,7 @@
 		};
 		81BA7BF125D16A340002D594 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF34AC9D6614282604C7E3AE /* Pods-UmSimplesDiarioTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -519,6 +739,7 @@
 		};
 		81BA7BF325D16A340002D594 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +760,7 @@
 		};
 		81BA7BF425D16A340002D594 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A81DAA88FA86F6045E31094 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
