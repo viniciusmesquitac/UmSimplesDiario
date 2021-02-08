@@ -30,8 +30,8 @@ class RegistrosViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Registros"
-        let button1 = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
-        self.navigationItem.rightBarButtonItems  = [button1, button1]
+        self.navigationItem.rightBarButtonItems = [mainView.composeButton, mainView.searchButton]
+        self.navigationController?.navigationBar.prefersLargeTitles = false
         
         mainView.setupView()
         mainView.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
@@ -59,5 +59,7 @@ extension RegistrosViewController {
     
     private func setupInputs() {
         mainView.tableView.rx.itemSelected.bind(to: viewModel.inputs.selectedItem).disposed(by: disposeBag)
+        mainView.composeButton.rx.tap.bind(to: viewModel.inputs.composeButton).disposed(by: disposeBag)
+        mainView.searchButton.rx.tap.bind(to: viewModel.inputs.searchButton).disposed(by: disposeBag)
     }
 }

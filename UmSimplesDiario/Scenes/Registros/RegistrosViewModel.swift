@@ -10,6 +10,8 @@ import RxCocoa
 
 protocol RegistrosViewModelInput {
     var selectedItem: BehaviorRelay<IndexPath?> { get }
+    var composeButton: PublishSubject<Void> { get }
+    var searchButton: PublishSubject<Void> { get }
     var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
 }
 
@@ -25,6 +27,10 @@ protocol RegistrosViewModelProtocol: ViewModel {
 }
 
 class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
+    var searchButton = PublishSubject<Void>()
+    
+    var composeButton = PublishSubject<Void>()
+    
     var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
     
     var coordinator: RegistrosCoordinator
@@ -47,6 +53,14 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
             print(registros[row])
             
         }.disposed(by: disposeBag)
+        
+        composeButton.subscribe(onNext: { _ in
+            print("tap composeButton")
+        }).disposed(by: disposeBag)
+        
+        searchButton.subscribe(onNext: { _ in
+            print("tap searchButton")
+        }).disposed(by: disposeBag)
 
     }
 
