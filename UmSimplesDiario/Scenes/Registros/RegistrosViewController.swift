@@ -51,14 +51,11 @@ extension RegistrosViewController {
     private func setupOutputs() { }
     
     private func setupInputs() {
-        
-        // bind view model inputs
         viewModel.inputs.listaRegistrosRelay.asObservable()
             .bind(to: mainView.tableView.rx
                     .items(cellIdentifier: RegistrosViewCell.identifier,
                            cellType: RegistrosViewCell.self)) { row, element, cell in
-                cell.textLabel?.text = "Um registro"
-
+                cell.configure(element)
             }.disposed(by: disposeBag)
     }
     
