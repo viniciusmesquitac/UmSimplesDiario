@@ -9,6 +9,7 @@ import RxSwift
 import RxCocoa
 
 protocol RegistrosViewModelInput {
+    var selectedItem: BehaviorRelay<IndexPath?> { get }
     var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
 }
 
@@ -24,6 +25,8 @@ protocol RegistrosViewModelProtocol: ViewModel {
 }
 
 class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
+    var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
+    
     var coordinator: RegistrosCoordinator
     var disposeBag = DisposeBag()
     
@@ -31,7 +34,6 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     var outputs: RegistrosViewModelOutput { return self }
     
     var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
-    // var registros: [RegistrosViewModel]
     var registros: [Registro]
     
     init(coordinator: RegistrosCoordinator, registros: [Registro]) {
@@ -39,6 +41,13 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
         self.registros = registros
         
         loadRegistros()
+        
+        selectedItem.subscribe { indexPath in
+            guard let row = indexPath.element??.row else { return }
+            print(registros[row])
+            
+        }.disposed(by: disposeBag)
+
     }
 
     

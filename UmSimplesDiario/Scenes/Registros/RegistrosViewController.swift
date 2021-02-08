@@ -48,10 +48,8 @@ extension RegistrosViewController {
         setupOutputs()
     }
     
-    private func setupOutputs() { }
-    
-    private func setupInputs() {
-        viewModel.inputs.listaRegistrosRelay.asObservable()
+    private func setupOutputs() {
+        viewModel.outputs.registrosOutput.asObservable()
             .bind(to: mainView.tableView.rx
                     .items(cellIdentifier: RegistrosViewCell.identifier,
                            cellType: RegistrosViewCell.self)) { row, element, cell in
@@ -59,4 +57,7 @@ extension RegistrosViewController {
             }.disposed(by: disposeBag)
     }
     
+    private func setupInputs() {
+        mainView.tableView.rx.itemSelected.bind(to: viewModel.inputs.selectedItem).disposed(by: disposeBag)
+    }
 }
