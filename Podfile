@@ -11,6 +11,7 @@ target 'UmSimplesDiario' do
     pod 'RxSwift', '5.1.0'
     pod 'RxCocoa', '5.1.0'
     pod 'RxDataSources', '~> 4.0'
+    pod 'SwiftLint'
 
   target 'UmSimplesDiarioTests' do
     inherit! :search_paths

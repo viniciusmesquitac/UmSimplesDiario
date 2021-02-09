@@ -30,11 +30,19 @@ final class RegistrosCoordinator: Coordinator {
     func route(to Path: RegistrosPath) {
         switch Path {
         case .compose:
-            let escreverDiarioViewController = EscreverDiarioViewController()
-            self.navigationController.present(escreverDiarioViewController, animated: true, completion: nil)
+            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController)))
+            
+            let navigationController = UINavigationController(rootViewController: escreverDiarioViewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            
+            self.navigationController.present(navigationController, animated: true, completion: nil)
         case .search:
             let pesquisarRegistrosViewController = PesquisarRegistrosViewController()
             self.navigationController.present(pesquisarRegistrosViewController, animated: true, completion: nil)
         }
+    }
+    
+    func dismiss() {
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }

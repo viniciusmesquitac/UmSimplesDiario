@@ -13,8 +13,8 @@ class RegistrosView: UIView {
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let tableView = UITableView(frame: .zero)
-    let composeButton = UIBarButtonItem(barButtonSystemItem: .compose, target: nil, action: nil)
-    let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+    let composeButton = UIBarButtonItem(systemItem: .compose)
+    let searchButton = UIBarButtonItem(systemItem: .search)
 
     // MARK: Setup View
     func setupView() {

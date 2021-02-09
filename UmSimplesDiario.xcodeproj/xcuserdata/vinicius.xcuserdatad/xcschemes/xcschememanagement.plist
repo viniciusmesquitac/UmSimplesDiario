@@ -7,7 +7,25 @@
 		<key>UmSimplesDiario.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>11</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>81BA7BBE25D16A320002D594</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81BA7BD725D16A340002D594</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>81BA7BE225D16A340002D594</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
