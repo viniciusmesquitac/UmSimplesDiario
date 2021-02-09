@@ -24,10 +24,13 @@
 		81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C2125D170260002D594 /* RegistrosView.swift */; };
 		81BA7C3C25D1737A0002D594 /* Registro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C3B25D1737A0002D594 /* Registro.swift */; };
 		81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C4325D173B60002D594 /* ViewModel.swift */; };
-		81BA7C4925D1755E0002D594 /* RegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C4825D1755E0002D594 /* RegistroViewModel.swift */; };
 		81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C4D25D183430002D594 /* StyleSheet.swift */; };
 		81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C5525D1AB0E0002D594 /* EscreverDiarioViewController.swift */; };
 		81BA7C5B25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C5A25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift */; };
+		81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C6025D2AD100002D594 /* URLSession+Extensions.swift */; };
+		81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C6D25D2ADA40002D594 /* WeatherAPI.swift */; };
+		81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C7225D2B09A0002D594 /* APISettings.swift */; };
+		81BA7C7825D2B5660002D594 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7C7725D2B5660002D594 /* Weather.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,10 +77,13 @@
 		81BA7C2125D170260002D594 /* RegistrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosView.swift; sourceTree = "<group>"; };
 		81BA7C3B25D1737A0002D594 /* Registro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registro.swift; sourceTree = "<group>"; };
 		81BA7C4325D173B60002D594 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		81BA7C4825D1755E0002D594 /* RegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewModel.swift; sourceTree = "<group>"; };
 		81BA7C4D25D183430002D594 /* StyleSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleSheet.swift; sourceTree = "<group>"; };
 		81BA7C5525D1AB0E0002D594 /* EscreverDiarioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioViewController.swift; sourceTree = "<group>"; };
 		81BA7C5A25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosViewController.swift; sourceTree = "<group>"; };
+		81BA7C6025D2AD100002D594 /* URLSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extensions.swift"; sourceTree = "<group>"; };
+		81BA7C6D25D2ADA40002D594 /* WeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPI.swift; sourceTree = "<group>"; };
+		81BA7C7225D2B09A0002D594 /* APISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISettings.swift; sourceTree = "<group>"; };
+		81BA7C7725D2B5660002D594 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +154,7 @@
 		81BA7BC125D16A320002D594 /* UmSimplesDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81BA7C5F25D2AC0C0002D594 /* Network */,
 				81BA7C3A25D1736E0002D594 /* Model */,
 				81BA7C0A25D16F690002D594 /* Coordinators */,
 				81BA7C0525D16B6F0002D594 /* Scenes */,
@@ -196,7 +203,6 @@
 			children = (
 				81BA7C1625D16FB00002D594 /* RegistrosViewController.swift */,
 				81BA7C1B25D16FBE0002D594 /* RegistrosViewModel.swift */,
-				81BA7C4825D1755E0002D594 /* RegistroViewModel.swift */,
 				81BA7C2125D170260002D594 /* RegistrosView.swift */,
 			);
 			path = Registros;
@@ -232,8 +238,19 @@
 			isa = PBXGroup;
 			children = (
 				81BA7C3B25D1737A0002D594 /* Registro.swift */,
+				81BA7C7725D2B5660002D594 /* Weather.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		81BA7C5F25D2AC0C0002D594 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7C6025D2AD100002D594 /* URLSession+Extensions.swift */,
+				81BA7C6D25D2ADA40002D594 /* WeatherAPI.swift */,
+				81BA7C7225D2B09A0002D594 /* APISettings.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -489,11 +506,14 @@
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
-				81BA7C4925D1755E0002D594 /* RegistroViewModel.swift in Sources */,
+				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
 				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
 				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,
+				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
+				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
+				81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */,
 				81BA7C5B25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift in Sources */,
 				81BA7BFC25D16B040002D594 /* AppCoordinator.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,

@@ -8,5 +8,7 @@
 import Foundation
 
 struct Registro {
-    
+    let titulo: String?
+    let descricao: String?
+    let texto: String?
 }
