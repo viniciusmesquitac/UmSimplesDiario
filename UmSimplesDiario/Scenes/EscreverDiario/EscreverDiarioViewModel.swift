@@ -10,9 +10,14 @@ import RxSwift
 
 protocol EscreverDiarioViewModelInput {
     var cancelButton: PublishSubject<Void> { get }
+    var titleText: BehaviorRelay<String?> { get }
+    var bodyText: BehaviorRelay<String?> { get }
 }
 
 protocol EscreverDiarioViewModelOutput {
+    var titleTextOutput: Observable<String?> { get }
+    var bodyTextOutput: Observable<String?> { get }
+    var dataSourceOutput: Driver<[String?]> { get }
     func loadClima()
 }
 
@@ -22,6 +27,9 @@ protocol EscreverDiarioViewModelProtocol: ViewModel {
 }
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
+    var titleText = BehaviorRelay<String?>(value: nil)
+    var bodyText = BehaviorRelay<String?>(value: nil)
+    
     var cancelButton = PublishSubject<Void>()
     var coordinator: RegistrosCoordinator
     var disposeBag = DisposeBag()
@@ -45,5 +53,16 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
 
 extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
     
+    var titleTextOutput: Observable<String?> {
+        self.inputs.bodyText.asObservable()
+    }
+    
+    var bodyTextOutput: Observable<String?> {
+        self.inputs.bodyText.asObservable()
+    }
+    
+    var dataSourceOutput: Driver<[String?]> {
+        Driver.just([titleText.value, bodyText.value])
+    }
     
 }
