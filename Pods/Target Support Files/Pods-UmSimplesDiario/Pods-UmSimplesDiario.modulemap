@@ -1,6 +1,0 @@
-framework module Pods_UmSimplesDiario {
-  umbrella header "Pods-UmSimplesDiario-umbrella.h"
-
-  export *
-  module * { export * }
-}

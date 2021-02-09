@@ -1,6 +1,0 @@
-framework module Pods_UmSimplesDiario_UmSimplesDiarioUITests {
-  umbrella header "Pods-UmSimplesDiario-UmSimplesDiarioUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
