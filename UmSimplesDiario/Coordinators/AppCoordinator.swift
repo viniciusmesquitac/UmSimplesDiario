@@ -24,9 +24,8 @@ final class AppCoordinator: Coordinator {
     }
     
     private func coordinateToRegistros() {
-        let registrosViewController = RegistrosViewController(viewModel: RegistrosViewModel(coordinator: RegistrosCoordinator(navigationController: navigationController), registros: []))
-        self.navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.pushViewController(registrosViewController, animated: false)
+        let registrosCoordinator = RegistrosCoordinator(navigationController: navigationController)
+        registrosCoordinator.start()
     }
     
 }

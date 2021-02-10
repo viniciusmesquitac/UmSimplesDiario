@@ -16,8 +16,8 @@ protocol RegistrosViewModelInput {
 }
 
 protocol RegistrosViewModelOutput {
+    var registrosObservable: Observable<[Registro]> { get }
     var registrosOutput: Observable<[Registro]> { get }
-    var registrosDriver: Driver<[Registro]> { get }
     func loadRegistros()
 }
 
@@ -34,6 +34,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
     
     var coordinator: RegistrosCoordinator
+    let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     
     var inputs: RegistrosViewModelInput { return self }
@@ -50,7 +51,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
         
         selectedItem.subscribe { indexPath in
             guard let row = indexPath.element??.row else { return }
-            print(registros[row])
+            print(self.registros[row])
             
         }.disposed(by: disposeBag)
         
@@ -66,8 +67,10 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
 
     
     func loadRegistros() {
-        outputs.registrosOutput.subscribe { value in
-            self.inputs.listaRegistrosRelay.accept(value)
+        self.registros = repository.getAll()
+        
+        outputs.registrosObservable.subscribe { value in
+            self.inputs.listaRegistrosRelay.accept(self.registros)
         }.disposed(by: disposeBag)
     }
 }
@@ -76,12 +79,11 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
 
 extension RegistrosViewModel: RegistrosViewModelOutput {
     
-    var registrosOutput: Observable<[Registro]> {
+    var registrosObservable: Observable<[Registro]> {
         Observable.of(self.registros)
     }
     
-    var registrosDriver: Driver<[Registro]> {
-        self.inputs.listaRegistrosRelay.accept(self.registros)
-        return Driver.just(self.registros)
+    var registrosOutput: Observable<[Registro]> {
+        self.inputs.listaRegistrosRelay.asObservable()
     }
 }

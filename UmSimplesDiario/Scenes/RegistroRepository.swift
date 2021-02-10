@@ -27,7 +27,9 @@ class RegistroRepository: Repository {
     typealias Object = Registro
     
     func getAll() -> [Registro] {
-        return []
+        guard let registros = service.fetchAll() else { return self.registros }
+        self.registros = registros
+        return registros
     }
     
     func add(object: RegistroDTO) -> Registro? {

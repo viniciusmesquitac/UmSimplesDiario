@@ -17,14 +17,16 @@ enum RegistrosPath {
 final class RegistrosCoordinator: Coordinator {
     
     var navigationController: UINavigationController!
+    var currentController: RegistrosViewController?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
     func start() {
-        let registroViewController = RegistrosViewController(viewModel: RegistrosViewModel(coordinator: self, registros: []))
-        navigationController.pushViewController(registroViewController, animated: true)
+        let registrosViewController = RegistrosViewController(viewModel: RegistrosViewModel(coordinator: self, registros: []))
+        self.currentController = registrosViewController
+        navigationController.pushViewController(registrosViewController, animated: true)
     }
     
     func route(to Path: RegistrosPath) {
@@ -43,6 +45,9 @@ final class RegistrosCoordinator: Coordinator {
     }
     
     func dismiss() {
-        navigationController.dismiss(animated: true, completion: nil)
+        navigationController.dismiss(animated: true, completion: {
+            guard let vc = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
+            vc.viewModel.loadRegistros()
+        })
     }
 }

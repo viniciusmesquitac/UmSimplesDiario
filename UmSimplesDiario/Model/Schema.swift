@@ -9,6 +9,6 @@ import Foundation
 
 struct Schema {
     enum Field: String {
-        case name
+        case titulo
     }
 }
