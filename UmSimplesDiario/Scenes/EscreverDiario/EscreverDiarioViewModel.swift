@@ -10,6 +10,7 @@ import RxSwift
 
 protocol EscreverDiarioViewModelInput {
     var cancelButton: PublishSubject<Void> { get }
+    var saveButton: PublishSubject<Void> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
 }
@@ -31,6 +32,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var bodyText = BehaviorRelay<String?>(value: nil)
     
     var cancelButton = PublishSubject<Void>()
+    var saveButton = PublishSubject<Void>()
     var coordinator: RegistrosCoordinator
     var disposeBag = DisposeBag()
     
@@ -41,13 +43,29 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     init(coordinator: RegistrosCoordinator) {
         self.coordinator = coordinator
         
+        loadClima()
+        
         cancelButton.subscribe(onNext: {
+            coordinator.dismiss()
+        }).disposed(by: disposeBag)
+        
+        saveButton.subscribe(onNext: {
+            self.criarRegistro()
             coordinator.dismiss()
         }).disposed(by: disposeBag)
     }
     
     func loadClima() {
+        let resource = Resource<WeatherResult>(url: WeatherAPI.weatherCity(name: "Fortaleza", stateCode: nil, countryCode: nil).url!)
         
+        URLRequest.load(resource: resource).subscribe(onNext: { result in
+            let weather = result?.weather
+            print(weather)
+        }).disposed(by: disposeBag)
+    }
+    
+    func criarRegistro() {
+        print(Registro(titulo: titleText.value, descricao: "Apenas um diario", texto: bodyText.value))
     }
 }
 
