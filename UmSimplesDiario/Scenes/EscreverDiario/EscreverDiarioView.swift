@@ -19,12 +19,13 @@ class EscreverDiarioView: UIView {
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let cancelButton = UIBarButtonItem(systemItem: .cancel)
     let saveButton = UIBarButtonItem(systemItem: .save)
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    let tableView = UITableView(frame: .zero)
     
     let navigationBarButtonTitle: UIBarButtonItem = {
-        let label = UILabel()
-        label.text = "titulo"
-        return UIBarButtonItem.init(customView: label)
+        let button = UIBarButtonItem(title: "TITLE",style: .plain, target: nil, action: nil)
+        button.isEnabled = false
+        button.tintColor = StyleSheet.Color.primaryColor
+        return button
     }()
     
     func setupView() {
@@ -48,11 +49,30 @@ class EscreverDiarioView: UIView {
             make.edges.equalToSuperview()
         }
     }
+    
+    
+    func setTitle(_ title: String) {
+        if title.count < 24 {
+            navigationBarButtonTitle.title = title
+        } else if title.count == 24 {
+            navigationBarButtonTitle.title = title + "."
+        }
+        
+        else if title.count == 25 {
+            navigationBarButtonTitle.title = title + ".."
+        }
+        else if title.count == 26 {
+            navigationBarButtonTitle.title = title + "..."
+        }
+    }
 }
 
 class TitleEscreverDiarioViewCell: UITableViewCell {
     static let identifier = "title"
-    let title = UITextField()
+    let title = UITextView()
+    var rowHeight: CGFloat = 0
+    var isTitleEmpty = true
+    let disposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -60,7 +80,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         setupTitle()
-        title.placeholder = "Sem titulo"
+        // title.placeholder = "Sem titulo"
     }
     
     required init?(coder: NSCoder) {
@@ -69,16 +89,35 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     
     func setupTitle() {
         addSubview(title)
+        title.isScrollEnabled = false
+        title.text = "Sem título"
+        rowHeight = title.frame.height
+        title.textColor = UIColor.lightGray
+        
+        title.rx.text.changed.subscribe(onNext: { text in
+            if text != nil && text != "" {
+                self.isTitleEmpty = false
+            } else if text == "" {
+                self.isTitleEmpty = true
+            }
+            self.rowHeight = self.title.frame.height + 16
+        }).disposed(by: disposeBag)
+        
+        title.font = StyleSheet.Font.primaryFont24
         self.title.snp.makeConstraints { make in
-            make.leading.equalTo(self.contentView.snp.leading).offset(8)
+            make.top.equalTo(snp.top).offset(16)
+            make.leading.equalTo(snp.leading).offset(16)
+            make.trailing.equalTo(snp.trailing).offset(-16)
         }
     }
-    
 }
 
 class BodyEscreverDiarioViewCell: UITableViewCell {
     static let identifier = "body"
-    let body = UITextField()
+    var rowHeight: CGFloat = 0
+    let body = UITextView()
+    var isBodyEmpty = true
+    let disposeBag = DisposeBag()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
@@ -93,8 +132,22 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     
     func setupBody() {
         addSubview(body)
+        body.isScrollEnabled = false
+        rowHeight = body.frame.height + 500
+        body.font = StyleSheet.Font.primaryFont16
+        body.rx.text.subscribe(onNext: { text in
+            if text != nil && text != "" {
+                self.isBodyEmpty = false
+            } else if text == "" {
+                self.isBodyEmpty = true
+            }
+            self.rowHeight = self.body.frame.height + 500
+        }).disposed(by: disposeBag)
+        
         self.body.snp.makeConstraints { make in
-            make.leading.equalTo(self.contentView.snp.leading).offset(8)
+            make.top.equalTo(snp.top).offset(22)
+            make.leading.equalTo(snp.leading).offset(16)
+            make.trailing.equalTo(snp.trailing).offset(-16)
         }
     }
 }

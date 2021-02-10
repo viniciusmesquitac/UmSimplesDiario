@@ -15,5 +15,6 @@ struct StyleSheet {
     
     enum Font {
         static let primaryFont16 = UIFont.systemFont(ofSize: 16)
+        static let primaryFont24 = UIFont.systemFont(ofSize: 24)
     }
 }
