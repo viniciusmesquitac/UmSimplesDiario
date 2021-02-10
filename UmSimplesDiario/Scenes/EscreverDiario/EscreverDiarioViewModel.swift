@@ -34,6 +34,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var cancelButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
     var coordinator: RegistrosCoordinator
+    let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     
     var inputs: EscreverDiarioViewModelInput { return self }
@@ -65,7 +66,12 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     }
     
     func criarRegistro() {
-        print(Registro(titulo: titleText.value, descricao: "Apenas um diario", texto: bodyText.value))
+        let registro = RegistroDTO(titulo: self.titleText.value,
+                                   texto: self.bodyText.value,
+                                   humor: .feliz,
+                                   clima: .chuvoso)
+        
+        _ = repository.add(object: registro)
     }
 }
 

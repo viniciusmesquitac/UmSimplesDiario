@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Registro {
+struct RegistroDTO {
     let titulo: String?
-    let descricao: String?
     let texto: String?
+    let humor: Humor
+    let clima: Clima
 }

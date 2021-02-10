@@ -7,6 +7,11 @@
 
 import Foundation
 
+enum Clima: Int16 {
+    case chuvoso
+    case ensolarado
+}
+
 struct Weather: Decodable {
     let id: Int
     let main: String
