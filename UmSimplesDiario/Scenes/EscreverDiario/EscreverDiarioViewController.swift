@@ -31,14 +31,17 @@ class EscreverDiarioViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = mainView.navigationBarButtonTitle
         navigationItem.rightBarButtonItem = mainView.cancelButton
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        
         mainView.setupView()
         mainView.tableView.register(TitleEscreverDiarioViewCell.self, forCellReuseIdentifier: TitleEscreverDiarioViewCell.identifier)
         mainView.tableView.register(BodyEscreverDiarioViewCell.self, forCellReuseIdentifier: BodyEscreverDiarioViewCell.identifier)
         self.view = mainView
 
         setup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           super.viewWillAppear(animated)
+           navigationItem.largeTitleDisplayMode = .never
     }
 }
 

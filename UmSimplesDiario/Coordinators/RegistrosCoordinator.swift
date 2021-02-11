@@ -44,7 +44,11 @@ final class RegistrosCoordinator: Coordinator {
             self.navigationController.present(pesquisarRegistrosViewController, animated: true, completion: nil)
             
         case .editCompose(let registro):
+            print(self.navigationController.navigationItem.title)
             let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registro: registro))
+            escreverDiarioViewController.navigationController?.title = ""
+            escreverDiarioViewController.navigationController?.navigationBar.prefersLargeTitles = false
+            escreverDiarioViewController.navigationController?.navigationItem.largeTitleDisplayMode = .never
             self.navigationController.pushViewController(escreverDiarioViewController, animated: true)
         }
         
@@ -54,6 +58,8 @@ final class RegistrosCoordinator: Coordinator {
         navigationController.dismiss(animated: true, completion: {
             guard let vc = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
             vc.viewModel.loadRegistros()
+            vc.navigationController?.navigationBar.prefersLargeTitles = true
+//            vc.navigationController?.navigationItem.largeTitleDisplayMode = .always
             self.navigationController.popViewController(animated: true)
         })
     }

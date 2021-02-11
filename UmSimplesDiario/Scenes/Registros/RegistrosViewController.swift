@@ -25,13 +25,17 @@ class RegistrosViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            navigationItem.largeTitleDisplayMode = .always
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.title = "Registros"
         self.navigationItem.rightBarButtonItems = [mainView.composeButton, mainView.searchButton]
-        self.navigationController?.navigationBar.prefersLargeTitles = false
         
         mainView.setupView()
         mainView.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)

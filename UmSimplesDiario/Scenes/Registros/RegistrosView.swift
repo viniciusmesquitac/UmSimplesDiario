@@ -93,15 +93,32 @@ class RegistrosViewCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
+        contentView.layer.backgroundColor = StyleSheet.Color.backgroundColor.cgColor
+        contentView.layer.borderWidth = 1
+        self.layoutSubviews()
         setupConstraints()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4))
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setTitle(_ title: String) {
+        if title.count < 24 {
+            self.titleEntry.text = title
+        } else {
+            let endIndex = title.index(title.startIndex, offsetBy: 24)
+            self.titleEntry.text = String(title[title.startIndex..<endIndex]) + "..."
+        }
+    }
+    
     func configure(_ registro: RegistroModel) {
-        self.titleEntry.text = registro.titulo
+        self.setTitle(registro.titulo!)
         self.dayLabel.text = registro.dia
         self.dayWeekLabel.text = registro.diaDaSemana
         self.hourLabel.text = registro.horario

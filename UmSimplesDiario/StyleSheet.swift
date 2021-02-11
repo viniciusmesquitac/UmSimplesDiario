@@ -10,7 +10,8 @@ import UIKit
 struct StyleSheet {
     
     enum Color {
-        static let primaryColor = UIColor.systemBlue
+        static let primaryColor = UIColor.black
+        static let backgroundColor = UIColor.white
     }
     
     enum Font {
