@@ -65,6 +65,9 @@ extension RegistroModel {
         guard let date = registro.date else { return "12:00" }
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
+        if minutes < 10 {
+            return "\(hour):0\(minutes)"
+        }
         return "\(hour):\(minutes)"
     }
     

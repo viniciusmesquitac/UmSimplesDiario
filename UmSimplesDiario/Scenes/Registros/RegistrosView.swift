@@ -97,6 +97,7 @@ class RegistrosViewCell: UITableViewCell {
     fileprivate var weatherImage: UIImageView = {
         let image = UIImageView(image: StyleSheet.Image.Weather.clearSky)
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.tintColor = StyleSheet.Color.primaryColor
         return image
     }()
     
@@ -145,21 +146,21 @@ class RegistrosViewCell: UITableViewCell {
         contentView.addSubview(dayLabel)
         dayLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(8)
-            make.top.equalTo(contentView.snp.top).offset(8)
+            make.top.equalTo(contentView.snp.top).offset(16)
         }
         
         contentView.addSubview(dayWeekLabel)
         dayWeekLabel.snp.makeConstraints { make in
             make.centerX.equalTo(dayLabel.snp.centerX)
             make.top.equalTo(dayLabel.snp.bottom)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-16)
         }
         
         
         contentView.addSubview(hourLabel)
         hourLabel.snp.makeConstraints { make in
             make.leading.equalTo(dayLabel.snp.trailing).offset(8)
-            make.top.equalTo(contentView.snp.top).offset(8)
+            make.top.equalTo(contentView.snp.top).offset(16)
             
         }
         
@@ -171,17 +172,15 @@ class RegistrosViewCell: UITableViewCell {
         
         contentView.addSubview(weatherImage)
         weatherImage.snp.makeConstraints { make in
-            make.trailing.equalTo(contentView.snp.trailing).offset(-8)
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.height.equalTo(23/1.5)
-            make.width.equalTo(35/1.5)
+            make.trailing.equalTo(contentView.snp.trailing).offset(-16)
+            make.top.equalTo(contentView.snp.top).offset(16)
         }
         
         contentView.addSubview(descriptionEntry)
         descriptionEntry.snp.makeConstraints { make in
             make.leading.equalTo(titleEntry.snp.leading)
             make.top.equalTo(titleEntry.snp.bottom)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-16)
         }
         
     }

@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import UITextView_Placeholder
 
 
 fileprivate var isTitleEmpty = true
@@ -74,7 +75,6 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         self.selectionStyle = .none
         
         setupTitle()
-        // title.placeholder = "Sem titulo"
     }
     
     required init?(coder: NSCoder) {
@@ -83,8 +83,8 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     
     func setupTitle() {
         addSubview(title)
+        title.placeholder = "Sem titulo"
         title.isScrollEnabled = false
-        title.text = "Sem título"
         rowHeight.accept(title.frame.height)
         title.textColor = UIColor.lightGray
         
@@ -128,6 +128,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
         addSubview(body)
         body.isScrollEnabled = false
         rowHeight.accept(body.frame.height + 500)
+        body.placeholder = "Escreva aqui e registre sua história!"
         body.font = StyleSheet.Font.primaryFont16
         body.rx.text.subscribe(onNext: { text in
             if text != nil && text != "" {

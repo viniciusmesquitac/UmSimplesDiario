@@ -49,6 +49,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         
         if registro == nil {
             self.loadClima()
+             self.titleText.accept("Sem título")
         } else {
             self.loadRegistro(registro: registro!)
         }
