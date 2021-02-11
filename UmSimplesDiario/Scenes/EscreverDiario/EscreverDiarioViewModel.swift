@@ -37,6 +37,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     var registro: Registro?
+    var clima: Clima?
     
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
@@ -67,19 +68,28 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     }
     
     func loadClima() {
-        let resource = Resource<WeatherResult>(url: WeatherAPI.weatherCity(name: "Fortaleza", stateCode: nil, countryCode: nil).url!)
-        
-//        URLRequest.load(resource: resource).subscribe(onNext: { result in
-//            let weather = result?.weather
-//            print(weather)
-//        }).disposed(by: disposeBag)
+        let resource = Resource<WeatherResult>(url: WeatherAPI.weatherCity(name: "Maracanau", stateCode: nil, countryCode: nil).url!)
+        URLRequest.load(resource: resource).subscribe(onNext: { result in
+            if let weather = result?.weather.first?.description {
+                switch weather {
+                case "clear sky": self.clima = .ceuLimpo
+                case "few clouds": self.clima = .nuvens
+                case "broken clouds": self.clima = .nuvens
+                case "scattered clouds": self.clima = .nuvens
+                case "rain": self.clima = .chuva
+                case "shower rain": self.clima = .chuvaComSol
+                case "thunderstorm": self.clima = .tempestade
+                default: self.clima = .nuvens
+                }
+            }
+        }).disposed(by: disposeBag)
     }
     
     func criarRegistro() {
         let registro = RegistroDTO(titulo: self.titleText.value,
                                    texto: self.bodyText.value,
                                    humor: .feliz,
-                                   clima: .chuvoso)
+                                   clima: clima!)
         
         _ = repository.add(object: registro)
     }

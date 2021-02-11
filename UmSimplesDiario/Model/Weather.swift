@@ -8,8 +8,11 @@
 import Foundation
 
 enum Clima: Int16 {
-    case chuvoso
-    case ensolarado
+    case ceuLimpo
+    case nuvens
+    case chuva
+    case chuvaComSol
+    case tempestade
 }
 
 struct Weather: Decodable {

@@ -31,7 +31,6 @@ class EscreverDiarioView: UIView {
     
     func setupView() {
         self.view.frame = self.bounds
-        self.view.backgroundColor = .white
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in
@@ -44,8 +43,8 @@ class EscreverDiarioView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         
-        self.tableView.backgroundColor = .none
         self.tableView.separatorStyle = .none
+        self.tableView.backgroundColor = .systemBackground
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

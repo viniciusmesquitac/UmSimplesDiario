@@ -12,15 +12,14 @@ class RegistrosView: UIView {
     
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    let tableView = UITableView(frame: .zero, style: .grouped)
+    let tableView = UITableView(frame: .zero)
     let composeButton = UIBarButtonItem(systemItem: .compose)
     let searchButton = UIBarButtonItem(systemItem: .search)
 
     // MARK: Setup View
     func setupView() {
-        self.backgroundColor = .red
         self.view.frame = self.bounds
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .none
         insertSubview(view, belowSubview: indicatorContainer)
         
         view.snp.makeConstraints { make in
@@ -33,7 +32,7 @@ class RegistrosView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         
-        self.tableView.backgroundColor = .none
+        self.tableView.separatorStyle = .none
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -89,12 +88,27 @@ class RegistrosViewCell: UITableViewCell {
         return label
     }()
     
+    fileprivate var moodImage: UIImageView = {
+        let image = UIImageView(image: StyleSheet.Image.Mood.happyMood)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+    fileprivate var weatherImage: UIImageView = {
+        let image = UIImageView(image: StyleSheet.Image.Weather.clearSky)
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
+    
+   
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
-        contentView.layer.backgroundColor = StyleSheet.Color.backgroundColor.cgColor
+        contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
         contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = StyleSheet.Color.borderColor.cgColor
+
         self.layoutSubviews()
         setupConstraints()
     }
@@ -122,6 +136,7 @@ class RegistrosViewCell: UITableViewCell {
         self.dayLabel.text = registro.dia
         self.dayWeekLabel.text = registro.diaDaSemana
         self.hourLabel.text = registro.horario
+        self.weatherImage.image = registro.clima
         self.descriptionEntry.text = "Sem descrição"
     }
     
@@ -152,6 +167,14 @@ class RegistrosViewCell: UITableViewCell {
         titleEntry.snp.makeConstraints { make in
             make.leading.equalTo(dayLabel.snp.trailing).offset(8)
             make.top.equalTo(hourLabel.snp.bottom).offset(8)
+        }
+        
+        contentView.addSubview(weatherImage)
+        weatherImage.snp.makeConstraints { make in
+            make.trailing.equalTo(contentView.snp.trailing).offset(-8)
+            make.top.equalTo(contentView.snp.top).offset(8)
+            make.height.equalTo(23/1.5)
+            make.width.equalTo(35/1.5)
         }
         
         contentView.addSubview(descriptionEntry)

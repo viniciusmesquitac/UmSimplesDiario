@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct RegistroDTO {
     var titulo: String?
@@ -36,8 +37,22 @@ extension RegistroModel {
     var humor: Int16 {
         registro.humor
     }
-    var clima: Int16 {
-        registro.clima
+    var clima: UIImage {
+        switch registro.clima {
+        case 0:
+            return StyleSheet.Image.Weather.clearSky
+        case 1:
+            return StyleSheet.Image.Weather.fewClouds
+        case 2:
+            return StyleSheet.Image.Weather.showerRain
+        case 3:
+            return StyleSheet.Image.Weather.rain
+        case 4:
+            return StyleSheet.Image.Weather.thunderstorm
+        default:
+            return StyleSheet.Image.Weather.clearSky
+
+        }
     }
     
     var dia: String {
