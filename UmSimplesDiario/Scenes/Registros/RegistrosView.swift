@@ -100,8 +100,11 @@ class RegistrosViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(_ registro: Registro) {
+    func configure(_ registro: RegistroModel) {
         self.titleEntry.text = registro.titulo
+        self.dayLabel.text = registro.dia
+        self.dayWeekLabel.text = registro.diaDaSemana
+        self.hourLabel.text = registro.horario
         self.descriptionEntry.text = "Sem descrição"
     }
     

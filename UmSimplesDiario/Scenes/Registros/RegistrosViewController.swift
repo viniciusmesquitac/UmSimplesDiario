@@ -53,7 +53,7 @@ extension RegistrosViewController {
             .bind(to: mainView.tableView.rx
                     .items(cellIdentifier: RegistrosViewCell.identifier,
                            cellType: RegistrosViewCell.self)) { row, element, cell in
-                cell.configure(element)
+                cell.configure(RegistroModel(registro: element))
             }.disposed(by: disposeBag)
     }
     

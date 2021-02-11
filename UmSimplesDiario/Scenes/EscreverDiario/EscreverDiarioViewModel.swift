@@ -69,10 +69,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     func loadClima() {
         let resource = Resource<WeatherResult>(url: WeatherAPI.weatherCity(name: "Fortaleza", stateCode: nil, countryCode: nil).url!)
         
-        URLRequest.load(resource: resource).subscribe(onNext: { result in
-            let weather = result?.weather
-            print(weather)
-        }).disposed(by: disposeBag)
+//        URLRequest.load(resource: resource).subscribe(onNext: { result in
+//            let weather = result?.weather
+//            print(weather)
+//        }).disposed(by: disposeBag)
     }
     
     func criarRegistro() {

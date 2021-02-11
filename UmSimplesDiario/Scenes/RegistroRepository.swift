@@ -38,6 +38,7 @@ class RegistroRepository: Repository {
         registro?.titulo = object.titulo
         registro?.clima = object.clima.rawValue
         registro?.humor = object.humor.rawValue
+        registro?.date = object.date
         if service.save() { return registro }
         return nil
     }
