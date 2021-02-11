@@ -12,6 +12,7 @@ import UIKit
 enum RegistrosPath {
     case search
     case compose
+    case editCompose(registro: Registro)
 }
 
 final class RegistrosCoordinator: Coordinator {
@@ -32,7 +33,7 @@ final class RegistrosCoordinator: Coordinator {
     func route(to Path: RegistrosPath) {
         switch Path {
         case .compose:
-            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController)))
+            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registro: nil))
             
             let navigationController = UINavigationController(rootViewController: escreverDiarioViewController)
             navigationController.modalPresentationStyle = .fullScreen
@@ -41,13 +42,19 @@ final class RegistrosCoordinator: Coordinator {
         case .search:
             let pesquisarRegistrosViewController = PesquisarRegistrosViewController()
             self.navigationController.present(pesquisarRegistrosViewController, animated: true, completion: nil)
+            
+        case .editCompose(let registro):
+            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registro: registro))
+            self.navigationController.pushViewController(escreverDiarioViewController, animated: true)
         }
+        
     }
     
     func dismiss() {
         navigationController.dismiss(animated: true, completion: {
             guard let vc = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
             vc.viewModel.loadRegistros()
+            self.navigationController.popViewController(animated: true)
         })
     }
 }

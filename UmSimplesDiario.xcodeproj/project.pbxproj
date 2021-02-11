@@ -37,8 +37,8 @@
 		81BA7CBD25D42CC00002D594 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7CBC25D42CC00002D594 /* CoreDataService.swift */; };
 		81BA7CC225D42DE80002D594 /* Humor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7CC125D42DE80002D594 /* Humor.swift */; };
 		81BA7CC725D42E570002D594 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7CC625D42E570002D594 /* Schema.swift */; };
-		81BA7D0B25D432BD0002D594 /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D0925D432BD0002D594 /* Registro+CoreDataClass.swift */; };
-		81BA7D0C25D432BD0002D594 /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D0A25D432BD0002D594 /* Registro+CoreDataProperties.swift */; };
+		81BA7D1525D559890002D594 /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D1325D559890002D594 /* Registro+CoreDataClass.swift */; };
+		81BA7D1625D559890002D594 /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D1425D559890002D594 /* Registro+CoreDataProperties.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,8 +98,8 @@
 		81BA7CBC25D42CC00002D594 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		81BA7CC125D42DE80002D594 /* Humor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Humor.swift; sourceTree = "<group>"; };
 		81BA7CC625D42E570002D594 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
-		81BA7D0925D432BD0002D594 /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		81BA7D0A25D432BD0002D594 /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		81BA7D1325D559890002D594 /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		81BA7D1425D559890002D594 /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -257,8 +257,8 @@
 		81BA7C3A25D1736E0002D594 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				81BA7D0925D432BD0002D594 /* Registro+CoreDataClass.swift */,
-				81BA7D0A25D432BD0002D594 /* Registro+CoreDataProperties.swift */,
+				81BA7D1325D559890002D594 /* Registro+CoreDataClass.swift */,
+				81BA7D1425D559890002D594 /* Registro+CoreDataProperties.swift */,
 				81BA7C3B25D1737A0002D594 /* RegistroDTO.swift */,
 				81BA7C7725D2B5660002D594 /* Weather.swift */,
 				81BA7CC125D42DE80002D594 /* Humor.swift */,
@@ -537,9 +537,9 @@
 			files = (
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
-				81BA7D0B25D432BD0002D594 /* Registro+CoreDataClass.swift in Sources */,
+				81BA7D1525D559890002D594 /* Registro+CoreDataClass.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
-				81BA7D0C25D432BD0002D594 /* Registro+CoreDataProperties.swift in Sources */,
+				81BA7D1625D559890002D594 /* Registro+CoreDataProperties.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,

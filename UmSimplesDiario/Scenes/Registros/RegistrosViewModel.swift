@@ -51,6 +51,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
         
         selectedItem.subscribe { indexPath in
             guard let row = indexPath.element??.row else { return }
+            coordinator.route(to: .editCompose(registro: self.registros[row]))
             print(self.registros[row])
             
         }.disposed(by: disposeBag)

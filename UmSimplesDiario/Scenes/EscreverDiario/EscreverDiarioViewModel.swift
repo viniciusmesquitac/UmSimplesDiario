@@ -36,22 +36,32 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var coordinator: RegistrosCoordinator
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
+    var registro: Registro?
     
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
     
     
-    init(coordinator: RegistrosCoordinator) {
+    init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
+        self.registro = registro
         
-        loadClima()
+        if registro == nil {
+            self.loadClima()
+        } else {
+            self.loadRegistro(registro: registro!)
+        }
         
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
         }).disposed(by: disposeBag)
         
         saveButton.subscribe(onNext: {
-            self.criarRegistro()
+            if registro != nil {
+                self.salvarRegistro()
+            } else {
+                self.criarRegistro()
+            }
             coordinator.dismiss()
         }).disposed(by: disposeBag)
     }
@@ -72,6 +82,17 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                                    clima: .chuvoso)
         
         _ = repository.add(object: registro)
+    }
+    
+    func salvarRegistro() {
+        self.registro?.titulo = self.titleText.value
+        self.registro?.texto = self.bodyText.value
+        _ = repository.service.save()
+    }
+    
+    func loadRegistro(registro: Registro) {
+        self.bodyText.accept(registro.texto)
+        self.titleText.accept(registro.titulo)
     }
 }
 

@@ -2,7 +2,7 @@
 //  Registro+CoreDataClass.swift
 //  UmSimplesDiario
 //
-//  Created by Vinicius Mesquita on 10/02/21.
+//  Created by Vinicius Mesquita on 11/02/21.
 //
 //
 

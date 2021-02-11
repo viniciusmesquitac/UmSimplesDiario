@@ -55,8 +55,9 @@ extension EscreverDiarioViewController {
                 if row == 0 {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: TitleEscreverDiarioViewCell.identifier) as?
                             TitleEscreverDiarioViewCell else { return UITableViewCell() }
-                    //cell.title.text = item
+                    cell.title.text = item
                     cell.title.rx.text.bind(to: self.viewModel.titleText).disposed(by: self.disposeBag)
+                    
                     cell.title.rx.text.subscribe(onNext: { _ in
                         self.mainView.setTitle(cell.title.text)
                         isTitleEmpty = cell.isTitleEmpty
@@ -72,6 +73,7 @@ extension EscreverDiarioViewController {
                 }
                 guard let cell = tv.dequeueReusableCell(withIdentifier: BodyEscreverDiarioViewCell.identifier) as?
                         BodyEscreverDiarioViewCell else { return UITableViewCell() }
+                cell.body.text = item
                 cell.body.rx.text.bind(to: self.viewModel.bodyText).disposed(by: self.disposeBag)
                 cell.body.rx.text.subscribe(onNext: { _ in
                     isBodyEmpty = cell.isBodyEmpty

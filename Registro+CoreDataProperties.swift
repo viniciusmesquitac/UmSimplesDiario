@@ -2,7 +2,7 @@
 //  Registro+CoreDataProperties.swift
 //  UmSimplesDiario
 //
-//  Created by Vinicius Mesquita on 10/02/21.
+//  Created by Vinicius Mesquita on 11/02/21.
 //
 //
 
@@ -20,6 +20,7 @@ extension Registro {
     @NSManaged public var texto: String?
     @NSManaged public var titulo: String?
     @NSManaged public var humor: Int16
+    @NSManaged public var date: Date?
 
 }
 

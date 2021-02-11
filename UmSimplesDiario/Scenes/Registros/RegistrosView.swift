@@ -101,8 +101,8 @@ class RegistrosViewCell: UITableViewCell {
     }
     
     func configure(_ registro: Registro) {
-        self.titleEntry.text = "Titulo"
-        self.descriptionEntry.text = "Descrição"
+        self.titleEntry.text = registro.titulo
+        self.descriptionEntry.text = "Sem descrição"
     }
     
     func setupConstraints() {
