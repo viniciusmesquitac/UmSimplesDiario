@@ -14,6 +14,9 @@ class EscreverDiarioViewController: UIViewController {
     var viewModel: EscreverDiarioViewModel!
     let disposeBag = DisposeBag()
     
+    var heightBody = CGFloat(0)
+    var heightTitle = CGFloat(0)
+    
     init(viewModel: EscreverDiarioViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -57,6 +60,13 @@ extension EscreverDiarioViewController {
                             TitleEscreverDiarioViewCell else { return UITableViewCell() }
                     cell.title.text = item
                     cell.title.rx.text.bind(to: self.viewModel.titleText).disposed(by: self.disposeBag)
+                    cell.rowHeight.subscribe(onNext: { height in
+                        self.heightTitle = height
+                        UIView.performWithoutAnimation {
+                            tv.beginUpdates()
+                            tv.endUpdates()
+                        }
+                    }).disposed(by: self.disposeBag)
                     
                     cell.title.rx.text.subscribe(onNext: { _ in
                         self.mainView.setTitle(cell.title.text)
@@ -64,25 +74,26 @@ extension EscreverDiarioViewController {
                         if !cell.isTitleEmpty && !isBodyEmpty { self.navigationItem.rightBarButtonItem = self.mainView.saveButton } else {
                             self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
                         }
-                        UIView.performWithoutAnimation {
-                            tv.beginUpdates()
-                            tv.endUpdates()
-                        }
                     }).disposed(by: self.disposeBag)
                     return cell
                 }
                 guard let cell = tv.dequeueReusableCell(withIdentifier: BodyEscreverDiarioViewCell.identifier) as?
                         BodyEscreverDiarioViewCell else { return UITableViewCell() }
                 cell.body.text = item
+                
+                cell.rowHeight.subscribe(onNext: { height in
+                    self.heightBody = height
+                    UIView.performWithoutAnimation {
+                        tv.beginUpdates()
+                        tv.endUpdates()
+                    }
+                }).disposed(by: self.disposeBag)
+                
                 cell.body.rx.text.bind(to: self.viewModel.bodyText).disposed(by: self.disposeBag)
                 cell.body.rx.text.subscribe(onNext: { _ in
                     isBodyEmpty = cell.isBodyEmpty
                     if !cell.isBodyEmpty && !isTitleEmpty { self.navigationItem.rightBarButtonItem = self.mainView.saveButton } else {
                         self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
-                    }
-                    UIView.performWithoutAnimation {
-                        tv.beginUpdates()
-                        tv.endUpdates()
                     }
                 }).disposed(by: self.disposeBag)
                 return cell
@@ -101,13 +112,11 @@ extension EscreverDiarioViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            guard let cell = tableView.cellForRow(at: indexPath) as? TitleEscreverDiarioViewCell else { return 50.0 }
-            return cell.rowHeight
+            return heightTitle
         }
         
         if indexPath.row == 1 {
-            guard let cell = tableView.cellForRow(at: indexPath) as? BodyEscreverDiarioViewCell else { return 50.0 }
-            return cell.rowHeight
+            return heightBody
         }
         return 0.0
     }

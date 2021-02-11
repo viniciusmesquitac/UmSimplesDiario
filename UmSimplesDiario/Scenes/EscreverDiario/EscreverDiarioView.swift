@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import RxSwift
+import RxCocoa
 
 
 fileprivate var isTitleEmpty = true
@@ -54,15 +55,9 @@ class EscreverDiarioView: UIView {
     func setTitle(_ title: String) {
         if title.count < 24 {
             navigationBarButtonTitle.title = title
-        } else if title.count == 24 {
-            navigationBarButtonTitle.title = title + "."
-        }
-        
-        else if title.count == 25 {
-            navigationBarButtonTitle.title = title + ".."
-        }
-        else if title.count == 26 {
-            navigationBarButtonTitle.title = title + "..."
+        } else {
+            let endIndex = title.index(title.startIndex, offsetBy: 24)
+            navigationBarButtonTitle.title = String(title[title.startIndex..<endIndex]) + "..."
         }
     }
 }
@@ -70,7 +65,7 @@ class EscreverDiarioView: UIView {
 class TitleEscreverDiarioViewCell: UITableViewCell {
     static let identifier = "title"
     let title = UITextView()
-    var rowHeight: CGFloat = 0
+    var rowHeight = BehaviorRelay<CGFloat>(value: 0)
     var isTitleEmpty = true
     let disposeBag = DisposeBag()
     
@@ -91,7 +86,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         addSubview(title)
         title.isScrollEnabled = false
         title.text = "Sem título"
-        rowHeight = title.frame.height
+        rowHeight.accept(title.frame.height)
         title.textColor = UIColor.lightGray
         
         title.rx.text.changed.subscribe(onNext: { text in
@@ -100,7 +95,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
             } else if text == "" {
                 self.isTitleEmpty = true
             }
-            self.rowHeight = self.title.frame.height + 16
+            self.rowHeight.accept(self.title.frame.height + 16)
         }).disposed(by: disposeBag)
         
         title.font = StyleSheet.Font.primaryFont24
@@ -114,7 +109,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
 
 class BodyEscreverDiarioViewCell: UITableViewCell {
     static let identifier = "body"
-    var rowHeight: CGFloat = 0
+    var rowHeight = BehaviorRelay<CGFloat>(value: 0)
     let body = UITextView()
     var isBodyEmpty = true
     let disposeBag = DisposeBag()
@@ -133,7 +128,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     func setupBody() {
         addSubview(body)
         body.isScrollEnabled = false
-        rowHeight = body.frame.height + 500
+        rowHeight.accept(body.frame.height + 500)
         body.font = StyleSheet.Font.primaryFont16
         body.rx.text.subscribe(onNext: { text in
             if text != nil && text != "" {
@@ -141,7 +136,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
             } else if text == "" {
                 self.isBodyEmpty = true
             }
-            self.rowHeight = self.body.frame.height + 500
+            self.rowHeight.accept(self.body.frame.height + 50)
         }).disposed(by: disposeBag)
         
         self.body.snp.makeConstraints { make in
