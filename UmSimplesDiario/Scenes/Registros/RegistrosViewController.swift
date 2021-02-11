@@ -25,11 +25,13 @@ class RegistrosViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            navigationItem.largeTitleDisplayMode = .always
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

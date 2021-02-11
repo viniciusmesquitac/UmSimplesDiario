@@ -55,14 +55,14 @@ extension RegistroModel {
     
     var diaDaSemana: String {
         guard let date = registro.date else { return "12:00" }
-        let weekDay = calendar.component(.hour, from: date)
+        let weekDay = calendar.component(.weekday, from: date)
         switch weekDay {
-        case 2: return "Mon"; case 3: return "Tue";
-        case 4: return "Wed"; case 5: return "Thurs";
-        case 6: return "Fri"; case 7: return "Sat";
-        case 1: return "Sun";
+        case 2: return "Seg"; case 3: return "Ter";
+        case 4: return "Qua"; case 5: return "Qui";
+        case 6: return "Sex"; case 7: return "Sáb";
+        case 1: return "Dom";
         default:
-            return "Fri"
+            return "Seg"
         }
     }
 }

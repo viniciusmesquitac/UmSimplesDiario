@@ -12,7 +12,7 @@ class RegistrosView: UIView {
     
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    let tableView = UITableView(frame: .zero)
+    let tableView = UITableView(frame: .zero, style: .grouped)
     let composeButton = UIBarButtonItem(systemItem: .compose)
     let searchButton = UIBarButtonItem(systemItem: .search)
 
