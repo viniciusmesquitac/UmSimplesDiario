@@ -61,6 +61,16 @@ extension RegistrosViewController {
                            cellType: RegistrosViewCell.self)) { row, element, cell in
                 cell.configure(RegistroModel(registro: element))
             }.disposed(by: disposeBag)
+        
+        viewModel.outputs.registrosOutput.subscribe(onNext: { registros in
+            if registros.isEmpty {
+                self.mainView.emptyStateLabel.isHidden = false
+                self.mainView.tableView.isScrollEnabled = false
+            } else {
+                self.mainView.emptyStateLabel.isHidden = true
+                self.mainView.tableView.isScrollEnabled = true
+            }
+        }).disposed(by: self.disposeBag)
     }
     
     private func setupInputs() {

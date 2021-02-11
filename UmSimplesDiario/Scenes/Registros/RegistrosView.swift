@@ -13,6 +13,7 @@ class RegistrosView: UIView {
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let tableView = UITableView(frame: .zero)
+    let emptyStateLabel = UILabel()
     let composeButton = UIBarButtonItem(systemItem: .compose)
     let searchButton = UIBarButtonItem(systemItem: .search)
 
@@ -35,6 +36,18 @@ class RegistrosView: UIView {
         self.tableView.separatorStyle = .none
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        setupEmptyStateLabel()
+    }
+    
+    func setupEmptyStateLabel() {
+        view.addSubview(emptyStateLabel)
+        self.emptyStateLabel.text = "Lista de registros vazia."
+        self.emptyStateLabel.textColor = UIColor.systemGray2
+        self.emptyStateLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
     }
 }
@@ -123,22 +136,26 @@ class RegistrosViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setTitle(_ title: String) {
-        if title.count < 24 {
-            self.titleEntry.text = title
+    func setText(_ title: String, in label: UILabel, limit: Int) {
+        if title.count < limit {
+            label.text = title
         } else {
-            let endIndex = title.index(title.startIndex, offsetBy: 24)
-            self.titleEntry.text = String(title[title.startIndex..<endIndex]) + "..."
+            let endIndex = title.index(title.startIndex, offsetBy: limit)
+            label.text = String(title[title.startIndex..<endIndex]) + "..."
         }
     }
     
     func configure(_ registro: RegistroModel) {
-        self.setTitle(registro.titulo!)
+        self.setText(registro.titulo!, in: self.titleEntry, limit: 24)
+        self.setText(registro.texto!, in: self.descriptionEntry, limit: 30)
+        
+        if registro.texto == "" {
+            self.descriptionEntry.text = "Registro vazio, escreva algo aqui!"
+        }
         self.dayLabel.text = registro.dia
         self.dayWeekLabel.text = registro.diaDaSemana
         self.hourLabel.text = registro.horario
         self.weatherImage.image = registro.clima
-        self.descriptionEntry.text = "Sem descrição"
     }
     
     func setupConstraints() {
