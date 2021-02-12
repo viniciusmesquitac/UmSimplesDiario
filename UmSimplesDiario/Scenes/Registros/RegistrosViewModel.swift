@@ -61,7 +61,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
         }).disposed(by: disposeBag)
         
         searchButton.subscribe(onNext: { _ in
-            coordinator.route(to: .search)
+            coordinator.route(to: .search(registros: self.registros))
         }).disposed(by: disposeBag)
 
     }

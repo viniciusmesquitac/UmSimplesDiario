@@ -29,6 +29,7 @@ class PesquisarRegistrosViewController: UIViewController {
         mainView.searchBar.becomeFirstResponder()
         
         mainView.setupView()
+        mainView.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
         self.view = mainView
         setup()
     }
@@ -42,6 +43,12 @@ extension PesquisarRegistrosViewController {
     
     
     private func setupOutputs() {
+        viewModel.outputs.registrosOutput.asObservable()
+            .bind(to: mainView.tableView.rx
+                    .items(cellIdentifier: RegistrosViewCell.identifier,
+                           cellType: RegistrosViewCell.self)) { row, element, cell in
+                cell.configure(RegistroModel(registro: element))
+            }.disposed(by: disposeBag)
     }
     
     private func setupInputs() {

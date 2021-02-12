@@ -11,6 +11,7 @@ class PesquisarRegistrosView: UIView {
     
     let view = UIView(frame: .zero)
     let searchBar = UISearchBar(frame: .zero)
+    let tableView = UITableView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     func setupView() {
@@ -22,10 +23,17 @@ class PesquisarRegistrosView: UIView {
             make.edges.equalToSuperview()
         }
         
-        setupComponentView()
+        setupTableView()
     }
     
-    func setupComponentView() {
-        // add subview + constraints
+    
+    func setupTableView() {
+        view.addSubview(tableView)
+        
+        self.tableView.separatorStyle = .none
+        self.tableView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
+    
 }

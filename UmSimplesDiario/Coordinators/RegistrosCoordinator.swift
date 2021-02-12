@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 enum RegistrosPath {
-    case search
+    case search(registros: [Registro])
     case compose
     case editCompose(registro: Registro)
 }
@@ -39,8 +39,8 @@ final class RegistrosCoordinator: Coordinator {
             navigationController.modalPresentationStyle = .fullScreen
             
             self.navigationController.present(navigationController, animated: true, completion: nil)
-        case .search:
-            let pesquisarRegistrosViewController = PesquisarRegistrosViewController(viewModel: PesquisarRegistrosViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController)))
+        case .search(let registros):
+            let pesquisarRegistrosViewController = PesquisarRegistrosViewController(viewModel: PesquisarRegistrosViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registros: registros))
             let navigationController = UINavigationController(rootViewController: pesquisarRegistrosViewController)
             navigationController.modalPresentationStyle = .fullScreen
             self.navigationController.present(navigationController, animated: true, completion: nil)
