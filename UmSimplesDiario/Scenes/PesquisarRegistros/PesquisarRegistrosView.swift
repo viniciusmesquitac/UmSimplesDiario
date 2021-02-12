@@ -10,12 +10,14 @@ import UIKit
 class PesquisarRegistrosView: UIView {
     
     let view = UIView(frame: .zero)
+    let searchBar = UISearchBar(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     
     func setupView() {
         self.view.backgroundColor = .systemBackground
         insertSubview(view, belowSubview: indicatorContainer)
         
+        searchBar.showsCancelButton = true
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

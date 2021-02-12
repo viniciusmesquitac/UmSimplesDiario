@@ -25,6 +25,8 @@ class PesquisarRegistrosViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.titleView = mainView.searchBar
+        
         mainView.setupView()
         self.view = mainView
         setup()
@@ -42,7 +44,7 @@ extension PesquisarRegistrosViewController {
     }
     
     private func setupInputs() {
-        
+        mainView.searchBar.rx.cancelButtonClicked.bind(to: viewModel.cancelButton).disposed(by: self.disposeBag)
     }
 }
 
