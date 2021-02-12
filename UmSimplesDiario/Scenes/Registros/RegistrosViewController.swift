@@ -77,5 +77,12 @@ extension RegistrosViewController {
         mainView.tableView.rx.itemSelected.bind(to: viewModel.inputs.selectedItem).disposed(by: disposeBag)
         mainView.composeButton.rx.tap.bind(to: viewModel.inputs.composeButton).disposed(by: disposeBag)
         mainView.searchButton.rx.tap.bind(to: viewModel.inputs.searchButton).disposed(by: disposeBag)
+        mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+    }
+}
+
+extension RegistrosViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
     }
 }
