@@ -26,6 +26,7 @@ class PesquisarRegistrosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = mainView.searchBar
+        mainView.searchBar.becomeFirstResponder()
         
         mainView.setupView()
         self.view = mainView
@@ -46,6 +47,10 @@ extension PesquisarRegistrosViewController {
     private func setupInputs() {
         mainView.searchBar.rx.cancelButtonClicked.bind(to: viewModel.cancelButton).disposed(by: self.disposeBag)
     }
+}
+
+class ResultadoPesquisaSearchController: UISearchController {
+    
 }
 
 
