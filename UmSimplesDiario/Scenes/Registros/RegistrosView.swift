@@ -195,6 +195,14 @@ class RegistrosViewCell: UITableViewCell {
             make.width.equalTo(weatherImage.frame.width/2)
         }
         
+        contentView.addSubview(moodImage)
+        moodImage.snp.makeConstraints { make in
+            make.trailing.equalTo(weatherImage.snp.leading).offset(-8)
+            make.top.equalTo(contentView.snp.top).offset(16)
+            make.height.equalTo(moodImage.frame.height/2.2)
+            make.width.equalTo(moodImage.frame.width/2.2)
+        }
+        
         contentView.addSubview(descriptionEntry)
         descriptionEntry.snp.makeConstraints { make in
             make.leading.equalTo(titleEntry.snp.leading)

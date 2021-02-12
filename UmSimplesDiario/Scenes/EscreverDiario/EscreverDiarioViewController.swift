@@ -124,4 +124,7 @@ extension EscreverDiarioViewController: UITableViewDelegate {
         return 0.0
     }
 
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
+    }
 }
