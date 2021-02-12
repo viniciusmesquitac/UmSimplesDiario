@@ -102,12 +102,17 @@ extension EscreverDiarioViewController {
                 return cell
             }.disposed(by: disposeBag)
         
+        viewModel.changeHumor.asObservable().subscribe(onNext: { value in
+                self.mainView.headerView.changeHumor(value)
+        }).disposed(by: disposeBag)
+        
     }
     
     private func setupInputs() {
         mainView.cancelButton.rx.tap.bind(to: viewModel.inputs.cancelButton).disposed(by: disposeBag)
         mainView.saveButton.rx.tap.bind(to: viewModel.inputs.saveButton).disposed(by: disposeBag)
         mainView.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
+        mainView.headerView.humorIconButton.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
     }
 }
 
@@ -122,9 +127,5 @@ extension EscreverDiarioViewController: UITableViewDelegate {
             return heightBody
         }
         return 0.0
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
     }
 }

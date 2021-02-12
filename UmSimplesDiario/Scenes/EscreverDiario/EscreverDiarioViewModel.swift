@@ -11,6 +11,8 @@ import RxSwift
 protocol EscreverDiarioViewModelInput {
     var cancelButton: PublishSubject<Void> { get }
     var saveButton: PublishSubject<Void> { get }
+    var humorButton: PublishSubject<Void> { get }
+    var changeHumor: BehaviorRelay<Bool> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
 }
@@ -28,16 +30,20 @@ protocol EscreverDiarioViewModelProtocol: ViewModel {
 }
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
+    var changeHumor = BehaviorRelay<Bool>(value: false)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
     
     var cancelButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
+    var humorButton = PublishSubject<Void>()
+
     var coordinator: RegistrosCoordinator
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     var registro: Registro?
-    var clima: Clima?
+    var clima: Clima = .ceuLimpo
+    var humor: Humor = .feliz
     
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
@@ -66,6 +72,11 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             }
             coordinator.dismiss()
         }).disposed(by: disposeBag)
+        
+        humorButton.subscribe(onNext: {
+            self.changeHumor.accept(!self.changeHumor.value)
+            self.humor = self.changeHumor.value ? .triste : .feliz
+        }).disposed(by: disposeBag)
     }
     
     func loadClima() {
@@ -89,8 +100,8 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     func criarRegistro() {
         let registro = RegistroDTO(titulo: self.titleText.value,
                                    texto: self.bodyText.value,
-                                   humor: .feliz,
-                                   clima: clima!)
+                                   humor: humor,
+                                   clima: clima)
         
         _ = repository.add(object: registro)
     }
@@ -98,6 +109,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     func salvarRegistro() {
         self.registro?.titulo = self.titleText.value
         self.registro?.texto = self.bodyText.value
+        self.registro?.humor = self.humor.rawValue
         _ = repository.service.save()
     }
     

@@ -156,6 +156,7 @@ class RegistrosViewCell: UITableViewCell {
         self.dayWeekLabel.text = registro.diaDaSemana
         self.hourLabel.text = registro.horario
         self.weatherImage.image = registro.clima
+        self.moodImage.image = registro.humor
     }
     
     func setupConstraints() {

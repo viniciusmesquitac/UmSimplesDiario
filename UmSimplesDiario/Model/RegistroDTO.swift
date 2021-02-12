@@ -34,8 +34,12 @@ extension RegistroModel {
     var texto: String? {
         registro.texto
     }
-    var humor: Int16 {
-        registro.humor
+    var humor: UIImage {
+        switch registro.humor {
+        case 0: return StyleSheet.Image.Mood.happyMood
+        case 1: return StyleSheet.Image.Mood.sadMood
+        default: return StyleSheet.Image.Mood.happyMood
+        }
     }
     var clima: UIImage {
         switch registro.clima {

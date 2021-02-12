@@ -18,6 +18,7 @@ fileprivate var isBodyEmpty = true
 class EscreverDiarioView: UIView {
     
     let view = UIView(frame: .zero)
+    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 30)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let cancelButton = UIBarButtonItem(systemItem: .cancel)
     let saveButton = UIBarButtonItem(systemItem: .save)
@@ -46,6 +47,7 @@ class EscreverDiarioView: UIView {
         
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = .systemBackground
+        self.tableView.tableHeaderView = headerView
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

@@ -5,28 +5,42 @@
 //  Created by Vinicius Mesquita on 12/02/21.
 //
 
-import Foundation
+import UIKit
 
 
 class HeaderEscreverDiarioView: UIView {
     
-    let view = UIView(frame: .zero)
-    let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    let humorIconButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setImage(StyleSheet.Image.Mood.happyMood, for: .normal)
+        return button
+    }()
     
-    func setupView() {
-        self.backgroundColor = .red
-        self.view.frame = self.bounds
-        self.view.backgroundColor = .white
-        insertSubview(view, belowSubview: indicatorContainer)
-        
-        view.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        setupComponentView()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = .systemBackground
+        setupHumorIconView()
     }
     
-    func setupComponentView() {
-        // add subview + constraints
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func changeHumor(_ value: Bool) {
+        if value {
+            humorIconButton.setImage(StyleSheet.Image.Mood.sadMood, for: .normal)
+        } else {
+            humorIconButton.setImage(StyleSheet.Image.Mood.happyMood, for: .normal)
+        }
+    }
+    
+    func setupHumorIconView() {
+        addSubview(humorIconButton)
+        self.humorIconButton.snp.makeConstraints { make in
+            make.top.equalTo(snp.top).offset(16)
+            make.leading.equalTo(snp.leading).offset(24)
+            make.height.equalTo(16)
+            make.width.equalTo(16)
+        }
     }
 }
