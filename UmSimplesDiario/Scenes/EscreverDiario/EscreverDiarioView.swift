@@ -112,6 +112,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     static let identifier = "body"
     var rowHeight = BehaviorRelay<CGFloat>(value: 0)
     let body = UITextView()
+    let acessoryView = AcessoryViewEscreverDiario(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
     var isBodyEmpty = true
     let disposeBag = DisposeBag()
     
@@ -129,6 +130,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     func setupBody() {
         addSubview(body)
         body.isScrollEnabled = false
+        body.inputAccessoryView = acessoryView
         rowHeight.accept(body.frame.height + 500)
         body.placeholder = "Escreva aqui e registre sua história!"
 //        body.textColor = StyleSheet.Color.bodyTextColor
@@ -147,5 +149,18 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
             make.leading.equalTo(snp.leading).offset(16)
             make.trailing.equalTo(snp.trailing).offset(-16)
         }
+    }
+}
+
+class AcessoryViewEscreverDiario: UIView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.backgroundColor = .red
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

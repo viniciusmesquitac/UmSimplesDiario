@@ -62,6 +62,7 @@ extension EscreverDiarioViewController {
                     guard let cell = tv.dequeueReusableCell(withIdentifier: TitleEscreverDiarioViewCell.identifier) as?
                             TitleEscreverDiarioViewCell else { return UITableViewCell() }
                     cell.title.text = item
+                    cell.title.becomeFirstResponder()
                     cell.title.rx.text.bind(to: self.viewModel.titleText).disposed(by: self.disposeBag)
                     cell.rowHeight.subscribe(onNext: { height in
                         self.heightTitle = height

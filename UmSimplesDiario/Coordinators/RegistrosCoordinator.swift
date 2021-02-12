@@ -13,6 +13,7 @@ enum RegistrosPath {
     case search(registros: [Registro])
     case compose
     case editCompose(registro: Registro)
+    case showIdea(idea: String)
 }
 
 final class RegistrosCoordinator: Coordinator {
@@ -51,7 +52,11 @@ final class RegistrosCoordinator: Coordinator {
             escreverDiarioViewController.navigationController?.navigationBar.prefersLargeTitles = false
             escreverDiarioViewController.navigationController?.navigationItem.largeTitleDisplayMode = .never
             self.navigationController.pushViewController(escreverDiarioViewController, animated: true)
+            
+        case .showIdea(let idea):
+            let modal = UIAlertAction(title: idea, style: .default, handler: nil)
         }
+        
         
     }
     

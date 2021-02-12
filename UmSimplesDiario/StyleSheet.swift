@@ -10,15 +10,17 @@ import UIKit
 struct StyleSheet {
     
     enum Color {
-        static let primaryColor = UIColor.systemBlue
+        static let primaryColor = UIColor(named: "primaryColor")
+        static let secundaryColor = UIColor.darkGray
         static let backgroundColor = UIColor.white
         static let borderColor = UIColor.systemGray4
         
-        static let titleTextColor = UIColor.systemBlue
+        static let titleTextColor = UIColor.systemGray
         static let bodyTextColor = UIColor.black
     }
     
     enum Font {
+        static let boldTitleFont16 = UIFont.boldSystemFont(ofSize: 16)
         static let primaryFont16 = UIFont.systemFont(ofSize: 16)
         static let primaryFont24 = UIFont.systemFont(ofSize: 24)
     }
@@ -35,6 +37,10 @@ struct StyleSheet {
             static let showerRain = UIImage(named: "shower_rain")!
             static let clearSky = UIImage(named: "clear_sky")!
             static let thunderstorm = UIImage(named: "thunderstorm")!
+        }
+        
+        enum Icon {
+            static let ideaIcon = UIImage(named: "ideaIcon")!
         }
     }
 }

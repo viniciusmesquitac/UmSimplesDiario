@@ -86,7 +86,7 @@ class RegistrosViewCell: UITableViewCell {
         let label = UILabel()
         label.text = "Beautiful Day"
         label.textColor = StyleSheet.Color.primaryColor
-        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.font = StyleSheet.Font.boldTitleFont16
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -94,7 +94,7 @@ class RegistrosViewCell: UITableViewCell {
     fileprivate var descriptionEntry: UILabel = {
         let label = UILabel()
         label.text = "Short Description that maybe end"
-        label.textColor = StyleSheet.Color.primaryColor
+        label.textColor = StyleSheet.Color.secundaryColor
         label.adjustsFontSizeToFitWidth = true
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +103,7 @@ class RegistrosViewCell: UITableViewCell {
     
     fileprivate var moodImage: UIImageView = {
         let image = UIImageView(image: StyleSheet.Image.Mood.happyMood)
+        image.tintColor = StyleSheet.Color.primaryColor
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()

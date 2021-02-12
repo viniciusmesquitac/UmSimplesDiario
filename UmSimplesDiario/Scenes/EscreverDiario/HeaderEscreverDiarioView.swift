@@ -12,7 +12,14 @@ class HeaderEscreverDiarioView: UIView {
     
     let humorIconButton: UIButton = {
         let button = UIButton(frame: .zero)
+        button.tintColor = StyleSheet.Color.secundaryColor
         button.setImage(StyleSheet.Image.Mood.happyMood, for: .normal)
+        return button
+    }()
+    
+    let weatherButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setImage(StyleSheet.Image.Weather.fewClouds, for: .normal)
         return button
     }()
     
@@ -41,6 +48,18 @@ class HeaderEscreverDiarioView: UIView {
             make.leading.equalTo(snp.leading).offset(24)
             make.height.equalTo(16)
             make.width.equalTo(16)
+        }
+        
+        // setupWeatherButtonView()
+    }
+    
+    func setupWeatherButtonView() {
+        addSubview(weatherButton)
+        self.weatherButton.snp.makeConstraints { make in
+            make.top.equalTo(snp.top).offset(16)
+            make.leading.equalTo(humorIconButton.snp.trailing).offset(16)
+            make.height.equalTo(32)
+            make.width.equalTo(24)
         }
     }
 }
