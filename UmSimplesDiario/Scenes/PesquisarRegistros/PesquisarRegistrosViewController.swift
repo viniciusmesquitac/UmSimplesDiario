@@ -53,6 +53,7 @@ extension PesquisarRegistrosViewController {
     
     private func setupInputs() {
         mainView.searchBar.rx.cancelButtonClicked.bind(to: viewModel.cancelButton).disposed(by: self.disposeBag)
+        mainView.searchBar.rx.text.changed.bind(to: viewModel.searchBarText).disposed(by: self.disposeBag)
     }
 }
 

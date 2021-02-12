@@ -10,6 +10,7 @@ import RxSwift
 
 protocol PesquisarRegistrosViewModelInput {
     var cancelButton: PublishSubject<Void> { get }
+    var searchBarText: BehaviorRelay<String?> { get }
     var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
 }
 
@@ -24,6 +25,8 @@ protocol PesquisarRegistrosViewModelProtocol: ViewModel {
 }
 
 class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, PesquisarRegistrosViewModelInput {
+    var searchBarText = BehaviorRelay<String?>(value: nil)
+    
     var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
     
     var cancelButton = PublishSubject<Void>()
@@ -43,6 +46,12 @@ class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, Pesquisa
             coordinator.dismiss()
         }).disposed(by: disposeBag)
         
+        
+        searchBarText.subscribe(onNext: { text in
+            guard let text = text else { return }
+            let filtered = registros.filter { $0.titulo?.contains(text) ?? false || $0.texto?.contains(text) ?? false }
+            self.inputs.listaRegistrosRelay.accept(filtered)
+        }).disposed(by: disposeBag)
     }
 }
 
