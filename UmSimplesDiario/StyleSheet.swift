@@ -13,6 +13,9 @@ struct StyleSheet {
         static let primaryColor = UIColor.systemBlue
         static let backgroundColor = UIColor.white
         static let borderColor = UIColor.systemGray4
+        
+        static let titleTextColor = UIColor.systemBlue
+        static let bodyTextColor = UIColor.black
     }
     
     enum Font {

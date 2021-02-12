@@ -116,6 +116,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     func loadRegistro(registro: Registro) {
         self.bodyText.accept(registro.texto)
         self.titleText.accept(registro.titulo)
+        self.changeHumor.accept(registro.humor == 0 ? false : true)
     }
 }
 

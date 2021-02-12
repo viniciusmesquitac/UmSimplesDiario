@@ -88,7 +88,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         title.placeholder = "Sem titulo"
         title.isScrollEnabled = false
         rowHeight.accept(title.frame.height)
-        title.textColor = UIColor.lightGray
+        title.textColor = StyleSheet.Color.titleTextColor
         
         title.rx.text.changed.subscribe(onNext: { text in
             if text != nil && text != "" {
@@ -131,6 +131,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
         body.isScrollEnabled = false
         rowHeight.accept(body.frame.height + 500)
         body.placeholder = "Escreva aqui e registre sua história!"
+        body.textColor = StyleSheet.Color.bodyTextColor
         body.font = StyleSheet.Font.primaryFont16
         body.rx.text.subscribe(onNext: { text in
             if text != nil && text != "" {
