@@ -102,7 +102,9 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     }
     
     func criarRegistro() {
-        let registro = RegistroDTO(titulo: self.titleText.value,
+        var title = self.titleText.value
+        if title == "" { title = "Sem titulo" }
+        let registro = RegistroDTO(titulo: title,
                                    texto: self.bodyText.value,
                                    humor: humor,
                                    clima: clima)
@@ -111,7 +113,11 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     }
     
     func salvarRegistro() {
-        self.registro?.titulo = self.titleText.value
+        if self.titleText.value == "" {
+            self.registro?.titulo = "Sem titulo"
+        } else {
+            self.registro?.titulo = self.titleText.value
+        }
         self.registro?.texto = self.bodyText.value
         self.registro?.humor = self.humor.rawValue
         _ = repository.service.save()

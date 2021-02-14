@@ -11,7 +11,7 @@ struct StyleSheet {
     
     enum Color {
         static let primaryColor = UIColor(named: "primaryColor")
-        static let secundaryColor = UIColor.darkGray
+        static let secundaryColor = UIColor.lightGray
         static let backgroundColor = UIColor.white
         static let borderColor = UIColor.systemGray4
         
