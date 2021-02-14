@@ -29,7 +29,11 @@ class EscreverDiarioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = mainView.navigationBarButtonTitle
+        if viewModel.registro != nil {
+            navigationItem.leftBarButtonItems = [mainView.navigationBackButtonItem, mainView.navigationBarButtonTitle]
+        } else {
+            navigationItem.leftBarButtonItem = mainView.navigationBarButtonTitle
+        }
         navigationItem.rightBarButtonItem = mainView.cancelButton
         mainView.setupView()
         mainView.tableView.register(TitleEscreverDiarioViewCell.self, forCellReuseIdentifier: TitleEscreverDiarioViewCell.identifier)
@@ -104,7 +108,11 @@ extension EscreverDiarioViewController {
             }.disposed(by: disposeBag)
         
         viewModel.changeHumor.asObservable().subscribe(onNext: { value in
-                self.mainView.headerView.changeHumor(value)
+            let atual = self.viewModel.humor.rawValue == 0 ? false : true
+            if value != atual { self.navigationItem.rightBarButtonItem = self.mainView.saveButton } else {
+                self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
+            }
+            self.mainView.headerView.changeHumor(value)
         }).disposed(by: disposeBag)
         
     }
@@ -112,8 +120,10 @@ extension EscreverDiarioViewController {
     private func setupInputs() {
         mainView.cancelButton.rx.tap.bind(to: viewModel.inputs.cancelButton).disposed(by: disposeBag)
         mainView.saveButton.rx.tap.bind(to: viewModel.inputs.saveButton).disposed(by: disposeBag)
+        mainView.navigationBackButtonItem.rx.tap.bind(to: viewModel.inputs.cancelButton).disposed(by: disposeBag)
         mainView.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
         mainView.headerView.humorIconButton.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
+        
     }
 }
 

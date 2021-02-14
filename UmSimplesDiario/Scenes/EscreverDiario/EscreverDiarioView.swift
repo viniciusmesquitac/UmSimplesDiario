@@ -18,11 +18,11 @@ fileprivate var isBodyEmpty = true
 class EscreverDiarioView: UIView {
     
     let view = UIView(frame: .zero)
-    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 30)))
+    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let cancelButton = UIBarButtonItem(systemItem: .cancel)
     let saveButton = UIBarButtonItem(systemItem: .save)
-    let tableView = UITableView(frame: .zero)
+    let tableView = UITableView(frame: .zero, style: .grouped)
     
     let navigationBarButtonTitle: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "TITLE",style: .plain, target: nil, action: nil)
@@ -31,8 +31,15 @@ class EscreverDiarioView: UIView {
         return button
     }()
     
+    let navigationBackButtonItem: UIBarButtonItem = {
+        let button = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
+        button.tintColor = StyleSheet.Color.primaryColor
+        return button
+    }()
+    
     func setupView() {
         self.view.frame = self.bounds
+        self.view.backgroundColor = .systemGray5
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in
@@ -67,7 +74,7 @@ class EscreverDiarioView: UIView {
 class TitleEscreverDiarioViewCell: UITableViewCell {
     static let identifier = "title"
     let title = UITextView()
-    var rowHeight = BehaviorRelay<CGFloat>(value: 0)
+    var rowHeight = BehaviorRelay<CGFloat>(value: 20)
     var isTitleEmpty = true
     let disposeBag = DisposeBag()
     
@@ -83,12 +90,18 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func bind(to viewModel: EscreverDiarioViewModel) {
+        title.rx.text.bind(to: viewModel.bodyText).disposed(by: disposeBag)
+    }
+    
     func setupTitle() {
         addSubview(title)
         title.placeholder = "Sem titulo"
         title.isScrollEnabled = false
         rowHeight.accept(title.frame.height)
         title.textColor = StyleSheet.Color.titleTextColor
+        title.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
+        title.delegate = self
         
         title.rx.text.changed.subscribe(onNext: { text in
             if text != nil && text != "" {
@@ -101,10 +114,21 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         
         title.font = StyleSheet.Font.primaryFont24
         self.title.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(16)
-            make.leading.equalTo(snp.leading).offset(16)
-            make.trailing.equalTo(snp.trailing).offset(-16)
+            make.top.equalTo(snp.top)
+            make.leading.equalTo(snp.leading)
+            make.trailing.equalTo(snp.trailing)
         }
+    }
+}
+
+extension TitleEscreverDiarioViewCell: UITextViewDelegate {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        guard text.rangeOfCharacter(from: CharacterSet.newlines) == nil else {
+              // textView.resignFirstResponder() // uncomment this to close the keyboard when return key is pressed
+              return false
+          }
+
+          return true
     }
 }
 

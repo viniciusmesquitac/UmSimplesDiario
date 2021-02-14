@@ -25,7 +25,7 @@ class HeaderEscreverDiarioView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = .systemGray5
         setupHumorIconView()
     }
     
