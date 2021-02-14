@@ -10,5 +10,6 @@ import Foundation
 struct Schema {
     enum Field: String {
         case titulo
+        case date
     }
 }

@@ -31,7 +31,7 @@ class CoreDataService<T: NSManagedObject> {
     func fetchAll() -> [T]? {
         let context = persistentStore.viewContext
         let productFetch = NSFetchRequest<T>(entityName: T.entityName)
-        productFetch.sortDescriptors = [NSSortDescriptor(key: Schema.Field.titulo.rawValue, ascending: true)]
+        productFetch.sortDescriptors = [NSSortDescriptor(key: Schema.Field.date.rawValue, ascending: false)]
         do {
             let products = try context.fetch(productFetch)
             return products
