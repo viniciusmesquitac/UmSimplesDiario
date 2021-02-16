@@ -75,7 +75,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     func loadRegistros() {
         self.registros = repository.getAll()
         outputs.registrosObservable.subscribe { value in
-            self.makeSections(items: value)
+            _ = self.makeSections(items: value)
 //            self.inputs.listaRegistrosRelay.accept(self.registros)
         }.disposed(by: disposeBag)
         

@@ -49,9 +49,12 @@ extension PesquisarRegistrosViewController {
                            cellType: RegistrosViewCell.self)) { row, element, cell in
                 cell.configure(RegistroModel(registro: element))
             }.disposed(by: disposeBag)
+        
+        
     }
     
     private func setupInputs() {
+        mainView.tableView.rx.itemSelected.bind(to: viewModel.inputs.selectedItem).disposed(by: disposeBag)
         mainView.searchBar.rx.cancelButtonClicked.bind(to: viewModel.cancelButton).disposed(by: self.disposeBag)
         mainView.searchBar.rx.text.changed.bind(to: viewModel.searchBarText).disposed(by: self.disposeBag)
     }

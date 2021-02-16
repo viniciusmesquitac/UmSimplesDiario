@@ -38,13 +38,10 @@ final class RegistrosCoordinator: Coordinator {
             
             let navigationController = UINavigationController(rootViewController: escreverDiarioViewController)
             navigationController.modalPresentationStyle = .fullScreen
-            
             self.navigationController.present(navigationController, animated: true, completion: nil)
         case .search(let registros):
-            let pesquisarRegistrosViewController = PesquisarRegistrosViewController(viewModel: PesquisarRegistrosViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registros: registros))
-            let navigationController = UINavigationController(rootViewController: pesquisarRegistrosViewController)
-            navigationController.modalPresentationStyle = .fullScreen
-            self.navigationController.present(navigationController, animated: true, completion: nil)
+            let pesquisarRegistrosCoordinator = PesquisarRegistrosCoordinator(navigationController: self.navigationController)
+            pesquisarRegistrosCoordinator.start(registros: registros)
             
         case .editCompose(let registro):
             let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registro: registro))
