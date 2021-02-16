@@ -56,12 +56,19 @@ extension RegistrosViewController {
     }
     
     private func setupOutputs() {
-        viewModel.outputs.registrosOutput.asObservable()
-            .bind(to: mainView.tableView.rx
-                    .items(cellIdentifier: RegistrosViewCell.identifier,
-                           cellType: RegistrosViewCell.self)) { row, element, cell in
-                cell.configure(RegistroModel(registro: element))
-            }.disposed(by: disposeBag)
+        
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Registro>>(configureCell: { dataSource, table, indexPath, item in
+            return self.viewModel.makeCell(element: item, from: table)
+        })
+        
+        dataSource.titleForHeaderInSection = { dataSource, index in
+            return dataSource.sectionModels[index].model
+        }
+        
+        viewModel.itemsDataSource
+            .bind(to: mainView.tableView.rx.items(dataSource: dataSource))
+          .disposed(by: disposeBag)
+        
         
         viewModel.outputs.registrosOutput.subscribe(onNext: { registros in
             if registros.isEmpty {
@@ -81,9 +88,17 @@ extension RegistrosViewController {
         mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 }
-
+//
 extension RegistrosViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 50)))
+        let header = SectionRegistrosHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 80)))
+        header.setupView()
+        header.titleLabel.text = SectionCell.allCases[section + 1].sectionTitle
+        return header
     }
 }

@@ -65,6 +65,12 @@ extension RegistroModel {
         return day
     }
     
+    var mes: Int {
+        guard let date = registro.date else { return 0 }
+        let month = calendar.component(.month, from: date)
+        return month - 1
+    }
+    
     var horario: String {
         guard let date = registro.date else { return "12:00" }
         let hour = calendar.component(.hour, from: date)

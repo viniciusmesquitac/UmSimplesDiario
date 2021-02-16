@@ -53,15 +53,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         self.coordinator = coordinator
         self.registro = registro
         
-        let ideas = ["Como foi o meu dia hoje?",
-                     "Qual a minha maior frustração?",
-                     "O que me faz feliz?", "Qual problema eu consegui resolver?"]
-        
-        if registro == nil {
-            self.loadClima()
-            self.titleText.accept("Sem titulo")
-        } else {
+        if registro != nil {
             self.loadRegistro(registro: registro!)
+        } else {
+            self.titleText.accept("Sem titulo")
         }
         
         cancelButton.subscribe(onNext: {
@@ -102,6 +97,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     }
     
     func criarRegistro() {
+        self.loadClima()
         var title = self.titleText.value
         if title == "" { title = "Sem titulo" }
         let registro = RegistroDTO(titulo: title,

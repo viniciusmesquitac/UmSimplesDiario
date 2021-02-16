@@ -33,6 +33,9 @@ class RegistrosView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         
+        let dummyViewHeight = CGFloat(80)
+        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.bounds.size.width, height: dummyViewHeight))
+        self.tableView.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
         self.tableView.separatorStyle = .none
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -213,4 +216,25 @@ class RegistrosViewCell: UITableViewCell {
         }
         
     }
+}
+
+class SectionRegistrosHeaderView: UIView {
+    let titleLabel = UILabel()
+    
+    
+    // MARK: Setup View
+    func setupView() {
+        setupLabel()
+    }
+    
+    func setupLabel() {
+        addSubview(titleLabel)
+        self.titleLabel.font = StyleSheet.Font.boldTitleFont16
+        
+        self.titleLabel.snp.makeConstraints { make in
+            make.leading.equalTo(snp.leading).offset(16)
+            make.bottom.equalTo(snp.bottom).offset(-8)
+        }
+    }
+    
 }
