@@ -23,6 +23,7 @@ struct StyleSheet {
         static let boldTitleFont16 = UIFont.boldSystemFont(ofSize: 16)
         static let primaryFont16 = UIFont.systemFont(ofSize: 16)
         static let primaryFont24 = UIFont.systemFont(ofSize: 24)
+        static let boldTitleFont12 = UIFont.boldSystemFont(ofSize: 16)
     }
     
     enum Image {

@@ -115,6 +115,10 @@ extension EscreverDiarioViewController {
             self.mainView.headerView.changeHumor(value)
         }).disposed(by: disposeBag)
         
+        viewModel.humorButton.subscribe(onNext: { _ in
+            self.mainView.headerView.updateHumor()
+        }).disposed(by: disposeBag)
+        
     }
     
     private func setupInputs() {
@@ -123,6 +127,7 @@ extension EscreverDiarioViewController {
         mainView.navigationBackButtonItem.rx.tap.bind(to: viewModel.inputs.cancelButton).disposed(by: disposeBag)
         mainView.tableView.rx.setDelegate(self).disposed(by: self.disposeBag)
         mainView.headerView.humorIconButton.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
+        mainView.headerView.humorLabel.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
         
     }
 }

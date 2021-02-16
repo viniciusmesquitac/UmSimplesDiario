@@ -17,11 +17,23 @@ class HeaderEscreverDiarioView: UIView {
         return button
     }()
     
+    let ideaIconButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.tintColor = StyleSheet.Color.secundaryColor
+        button.setImage(StyleSheet.Image.Icon.ideaIcon, for: .normal)
+        return button
+    }()
+    
     let weatherButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.setImage(StyleSheet.Image.Weather.fewClouds, for: .normal)
         return button
     }()
+    
+    let humorLabel = UIButton(frame: .zero)
+    let weatherLabel = UILabel()
+    let ideaLabel = UILabel()
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,25 +53,103 @@ class HeaderEscreverDiarioView: UIView {
         }
     }
     
-    func setupHumorIconView() {
-        addSubview(humorIconButton)
+    func updateHumor() {
+        self.humorLabel.snp.makeConstraints { make in
+            make.height.equalTo(0)
+            make.width.equalTo(0)
+        }
+        
         self.humorIconButton.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(16)
             make.leading.equalTo(snp.leading).offset(24)
             make.height.equalTo(16)
             make.width.equalTo(16)
         }
+    }
+    
+    func updateClima() {
         
-        // setupWeatherButtonView()
+        self.weatherLabel.snp.makeConstraints { make in
+            make.height.equalTo(0)
+            make.width.equalTo(0)
+        }
+        
+        self.weatherButton.snp.makeConstraints { make in
+            make.centerY.equalTo(humorIconButton.snp.centerY)
+            make.leading.equalTo(humorLabel.snp.trailing).offset(16)
+            make.height.equalTo(12)
+            make.width.equalTo(14)
+        }
+    }
+    
+    func setupHumorIconView() {
+        addSubview(humorIconButton)
+        self.humorIconButton.snp.makeConstraints { make in
+            make.top.equalTo(snp.top).offset(24)
+            make.leading.equalTo(snp.leading).offset(24)
+            make.height.equalTo(12)
+            make.width.equalTo(12)
+        }
+        
+        setupHumorLabel()
+    }
+    
+    func setupHumorLabel() {
+        addSubview(humorLabel)
+        humorLabel.setTitle("Inserir Humor", for: .normal)
+        humorLabel.titleLabel?.font = StyleSheet.Font.boldTitleFont12
+        humorLabel.setTitleColor(StyleSheet.Color.secundaryColor, for: .normal)
+        self.humorLabel.snp.makeConstraints { make in
+            make.leading.equalTo(humorIconButton.snp.trailing).offset(8)
+            make.centerY.equalTo(humorIconButton.snp.centerY)
+        }
+        
+        setupWeatherButtonView()
     }
     
     func setupWeatherButtonView() {
         addSubview(weatherButton)
         self.weatherButton.snp.makeConstraints { make in
-            make.top.equalTo(snp.top).offset(16)
-            make.leading.equalTo(humorIconButton.snp.trailing).offset(16)
-            make.height.equalTo(32)
-            make.width.equalTo(24)
+            make.centerY.equalTo(humorIconButton.snp.centerY)
+            make.leading.equalTo(humorLabel.snp.trailing).offset(16)
+            make.height.equalTo(12)
+            make.width.equalTo(14)
         }
+        
+        setupWeatherLabel()
     }
+    
+    func setupWeatherLabel() {
+        addSubview(weatherLabel)
+        weatherLabel.text = "Inserir Clima"
+        weatherLabel.font = StyleSheet.Font.boldTitleFont12
+        weatherLabel.textColor = StyleSheet.Color.secundaryColor
+        self.weatherLabel.snp.makeConstraints { make in
+            make.leading.equalTo(weatherButton.snp.trailing).offset(8)
+            make.centerY.equalTo(weatherButton.snp.centerY)
+        }
+        
+        // setupIdeaButtonView()
+    }
+    
+    
+//    func setupIdeaButtonView() {
+//        addSubview(ideaIconButton)
+//        self.ideaIconButton.snp.makeConstraints { make in
+//            make.centerY.equalTo(humorIconButton.snp.centerY)
+//            make.leading.equalTo(humorIconButton.snp.trailing).offset(6)
+//            make.height.equalTo(22)
+//            make.width.equalTo(14)
+//        }
+//    }
+    
+//    func setupIdeaLabel() {
+//        addSubview(humorLabel)
+//        humorLabel.text = "Pergunta"
+//        humorLabel.font = StyleSheet.Font.boldTitleFont12
+//        humorLabel.textColor = StyleSheet.Color.secundaryColor
+//        self.humorLabel.snp.makeConstraints { make in
+//            make.leading.equalTo(humorIconButton.snp.trailing).offset(8)
+//            make.centerY.equalTo(humorIconButton.snp.centerY)
+//        }
+//    }
 }
