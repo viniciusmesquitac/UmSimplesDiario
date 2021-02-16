@@ -25,18 +25,20 @@ protocol PesquisarRegistrosViewModelProtocol: ViewModel {
 }
 
 class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, PesquisarRegistrosViewModelInput {
-    var searchBarText = BehaviorRelay<String?>(value: nil)
+    internal var searchBarText = BehaviorRelay<String?>(value: nil)
     
-    var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
+    internal var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
     
-    var cancelButton = PublishSubject<Void>()
+    private var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
     
-    var inputs: PesquisarRegistrosViewModelInput { return self }
-    var outputs: PesquisarRegistrosViewModelOutput { return self }
+    internal var cancelButton = PublishSubject<Void>()
     
-    var coordinator: RegistrosCoordinator?
-    var registros: [Registro]!
-    let disposeBag = DisposeBag()
+    public var inputs: PesquisarRegistrosViewModelInput { return self }
+    public var outputs: PesquisarRegistrosViewModelOutput { return self }
+    
+    private var coordinator: RegistrosCoordinator?
+    private var registros: [Registro]!
+    private let disposeBag = DisposeBag()
     
     init(coordinator: RegistrosCoordinator, registros: [Registro]) {
         self.coordinator = coordinator
