@@ -13,6 +13,7 @@ enum Clima: Int16 {
     case chuva
     case chuvaComSol
     case tempestade
+    case none
 }
 
 struct Weather: Decodable {

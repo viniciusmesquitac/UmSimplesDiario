@@ -34,14 +34,14 @@ extension RegistroModel {
     var texto: String? {
         registro.texto
     }
-    var humor: UIImage {
+    var humor: UIImage? {
         switch registro.humor {
         case 0: return StyleSheet.Image.Mood.happyMood
         case 1: return StyleSheet.Image.Mood.sadMood
-        default: return StyleSheet.Image.Mood.happyMood
+        default: return nil
         }
     }
-    var clima: UIImage {
+    var clima: UIImage? {
         switch registro.clima {
         case 0:
             return StyleSheet.Image.Weather.clearSky
@@ -54,7 +54,7 @@ extension RegistroModel {
         case 4:
             return StyleSheet.Image.Weather.thunderstorm
         default:
-            return StyleSheet.Image.Weather.clearSky
+            return nil
 
         }
     }

@@ -129,6 +129,9 @@ extension EscreverDiarioViewController {
         mainView.headerView.humorIconButton.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
         mainView.headerView.humorLabel.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
         
+        mainView.headerView.weatherButton.rx.tap.bind(to: viewModel.weatherButton).disposed(by: disposeBag)
+        mainView.headerView.weatherLabel.rx.tap.bind(to: viewModel.weatherButton).disposed(by: disposeBag)
+        
     }
 }
 

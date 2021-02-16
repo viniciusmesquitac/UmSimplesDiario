@@ -12,6 +12,8 @@ protocol EscreverDiarioViewModelInput {
     var cancelButton: PublishSubject<Void> { get }
     var saveButton: PublishSubject<Void> { get }
     var humorButton: PublishSubject<Void> { get }
+    var weatherButton: PublishSubject<Void> { get }
+    var changeWeather: BehaviorRelay<Bool> { get }
     var changeHumor: BehaviorRelay<Bool> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
@@ -30,6 +32,7 @@ protocol EscreverDiarioViewModelProtocol: ViewModel {
 }
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
+    var changeWeather = BehaviorRelay<Bool>(value: false)
     var changeHumor = BehaviorRelay<Bool>(value: false)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
@@ -37,13 +40,14 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var cancelButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
     var humorButton = PublishSubject<Void>()
+    var weatherButton = PublishSubject<Void>()
 
     var coordinator: RegistrosCoordinator
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     var registro: Registro?
-    var clima: Clima = .ceuLimpo
-    var humor: Humor = .feliz
+    var clima: Clima = .none
+    var humor: Humor = .none
     
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
@@ -76,6 +80,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             self.changeHumor.accept(!self.changeHumor.value)
             self.humor = self.changeHumor.value ? .triste : .feliz
         }).disposed(by: disposeBag)
+        
+        weatherButton.subscribe(onNext: {
+            self.loadClima()
+        }).disposed(by: disposeBag)
     }
     
     func loadClima() {
@@ -88,16 +96,16 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                 case "broken clouds": self.clima = .nuvens
                 case "scattered clouds": self.clima = .nuvens
                 case "rain": self.clima = .chuva
+                case "moderate rain": self.clima = .chuva
                 case "shower rain": self.clima = .chuvaComSol
                 case "thunderstorm": self.clima = .tempestade
-                default: self.clima = .nuvens
+                default: self.clima = .none
                 }
             }
         }).disposed(by: disposeBag)
     }
     
     func criarRegistro() {
-        self.loadClima()
         var title = self.titleText.value
         if title == "" { title = "Sem titulo" }
         let registro = RegistroDTO(titulo: title,

@@ -10,4 +10,5 @@ import Foundation
 enum Humor: Int16 {
     case feliz
     case triste
+    case none
 }

@@ -31,7 +31,7 @@ class HeaderEscreverDiarioView: UIView {
     }()
     
     let humorLabel = UIButton(frame: .zero)
-    let weatherLabel = UILabel()
+    let weatherLabel = UIButton(frame: .zero)
     let ideaLabel = UILabel()
     
     
@@ -120,9 +120,9 @@ class HeaderEscreverDiarioView: UIView {
     
     func setupWeatherLabel() {
         addSubview(weatherLabel)
-        weatherLabel.text = "Inserir Clima"
-        weatherLabel.font = StyleSheet.Font.boldTitleFont12
-        weatherLabel.textColor = StyleSheet.Color.secundaryColor
+        weatherLabel.setTitle("Inserir Clima", for: .normal)
+        weatherLabel.titleLabel?.font = StyleSheet.Font.boldTitleFont12
+        weatherLabel.setTitleColor(StyleSheet.Color.secundaryColor, for: .normal)
         self.weatherLabel.snp.makeConstraints { make in
             make.leading.equalTo(weatherButton.snp.trailing).offset(8)
             make.centerY.equalTo(weatherButton.snp.centerY)
