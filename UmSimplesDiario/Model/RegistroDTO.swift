@@ -41,6 +41,8 @@ extension RegistroModel {
         default: return nil
         }
     }
+    
+    
     var clima: UIImage? {
         switch registro.clima {
         case 0:
@@ -48,10 +50,14 @@ extension RegistroModel {
         case 1:
             return StyleSheet.Image.Weather.fewClouds
         case 2:
-            return StyleSheet.Image.Weather.showerRain
+            return StyleSheet.Image.Weather.rain
         case 3:
             return StyleSheet.Image.Weather.rain
         case 4:
+            return StyleSheet.Image.Weather.thunderstorm
+        case 5:
+            return StyleSheet.Image.Weather.rain
+        case 6:
             return StyleSheet.Image.Weather.thunderstorm
         default:
             return nil

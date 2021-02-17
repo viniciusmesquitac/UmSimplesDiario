@@ -115,6 +115,16 @@ extension EscreverDiarioViewController {
             self.mainView.headerView.changeHumor(value)
         }).disposed(by: disposeBag)
         
+        viewModel.changeWeather.asObservable().subscribe(onNext: { value in
+            let atual = self.viewModel.clima
+            DispatchQueue.main.async {
+                self.mainView.headerView.changeWeather(value)
+                if value != .none && value != atual { self.navigationItem.rightBarButtonItem = self.mainView.saveButton } else {
+                    self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
+                }
+            }
+        }).disposed(by: disposeBag)
+        
         viewModel.humorButton.subscribe(onNext: { _ in
             self.mainView.headerView.updateHumor()
         }).disposed(by: disposeBag)

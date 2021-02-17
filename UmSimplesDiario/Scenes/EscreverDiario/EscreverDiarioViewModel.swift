@@ -13,15 +13,17 @@ protocol EscreverDiarioViewModelInput {
     var saveButton: PublishSubject<Void> { get }
     var humorButton: PublishSubject<Void> { get }
     var weatherButton: PublishSubject<Void> { get }
-    var changeWeather: BehaviorRelay<Bool> { get }
+    var weather: BehaviorRelay<Clima> { get }
     var changeHumor: BehaviorRelay<Bool> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
+
 }
 
 protocol EscreverDiarioViewModelOutput {
     var titleTextOutput: Observable<String?> { get }
     var bodyTextOutput: Observable<String?> { get }
+    var changeWeather: Observable<Clima> { get }
     var dataSourceOutput: Driver<[String?]> { get }
     func loadClima()
 }
@@ -32,7 +34,8 @@ protocol EscreverDiarioViewModelProtocol: ViewModel {
 }
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
-    var changeWeather = BehaviorRelay<Bool>(value: false)
+    var weather =  BehaviorRelay<Clima>(value: .none)
+    
     var changeHumor = BehaviorRelay<Bool>(value: false)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
@@ -91,14 +94,30 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         URLRequest.load(resource: resource).subscribe(onNext: { result in
             if let weather = result?.weather.first?.description {
                 switch weather {
-                case "clear sky": self.clima = .ceuLimpo
-                case "few clouds": self.clima = .nuvens
-                case "broken clouds": self.clima = .nuvens
-                case "scattered clouds": self.clima = .nuvens
-                case "rain": self.clima = .chuva
-                case "moderate rain": self.clima = .chuva
-                case "shower rain": self.clima = .chuvaComSol
-                case "thunderstorm": self.clima = .tempestade
+                case "clear sky":
+                    self.clima = .ceuLimpo
+                    self.weather.accept(self.clima)
+                case "few clouds":
+                    self.clima = .nuvens
+                    self.weather.accept(self.clima)
+                case "broken clouds":
+                    self.clima = .nuvens
+                    self.weather.accept(self.clima)
+                case "scattered clouds":
+                    self.clima = .nuvens
+                    self.weather.accept(self.clima)
+                case "rain":
+                    self.clima = .chuva
+                    self.weather.accept(self.clima)
+                case "moderate rain":
+                    self.clima = .chuva
+                    self.weather.accept(self.clima)
+                case "shower rain":
+                    self.clima = .chuvaComSol
+                    self.weather.accept(self.clima)
+                case "thunderstorm":
+                    self.clima = .tempestade
+                    self.weather.accept(self.clima)
                 default: self.clima = .none
                 }
             }
@@ -136,6 +155,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
 
 extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
     
+    var changeWeather: Observable<Clima> {
+        self.inputs.weather.asObservable()
+    }
+
     var titleTextOutput: Observable<String?> {
         self.inputs.bodyText.asObservable()
     }

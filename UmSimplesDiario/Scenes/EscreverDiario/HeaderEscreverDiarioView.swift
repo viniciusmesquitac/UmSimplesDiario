@@ -53,6 +53,17 @@ class HeaderEscreverDiarioView: UIView {
         }
     }
     
+    func changeWeather(_ value: Clima) {
+        switch value {
+        case .ceuLimpo: self.weatherButton.setImage(StyleSheet.Image.Weather.clearSky, for: .normal)
+        case .chuva: self.weatherButton.setImage(StyleSheet.Image.Weather.rain, for: .normal)
+        case .chuvaComSol: self.weatherButton.setImage(StyleSheet.Image.Weather.showerRain, for: .normal)
+        case .nuvens: self.weatherButton.setImage(StyleSheet.Image.Weather.fewClouds, for: .normal)
+        case .tempestade: self.weatherButton.setImage(StyleSheet.Image.Weather.thunderstorm, for: .normal)
+        case .none: self.weatherButton.setImage(StyleSheet.Image.Weather.fewClouds, for: .normal)
+       }
+    }
+    
     func updateHumor() {
         self.humorLabel.snp.makeConstraints { make in
             make.height.equalTo(0)
