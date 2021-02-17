@@ -128,6 +128,9 @@ extension EscreverDiarioViewController {
         viewModel.humorButton.subscribe(onNext: { _ in
             self.mainView.headerView.updateHumor()
         }).disposed(by: disposeBag)
+        viewModel.weatherButton.subscribe(onNext: { _ in
+            self.mainView.headerView.updateClima()
+        }).disposed(by: disposeBag)
         
     }
     

@@ -44,6 +44,7 @@
 		81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */; };
 		81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DAB25DB1A980002D594 /* Mes.swift */; };
 		81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */; };
+		81BA7DC925DD3B4D0002D594 /* EscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC825DD3B4D0002D594 /* EscreverDiarioViewCell.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,7 @@
 		81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderEscreverDiarioView.swift; sourceTree = "<group>"; };
 		81BA7DAB25DB1A980002D594 /* Mes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mes.swift; sourceTree = "<group>"; };
 		81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosCoordinator.swift; sourceTree = "<group>"; };
+		81BA7DC825DD3B4D0002D594 /* EscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioViewCell.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +241,7 @@
 		81BA7C0825D16F480002D594 /* EscreverDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81BA7DC725DD3B3B0002D594 /* Cells */,
 				81BA7C5525D1AB0E0002D594 /* EscreverDiarioViewController.swift */,
 				81BA7C9025D2C1580002D594 /* EscreverDiarioViewModel.swift */,
 				81BA7C9525D2C1630002D594 /* EscreverDiarioView.swift */,
@@ -298,6 +301,14 @@
 				81BA7CBC25D42CC00002D594 /* CoreDataService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		81BA7DC725DD3B3B0002D594 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7DC825DD3B4D0002D594 /* EscreverDiarioViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -559,6 +570,7 @@
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
+				81BA7DC925DD3B4D0002D594 /* EscreverDiarioViewCell.swift in Sources */,
 				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
 				81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */,
 				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,

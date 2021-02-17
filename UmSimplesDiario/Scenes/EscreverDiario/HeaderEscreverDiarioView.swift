@@ -65,12 +65,15 @@ class HeaderEscreverDiarioView: UIView {
     }
     
     func updateHumor() {
+        self.humorIconButton.translatesAutoresizingMaskIntoConstraints = false
         self.humorLabel.snp.makeConstraints { make in
             make.height.equalTo(0)
             make.width.equalTo(0)
         }
         
+        self.humorIconButton.snp.removeConstraints()
         self.humorIconButton.snp.makeConstraints { make in
+            make.top.equalTo(snp.top).offset(24)
             make.leading.equalTo(snp.leading).offset(24)
             make.height.equalTo(16)
             make.width.equalTo(16)
@@ -84,11 +87,12 @@ class HeaderEscreverDiarioView: UIView {
             make.width.equalTo(0)
         }
         
+        self.weatherButton.snp.removeConstraints()
         self.weatherButton.snp.makeConstraints { make in
             make.centerY.equalTo(humorIconButton.snp.centerY)
-            make.leading.equalTo(humorLabel.snp.trailing).offset(16)
-            make.height.equalTo(12)
-            make.width.equalTo(14)
+            make.trailing.equalTo(snp.trailing).offset(-16)
+            make.height.equalTo(18)
+            make.width.equalTo(24)
         }
     }
     
@@ -123,7 +127,7 @@ class HeaderEscreverDiarioView: UIView {
             make.centerY.equalTo(humorIconButton.snp.centerY)
             make.leading.equalTo(humorLabel.snp.trailing).offset(16)
             make.height.equalTo(12)
-            make.width.equalTo(14)
+            make.width.equalTo(16)
         }
         
         setupWeatherLabel()
