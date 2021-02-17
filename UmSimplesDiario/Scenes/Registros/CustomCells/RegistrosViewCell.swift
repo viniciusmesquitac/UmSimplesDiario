@@ -73,6 +73,7 @@ class RegistrosViewCell: UITableViewCell {
    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        self.backgroundView?.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
         contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
@@ -83,8 +84,18 @@ class RegistrosViewCell: UITableViewCell {
         setupConstraints()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+       if #available(iOS 13.0, *) {
+           if (traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection)) {
+            contentView.layer.borderColor = StyleSheet.Color.borderColor.cgColor
+            contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
+           }
+       }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
     }
     

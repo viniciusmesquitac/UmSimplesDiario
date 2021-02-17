@@ -48,7 +48,7 @@ class RegistroRepository: Repository {
     }
     
     func delete(object: Registro) -> Registro? {
-        nil
+        service.delete(object: object)
     }
     
 }

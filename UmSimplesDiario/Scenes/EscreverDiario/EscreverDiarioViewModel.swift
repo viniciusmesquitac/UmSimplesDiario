@@ -164,7 +164,6 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         self.humor = Humor.allCases[Int(registro.humor)]
         self.bodyText.accept(registro.texto)
         self.titleText.accept(registro.titulo)
-//        self.changeHumor.accept(registro.humor == 0 ? false : true)
         self.weather.accept(Clima.allCases[Int(registro.clima)])
         self.clima = Clima.allCases[Int(registro.clima)]
 

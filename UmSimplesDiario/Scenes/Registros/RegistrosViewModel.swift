@@ -75,7 +75,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     func loadRegistros() {
         self.registros = repository.getAll()
         outputs.registrosObservable.subscribe { value in
-            _ = self.makeSections(items: value)
+         self.makeSections(items: value)
 //            self.inputs.listaRegistrosRelay.accept(self.registros)
         }.disposed(by: disposeBag)
         
@@ -102,7 +102,13 @@ extension RegistrosViewModel: RegistrosViewModelOutput {
     }
 }
 
-extension RegistrosViewModel {
+extension RegistrosViewModel: SwipeActionDelegate {
+    func didPerform(action: SwipeAction, index: Int) {
+        _ = repository.delete(object: registros[index])
+        registros.remove(at: index)
+        makeSections(items: registros)
+    }
+    
     
     func makeCell(element: Registro, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RegistrosViewCell.identifier) as! RegistrosViewCell
@@ -110,6 +116,7 @@ extension RegistrosViewModel {
         return cell
     }
     
+    @discardableResult
     func makeSections(items: [Registro]) -> [SectionModel<String, Registro>] {
         let sections = SectionCell.allCases.compactMap { mes -> SectionModel<String, Registro>? in
             let registros = items.filter { RegistroModel(registro: $0).mes ==  mes.rawValue }

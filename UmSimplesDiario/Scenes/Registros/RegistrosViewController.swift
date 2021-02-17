@@ -65,15 +65,20 @@ extension RegistrosViewController {
             return dataSource.sectionModels[index].model
         }
         
+        dataSource.canEditRowAtIndexPath = { _, _ in
+            return true
+        }
+        
         viewModel.itemsDataSource
             .bind(to: mainView.tableView.rx.items(dataSource: dataSource))
           .disposed(by: disposeBag)
         
         
-        viewModel.outputs.registrosOutput.subscribe(onNext: { registros in
+        viewModel.outputs.itemsDataSource.subscribe(onNext: { registros in
             if registros.isEmpty {
                 self.mainView.emptyStateLabel.isHidden = false
                 self.mainView.tableView.isScrollEnabled = false
+
             } else {
                 self.mainView.emptyStateLabel.isHidden = true
                 self.mainView.tableView.isScrollEnabled = true
@@ -100,5 +105,19 @@ extension RegistrosViewController: UITableViewDelegate {
         header.setupView()
         header.titleLabel.text = SectionCell.allCases[section + 1].sectionTitle
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        return ContextualAction<RegistrosAction>(self.viewModel,
+                                                 actions: [.delete],
+                                                 index: indexPath.row).setup()
+    }
+}
+
+extension UIView {
+    var allSubViews : [UIView] {
+        var array = [self.subviews].flatMap {$0}
+        array.forEach { array.append(contentsOf: $0.allSubViews) }
+        return array
     }
 }

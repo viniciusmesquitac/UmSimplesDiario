@@ -13,7 +13,7 @@ struct StyleSheet {
         static let primaryColor = UIColor(named: "primaryColor")
         static let secundaryColor = UIColor.lightGray
         static let backgroundColor = UIColor.white
-        static let borderColor = UIColor.systemGray4
+        static let borderColor = UIColor.systemGray5
         
         static let titleTextColor = UIColor.systemGray
         static let bodyTextColor = UIColor.black
