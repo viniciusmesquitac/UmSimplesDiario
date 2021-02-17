@@ -14,7 +14,7 @@ protocol EscreverDiarioViewModelInput {
     var humorButton: PublishSubject<Void> { get }
     var weatherButton: PublishSubject<Void> { get }
     var weather: BehaviorRelay<Clima> { get }
-    var changeHumor: BehaviorRelay<Bool> { get }
+    var changeHumor: BehaviorRelay<Bool?> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
 
@@ -36,7 +36,7 @@ protocol EscreverDiarioViewModelProtocol: ViewModel {
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
     var weather =  BehaviorRelay<Clima>(value: .none)
     
-    var changeHumor = BehaviorRelay<Bool>(value: false)
+    var changeHumor = BehaviorRelay<Bool?>(value: nil)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
     
@@ -80,8 +80,13 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         }).disposed(by: disposeBag)
         
         humorButton.subscribe(onNext: {
-            self.changeHumor.accept(!self.changeHumor.value)
-            self.humor = self.changeHumor.value ? .triste : .feliz
+            if let humor = self.changeHumor.value {
+                self.changeHumor.accept(!humor)
+                self.humor = !humor ? .triste : .feliz
+            } else {
+                self.changeHumor.accept(false)
+                self.humor = .feliz
+            }
         }).disposed(by: disposeBag)
         
         weatherButton.subscribe(onNext: {
@@ -114,11 +119,13 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                     self.weather.accept(self.clima)
                 case "shower rain":
                     self.clima = .chuvaComSol
-                    self.weather.accept(self.clima)
+                    self.weather.accept(.chuvaComSol)
                 case "thunderstorm":
                     self.clima = .tempestade
-                    self.weather.accept(self.clima)
-                default: self.clima = .none
+                    self.weather.accept(.tempestade)
+                default:
+                    self.clima = .ceuLimpo
+                    self.weather.accept(.ceuLimpo)
                 }
             }
         }).disposed(by: disposeBag)
@@ -143,13 +150,24 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         }
         self.registro?.texto = self.bodyText.value
         self.registro?.humor = self.humor.rawValue
+        self.registro?.clima = self.clima.rawValue
         _ = repository.service.save()
     }
     
     func loadRegistro(registro: Registro) {
+        switch registro.humor {
+        case 0: self.changeHumor.accept(false)
+        case 1: self.changeHumor.accept(true)
+        case 2: self.changeHumor.accept(true)
+        default: self.changeHumor.accept(true)
+        }
+        self.humor = Humor.allCases[Int(registro.humor)]
         self.bodyText.accept(registro.texto)
         self.titleText.accept(registro.titulo)
-        self.changeHumor.accept(registro.humor == 0 ? false : true)
+//        self.changeHumor.accept(registro.humor == 0 ? false : true)
+        self.weather.accept(Clima.allCases[Int(registro.clima)])
+        self.clima = Clima.allCases[Int(registro.clima)]
+
     }
 }
 

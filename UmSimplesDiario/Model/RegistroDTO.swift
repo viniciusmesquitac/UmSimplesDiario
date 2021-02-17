@@ -56,9 +56,7 @@ extension RegistroModel {
         case 4:
             return StyleSheet.Image.Weather.thunderstorm
         case 5:
-            return StyleSheet.Image.Weather.rain
-        case 6:
-            return StyleSheet.Image.Weather.thunderstorm
+            return nil
         default:
             return nil
 

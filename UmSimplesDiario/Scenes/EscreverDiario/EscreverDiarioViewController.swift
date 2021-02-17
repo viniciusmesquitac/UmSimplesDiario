@@ -109,17 +109,29 @@ extension EscreverDiarioViewController {
         
         viewModel.changeHumor.asObservable().subscribe(onNext: { value in
             let atual = self.viewModel.humor.rawValue == 0 ? false : true
-            if value != atual { self.navigationItem.rightBarButtonItem = self.mainView.saveButton } else {
-                self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
+            if let humor = value {
+                    self.mainView.headerView.changeHumor(humor)
+                    self.mainView.headerView.updateHumor()
+            } else {
+                if value != atual {
+                    self.navigationItem.rightBarButtonItem = self.mainView.saveButton
+                } else {
+                    self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
+                }
             }
-            self.mainView.headerView.changeHumor(value)
         }).disposed(by: disposeBag)
         
         viewModel.changeWeather.asObservable().subscribe(onNext: { value in
             let atual = self.viewModel.clima
             DispatchQueue.main.async {
-                self.mainView.headerView.changeWeather(value)
-                if value != .none && value != atual { self.navigationItem.rightBarButtonItem = self.mainView.saveButton } else {
+                if value != .none {
+                    self.mainView.headerView.changeWeather(value)
+                    self.mainView.headerView.updateClima()
+                } else
+                if value != .none && value != atual {
+                    self.navigationItem.rightBarButtonItem = self.mainView.saveButton
+                } else {
+                   // self.mainView.headerView.updateClima()
                     self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
                 }
             }
@@ -142,7 +154,7 @@ extension EscreverDiarioViewController {
         mainView.headerView.humorIconButton.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
         mainView.headerView.humorLabel.rx.tap.bind(to: viewModel.humorButton).disposed(by: disposeBag)
         
-        mainView.headerView.weatherButton.rx.tap.bind(to: viewModel.weatherButton).disposed(by: disposeBag)
+       // mainView.headerView.weatherButton.rx.tap.bind(to: viewModel.weatherButton).disposed(by: disposeBag)
         mainView.headerView.weatherLabel.rx.tap.bind(to: viewModel.weatherButton).disposed(by: disposeBag)
         
     }

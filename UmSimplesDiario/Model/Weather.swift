@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Clima: Int16 {
+enum Clima: Int16, CaseIterable {
     case ceuLimpo
     case nuvens
     case chuva

@@ -92,10 +92,9 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     func setupBody() {
         addSubview(body)
         body.isScrollEnabled = false
-        body.inputAccessoryView = acessoryView
+        // body.inputAccessoryView = acessoryView
         rowHeight.accept(body.frame.height + 500)
         body.placeholder = "Escreva aqui e registre sua história!"
-//        body.textColor = StyleSheet.Color.bodyTextColor
         body.font = StyleSheet.Font.primaryFont16
         body.rx.text.subscribe(onNext: { text in
             if text != nil && text != "" {
