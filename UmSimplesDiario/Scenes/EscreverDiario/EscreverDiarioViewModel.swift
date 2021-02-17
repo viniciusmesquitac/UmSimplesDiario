@@ -158,8 +158,8 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         switch registro.humor {
         case 0: self.changeHumor.accept(false)
         case 1: self.changeHumor.accept(true)
-        case 2: self.changeHumor.accept(true)
-        default: self.changeHumor.accept(true)
+        case 2: self.changeHumor.accept(nil)
+        default: self.changeHumor.accept(nil)
         }
         self.humor = Humor.allCases[Int(registro.humor)]
         self.bodyText.accept(registro.texto)
