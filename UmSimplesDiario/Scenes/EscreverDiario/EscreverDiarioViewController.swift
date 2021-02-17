@@ -112,7 +112,7 @@ extension EscreverDiarioViewController {
             if let humor = value {
                     self.mainView.headerView.changeHumor(humor)
                     self.mainView.headerView.updateHumor()
-            } else {
+                
                 if value != atual {
                     self.navigationItem.rightBarButtonItem = self.mainView.saveButton
                 } else {
@@ -122,21 +122,15 @@ extension EscreverDiarioViewController {
         }).disposed(by: disposeBag)
         
         viewModel.changeWeather.asObservable().subscribe(onNext: { value in
-            let atual = self.viewModel.clima
             DispatchQueue.main.async {
                 if value != .none {
                     self.mainView.headerView.changeWeather(value)
                     self.mainView.headerView.updateClima()
-                } else
-                if value != .none && value != atual {
                     self.navigationItem.rightBarButtonItem = self.mainView.saveButton
-                } else {
-                   // self.mainView.headerView.updateClima()
-                    self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
                 }
             }
-        }).disposed(by: disposeBag)
-        
+            }).disposed(by: disposeBag)
+            
         viewModel.humorButton.subscribe(onNext: { _ in
             self.mainView.headerView.updateHumor()
         }).disposed(by: disposeBag)

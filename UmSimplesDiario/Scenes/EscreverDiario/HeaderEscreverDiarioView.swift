@@ -26,6 +26,7 @@ class HeaderEscreverDiarioView: UIView {
     
     let weatherButton: UIButton = {
         let button = UIButton(frame: .zero)
+        button.tintColor = StyleSheet.Color.secundaryColor
         button.setImage(StyleSheet.Image.Weather.fewClouds, for: .normal)
         return button
     }()
@@ -66,6 +67,7 @@ class HeaderEscreverDiarioView: UIView {
     
     func updateHumor() {
         self.humorIconButton.translatesAutoresizingMaskIntoConstraints = false
+        self.humorIconButton.tintColor = UIColor.systemBlue
         self.humorLabel.snp.makeConstraints { make in
             make.height.equalTo(0)
             make.width.equalTo(0)
@@ -81,7 +83,7 @@ class HeaderEscreverDiarioView: UIView {
     }
     
     func updateClima() {
-        
+        self.weatherButton.tintColor = UIColor.systemBlue
         self.weatherLabel.snp.makeConstraints { make in
             make.height.equalTo(0)
             make.width.equalTo(0)
