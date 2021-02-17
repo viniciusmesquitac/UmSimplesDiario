@@ -27,7 +27,7 @@ class EscreverDiarioView: UIView {
     let navigationBarButtonTitle: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "title",style: .plain, target: nil, action: nil)
         button.isEnabled = false
-        button.tintColor = UIColor.systemGray5
+        button.tintColor = StyleSheet.Color.secundaryColor
         return button
     }()
     
