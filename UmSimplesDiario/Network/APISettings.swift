@@ -4,7 +4,7 @@
 //
 //  Created by Vinicius Mesquita on 09/02/21.
 //
-
+// swiftlint:disable identifier_name
 import Foundation
 
 struct APISettings {

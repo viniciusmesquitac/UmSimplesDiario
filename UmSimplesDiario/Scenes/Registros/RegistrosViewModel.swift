@@ -108,14 +108,13 @@ extension RegistrosViewModel: RegistrosViewModelOutput {
 }
 
 extension RegistrosViewModel {
-    
-    
+
     func makeCell(element: Registro, from tableView: UITableView) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: RegistrosViewCell.identifier) as! RegistrosViewCell
-        cell.configure(RegistroModel(registro: element))
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RegistrosViewCell.identifier) as? RegistrosViewCell
+        cell?.configure(RegistroModel(registro: element))
+        return cell ?? UITableViewCell()
     }
-    
+
     @discardableResult
     func makeSections(items: [Registro]) -> [SectionModel<String, Registro>] {
         let sections = SectionCell.allCases.compactMap { mes -> SectionModel<String, Registro>? in
@@ -125,7 +124,7 @@ extension RegistrosViewModel {
             }
             return nil
         }
-        
+
         self.inputs.itemsDataSourceRelay.accept(sections)
         return sections
     }

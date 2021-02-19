@@ -39,7 +39,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var changeHumor = BehaviorRelay<Bool?>(value: nil)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
-    
+
     var cancelButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
     var humorButton = PublishSubject<Void>()
@@ -51,25 +51,24 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var registro: Registro?
     var clima: Clima = .none
     var humor: Humor = .none
-    
+
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
-    
-    
+
     init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
-        
+
         if registro != nil {
             self.loadRegistro(registro: registro!)
         } else {
             self.titleText.accept("Sem titulo")
         }
-        
+
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
         }).disposed(by: disposeBag)
-        
+
         saveButton.subscribe(onNext: {
             if registro != nil {
                 self.salvarRegistro()
@@ -78,7 +77,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             }
             coordinator.dismiss()
         }).disposed(by: disposeBag)
-        
+
         humorButton.subscribe(onNext: {
             if let humor = self.changeHumor.value {
                 self.changeHumor.accept(!humor)
@@ -93,7 +92,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             self.loadClima()
         }).disposed(by: disposeBag)
     }
-    
+
     func loadClima() {
         let resource = Resource<WeatherResult>(url: WeatherAPI.weatherCity(name: "Maracanau", stateCode: nil, countryCode: nil).url!)
         URLRequest.load(resource: resource).subscribe(onNext: { result in
@@ -130,7 +129,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             }
         }).disposed(by: disposeBag)
     }
-    
+
     func criarRegistro() {
         var title = self.titleText.value
         if title == "" { title = "Sem titulo" }
@@ -138,8 +137,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                                    texto: self.bodyText.value,
                                    humor: humor,
                                    clima: clima)
-        
-        _ = repository.add(object: registro)
+        repository.add(object: registro)
     }
     
     func salvarRegistro() {

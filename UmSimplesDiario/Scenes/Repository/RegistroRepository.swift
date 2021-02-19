@@ -17,21 +17,21 @@ protocol Repository {
     func delete(object: Object) -> Object?
 }
 
-
 class RegistroRepository: Repository {
-    
+
     let service = CoreDataService<Registro>()
     var registros: [Registro] = []
-    
+
     typealias ObjectDTO = RegistroDTO
     typealias Object = Registro
-    
+
     func getAll() -> [Registro] {
         guard let registros = service.fetchAll() else { return self.registros }
         self.registros = registros
         return registros
     }
-    
+
+    @discardableResult
     func add(object: RegistroDTO) -> Registro? {
         let registro = service.new()
         registro?.texto = object.texto
@@ -42,13 +42,13 @@ class RegistroRepository: Repository {
         if service.save() { return registro }
         return nil
     }
-    
+
     func get(object: Registro) -> Registro? {
         nil
     }
-    
+
     func delete(object: Registro) -> Registro? {
         service.delete(object: object)
     }
-    
+
 }
