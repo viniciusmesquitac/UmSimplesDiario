@@ -102,7 +102,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
             } else if text == "" {
                 self.isBodyEmpty = true
             }
-            self.rowHeight.accept(self.body.frame.height + 50)
+            self.rowHeight.accept(self.body.frame.height + 500)
         }).disposed(by: disposeBag)
         
         self.body.snp.makeConstraints { make in

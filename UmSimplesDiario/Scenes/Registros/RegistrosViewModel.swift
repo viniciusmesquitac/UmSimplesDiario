@@ -11,6 +11,7 @@ import RxDataSources
 
 protocol RegistrosViewModelInput {
     var selectedItem: BehaviorRelay<IndexPath?> { get }
+    var deletedItem: BehaviorRelay<IndexPath?> { get }
     var composeButton: PublishSubject<Void> { get }
     var searchButton: PublishSubject<Void> { get }
     var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
@@ -30,6 +31,8 @@ protocol RegistrosViewModelProtocol: ViewModel {
 }
 
 class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
+    var deletedItem = BehaviorRelay<IndexPath?>(value: nil)
+    
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, Registro>]>(value: [])
     
     var searchButton = PublishSubject<Void>()
@@ -61,6 +64,13 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
             
         }.disposed(by: disposeBag)
         
+        deletedItem.subscribe { indexPath in
+            guard let row = indexPath.element??.row else { return }
+            _ = self.repository.delete(object: self.registros[row])
+            self.registros.remove(at: row)
+            self.makeSections(items: registros)
+        }.disposed(by: disposeBag)
+        
         composeButton.subscribe(onNext: { _ in
             coordinator.route(to: .compose)
         }).disposed(by: disposeBag)
@@ -74,11 +84,6 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     
     func loadRegistros() {
         self.registros = repository.getAll()
-        outputs.registrosObservable.subscribe { value in
-         self.makeSections(items: value)
-//            self.inputs.listaRegistrosRelay.accept(self.registros)
-        }.disposed(by: disposeBag)
-        
         outputs.registrosObservable.subscribe { value in
             self.inputs.listaRegistrosRelay.accept(self.registros)
         }.disposed(by: disposeBag)
@@ -102,12 +107,7 @@ extension RegistrosViewModel: RegistrosViewModelOutput {
     }
 }
 
-extension RegistrosViewModel: SwipeActionDelegate {
-    func didPerform(action: SwipeAction, index: Int) {
-        _ = repository.delete(object: registros[index])
-        registros.remove(at: index)
-        makeSections(items: registros)
-    }
+extension RegistrosViewModel {
     
     
     func makeCell(element: Registro, from tableView: UITableView) -> UITableViewCell {
@@ -128,28 +128,5 @@ extension RegistrosViewModel: SwipeActionDelegate {
         
         self.inputs.itemsDataSourceRelay.accept(sections)
         return sections
-    }
-}
-
-enum SectionCell: Int, CaseIterable {
-    case janeiro, fevereiro, março, abril, maio,
-         junho, julho, agosto, setembro, outubro,
-         novembro, dezembro
-    
-    var sectionTitle: String {
-        switch self {
-        case .janeiro: return "Janeiro"
-        case .fevereiro: return "Fevereiro"
-        case .março: return "Março"
-        case .abril: return "Abril"
-        case .maio: return "Maio"
-        case .junho: return "Junho"
-        case .julho: return "Julho"
-        case .agosto: return "Agosto"
-        case .setembro: return "Setembro"
-        case .outubro: return "Outubro"
-        case .novembro: return "Novembro"
-        case .dezembro: return "Dezembro"
-        }
     }
 }

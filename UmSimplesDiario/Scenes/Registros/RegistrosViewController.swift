@@ -91,9 +91,10 @@ extension RegistrosViewController {
         mainView.composeButton.rx.tap.bind(to: viewModel.inputs.composeButton).disposed(by: disposeBag)
         mainView.searchButton.rx.tap.bind(to: viewModel.inputs.searchButton).disposed(by: disposeBag)
         mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
+        mainView.tableView.rx.itemDeleted.bind(to: viewModel.deletedItem).disposed(by: disposeBag)
     }
 }
-//
+
 extension RegistrosViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -105,19 +106,5 @@ extension RegistrosViewController: UITableViewDelegate {
         header.setupView()
         header.titleLabel.text = SectionCell.allCases[section + 1].sectionTitle
         return header
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        return ContextualAction<RegistrosAction>(self.viewModel,
-                                                 actions: [.delete],
-                                                 index: indexPath.row).setup()
-    }
-}
-
-extension UIView {
-    var allSubViews : [UIView] {
-        var array = [self.subviews].flatMap {$0}
-        array.forEach { array.append(contentsOf: $0.allSubViews) }
-        return array
     }
 }
