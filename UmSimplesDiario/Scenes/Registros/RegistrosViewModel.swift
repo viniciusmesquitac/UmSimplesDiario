@@ -64,7 +64,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
             guard let row = indexPath.element??.row else { return }
             _ = self.repository.delete(object: self.registros[row])
             self.registros.remove(at: row)
-            self.makeSections(items: registros)
+            self.makeSections(items: self.registros)
         }.disposed(by: disposeBag)
 
         composeButton.subscribe(onNext: { _ in
