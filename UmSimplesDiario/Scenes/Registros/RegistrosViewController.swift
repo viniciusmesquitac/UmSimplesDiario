@@ -53,6 +53,7 @@ extension RegistrosViewController {
 
     private func setupOutputs() {
 
+        // Cria dataSource com Logica de Sections
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Registro>>(
             configureCell: { _, table, _, item in
             return self.viewModel.makeCell(element: item, from: table)
@@ -62,18 +63,14 @@ extension RegistrosViewController {
         }
         dataSource.canEditRowAtIndexPath = {_, _ in true }
 
+        // Bind viewModel e dataSource
         viewModel.itemsDataSource
             .bind(to: mainView.tableView.rx.items(dataSource: dataSource))
           .disposed(by: disposeBag)
-        viewModel.outputs.itemsDataSource.subscribe(onNext: { registros in
-            if registros.isEmpty {
-                self.mainView.emptyStateLabel.isHidden = false
-                self.mainView.tableView.isScrollEnabled = false
 
-            } else {
-                self.mainView.emptyStateLabel.isHidden = true
-                self.mainView.tableView.isScrollEnabled = true
-            }
+        // Empty State
+        viewModel.outputs.itemsDataSource.subscribe(onNext: { registros in
+            self.mainView.emptyState(registros.isEmpty)
         }).disposed(by: self.disposeBag)
     }
 
@@ -87,7 +84,7 @@ extension RegistrosViewController {
 }
 
 extension RegistrosViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }

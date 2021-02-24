@@ -55,4 +55,14 @@ class RegistrosView: UIView {
             make.centerY.equalToSuperview()
         }
     }
+    
+    func emptyState(_ isEmpty: Bool) {
+        if isEmpty {
+            emptyStateLabel.isHidden = false
+            tableView.isScrollEnabled = false
+        } else {
+            emptyStateLabel.isHidden = true
+            tableView.isScrollEnabled = true
+        }
+    }
 }
