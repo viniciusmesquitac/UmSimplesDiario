@@ -42,12 +42,19 @@
 		81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */; };
 		81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DAB25DB1A980002D594 /* Mes.swift */; };
 		81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */; };
-		81BA7DC925DD3B4D0002D594 /* EscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC825DD3B4D0002D594 /* EscreverDiarioViewCell.swift */; };
+		81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */; };
 		81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */; };
 		81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10A9D25E00E09001F0ACB /* SectionCell.swift */; };
 		81F10AB725E01166001F0ACB /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AB525E01166001F0ACB /* Registro+CoreDataClass.swift */; };
 		81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AB625E01166001F0ACB /* Registro+CoreDataProperties.swift */; };
 		81F10ACC25E012E4001F0ACB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 81F10ACB25E012E4001F0ACB /* .swiftlint.yml */; };
+		81F10AEF25E6A773001F0ACB /* TextoSectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AEE25E6A773001F0ACB /* TextoSectionCell.swift */; };
+		81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */; };
+		81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */; };
+		81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */; };
+		81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */; };
+		81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */; };
+		81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,12 +119,19 @@
 		81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderEscreverDiarioView.swift; sourceTree = "<group>"; };
 		81BA7DAB25DB1A980002D594 /* Mes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mes.swift; sourceTree = "<group>"; };
 		81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosCoordinator.swift; sourceTree = "<group>"; };
-		81BA7DC825DD3B4D0002D594 /* EscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioViewCell.swift; sourceTree = "<group>"; };
+		81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyEscreverDiarioViewCell.swift; sourceTree = "<group>"; };
 		81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewCell.swift; sourceTree = "<group>"; };
 		81F10A9D25E00E09001F0ACB /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
 		81F10AB525E01166001F0ACB /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = "<group>"; };
 		81F10AB625E01166001F0ACB /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		81F10ACB25E012E4001F0ACB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		81F10AEE25E6A773001F0ACB /* TextoSectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextoSectionCell.swift; sourceTree = "<group>"; };
+		81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroViewController.swift; sourceTree = "<group>"; };
+		81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroViewModel.swift; sourceTree = "<group>"; };
+		81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroView.swift; sourceTree = "<group>"; };
+		81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCellModel.swift; sourceTree = "<group>"; };
+		81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEscreverDiarioViewCell.swift; sourceTree = "<group>"; };
+		81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioAcessoryView.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,7 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				81F10AA225E00F0A001F0ACB /* Repository */,
-				81F10A9625DFFD1F001F0ACB /* EditarRegistros */,
+				81F10A9625DFFD1F001F0ACB /* EditarRegistro */,
 				81BA7C0925D16F510002D594 /* PesquisarRegistros */,
 				81BA7C0825D16F480002D594 /* EscreverDiario */,
 				81BA7C0725D16F380002D594 /* Registros */,
@@ -315,7 +329,10 @@
 		81BA7DC725DD3B3B0002D594 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				81BA7DC825DD3B4D0002D594 /* EscreverDiarioViewCell.swift */,
+				81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */,
+				81F10AEE25E6A773001F0ACB /* TextoSectionCell.swift */,
+				81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */,
+				81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -329,11 +346,15 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
-		81F10A9625DFFD1F001F0ACB /* EditarRegistros */ = {
+		81F10A9625DFFD1F001F0ACB /* EditarRegistro */ = {
 			isa = PBXGroup;
 			children = (
+				81F10B0825E6AEF0001F0ACB /* CustomCells */,
+				81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */,
+				81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */,
+				81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */,
 			);
-			path = EditarRegistros;
+			path = EditarRegistro;
 			sourceTree = "<group>";
 		};
 		81F10AA225E00F0A001F0ACB /* Repository */ = {
@@ -342,6 +363,14 @@
 				81BA7CB625D42C980002D594 /* RegistroRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		81F10B0825E6AEF0001F0ACB /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -616,30 +645,37 @@
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
 				81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
+				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
+				81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */,
 				81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
 				81F10AB725E01166001F0ACB /* Registro+CoreDataClass.swift in Sources */,
-				81BA7DC925DD3B4D0002D594 /* EscreverDiarioViewCell.swift in Sources */,
+				81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */,
+				81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */,
 				81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */,
 				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
 				81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */,
+				81F10AEF25E6A773001F0ACB /* TextoSectionCell.swift in Sources */,
 				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,
 				81BA7CBD25D42CC00002D594 /* CoreDataService.swift in Sources */,
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
+				81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */,
 				81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */,
 				81BA7C5B25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift in Sources */,
 				81BA7D4325D609750002D594 /* PesquisarRegistrosView.swift in Sources */,
 				81BA7BFC25D16B040002D594 /* AppCoordinator.swift in Sources */,
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
+				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
 				81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
+				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,
 				81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */,
 				81BA7CC225D42DE80002D594 /* Humor.swift in Sources */,

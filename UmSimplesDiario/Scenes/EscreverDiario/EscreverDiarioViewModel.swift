@@ -35,7 +35,7 @@ protocol EscreverDiarioViewModelProtocol: ViewModel {
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
     var weather =  BehaviorRelay<Clima>(value: .none)
-    
+
     var changeHumor = BehaviorRelay<Bool?>(value: nil)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
@@ -54,27 +54,18 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
 
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
-
+    
     init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
-
-        if registro != nil {
-            self.loadRegistro(registro: registro!)
-        } else {
-            self.titleText.accept("Sem titulo")
-        }
-
+        self.titleText.accept("Sem titulo")
+        
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
         }).disposed(by: disposeBag)
-
+        
         saveButton.subscribe(onNext: {
-            if registro != nil {
-                self.salvarRegistro()
-            } else {
-                self.criarRegistro()
-            }
+            self.criarRegistro()
             coordinator.dismiss()
         }).disposed(by: disposeBag)
 
@@ -87,7 +78,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                 self.humor = .feliz
             }
         }).disposed(by: disposeBag)
-        
+
         weatherButton.subscribe(onNext: {
             self.loadClima()
         }).disposed(by: disposeBag)
@@ -139,7 +130,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                                    clima: clima)
         repository.add(object: registro)
     }
-    
+
     func salvarRegistro() {
         if self.titleText.value == "" {
             self.registro?.titulo = "Sem titulo"
@@ -151,25 +142,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         self.registro?.clima = self.clima.rawValue
         _ = repository.service.save()
     }
-    
-    func loadRegistro(registro: Registro) {
-        switch registro.humor {
-        case 0: self.changeHumor.accept(false)
-        case 1: self.changeHumor.accept(true)
-        case 2: self.changeHumor.accept(nil)
-        default: self.changeHumor.accept(nil)
-        }
-        self.humor = Humor.allCases[Int(registro.humor)]
-        self.bodyText.accept(registro.texto)
-        self.titleText.accept(registro.titulo)
-        self.weather.accept(Clima.allCases[Int(registro.clima)])
-        self.clima = Clima.allCases[Int(registro.clima)]
-
-    }
 }
 
 extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
-    
+
     var changeWeather: Observable<Clima> {
         self.inputs.weather.asObservable()
     }
@@ -177,11 +153,11 @@ extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
     var titleTextOutput: Observable<String?> {
         self.inputs.bodyText.asObservable()
     }
-    
+
     var bodyTextOutput: Observable<String?> {
         self.inputs.bodyText.asObservable()
     }
-    
+
     var dataSourceOutput: Driver<[String?]> {
         Driver.just([titleText.value, bodyText.value])
     }

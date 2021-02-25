@@ -15,7 +15,7 @@ import UITextView_Placeholder
 fileprivate var isTitleEmpty = true
 fileprivate var isBodyEmpty = true
 
-class EscreverDiarioView: UIView {
+class EditarRegistroView: UIView {
     
     let view = UIView(frame: .zero)
     let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
@@ -58,7 +58,7 @@ class EscreverDiarioView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         
-        self.tableView.separatorStyle = .none
+//        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = .systemBackground
         self.tableView.tableHeaderView = headerView
         self.tableView.snp.makeConstraints { make in
@@ -66,7 +66,7 @@ class EscreverDiarioView: UIView {
         }
     }
     
-
+    
     func setTitle(_ title: String) {
         if title.count < 20 {
             navigationBarButtonTitle.title = title

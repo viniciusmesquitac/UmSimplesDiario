@@ -49,9 +49,9 @@ final class RegistrosCoordinator: Coordinator {
 
         case .editCompose(let registro):
             let coordinator = RegistrosCoordinator(navigationController: self.navigationController)
-            let viewModel = EscreverDiarioViewModel(coordinator: coordinator, registro: registro)
-            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: viewModel)
-            escreverDiarioViewController.navigationController?.title = ""
+            let viewModel = EditarRegistroViewModel(coordinator: coordinator, registro: registro)
+            let escreverDiarioViewController = EditarRegistroViewController(viewModel: viewModel)
+            escreverDiarioViewController.navigationController?.title = registro.titulo
             escreverDiarioViewController.navigationController?.navigationBar.prefersLargeTitles = false
             escreverDiarioViewController.navigationController?.navigationItem.largeTitleDisplayMode = .never
             self.navigationController.pushViewController(escreverDiarioViewController, animated: true)

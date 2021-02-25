@@ -36,8 +36,10 @@ class EscreverDiarioViewController: UIViewController {
         }
         navigationItem.rightBarButtonItem = mainView.cancelButton
         mainView.setupView()
-        mainView.tableView.register(TitleEscreverDiarioViewCell.self, forCellReuseIdentifier: TitleEscreverDiarioViewCell.identifier)
-        mainView.tableView.register(BodyEscreverDiarioViewCell.self, forCellReuseIdentifier: BodyEscreverDiarioViewCell.identifier)
+        mainView.tableView.register(TitleEscreverDiarioViewCell.self,
+                                    forCellReuseIdentifier: TitleEscreverDiarioViewCell.identifier)
+        mainView.tableView.register(BodyEscreverDiarioViewCell.self,
+                                    forCellReuseIdentifier: BodyEscreverDiarioViewCell.identifier)
         self.view = mainView
 
         setup()
