@@ -17,18 +17,30 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     let acessoryView = AcessoryViewEscreverDiario(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
     var isBodyEmpty = true
     let disposeBag = DisposeBag()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
         setupBody()
     }
-    
+
+    func bind(viewModel: EditarRegistroViewModel, with tableView: UITableView) {
+        backgroundColor = .white
+        body.rx.text.bind(to: viewModel.bodyText).disposed(by: self.disposeBag)
+        self.rowHeight.subscribe(onNext: { height in
+            viewModel.heightBody = height
+            UIView.performWithoutAnimation {
+                tableView.beginUpdates()
+                tableView.endUpdates()
+            }
+        }).disposed(by: self.disposeBag)
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func setupBody() {
         addSubview(body)
         body.isScrollEnabled = false
@@ -44,7 +56,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
             }
             self.rowHeight.accept(self.body.frame.height + 500)
         }).disposed(by: disposeBag)
-        
+  
         self.body.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(22)
             make.leading.equalTo(snp.leading).offset(16)
@@ -52,4 +64,3 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
         }
     }
 }
-

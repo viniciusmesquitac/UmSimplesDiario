@@ -82,7 +82,7 @@ extension EditarRegistroViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0: return viewModel.heightTitle
-        case 1: return viewModel.heightTitle
+        case 1: return viewModel.heightBody
         default: return 0.0
         }
     }
@@ -101,8 +101,8 @@ extension EditarRegistroViewController {
     func makeTextCell(with element: String, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
-        cell?.backgroundColor = .white
-        cell?.body.rx.text.bind(to: self.viewModel.bodyText).disposed(by: self.disposeBag)
+        cell?.bind(viewModel: viewModel, with: tableView)
+        cell?.body.text = element
         return cell ?? UITableViewCell()
     }
 

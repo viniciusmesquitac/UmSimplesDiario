@@ -59,11 +59,11 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         self.coordinator = coordinator
         self.registro = registro
         self.titleText.accept("Sem titulo")
-        
+
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
         }).disposed(by: disposeBag)
-        
+
         saveButton.subscribe(onNext: {
             self.criarRegistro()
             coordinator.dismiss()

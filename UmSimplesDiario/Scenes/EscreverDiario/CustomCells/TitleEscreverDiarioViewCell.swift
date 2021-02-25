@@ -24,15 +24,11 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         
         setupTitle()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func bind(to viewModel: EscreverDiarioViewModel) {
-        title.rx.text.bind(to: viewModel.bodyText).disposed(by: disposeBag)
-    }
-    
+
     func setupTitle() {
         addSubview(title)
         title.placeholder = "Sem titulo"
