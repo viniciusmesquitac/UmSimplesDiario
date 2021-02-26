@@ -26,7 +26,6 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     }
 
     func bind(viewModel: EditarRegistroViewModel, with tableView: UITableView) {
-        backgroundColor = .white
         body.rx.text.bind(to: viewModel.bodyText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightBody = height

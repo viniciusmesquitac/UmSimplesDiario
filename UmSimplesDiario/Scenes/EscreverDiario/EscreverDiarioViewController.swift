@@ -13,7 +13,7 @@ class EscreverDiarioViewController: UIViewController {
     let mainView = EscreverDiarioView()
     var viewModel: EscreverDiarioViewModel!
     let disposeBag = DisposeBag()
-    
+
     var heightBody = CGFloat(0)
     var heightTitle = CGFloat(0)
     
@@ -28,7 +28,7 @@ class EscreverDiarioViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if viewModel.registro != nil {
             navigationItem.leftBarButtonItems = [mainView.navigationBackButtonItem, mainView.navigationBarButtonTitle]
         } else {
@@ -44,7 +44,7 @@ class EscreverDiarioViewController: UIViewController {
 
         setup()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
            super.viewWillAppear(animated)
            navigationItem.largeTitleDisplayMode = .never
@@ -57,7 +57,7 @@ extension EscreverDiarioViewController {
         setupOutputs()
     }
     
-    
+
     private func setupOutputs() {
         viewModel.outputs.dataSourceOutput.asObservable()
             .bind(to: mainView.tableView.rx.items) { tv, row, item in
@@ -129,7 +129,7 @@ extension EscreverDiarioViewController {
         viewModel.weatherButton.subscribe(onNext: { _ in
             self.mainView.headerView.updateClima()
         }).disposed(by: disposeBag)
-        
+
     }
     
     private func setupInputs() {
@@ -152,7 +152,7 @@ extension EscreverDiarioViewController: UITableViewDelegate {
         if indexPath.row == 0 {
             return heightTitle
         }
-        
+
         if indexPath.row == 1 {
             return heightBody
         }
