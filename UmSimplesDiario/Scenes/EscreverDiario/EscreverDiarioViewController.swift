@@ -122,16 +122,6 @@ extension EscreverDiarioViewController {
                 }
             }
         }).disposed(by: disposeBag)
-        
-        viewModel.changeWeather.asObservable().subscribe(onNext: { value in
-            DispatchQueue.main.async {
-                if value != .none {
-                    self.mainView.headerView.changeWeather(value)
-                    self.mainView.headerView.updateClima()
-                    self.navigationItem.rightBarButtonItem = self.mainView.saveButton
-                }
-            }
-            }).disposed(by: disposeBag)
             
         viewModel.humorButton.subscribe(onNext: { _ in
             self.mainView.headerView.updateHumor()
