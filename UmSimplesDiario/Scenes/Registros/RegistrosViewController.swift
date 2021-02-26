@@ -30,6 +30,7 @@ class RegistrosViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
+        viewModel.loadRegistros()
     }
 
     override func viewDidLoad() {

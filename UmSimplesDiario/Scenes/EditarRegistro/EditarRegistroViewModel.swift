@@ -18,9 +18,7 @@ protocol EditarRegistroViewModelInput {
     var changeHumor: BehaviorRelay<Bool?> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
-    
     var itemsDataSourceRelay: BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]> { get }
-
 }
 
 protocol EditarRegistroViewModelOutput {
@@ -56,7 +54,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     var registro: Registro?
     var clima: Clima = .none
     var humor: Humor = .none
-    
+
     var heightBody = CGFloat(120)
     var heightTitle = CGFloat(120)
 
@@ -66,20 +64,15 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
-
-        let texto = EditarRegistroCellModel.texto(registro?.texto ?? "")
-        let titulo =  EditarRegistroCellModel.titulo(registro?.titulo ?? "")
-        self.itemsDataSourceRelay
-            .accept([SectionModel(model: "",
-                                  items: [titulo, texto]
-            )])
+        loadRegistro(registro: self.registro!)
 
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
         }).disposed(by: disposeBag)
 
-        saveButton.subscribe(onNext: {
-        }).disposed(by: disposeBag)
+        titleText.subscribe(onNext: { text in
+            self.salvarRegistro()
+        }).disposed(by: self.disposeBag)
 
         humorButton.subscribe(onNext: {
             if let humor = self.changeHumor.value {
@@ -90,7 +83,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
                 self.humor = .feliz
             }
         }).disposed(by: disposeBag)
-        
+
         weatherButton.subscribe(onNext: {
             self.loadClima()
         }).disposed(by: disposeBag)
@@ -109,6 +102,13 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     }
 
     func loadRegistro(registro: Registro) {
+        let texto = EditarRegistroCellModel.texto(registro.texto ?? "")
+        let titulo =  EditarRegistroCellModel.titulo(registro.titulo ?? "")
+        self.itemsDataSourceRelay
+            .accept([SectionModel(model: "",
+                                  items: [titulo, texto]
+            )])
+
         switch registro.humor {
         case 0: self.changeHumor.accept(false)
         case 1: self.changeHumor.accept(true)

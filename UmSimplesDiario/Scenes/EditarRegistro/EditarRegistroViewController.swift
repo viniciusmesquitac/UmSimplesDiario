@@ -64,6 +64,14 @@ extension EditarRegistroViewController {
             .itemsDataSource
             .bind(to: mainView.tableView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
+  
+        viewModel.changeHumor.asObservable().subscribe(onNext: { value in
+            let atual = self.viewModel.humor.rawValue == 0 ? false : true
+            if let humor = value {
+                    self.mainView.headerView.changeHumor(humor)
+                    self.mainView.headerView.updateHumor()
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupInputs() {
