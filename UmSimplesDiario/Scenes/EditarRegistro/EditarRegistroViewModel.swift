@@ -64,7 +64,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
         loadRegistro(registro: self.registro!)
 
         moreButton.subscribe(onNext: {
-            coordinator.showConfigure()
+            coordinator.showConfigure(registro: self.registro!)
         }).disposed(by: disposeBag)
 
         titleText.subscribe(onNext: { _ in

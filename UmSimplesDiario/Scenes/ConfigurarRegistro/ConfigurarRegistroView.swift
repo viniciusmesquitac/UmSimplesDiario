@@ -6,11 +6,17 @@
 //
 
 import UIKit
+import RxGesture
+import RxSwift
 
 class ConfigurarRegistroView: UIView {
 
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    let disposeBag = DisposeBag()
+    
+    var hasSetPointOrigin = false
+    var pointOrigin: CGPoint?
 
     let deleteButton: UIButton = {
         let button = UIButton(frame: .zero)
@@ -19,6 +25,13 @@ class ConfigurarRegistroView: UIView {
         button.backgroundColor = .darkGray
         return button
     }()
+
+    override func layoutSubviews() {
+        if !hasSetPointOrigin {
+            hasSetPointOrigin = true
+            pointOrigin = self.view.frame.origin
+        }
+    }
 
     func setupView() {
         self.view.frame = self.bounds
@@ -39,16 +52,10 @@ class ConfigurarRegistroView: UIView {
             make.centerY.equalTo(view.snp.centerY)
         }
     }
-    
-    func setRecognizer(target: ConfigurarRegistroViewController) {
-        let panGesture = UIPanGestureRecognizer(target: target, action: #selector(target.panGestureRecognizerAction))
-        self.addGestureRecognizer(panGesture)
-    }
 }
 
-extension ConfigurarRegistroViewController {
-
-    @objc func panGestureRecognizerAction(sender: UIPanGestureRecognizer) {
+extension ConfigurarRegistroView {
+    func panGestureRecognizerAction(sender: UIPanGestureRecognizer, coordinator: EditarRegistroCoordinator) {
         let translation = sender.translation(in: view)
         guard translation.y >= 0 else { return }
 
@@ -56,7 +63,7 @@ extension ConfigurarRegistroViewController {
         if sender.state == .ended {
             let dragVelocity = sender.velocity(in: view)
             if dragVelocity.y >= 1300 {
-                 self.dismiss(animated: true, completion: nil)
+                coordinator.dismiss()
             } else {
                 // Set back to original position of the view controller
                 UIView.animate(withDuration: 0.3) {

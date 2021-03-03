@@ -21,25 +21,24 @@ protocol ConfigurarRegistroViewModelProtocol: ViewModel {
 }
 
 class ConfigurarRegistroViewModel: ConfigurarRegistroViewModelProtocol, ConfigurarRegistroViewModelInput {
-    
     var deleteButton = PublishSubject<Void>()
-    
     
     var inputs: ConfigurarRegistroViewModelInput { return self }
     var outputs: ConfigurarRegistroViewModelOutput { return self }
     
     var coordinator: EditarRegistroCoordinator
-    
-    init(coordinator: EditarRegistroCoordinator) {
+    let repository = RegistroRepository()
+
+    init(coordinator: EditarRegistroCoordinator,registro: Registro) {
         self.coordinator = coordinator
-        
+
         deleteButton.subscribe { _ in
-            print("delete Object")
+            self.repository.delete(object: registro)
+            coordinator.dismissToRegistros()
         }
     }
     
 }
 
 extension ConfigurarRegistroViewModel: ConfigurarRegistroViewModelOutput {
-    
 }

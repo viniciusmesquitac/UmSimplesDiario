@@ -33,6 +33,10 @@ class PesquisarRegistrosViewController: UIViewController {
         self.view = mainView
         setup()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        viewModel.inputs.listaRegistrosRelay.accept([])
+    }
 }
 
 extension PesquisarRegistrosViewController {
@@ -40,28 +44,19 @@ extension PesquisarRegistrosViewController {
         setupInputs()
         setupOutputs()
     }
-    
-    
+
     private func setupOutputs() {
         viewModel.outputs.registrosOutput.asObservable()
             .bind(to: mainView.tableView.rx
                     .items(cellIdentifier: RegistrosViewCell.identifier,
-                           cellType: RegistrosViewCell.self)) { row, element, cell in
+                           cellType: RegistrosViewCell.self)) { _, element, cell in
                 cell.configure(RegistroModel(registro: element))
             }.disposed(by: disposeBag)
-        
-        
     }
-    
+
     private func setupInputs() {
         mainView.tableView.rx.itemSelected.bind(to: viewModel.inputs.selectedItem).disposed(by: disposeBag)
         mainView.searchBar.rx.cancelButtonClicked.bind(to: viewModel.cancelButton).disposed(by: self.disposeBag)
         mainView.searchBar.rx.text.changed.bind(to: viewModel.searchBarText).disposed(by: self.disposeBag)
     }
 }
-
-class ResultadoPesquisaSearchController: UISearchController {
-    
-}
-
-

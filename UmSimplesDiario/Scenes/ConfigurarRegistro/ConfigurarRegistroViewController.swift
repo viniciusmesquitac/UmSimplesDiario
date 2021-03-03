@@ -15,32 +15,43 @@ class ConfigurarRegistroViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
-    var hasSetPointOrigin = false
-    var pointOrigin: CGPoint?
-    
     init(viewModel: ConfigurarRegistroViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
-    override func viewDidLayoutSubviews() {
-            if !hasSetPointOrigin {
-                hasSetPointOrigin = true
-                pointOrigin = self.view.frame.origin
-            }
-        }
-    
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.setupView()
-        mainView.setRecognizer(target: self)
+        
+        mainView.rx
+          .panGesture()
+            .when(.began, .changed, .ended)
+          .subscribe(onNext: { sender in
+            self.mainView.panGestureRecognizerAction(
+                sender: sender,
+                coordinator: self.viewModel.coordinator)
+          })
+          .disposed(by: disposeBag)
         self.view = mainView
+        
+        setup()
     }
-
+    
+    func setup() {
+        setupOutputs()
+        setupInputs()
+    }
+    
+    func setupOutputs() {
+        
+    }
+    
+    func setupInputs() {
+        mainView.deleteButton.rx.tap.bind(to: viewModel.deleteButton).disposed(by: disposeBag)
+    }
 }

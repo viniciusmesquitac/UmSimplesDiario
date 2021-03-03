@@ -26,8 +26,8 @@ final class EditarRegistroCoordinator: NSObject, Coordinator {
         self.navigationController.pushViewController(editarRegistoViewController, animated: true)
     }
 
-    func showConfigure() {
-        let viewModel = ConfigurarRegistroViewModel(coordinator: self)
+    func showConfigure(registro: Registro) {
+        let viewModel = ConfigurarRegistroViewModel(coordinator: self, registro: registro)
         let configurarRegistroViewController = ConfigurarRegistroViewController(viewModel: viewModel)
         configurarRegistroViewController.modalPresentationStyle = .custom
             configurarRegistroViewController.transitioningDelegate = self
@@ -36,10 +36,11 @@ final class EditarRegistroCoordinator: NSObject, Coordinator {
     }
 
     func dismiss() {
+        navigationController.dismiss(animated: true, completion: nil)
+    }
+
+    func dismissToRegistros() {
         navigationController.dismiss(animated: true, completion: {
-            let firstViewController = self.navigationController.viewControllers.first
-            guard let registrosViewController =  firstViewController as? RegistrosViewController else { return }
-            registrosViewController.viewModel.loadRegistros()
             self.navigationController.popViewController(animated: true)
         })
     }
