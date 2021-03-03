@@ -27,7 +27,8 @@ final class EditarRegistroCoordinator: NSObject, Coordinator {
     }
 
     func showConfigure() {
-        let configurarRegistroViewController = ConfigurarRegistroViewController()
+        let viewModel = ConfigurarRegistroViewModel(coordinator: self)
+        let configurarRegistroViewController = ConfigurarRegistroViewController(viewModel: viewModel)
         configurarRegistroViewController.modalPresentationStyle = .custom
             configurarRegistroViewController.transitioningDelegate = self
             navigationController.present(configurarRegistroViewController, animated: true, completion: nil)
