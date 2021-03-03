@@ -55,6 +55,8 @@
 		81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */; };
 		81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */; };
 		81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */; };
+		81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */; };
+		81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +134,8 @@
 		81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCellModel.swift; sourceTree = "<group>"; };
 		81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEscreverDiarioViewCell.swift; sourceTree = "<group>"; };
 		81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioAcessoryView.swift; sourceTree = "<group>"; };
+		81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroViewController.swift; sourceTree = "<group>"; };
+		81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCoordinator.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +244,7 @@
 		81BA7C0525D16B6F0002D594 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				81F10B2A25E975A4001F0ACB /* ConfigurarRegistro */,
 				81F10AA225E00F0A001F0ACB /* Repository */,
 				81F10A9625DFFD1F001F0ACB /* EditarRegistro */,
 				81BA7C0925D16F510002D594 /* PesquisarRegistros */,
@@ -290,6 +295,7 @@
 				81BA7BFB25D16B040002D594 /* AppCoordinator.swift */,
 				81BA7C0B25D16F800002D594 /* RegistrosCoordinator.swift */,
 				81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */,
+				81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -371,6 +377,14 @@
 				81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */,
 			);
 			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		81F10B2A25E975A4001F0ACB /* ConfigurarRegistro */ = {
+			isa = PBXGroup;
+			children = (
+				81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */,
+			);
+			path = ConfigurarRegistro;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -654,6 +668,7 @@
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
 				81F10AB725E01166001F0ACB /* Registro+CoreDataClass.swift in Sources */,
+				81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */,
 				81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */,
 				81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */,
 				81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */,
@@ -678,6 +693,7 @@
 				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,
 				81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */,
+				81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */,
 				81BA7CC225D42DE80002D594 /* Humor.swift in Sources */,
 				81BA7C9125D2C1580002D594 /* EscreverDiarioViewModel.swift in Sources */,
 				81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */,

@@ -20,24 +20,18 @@ final class PesquisarRegistrosCoordinator: Coordinator {
     }
 
     func start(registros: [Registro]) {
-        let pesquisarRegistrosViewController = PesquisarRegistrosViewController(viewModel: PesquisarRegistrosViewModel(coordinator: self, registros: registros))
-        
+        let viewModel = PesquisarRegistrosViewModel(coordinator: self, registros: registros)
+        let pesquisarRegistrosViewController = PesquisarRegistrosViewController(viewModel: viewModel)
         currentNavigationController.setViewControllers([pesquisarRegistrosViewController], animated: false)
         currentNavigationController.modalPresentationStyle = .fullScreen
         self.navigationController.present(currentNavigationController, animated: true)
     }
 
     func editCompose(registro: Registro) {
-
-        let coordinator = RegistrosCoordinator(navigationController: self.navigationController)
-        let viewModel = EscreverDiarioViewModel(coordinator: coordinator, registro: registro)
-        let escreverDiarioViewController = EscreverDiarioViewController(viewModel: viewModel)
-
-        escreverDiarioViewController.navigationController?.title = ""
-        escreverDiarioViewController.navigationController?.navigationBar.prefersLargeTitles = false
-        escreverDiarioViewController.navigationController?.navigationItem.largeTitleDisplayMode = .never
-        self.currentNavigationController.pushViewController(escreverDiarioViewController, animated: true)
+        let editarRegistoCoordinator = EditarRegistroCoordinator(navigationController: self.currentNavigationController)
+        editarRegistoCoordinator.start(registro: registro)
     }
+
     func dismiss() {
         navigationController.dismiss(animated: true, completion: {
             let firstViewController = self.navigationController.viewControllers.first

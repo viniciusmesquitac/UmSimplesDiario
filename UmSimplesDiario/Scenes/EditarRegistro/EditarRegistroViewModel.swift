@@ -10,8 +10,7 @@ import RxSwift
 import RxDataSources
 
 protocol EditarRegistroViewModelInput {
-    var cancelButton: PublishSubject<Void> { get }
-    var saveButton: PublishSubject<Void> { get }
+    var moreButton: PublishSubject<Void> { get }
     var humorButton: PublishSubject<Void> { get }
     var weatherButton: PublishSubject<Void> { get }
     var weather: BehaviorRelay<Clima> { get }
@@ -35,7 +34,6 @@ protocol EditarRegistroViewModelProtocol: ViewModel {
 }
 
 class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroViewModelInput {
-
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]>(value: [])
 
     var weather =  BehaviorRelay<Clima>(value: .none)
@@ -43,12 +41,11 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
 
-    var cancelButton = PublishSubject<Void>()
-    var saveButton = PublishSubject<Void>()
     var humorButton = PublishSubject<Void>()
+    var moreButton = PublishSubject<Void>()
     var weatherButton = PublishSubject<Void>()
 
-    var coordinator: RegistrosCoordinator
+    var coordinator: EditarRegistroCoordinator
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     var registro: Registro?
@@ -61,16 +58,16 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     var inputs: EditarRegistroViewModelInput { return self }
     var outputs: EditarRegistroViewModelOutput { return self }
 
-    init(coordinator: RegistrosCoordinator, registro: Registro?) {
+    init(coordinator: EditarRegistroCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
         loadRegistro(registro: self.registro!)
 
-        cancelButton.subscribe(onNext: {
-            coordinator.dismiss()
+        moreButton.subscribe(onNext: {
+            coordinator.showConfigure()
         }).disposed(by: disposeBag)
 
-        titleText.subscribe(onNext: { text in
+        titleText.subscribe(onNext: { _ in
             self.salvarRegistro()
         }).disposed(by: self.disposeBag)
 
