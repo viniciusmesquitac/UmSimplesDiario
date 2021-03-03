@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class EditarRegistroCoordinator: Coordinator {
+final class EditarRegistroCoordinator: NSObject, Coordinator {
     func start() { }
     var navigationController: UINavigationController!
     var currentViewController: UIViewController!
@@ -25,16 +25,12 @@ final class EditarRegistroCoordinator: Coordinator {
         editarRegistoViewController.navigationController?.navigationItem.largeTitleDisplayMode = .never
         self.navigationController.pushViewController(editarRegistoViewController, animated: true)
     }
-    
+
     func showConfigure() {
         let configurarRegistroViewController = ConfigurarRegistroViewController()
-        self.currentViewController.addChild(configurarRegistroViewController)
-        self.currentViewController.view.addSubview(configurarRegistroViewController.view)
-        configurarRegistroViewController.didMove(toParent: currentViewController)
-        let height = currentViewController.view.frame.height
-        let width  = currentViewController.view.frame.width
-        configurarRegistroViewController.view.frame = CGRect(x: 0, y: currentViewController.view.frame.maxY, width: width, height: height)
-        
+        configurarRegistroViewController.modalPresentationStyle = .custom
+            configurarRegistroViewController.transitioningDelegate = self
+            navigationController.present(configurarRegistroViewController, animated: true, completion: nil)
         print("Configure")
     }
 
@@ -45,5 +41,12 @@ final class EditarRegistroCoordinator: Coordinator {
             registrosViewController.viewModel.loadRegistros()
             self.navigationController.popViewController(animated: true)
         })
+    }
+}
+
+extension EditarRegistroCoordinator: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        PresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
