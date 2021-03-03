@@ -7,6 +7,7 @@
 
 import RxCocoa
 import RxSwift
+import RxDataSources
 
 protocol EscreverDiarioViewModelInput {
     var cancelButton: PublishSubject<Void> { get }
@@ -17,7 +18,7 @@ protocol EscreverDiarioViewModelInput {
     var changeHumor: BehaviorRelay<Bool?> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
-
+    var itemsDataSourceRelay: BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]> { get }
 }
 
 protocol EscreverDiarioViewModelOutput {
@@ -25,6 +26,7 @@ protocol EscreverDiarioViewModelOutput {
     var bodyTextOutput: Observable<String?> { get }
     var changeWeather: Observable<Clima> { get }
     var dataSourceOutput: Driver<[String?]> { get }
+    var itemsDataSource: Observable<[SectionModel<String, EditarRegistroCellModel>]> { get }
     func loadClima()
 }
 
@@ -54,11 +56,16 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
 
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
-    
+    var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]>(value: [])
+
+    var heightBody = CGFloat(120)
+    var heightTitle = CGFloat(120)
+
     init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
-        self.titleText.accept("Sem titulo")
+
+        loadRegistro()
 
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
@@ -82,6 +89,15 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         weatherButton.subscribe(onNext: {
             self.loadClima()
         }).disposed(by: disposeBag)
+    }
+
+    func loadRegistro() {
+        let titulo =  EditarRegistroCellModel.titulo("Sem titulo")
+        let texto = EditarRegistroCellModel.texto( "")
+        self.itemsDataSourceRelay
+            .accept([SectionModel(model: "",
+                                  items: [titulo, texto]
+            )])
     }
 
     func loadClima() {
@@ -161,5 +177,9 @@ extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
     var dataSourceOutput: Driver<[String?]> {
         Driver.just([titleText.value, bodyText.value])
     }
-    
+
+    var itemsDataSource: Observable<[SectionModel<String, EditarRegistroCellModel>]> {
+        self.inputs.itemsDataSourceRelay.asObservable()
+    }
+
 }

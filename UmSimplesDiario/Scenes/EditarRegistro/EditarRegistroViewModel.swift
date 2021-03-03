@@ -33,7 +33,7 @@ protocol EditarRegistroViewModelProtocol: ViewModel {
     var outputs: EditarRegistroViewModelOutput { get }
 }
 
-class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroViewModelInput {
+class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroViewModelInput, WritableViewModel {
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]>(value: [])
 
     var weather =  BehaviorRelay<Clima>(value: .none)
