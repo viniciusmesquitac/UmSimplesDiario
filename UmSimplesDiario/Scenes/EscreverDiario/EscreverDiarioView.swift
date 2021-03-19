@@ -12,9 +12,6 @@ import RxCocoa
 import UITextView_Placeholder
 
 
-fileprivate var isTitleEmpty = true
-fileprivate var isBodyEmpty = true
-
 class EscreverDiarioView: UIView {
     
     let view = UIView(frame: .zero)
@@ -24,8 +21,12 @@ class EscreverDiarioView: UIView {
     let saveButton = UIBarButtonItem(systemItem: .save)
     let tableView = UITableView(frame: .zero)
     
+    var isTitleEmpty = false
+    var isBodyEmpty = false
+    
     let navigationBarButtonTitle: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "title",style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(title: "title", style: .plain,
+                                     target: nil, action: nil)
         button.isEnabled = false
         button.tintColor = StyleSheet.Color.secundaryColor
         return button
@@ -42,7 +43,7 @@ class EscreverDiarioView: UIView {
         button.tintColor = UIColor.systemBlue
         return button
     }()
-    
+
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = .systemGray5
@@ -51,13 +52,12 @@ class EscreverDiarioView: UIView {
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         setupTableView()
     }
-    
+
     func setupTableView() {
         view.addSubview(tableView)
-        
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = .systemBackground
         self.tableView.tableHeaderView = headerView
@@ -65,7 +65,6 @@ class EscreverDiarioView: UIView {
             make.edges.equalToSuperview()
         }
     }
-    
 
     func setTitle(_ title: String) {
         if title.count < 20 {

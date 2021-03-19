@@ -16,6 +16,7 @@ class RegistrosViewController: UIViewController {
     let mainView = RegistrosView()
     var viewModel: RegistrosViewModel!
     let disposeBag = DisposeBag()
+    var headerTitle = [String]()
 
     init(viewModel: RegistrosViewModel) {
         self.viewModel = viewModel
@@ -91,9 +92,9 @@ extension RegistrosViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = SectionRegistrosHeaderView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 80)))
-        header.setupView()
-        header.titleLabel.text = SectionCell.allCases[section + 1].sectionTitle
-        return header
+        let view = UITableViewHeaderFooterView()
+        view.backgroundColor = .clear
+        view.backgroundView = UIView()
+        return view
     }
 }

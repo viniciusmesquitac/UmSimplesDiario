@@ -146,18 +146,6 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
                                    clima: clima)
         repository.add(object: registro)
     }
-
-    func salvarRegistro() {
-        if self.titleText.value == "" {
-            self.registro?.titulo = "Sem titulo"
-        } else {
-            self.registro?.titulo = self.titleText.value
-        }
-        self.registro?.texto = self.bodyText.value
-        self.registro?.humor = self.humor.rawValue
-        self.registro?.clima = self.clima.rawValue
-        _ = repository.service.save()
-    }
 }
 
 extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {

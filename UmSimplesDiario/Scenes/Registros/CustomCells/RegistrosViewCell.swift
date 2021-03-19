@@ -113,8 +113,8 @@ class RegistrosViewCell: UITableViewCell {
     }
     
     func configure(_ registro: RegistroModel) {
-        self.setText(registro.titulo!, in: self.titleEntry, limit: 24)
-        self.setText(registro.texto!, in: self.descriptionEntry, limit: 30)
+        self.setText(registro.titulo ?? "", in: self.titleEntry, limit: 24)
+        self.setText(registro.texto ?? "", in: self.descriptionEntry, limit: 30)
         
         if registro.texto == "" {
             self.descriptionEntry.text = "Registro vazio, escreva algo aqui!"
@@ -206,23 +206,10 @@ class RegistrosViewCell: UITableViewCell {
     }
 }
 
-class SectionRegistrosHeaderView: UIView {
-    let titleLabel = UILabel()
-    
+class SectionRegistrosHeaderView: UITableViewHeaderFooterView {
     
     // MARK: Setup View
     func setupView() {
-        setupLabel()
+        self.backgroundColor = .none
     }
-    
-    func setupLabel() {
-        addSubview(titleLabel)
-        self.titleLabel.font = StyleSheet.Font.boldTitleFont16
-        
-        self.titleLabel.snp.makeConstraints { make in
-            make.leading.equalTo(snp.leading).offset(16)
-            make.bottom.equalTo(snp.bottom).offset(-8)
-        }
-    }
-    
 }

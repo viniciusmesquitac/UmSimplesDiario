@@ -15,7 +15,7 @@ enum SectionCell: Int, CaseIterable {
     var sectionTitle: String {
         switch self {
         case .janeiro: return "Janeiro"
-        case .fevereiro: return "Fevereiro"
+        case .fevereiro: return "Fe222vereiro"
         case .março: return "Março"
         case .abril: return "Abril"
         case .maio: return "Maio"

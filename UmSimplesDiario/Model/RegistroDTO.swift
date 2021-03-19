@@ -42,7 +42,6 @@ extension RegistroModel {
         }
     }
     
-    
     var clima: UIImage? {
         switch registro.clima {
         case 0:

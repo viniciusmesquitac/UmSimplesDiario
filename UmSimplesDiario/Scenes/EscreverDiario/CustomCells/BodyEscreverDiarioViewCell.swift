@@ -37,14 +37,14 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     }
     
     func bind(escreverRegistroViewModel: EscreverDiarioViewModel, with tableView: UITableView) {
-        body.rx.text.bind(to: escreverRegistroViewModel.bodyText).disposed(by: self.disposeBag)
-        self.rowHeight.subscribe(onNext: { height in
-            escreverRegistroViewModel.heightBody = height
-            UIView.performWithoutAnimation {
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
-        }).disposed(by: self.disposeBag)
+//        body.rx.text.bind(to: escreverRegistroViewModel.bodyText).disposed(by: self.disposeBag)
+//        self.rowHeight.subscribe(onNext: { height in
+//            escreverRegistroViewModel.heightBody = height
+//            UIView.performWithoutAnimation {
+//                tableView.beginUpdates()
+//                tableView.endUpdates()
+//            }
+//        }).disposed(by: self.disposeBag)
     }
 
     required init?(coder: NSCoder) {

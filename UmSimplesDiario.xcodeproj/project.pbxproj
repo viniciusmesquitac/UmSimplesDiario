@@ -43,7 +43,6 @@
 		81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D3D25D608E20002D594 /* PesquisarRegistrosViewModel.swift */; };
 		81BA7D4325D609750002D594 /* PesquisarRegistrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D4225D609750002D594 /* PesquisarRegistrosView.swift */; };
 		81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */; };
-		81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DAB25DB1A980002D594 /* Mes.swift */; };
 		81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */; };
 		81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */; };
 		81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */; };
@@ -124,7 +123,6 @@
 		81BA7D3D25D608E20002D594 /* PesquisarRegistrosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosViewModel.swift; sourceTree = "<group>"; };
 		81BA7D4225D609750002D594 /* PesquisarRegistrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosView.swift; sourceTree = "<group>"; };
 		81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderEscreverDiarioView.swift; sourceTree = "<group>"; };
-		81BA7DAB25DB1A980002D594 /* Mes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mes.swift; sourceTree = "<group>"; };
 		81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosCoordinator.swift; sourceTree = "<group>"; };
 		81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyEscreverDiarioViewCell.swift; sourceTree = "<group>"; };
 		81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewCell.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				81BA7C7725D2B5660002D594 /* Weather.swift */,
 				81BA7CC125D42DE80002D594 /* Humor.swift */,
 				81BA7CC625D42E570002D594 /* Schema.swift */,
-				81BA7DAB25DB1A980002D594 /* Mes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -695,7 +692,6 @@
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
 				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
-				81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
 				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,
