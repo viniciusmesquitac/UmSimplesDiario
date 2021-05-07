@@ -21,7 +21,7 @@ class EscreverDiarioView: UIView {
     let tableView = UITableView(frame: .zero)
     var isTitleEmpty = false
     var isBodyEmpty = false
-    
+
     let navigationBarButtonTitle: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "title", style: .plain,
                                      target: nil, action: nil)

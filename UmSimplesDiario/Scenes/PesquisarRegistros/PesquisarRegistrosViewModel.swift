@@ -27,7 +27,7 @@ protocol PesquisarRegistrosViewModelProtocol: ViewModel {
 
 class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, PesquisarRegistrosViewModelInput {
     internal var searchBarText = BehaviorRelay<String?>(value: nil)
-    
+
     internal var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
 
     internal var selectedItem = BehaviorRelay<IndexPath?>(value: nil)

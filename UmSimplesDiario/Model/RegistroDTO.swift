@@ -26,7 +26,6 @@ struct RegistroModel {
 }
 
 extension RegistroModel {
-    
     var titulo: String? {
         registro.titulo
     }

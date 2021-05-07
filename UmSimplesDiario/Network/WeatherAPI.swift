@@ -20,7 +20,7 @@ enum WeatherAPI: Router {
     var hostname: String {
             return "http://api.openweathermap.org/data/2.5/"
     }
-    
+
     var url: URL? {
             switch self {
             case .forecastByCityId: return URL(string: "\(hostname)forecast?id=&appid=\(APISettings.API_KEY)")
@@ -28,7 +28,8 @@ enum WeatherAPI: Router {
                     name: let cityName,
                     stateCode: let stateCode,
                     countryCode: let countryCode):
-                return URL(string:"\(hostname)weather?q=\(cityName),\(stateCode ?? ""),\(countryCode ?? "")&appid=\(APISettings.API_KEY)")
+                let value = "\(hostname)weather?q=\(cityName),\(String(describing: stateCode)),\(String(describing: countryCode))&appid=\(APISettings.API_KEY)"
+                return URL( string: value)
 
             }
     }

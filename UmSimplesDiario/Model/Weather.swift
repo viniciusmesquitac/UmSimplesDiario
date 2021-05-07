@@ -6,6 +6,7 @@
 //
 
 import Foundation
+// swiftlint:disable identifier_name
 
 enum WeatherKeyResult: String, CaseIterable {
     case clearSky = "clear sky"
@@ -17,7 +18,7 @@ enum WeatherKeyResult: String, CaseIterable {
     case moderateRain = "moderate rain"
     case showerRain = "shower rain"
     case none
-    
+
     var index: Int16 {
         return Int16(WeatherKeyResult.allCases.firstIndex(of: self)!)
     }
