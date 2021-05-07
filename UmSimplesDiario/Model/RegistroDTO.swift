@@ -12,7 +12,7 @@ struct RegistroDTO {
     var titulo: String?
     var texto: String?
     var humor: Humor
-    var clima: Clima
+    var clima: WeatherKeyResult
     let date = Date()
 }
 

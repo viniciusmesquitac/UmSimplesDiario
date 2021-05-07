@@ -13,7 +13,7 @@ protocol EditarRegistroViewModelInput {
     var moreButton: PublishSubject<Void> { get }
     var humorButton: PublishSubject<Void> { get }
     var weatherButton: PublishSubject<Void> { get }
-    var weather: BehaviorRelay<Clima> { get }
+    var weather: BehaviorRelay<WeatherKeyResult> { get }
     var changeHumor: BehaviorRelay<Bool?> { get }
     var titleText: BehaviorRelay<String?> { get }
     var bodyText: BehaviorRelay<String?> { get }
@@ -23,7 +23,7 @@ protocol EditarRegistroViewModelInput {
 protocol EditarRegistroViewModelOutput {
     var titleTextOutput: Observable<String?> { get }
     var bodyTextOutput: Observable<String?> { get }
-    var changeWeather: Observable<Clima> { get }
+    var changeWeather: Observable<WeatherKeyResult> { get }
     var itemsDataSource: Observable<[SectionModel<String, EditarRegistroCellModel>]> { get }
     func loadClima()
 }
@@ -36,7 +36,7 @@ protocol EditarRegistroViewModelProtocol: ViewModel {
 class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroViewModelInput, WritableViewModel {
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]>(value: [])
 
-    var weather =  BehaviorRelay<Clima>(value: .none)
+    var weather =  BehaviorRelay<WeatherKeyResult>(value: .none)
     var changeHumor = BehaviorRelay<Bool?>(value: nil)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
@@ -49,7 +49,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     var registro: Registro?
-    var clima: Clima = .none
+    var clima: WeatherKeyResult = .none
     var humor: Humor = .none
 
     var heightBody = CGFloat(120)
@@ -94,7 +94,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
         }
         self.registro?.texto = self.bodyText.value
         self.registro?.humor = self.humor.rawValue
-        self.registro?.clima = self.clima.rawValue
+        self.registro?.clima = self.clima.index
         _ = repository.service.save()
     }
 
@@ -115,8 +115,8 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
         self.humor = Humor.allCases[Int(registro.humor)]
         self.bodyText.accept(registro.texto)
         self.titleText.accept(registro.titulo)
-        self.weather.accept(Clima.allCases[Int(registro.clima)])
-        self.clima = Clima.allCases[Int(registro.clima)]
+        self.weather.accept(WeatherKeyResult.allCases[Int(registro.clima)])
+        self.clima = WeatherKeyResult.allCases[Int(registro.clima)]
     }
 }
 
@@ -126,7 +126,7 @@ extension EditarRegistroViewModel: EditarRegistroViewModelOutput {
         self.inputs.itemsDataSourceRelay.asObservable()
 
     }
-    var changeWeather: Observable<Clima> {
+    var changeWeather: Observable<WeatherKeyResult> {
         self.inputs.weather.asObservable()
     }
 

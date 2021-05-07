@@ -36,7 +36,7 @@ class RegistroRepository: Repository {
         let registro = service.new()
         registro?.texto = object.texto
         registro?.titulo = object.titulo
-        registro?.clima = object.clima.rawValue
+        registro?.clima = object.clima.index
         registro?.humor = object.humor.rawValue
         registro?.date = object.date
         if service.save() { return registro }

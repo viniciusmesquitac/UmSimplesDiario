@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 import UITextView_Placeholder
 
-
 class EscreverDiarioView: UIView {
     
     let view = UIView(frame: .zero)

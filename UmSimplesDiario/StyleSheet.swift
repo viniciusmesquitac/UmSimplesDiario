@@ -31,7 +31,7 @@ struct StyleSheet {
             static let happyMood = UIImage(named: "happyMood")!
             static let sadMood = UIImage(named: "sadMood")!
         }
-        
+
         enum Weather {
             static let fewClouds = UIImage(named: "few_clouds")!
             static let rain = UIImage(named: "rain")!
@@ -39,7 +39,7 @@ struct StyleSheet {
             static let clearSky = UIImage(named: "clear_sky")!
             static let thunderstorm = UIImage(named: "thunderstorm")!
         }
-        
+
         enum Icon {
             static let ideaIcon = UIImage(named: "ideaIcon")!
         }
