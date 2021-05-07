@@ -37,6 +37,7 @@ class RegistrosView: UIView {
         self.tableView.tableHeaderView = UIView(frame: frame)
         self.tableView.contentInset = UIEdgeInsets(top: -dummyViewHeight, left: 0, bottom: 0, right: 0)
         self.tableView.separatorStyle = .none
+        self.tableView.estimatedRowHeight = UITableView.automaticDimension
         self.tableView.backgroundColor = .systemBackground
 
         self.tableView.snp.makeConstraints { make in

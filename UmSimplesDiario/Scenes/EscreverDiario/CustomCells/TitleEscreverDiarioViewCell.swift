@@ -16,7 +16,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     var heightTitle = CGFloat(120)
     var rowHeight = BehaviorRelay<CGFloat>(value: 20)
 
-    var isTitleEmpty = true
+    var isTitleEmpty = false
     let disposeBag = DisposeBag()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -26,7 +26,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         setupTitle()
 
         titleTextField.rx.text.changed.subscribe(onNext: { text in
-            self.isTitleEmpty = text != nil && text != ""
+            self.isTitleEmpty = text == nil || text == ""
             self.rowHeight.accept(self.titleTextField.frame.height + 16)
         }).disposed(by: disposeBag)
     }

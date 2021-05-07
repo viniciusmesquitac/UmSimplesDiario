@@ -15,6 +15,7 @@ class RegistrosViewCell: UITableViewCell {
         label.text = "09"
         label.textColor = StyleSheet.Color.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 38)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -24,6 +25,7 @@ class RegistrosViewCell: UITableViewCell {
         label.text = "Fri"
         label.textColor = StyleSheet.Color.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -33,6 +35,7 @@ class RegistrosViewCell: UITableViewCell {
         label.text = "12:24"
         label.textColor = StyleSheet.Color.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

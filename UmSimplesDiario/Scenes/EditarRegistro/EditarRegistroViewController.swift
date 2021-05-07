@@ -74,12 +74,10 @@ extension EditarRegistroViewController {
             }
         }).disposed(by: disposeBag)
 
-        viewModel.changeWeather.asObservable().subscribe(onNext: { value in
+        viewModel.changeWeather.subscribe(onNext: { value in
             DispatchQueue.main.async {
-                if value != .none {
-                    self.mainView.headerView.changeWeather(value)
-                    self.mainView.headerView.updateClima()
-                }
+                self.mainView.headerView.changeWeather(value)
+                self.mainView.headerView.updateClima()
             }
         }).disposed(by: disposeBag)
     }

@@ -52,12 +52,12 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
         addSubview(bodyTextView)
         bodyTextView.isScrollEnabled = false
 //        bodyTextView.inputAccessoryView = acessoryView
-        rowHeight.accept(bodyTextView.frame.height + 500)
+        rowHeight.accept(bodyTextView.frame.height + self.increaseRowHeight)
         bodyTextView.placeholder = "Escreva aqui e registre sua história!"
         bodyTextView.font = StyleSheet.Font.primaryFont16
         bodyTextView.rx.text.subscribe(onNext: { text in
             self.isBodyEmpty = text == nil || text == ""
-            self.rowHeight.accept(self.bodyTextView.frame.height + 500)
+            self.rowHeight.accept(self.bodyTextView.frame.height + self.increaseRowHeight)
         }).disposed(by: disposeBag)
         self.bodyTextView.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(22)

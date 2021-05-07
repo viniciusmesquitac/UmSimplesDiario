@@ -12,7 +12,7 @@ import RxDataSources
 class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroViewModelInput, WritableViewModel {
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]>(value: [])
 
-    var weather =  BehaviorRelay<WeatherKeyResult>(value: .none)
+    var weather = BehaviorRelay<WeatherKeyResult>(value: .none)
     var changeHumor = BehaviorRelay<Bool?>(value: nil)
     var titleText = BehaviorRelay<String?>(value: nil)
     var bodyText = BehaviorRelay<String?>(value: nil)
@@ -59,6 +59,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
                 self.changeHumor.accept(false)
                 self.humor = .feliz
             }
+            self.salvarRegistro()
         }).disposed(by: disposeBag)
 
         weatherButton.subscribe(onNext: {

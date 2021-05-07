@@ -37,7 +37,6 @@ extension EditarRegistroViewModel: EditarRegistroViewModelOutput {
     func loadClima() { }
     var itemsDataSource: Observable<[SectionModel<String, EditarRegistroCellModel>]> {
         self.inputs.itemsDataSourceRelay.asObservable()
-
     }
     var changeWeather: Observable<WeatherKeyResult> {
         self.inputs.weather.asObservable()
