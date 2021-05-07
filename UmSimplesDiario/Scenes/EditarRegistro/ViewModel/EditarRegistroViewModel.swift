@@ -24,7 +24,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     var coordinator: EditarRegistroCoordinator
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
-    var registro: Registro?
+    var registro: Registro
     var clima: WeatherKeyResult = .none
     var humor: Humor = .none
 
@@ -34,16 +34,20 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     var inputs: EditarRegistroViewModelInput { return self }
     var outputs: EditarRegistroViewModelOutput { return self }
 
-    init(coordinator: EditarRegistroCoordinator, registro: Registro?) {
+    init(coordinator: EditarRegistroCoordinator, registro: Registro) {
         self.coordinator = coordinator
         self.registro = registro
-        loadRegistro(registro: self.registro!)
+        loadRegistro(registro: self.registro)
 
         moreButton.subscribe(onNext: {
-            coordinator.showConfigure(registro: self.registro!)
+            coordinator.showConfigure(registro: self.registro)
         }).disposed(by: disposeBag)
 
         titleText.subscribe(onNext: { _ in
+            self.salvarRegistro()
+        }).disposed(by: self.disposeBag)
+
+        bodyText.subscribe(onNext: { _ in
             self.salvarRegistro()
         }).disposed(by: self.disposeBag)
 
@@ -64,13 +68,13 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
 
     func salvarRegistro() {
         if self.titleText.value == "" {
-            self.registro?.titulo = "Sem titulo"
+            self.registro.titulo = "Sem titulo"
         } else {
-            self.registro?.titulo = self.titleText.value
+            self.registro.titulo = self.titleText.value
         }
-        self.registro?.texto = self.bodyText.value
-        self.registro?.humor = self.humor.rawValue
-        self.registro?.clima = self.clima.index
+        self.registro.texto = self.bodyText.value
+        self.registro.humor = self.humor.rawValue
+        self.registro.clima = self.clima.index
         _ = repository.service.save()
     }
 

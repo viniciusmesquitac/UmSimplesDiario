@@ -114,9 +114,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
 
     func criarRegistro() {
         var title = self.titleText.value
+        let text = self.bodyText.value
         if title == "" { title = "Sem titulo" }
         let registro = RegistroDTO(titulo: title,
-                                   texto: self.bodyText.value,
+                                   texto: text,
                                    humor: humor,
                                    clima: clima)
         repository.add(object: registro)

@@ -117,7 +117,7 @@ class RegistrosViewCell: UITableViewCell {
     func configure(_ registro: RegistroModel) {
         let defaultTextEntry = "Registro vazio, escreva algo aqui!"
         self.setText(registro.titulo ?? "", in: self.titleEntry, limit: 24)
-        self.setText(registro.texto ?? defaultTextEntry, in: self.descriptionEntry, limit: 42)
+        self.setText(registro.texto ?? defaultTextEntry, in: self.descriptionEntry, limit: 30)
         if registro.texto == "" {
             self.descriptionEntry.text = defaultTextEntry
         }

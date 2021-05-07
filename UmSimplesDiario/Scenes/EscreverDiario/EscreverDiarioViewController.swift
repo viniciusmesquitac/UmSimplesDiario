@@ -109,7 +109,7 @@ extension EscreverDiarioViewController {
     func makeTitleCell(with element: String, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TitleEscreverDiarioViewCell.identifier) as? TitleEscreverDiarioViewCell
-        cell?.bind(escreverRegistroViewModel: viewModel, with: tableView)
+        cell?.bind(viewModel: viewModel, with: tableView)
         cell?.title.becomeFirstResponder()
         cell?.title.text = element
 
@@ -128,6 +128,9 @@ extension EscreverDiarioViewController {
     func makeTextCell(with element: String, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
+        cell?.bind(viewModel: viewModel, with: tableView)
+        cell?.body.text = element
+
         cell?.body.rx.text.subscribe(onNext: { _ in
             let isBodyEmpty = cell?.isBodyEmpty ?? false
             if !isBodyEmpty && !self.mainView.isTitleEmpty {
@@ -136,7 +139,6 @@ extension EscreverDiarioViewController {
                 self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
             }
         }).disposed(by: self.disposeBag)
-        cell?.body.text = element
         return cell ?? UITableViewCell()
     }
 }

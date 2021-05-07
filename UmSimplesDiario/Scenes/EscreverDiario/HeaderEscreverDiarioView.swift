@@ -100,7 +100,7 @@ class HeaderEscreverDiarioView: UIView {
 
     func setupHumorLabel() {
         addSubview(humorLabel)
-        humorLabel.setTitle("Inserir Humor", for: .normal)
+        humorLabel.setTitle("Humor", for: .normal)
         humorLabel.titleLabel?.font = StyleSheet.Font.boldTitleFont12
         humorLabel.setTitleColor(StyleSheet.Color.secundaryColor, for: .normal)
         self.humorLabel.snp.makeConstraints { make in
@@ -122,7 +122,7 @@ class HeaderEscreverDiarioView: UIView {
 
     func setupWeatherLabel() {
         addSubview(weatherLabel)
-        weatherLabel.setTitle("Inserir Clima", for: .normal)
+        weatherLabel.setTitle("Clima", for: .normal)
         weatherLabel.titleLabel?.font = StyleSheet.Font.boldTitleFont12
         weatherLabel.setTitleColor(StyleSheet.Color.secundaryColor, for: .normal)
         self.weatherLabel.snp.makeConstraints { make in

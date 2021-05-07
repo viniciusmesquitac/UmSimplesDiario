@@ -66,10 +66,10 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         }).disposed(by: self.disposeBag)
     }
 
-    func bind(escreverRegistroViewModel: EscreverDiarioViewModel, with tableView: UITableView) {
-        title.rx.text.bind(to: escreverRegistroViewModel.titleText).disposed(by: self.disposeBag)
+    func bind(viewModel: EscreverDiarioViewModel, with tableView: UITableView) {
+        title.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
-            escreverRegistroViewModel.heightTitle = height
+            viewModel.heightTitle = height
             UIView.performWithoutAnimation {
                 tableView.beginUpdates()
                 tableView.endUpdates()
