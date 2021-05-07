@@ -55,7 +55,7 @@ extension RegistrosViewController {
 
     private func setupOutputs() {
 
-        // Cria dataSource com Logica de Sections
+        // Create datasource
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Registro>>(
             configureCell: { _, table, _, item in
             return self.viewModel.makeCell(element: item, from: table)
@@ -65,7 +65,7 @@ extension RegistrosViewController {
         }
         dataSource.canEditRowAtIndexPath = {_, _ in true }
 
-        // Bind viewModel e dataSource
+        // Bind viewModel and dataSource
         viewModel.itemsDataSource
             .bind(to: mainView.tableView.rx.items(dataSource: dataSource))
           .disposed(by: disposeBag)

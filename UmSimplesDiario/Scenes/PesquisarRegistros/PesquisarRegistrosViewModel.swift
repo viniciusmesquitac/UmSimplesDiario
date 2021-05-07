@@ -8,30 +8,10 @@
 import RxCocoa
 import RxSwift
 
-protocol PesquisarRegistrosViewModelInput {
-    var cancelButton: PublishSubject<Void> { get }
-    var searchBarText: BehaviorRelay<String?> { get }
-    var selectedItem: BehaviorRelay<IndexPath?> { get }
-    var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
-}
-
-protocol PesquisarRegistrosViewModelOutput {
-    var registrosObservable: Observable<[Registro]> { get }
-    var registrosOutput: Observable<[Registro]> { get }
-}
-
-protocol PesquisarRegistrosViewModelProtocol: ViewModel {
-    var inputs: PesquisarRegistrosViewModelInput { get }
-    var outputs: PesquisarRegistrosViewModelOutput { get }
-}
-
 class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, PesquisarRegistrosViewModelInput {
     internal var searchBarText = BehaviorRelay<String?>(value: nil)
-
     internal var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
-
     internal var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
-
     internal var cancelButton = PublishSubject<Void>()
 
     public var inputs: PesquisarRegistrosViewModelInput { return self }

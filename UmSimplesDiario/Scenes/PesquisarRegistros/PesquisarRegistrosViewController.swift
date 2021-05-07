@@ -28,7 +28,8 @@ class PesquisarRegistrosViewController: UIViewController {
         navigationItem.titleView = mainView.searchBar
         mainView.searchBar.becomeFirstResponder()
         mainView.setupView()
-        mainView.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
+        mainView.tableView.register(RegistrosViewCell.self,
+                                    forCellReuseIdentifier: RegistrosViewCell.identifier)
         self.view = mainView
         setup()
     }

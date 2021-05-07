@@ -59,6 +59,9 @@
 		81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */; };
 		81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */; };
 		81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6972644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift */; };
+		81F3D69C2645667B002966DB /* PesquisarRegistrosViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D69B2645667B002966DB /* PesquisarRegistrosViewModel+Protocol.swift */; };
+		81F3D69E264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D69D264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift */; };
+		81F3D6A026456C7C002966DB /* RegistrosViewModel+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D69F26456C7C002966DB /* RegistrosViewModel+Protocols.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +143,9 @@
 		81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroViewController.swift; sourceTree = "<group>"; };
 		81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCoordinator.swift; sourceTree = "<group>"; };
 		81F3D6972644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditarRegistroViewModel+Protocols.swift"; sourceTree = "<group>"; };
+		81F3D69B2645667B002966DB /* PesquisarRegistrosViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PesquisarRegistrosViewModel+Protocol.swift"; sourceTree = "<group>"; };
+		81F3D69D264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigurarRegistrosViewModel+Protocol.swift"; sourceTree = "<group>"; };
+		81F3D69F26456C7C002966DB /* RegistrosViewModel+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrosViewModel+Protocols.swift"; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +217,7 @@
 		81BA7BC125D16A320002D594 /* UmSimplesDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81F10AA225E00F0A001F0ACB /* Repository */,
 				81BA7C5F25D2AC0C0002D594 /* Network */,
 				81BA7C3A25D1736E0002D594 /* Model */,
 				81BA7CBB25D42CB30002D594 /* Service */,
@@ -249,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				81F10B2A25E975A4001F0ACB /* ConfigurarRegistro */,
-				81F10AA225E00F0A001F0ACB /* Repository */,
 				81F10A9625DFFD1F001F0ACB /* EditarRegistro */,
 				81BA7C0925D16F510002D594 /* PesquisarRegistros */,
 				81BA7C0825D16F480002D594 /* EscreverDiario */,
@@ -266,6 +272,7 @@
 				81BA7C1625D16FB00002D594 /* RegistrosViewController.swift */,
 				81BA7C1B25D16FBE0002D594 /* RegistrosViewModel.swift */,
 				81BA7C2125D170260002D594 /* RegistrosView.swift */,
+				81F3D69F26456C7C002966DB /* RegistrosViewModel+Protocols.swift */,
 			);
 			path = Registros;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 				81BA7C5A25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift */,
 				81BA7D3D25D608E20002D594 /* PesquisarRegistrosViewModel.swift */,
 				81BA7D4225D609750002D594 /* PesquisarRegistrosView.swift */,
+				81F3D69B2645667B002966DB /* PesquisarRegistrosViewModel+Protocol.swift */,
 			);
 			path = PesquisarRegistros;
 			sourceTree = "<group>";
@@ -388,6 +396,7 @@
 				817F79FB25F01827002F0856 /* PresentationViewController.swift */,
 				817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */,
 				817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */,
+				81F3D69D264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift */,
 			);
 			path = ConfigurarRegistro;
 			sourceTree = "<group>";
@@ -670,12 +679,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F3D69E264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift in Sources */,
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
 				81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
 				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
 				81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */,
+				81F3D6A026456C7C002966DB /* RegistrosViewModel+Protocols.swift in Sources */,
 				81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
 				817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */,
@@ -705,6 +716,7 @@
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
 				81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
+				81F3D69C2645667B002966DB /* PesquisarRegistrosViewModel+Protocol.swift in Sources */,
 				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,
 				81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */,
