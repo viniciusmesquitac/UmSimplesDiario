@@ -23,8 +23,12 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
-
         setupTitle()
+
+        titleTextField.rx.text.changed.subscribe(onNext: { text in
+            self.isTitleEmpty = text != nil && text != ""
+            self.rowHeight.accept(self.titleTextField.frame.height + 16)
+        }).disposed(by: disposeBag)
     }
 
     required init?(coder: NSCoder) {
@@ -40,20 +44,9 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         titleTextField.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
         titleTextField.delegate = self
 
-        titleTextField.rx.text.changed.subscribe(onNext: { text in
-            if text != nil && text != "" {
-                self.isTitleEmpty = false
-            } else if text == "" {
-                self.isTitleEmpty = true
-            }
-            self.rowHeight.accept(self.titleTextField.frame.height + 16)
-        }).disposed(by: disposeBag)
-
         titleTextField.font = StyleSheet.Font.primaryFont24
         self.titleTextField.snp.makeConstraints { make in
-            make.top.equalTo(snp.top)
-            make.leading.equalTo(snp.leading)
-            make.trailing.equalTo(snp.trailing)
+            make.top.leading.trailing.equalToSuperview()
         }
     }
 
@@ -61,10 +54,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         titleTextField.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightTitle = height
-            UIView.performWithoutAnimation {
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
+            self.updateTableView(tableView)
         }).disposed(by: self.disposeBag)
     }
 
@@ -72,10 +62,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         titleTextField.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightTitle = height
-            UIView.performWithoutAnimation {
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
+            self.updateTableView(tableView)
         }).disposed(by: self.disposeBag)
     }
 }
@@ -83,10 +70,8 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
 extension TitleEscreverDiarioViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard text.rangeOfCharacter(from: CharacterSet.newlines) == nil else {
-              // textView.resignFirstResponder() // uncomment this to close the keyboard when return key is pressed
               return false
           }
-
           return true
     }
 }
