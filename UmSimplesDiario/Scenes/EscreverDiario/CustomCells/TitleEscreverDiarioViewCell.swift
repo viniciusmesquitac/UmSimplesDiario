@@ -10,10 +10,12 @@ import RxSwift
 import RxCocoa
 
 class TitleEscreverDiarioViewCell: UITableViewCell {
-    static let identifier = "title"
-    let title = UITextView()
+    static let identifier = String(describing: type(of: self))
+    let titleTextField = UITextView()
+
     var heightTitle = CGFloat(120)
     var rowHeight = BehaviorRelay<CGFloat>(value: 20)
+
     var isTitleEmpty = true
     let disposeBag = DisposeBag()
 
@@ -30,25 +32,25 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     }
 
     func setupTitle() {
-        addSubview(title)
-        title.placeholder = "Sem titulo"
-        title.isScrollEnabled = false
-        rowHeight.accept(title.frame.height + 100)
-        title.textColor = StyleSheet.Color.titleTextColor
-        title.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
-        title.delegate = self
+        addSubview(titleTextField)
+        titleTextField.placeholder = "Sem titulo"
+        titleTextField.isScrollEnabled = false
+        rowHeight.accept(titleTextField.frame.height + 100)
+        titleTextField.textColor = StyleSheet.Color.titleTextColor
+        titleTextField.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
+        titleTextField.delegate = self
 
-        title.rx.text.changed.subscribe(onNext: { text in
+        titleTextField.rx.text.changed.subscribe(onNext: { text in
             if text != nil && text != "" {
                 self.isTitleEmpty = false
             } else if text == "" {
                 self.isTitleEmpty = true
             }
-            self.rowHeight.accept(self.title.frame.height + 16)
+            self.rowHeight.accept(self.titleTextField.frame.height + 16)
         }).disposed(by: disposeBag)
 
-        title.font = StyleSheet.Font.primaryFont24
-        self.title.snp.makeConstraints { make in
+        titleTextField.font = StyleSheet.Font.primaryFont24
+        self.titleTextField.snp.makeConstraints { make in
             make.top.equalTo(snp.top)
             make.leading.equalTo(snp.leading)
             make.trailing.equalTo(snp.trailing)
@@ -56,7 +58,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     }
 
     func bind(viewModel: EditarRegistroViewModel, with tableView: UITableView) {
-        title.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
+        titleTextField.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightTitle = height
             UIView.performWithoutAnimation {
@@ -67,7 +69,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     }
 
     func bind(viewModel: EscreverDiarioViewModel, with tableView: UITableView) {
-        title.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
+        titleTextField.rx.text.bind(to: viewModel.titleText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightTitle = height
             UIView.performWithoutAnimation {

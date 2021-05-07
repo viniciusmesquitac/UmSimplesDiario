@@ -110,7 +110,7 @@ extension EditarRegistroViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TitleEscreverDiarioViewCell.identifier) as? TitleEscreverDiarioViewCell
         cell?.bind(viewModel: viewModel, with: tableView)
-        cell?.title.text = element
+        cell?.titleTextField.text = element
         return cell ?? UITableViewCell()
     }
 
@@ -118,7 +118,7 @@ extension EditarRegistroViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
         cell?.bind(viewModel: viewModel, with: tableView)
-        cell?.body.text = element
+        cell?.bodyTextView.text = element
         return cell ?? UITableViewCell()
     }
 
