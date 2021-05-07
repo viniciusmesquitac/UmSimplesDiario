@@ -12,7 +12,7 @@ struct RegistroDTO {
     var titulo: String?
     var texto: String?
     var humor: Humor
-    var clima: Clima
+    var clima: WeatherKeyResult
     let date = Date()
 }
 
@@ -34,27 +34,30 @@ extension RegistroModel {
     var texto: String? {
         registro.texto
     }
-    var humor: UIImage {
+    var humor: UIImage? {
         switch registro.humor {
         case 0: return StyleSheet.Image.Mood.happyMood
         case 1: return StyleSheet.Image.Mood.sadMood
-        default: return StyleSheet.Image.Mood.happyMood
+        default: return nil
         }
     }
-    var clima: UIImage {
+    
+    var clima: UIImage? {
         switch registro.clima {
         case 0:
             return StyleSheet.Image.Weather.clearSky
         case 1:
             return StyleSheet.Image.Weather.fewClouds
         case 2:
-            return StyleSheet.Image.Weather.showerRain
+            return StyleSheet.Image.Weather.rain
         case 3:
             return StyleSheet.Image.Weather.rain
         case 4:
             return StyleSheet.Image.Weather.thunderstorm
+        case 5:
+            return nil
         default:
-            return StyleSheet.Image.Weather.clearSky
+            return nil
 
         }
     }

@@ -13,6 +13,7 @@ target 'UmSimplesDiario' do
     pod 'RxDataSources', '~> 4.0'
     pod 'SwiftLint'
     pod 'UITextView+Placeholder'
+    pod 'RxGesture'
 
   target 'UmSimplesDiarioTests' do
     inherit! :search_paths

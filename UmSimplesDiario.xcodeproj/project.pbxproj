@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		21F545F09B5B040647A9FB8D /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */; };
 		3AADFC5D9838860C039D13CA /* Pods_UmSimplesDiarioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */; };
+		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
+		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
+		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
 		81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC225D16A320002D594 /* AppDelegate.swift */; };
 		81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC425D16A320002D594 /* SceneDelegate.swift */; };
 		81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BCB25D16A320002D594 /* UmSimplesDiario.xcdatamodeld */; };
@@ -37,13 +40,24 @@
 		81BA7CBD25D42CC00002D594 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7CBC25D42CC00002D594 /* CoreDataService.swift */; };
 		81BA7CC225D42DE80002D594 /* Humor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7CC125D42DE80002D594 /* Humor.swift */; };
 		81BA7CC725D42E570002D594 /* Schema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7CC625D42E570002D594 /* Schema.swift */; };
-		81BA7D1525D559890002D594 /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D1325D559890002D594 /* Registro+CoreDataClass.swift */; };
-		81BA7D1625D559890002D594 /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D1425D559890002D594 /* Registro+CoreDataProperties.swift */; };
 		81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D3D25D608E20002D594 /* PesquisarRegistrosViewModel.swift */; };
 		81BA7D4325D609750002D594 /* PesquisarRegistrosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D4225D609750002D594 /* PesquisarRegistrosView.swift */; };
 		81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */; };
-		81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DAB25DB1A980002D594 /* Mes.swift */; };
 		81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */; };
+		81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */; };
+		81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */; };
+		81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10A9D25E00E09001F0ACB /* SectionCell.swift */; };
+		81F10AB725E01166001F0ACB /* Registro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AB525E01166001F0ACB /* Registro+CoreDataClass.swift */; };
+		81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AB625E01166001F0ACB /* Registro+CoreDataProperties.swift */; };
+		81F10ACC25E012E4001F0ACB /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 81F10ACB25E012E4001F0ACB /* .swiftlint.yml */; };
+		81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */; };
+		81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */; };
+		81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */; };
+		81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */; };
+		81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */; };
+		81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */; };
+		81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */; };
+		81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +83,9 @@
 		5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6325CDD0DB65906C0C32626D /* Pods-UmSimplesDiario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.release.xcconfig"; sourceTree = "<group>"; };
 		6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiarioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
+		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
+		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
 		81BA7BBF25D16A320002D594 /* UmSimplesDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UmSimplesDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA7BC225D16A320002D594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BA7BC425D16A320002D594 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,13 +120,24 @@
 		81BA7CBC25D42CC00002D594 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		81BA7CC125D42DE80002D594 /* Humor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Humor.swift; sourceTree = "<group>"; };
 		81BA7CC625D42E570002D594 /* Schema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schema.swift; sourceTree = "<group>"; };
-		81BA7D1325D559890002D594 /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		81BA7D1425D559890002D594 /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		81BA7D3D25D608E20002D594 /* PesquisarRegistrosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosViewModel.swift; sourceTree = "<group>"; };
 		81BA7D4225D609750002D594 /* PesquisarRegistrosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosView.swift; sourceTree = "<group>"; };
 		81BA7D5625D6C73F0002D594 /* HeaderEscreverDiarioView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderEscreverDiarioView.swift; sourceTree = "<group>"; };
-		81BA7DAB25DB1A980002D594 /* Mes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mes.swift; sourceTree = "<group>"; };
 		81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PesquisarRegistrosCoordinator.swift; sourceTree = "<group>"; };
+		81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyEscreverDiarioViewCell.swift; sourceTree = "<group>"; };
+		81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrosViewCell.swift; sourceTree = "<group>"; };
+		81F10A9D25E00E09001F0ACB /* SectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCell.swift; sourceTree = "<group>"; };
+		81F10AB525E01166001F0ACB /* Registro+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataClass.swift"; sourceTree = "<group>"; };
+		81F10AB625E01166001F0ACB /* Registro+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Registro+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		81F10ACB25E012E4001F0ACB /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroViewController.swift; sourceTree = "<group>"; };
+		81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroViewModel.swift; sourceTree = "<group>"; };
+		81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroView.swift; sourceTree = "<group>"; };
+		81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCellModel.swift; sourceTree = "<group>"; };
+		81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEscreverDiarioViewCell.swift; sourceTree = "<group>"; };
+		81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioAcessoryView.swift; sourceTree = "<group>"; };
+		81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroViewController.swift; sourceTree = "<group>"; };
+		81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCoordinator.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +186,7 @@
 		81BA7BB625D16A320002D594 = {
 			isa = PBXGroup;
 			children = (
+				81F10ACB25E012E4001F0ACB /* .swiftlint.yml */,
 				81BA7BC125D16A320002D594 /* UmSimplesDiario */,
 				81BA7BDB25D16A340002D594 /* UmSimplesDiarioTests */,
 				81BA7BE625D16A340002D594 /* UmSimplesDiarioUITests */,
@@ -217,11 +246,13 @@
 		81BA7C0525D16B6F0002D594 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				81F10B2A25E975A4001F0ACB /* ConfigurarRegistro */,
+				81F10AA225E00F0A001F0ACB /* Repository */,
+				81F10A9625DFFD1F001F0ACB /* EditarRegistro */,
 				81BA7C0925D16F510002D594 /* PesquisarRegistros */,
 				81BA7C0825D16F480002D594 /* EscreverDiario */,
 				81BA7C0725D16F380002D594 /* Registros */,
 				81BA7C4325D173B60002D594 /* ViewModel.swift */,
-				81BA7CB625D42C980002D594 /* RegistroRepository.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -229,6 +260,7 @@
 		81BA7C0725D16F380002D594 /* Registros */ = {
 			isa = PBXGroup;
 			children = (
+				81BA7DE225DD4B9F0002D594 /* CustomCells */,
 				81BA7C1625D16FB00002D594 /* RegistrosViewController.swift */,
 				81BA7C1B25D16FBE0002D594 /* RegistrosViewModel.swift */,
 				81BA7C2125D170260002D594 /* RegistrosView.swift */,
@@ -239,6 +271,7 @@
 		81BA7C0825D16F480002D594 /* EscreverDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81BA7DC725DD3B3B0002D594 /* CustomCells */,
 				81BA7C5525D1AB0E0002D594 /* EscreverDiarioViewController.swift */,
 				81BA7C9025D2C1580002D594 /* EscreverDiarioViewModel.swift */,
 				81BA7C9525D2C1630002D594 /* EscreverDiarioView.swift */,
@@ -264,6 +297,7 @@
 				81BA7BFB25D16B040002D594 /* AppCoordinator.swift */,
 				81BA7C0B25D16F800002D594 /* RegistrosCoordinator.swift */,
 				81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */,
+				81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -271,13 +305,12 @@
 		81BA7C3A25D1736E0002D594 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				81BA7D1325D559890002D594 /* Registro+CoreDataClass.swift */,
-				81BA7D1425D559890002D594 /* Registro+CoreDataProperties.swift */,
+				81F10AB525E01166001F0ACB /* Registro+CoreDataClass.swift */,
+				81F10AB625E01166001F0ACB /* Registro+CoreDataProperties.swift */,
 				81BA7C3B25D1737A0002D594 /* RegistroDTO.swift */,
 				81BA7C7725D2B5660002D594 /* Weather.swift */,
 				81BA7CC125D42DE80002D594 /* Humor.swift */,
 				81BA7CC625D42E570002D594 /* Schema.swift */,
-				81BA7DAB25DB1A980002D594 /* Mes.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -298,6 +331,63 @@
 				81BA7CBC25D42CC00002D594 /* CoreDataService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		81BA7DC725DD3B3B0002D594 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7DC825DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift */,
+				81F10B0E25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift */,
+				81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		81BA7DE225DD4B9F0002D594 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7DE325DD4BB40002D594 /* RegistrosViewCell.swift */,
+				81F10A9D25E00E09001F0ACB /* SectionCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		81F10A9625DFFD1F001F0ACB /* EditarRegistro */ = {
+			isa = PBXGroup;
+			children = (
+				81F10B0825E6AEF0001F0ACB /* CustomCells */,
+				81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */,
+				81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */,
+				81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */,
+			);
+			path = EditarRegistro;
+			sourceTree = "<group>";
+		};
+		81F10AA225E00F0A001F0ACB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7CB625D42C980002D594 /* RegistroRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		81F10B0825E6AEF0001F0ACB /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				81F10B0925E6AEFE001F0ACB /* EditarRegistroCellModel.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		81F10B2A25E975A4001F0ACB /* ConfigurarRegistro */ = {
+			isa = PBXGroup;
+			children = (
+				81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */,
+				817F79FB25F01827002F0856 /* PresentationViewController.swift */,
+				817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */,
+				817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */,
+			);
+			path = ConfigurarRegistro;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -325,6 +415,7 @@
 				81BA7BBC25D16A320002D594 /* Frameworks */,
 				81BA7BBD25D16A320002D594 /* Resources */,
 				D7FD640D35D231DED0D57176 /* [CP] Embed Pods Frameworks */,
+				81F10AA925E010B6001F0ACB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -421,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81F10ACC25E012E4001F0ACB /* .swiftlint.yml in Resources */,
 				81BA7BD225D16A340002D594 /* LaunchScreen.storyboard in Resources */,
 				81BA7BCF25D16A340002D594 /* Assets.xcassets in Resources */,
 			);
@@ -504,6 +596,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		81F10AA925E010B6001F0ACB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		D7FD640D35D231DED0D57176 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -551,14 +660,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
+				81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
-				81BA7D1525D559890002D594 /* Registro+CoreDataClass.swift in Sources */,
+				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
-				81BA7D1625D559890002D594 /* Registro+CoreDataProperties.swift in Sources */,
+				81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */,
+				81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
+				817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */,
+				817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */,
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
+				81F10AB725E01166001F0ACB /* Registro+CoreDataClass.swift in Sources */,
+				81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */,
+				81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */,
+				81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */,
+				81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */,
 				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
 				81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */,
 				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,
@@ -566,18 +684,22 @@
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
+				81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */,
 				81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */,
 				81BA7C5B25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift in Sources */,
 				81BA7D4325D609750002D594 /* PesquisarRegistrosView.swift in Sources */,
 				81BA7BFC25D16B040002D594 /* AppCoordinator.swift in Sources */,
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
+				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
-				81BA7DAC25DB1A980002D594 /* Mes.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
+				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,
 				81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */,
+				81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */,
 				81BA7CC225D42DE80002D594 /* Humor.swift in Sources */,
 				81BA7C9125D2C1580002D594 /* EscreverDiarioViewModel.swift in Sources */,
+				817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */,
 				81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */,
 				81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */,
 				81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */,
@@ -750,7 +872,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -771,7 +893,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

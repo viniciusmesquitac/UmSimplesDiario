@@ -29,26 +29,25 @@ class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, Pesquisa
     internal var searchBarText = BehaviorRelay<String?>(value: nil)
     
     internal var listaRegistrosRelay = BehaviorRelay<[Registro]>(value: [])
-    
+
     internal var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
     
     internal var cancelButton = PublishSubject<Void>()
-    
+
     public var inputs: PesquisarRegistrosViewModelInput { return self }
     public var outputs: PesquisarRegistrosViewModelOutput { return self }
     
     private var coordinator: PesquisarRegistrosCoordinator?
     private var registros: [Registro]!
     private let disposeBag = DisposeBag()
-    
+
     init(coordinator: PesquisarRegistrosCoordinator, registros: [Registro]) {
         self.coordinator = coordinator
         self.registros = registros
-        
+
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
         }).disposed(by: disposeBag)
-        
         
         searchBarText.subscribe(onNext: { text in
             guard let text = text else { return }
@@ -61,19 +60,17 @@ class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, Pesquisa
             guard let row = indexPath.element??.row else { return }
             coordinator.editCompose(registro: self.registros[row])
             print(self.registros[row])
-            
         }.disposed(by: disposeBag)
     }
 }
 
 extension PesquisarRegistrosViewModel: PesquisarRegistrosViewModelOutput {
-    
+
     var registrosObservable: Observable<[Registro]> {
         Observable.of(self.registros)
     }
-    
+
     var registrosOutput: Observable<[Registro]> {
         self.inputs.listaRegistrosRelay.asObservable()
     }
 }
-

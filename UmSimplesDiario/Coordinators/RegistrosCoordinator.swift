@@ -24,43 +24,44 @@ final class RegistrosCoordinator: Coordinator {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
-    
+
     func start() {
-        let registrosViewController = RegistrosViewController(viewModel: RegistrosViewModel(coordinator: self, registros: []))
+        let viewModel = RegistrosViewModel(coordinator: self, registros: [])
+        let registrosViewController = RegistrosViewController(viewModel: viewModel)
         self.currentController = registrosViewController
         navigationController.pushViewController(registrosViewController, animated: true)
     }
-    
-    func route(to Path: RegistrosPath) {
-        switch Path {
+
+    func route(to path: RegistrosPath) {
+        switch path {
         case .compose:
-            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registro: nil))
-            
+            let coordinator = RegistrosCoordinator(navigationController: self.navigationController)
+            let viewModel = EscreverDiarioViewModel(coordinator: coordinator, registro: nil)
+            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: viewModel)
             let navigationController = UINavigationController(rootViewController: escreverDiarioViewController)
             navigationController.modalPresentationStyle = .fullScreen
             self.navigationController.present(navigationController, animated: true, completion: nil)
+
         case .search(let registros):
-            let pesquisarRegistrosCoordinator = PesquisarRegistrosCoordinator(navigationController: self.navigationController)
-            pesquisarRegistrosCoordinator.start(registros: registros)
-            
+            let pesquisarRegistroCoordinator = PesquisarRegistrosCoordinator(
+                navigationController: self.navigationController)
+            pesquisarRegistroCoordinator.start(registros: registros)
+
         case .editCompose(let registro):
-            let escreverDiarioViewController = EscreverDiarioViewController(viewModel: EscreverDiarioViewModel(coordinator: RegistrosCoordinator(navigationController: self.navigationController), registro: registro))
-            escreverDiarioViewController.navigationController?.title = ""
-            escreverDiarioViewController.navigationController?.navigationBar.prefersLargeTitles = false
-            escreverDiarioViewController.navigationController?.navigationItem.largeTitleDisplayMode = .never
-            self.navigationController.pushViewController(escreverDiarioViewController, animated: true)
-            
+            let editarRegistoCoordinator = EditarRegistroCoordinator(navigationController: self.navigationController)
+            editarRegistoCoordinator.start(registro: registro)
+
         case .showIdea(let idea):
             let modal = UIAlertAction(title: idea, style: .default, handler: nil)
+            print(modal)
         }
-        
-        
+
     }
-    
+
     func dismiss() {
         navigationController.dismiss(animated: true, completion: {
-            guard let vc = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
-            vc.viewModel.loadRegistros()
+            guard let viewController = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
+            viewController.viewModel.loadRegistros()
             self.navigationController.popViewController(animated: true)
         })
     }
