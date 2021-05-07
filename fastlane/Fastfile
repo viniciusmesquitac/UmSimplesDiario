@@ -22,4 +22,9 @@ platform :ios do
 	     workspace: "",
 	     include_bitcode: true)
   end
+ lane :beta do
+   build_app(scheme: "UmSimplesDiario")
+  upload_to_testflight
+  slack(message: "Successfully distributed a new beta build")
+ end
 end
