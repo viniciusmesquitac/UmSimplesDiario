@@ -8,28 +8,29 @@
 import UIKit
 
 class HeaderEscreverDiarioView: UIView {
-    
+
     let humorIconButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
         button.setImage(StyleSheet.Image.happyMood, for: .normal)
         return button
     }()
-    
+
     let ideaIconButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
         button.setImage(StyleSheet.Image.ideaIcon, for: .normal)
         return button
     }()
-    
+
     let weatherButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
         button.setImage(StyleSheet.Image.fewClouds, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
-    
+
     let humorLabel = UIButton(frame: .zero)
     let weatherLabel = UIButton(frame: .zero)
     let ideaLabel = UILabel()
@@ -64,32 +65,26 @@ class HeaderEscreverDiarioView: UIView {
         self.humorIconButton.translatesAutoresizingMaskIntoConstraints = false
         self.humorIconButton.tintColor = UIColor.systemBlue
         self.humorLabel.snp.makeConstraints { make in
-            make.height.equalTo(0)
-            make.width.equalTo(0)
+            make.height.width.equalTo(0)
         }
-        
         self.humorIconButton.snp.removeConstraints()
         self.humorIconButton.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(24)
             make.leading.equalTo(snp.leading).offset(24)
-            make.height.equalTo(16)
-            make.width.equalTo(16)
+            make.height.width.equalTo(16)
         }
     }
 
     func updateClima() {
         self.weatherButton.tintColor = UIColor.systemBlue
         self.weatherLabel.snp.makeConstraints { make in
-            make.height.equalTo(0)
-            make.width.equalTo(0)
+            make.height.width.equalTo(0)
         }
-
         self.weatherButton.snp.removeConstraints()
         self.weatherButton.snp.makeConstraints { make in
             make.centerY.equalTo(humorIconButton.snp.centerY)
             make.trailing.equalTo(snp.trailing).offset(-16)
-            make.height.equalTo(18)
-            make.width.equalTo(24)
+            make.height.width.equalTo(24)
         }
     }
 
@@ -98,12 +93,11 @@ class HeaderEscreverDiarioView: UIView {
         self.humorIconButton.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(24)
             make.leading.equalTo(snp.leading).offset(24)
-            make.height.equalTo(12)
-            make.width.equalTo(12)
+            make.height.width.equalTo(16)
         }
         setupHumorLabel()
     }
-    
+
     func setupHumorLabel() {
         addSubview(humorLabel)
         humorLabel.setTitle("Inserir Humor", for: .normal)
@@ -115,14 +109,13 @@ class HeaderEscreverDiarioView: UIView {
         }
         setupWeatherButtonView()
     }
-    
+
     func setupWeatherButtonView() {
         addSubview(weatherButton)
         self.weatherButton.snp.makeConstraints { make in
             make.centerY.equalTo(humorIconButton.snp.centerY)
             make.leading.equalTo(humorLabel.snp.trailing).offset(16)
-            make.height.equalTo(12)
-            make.width.equalTo(16)
+            make.height.height.equalTo(16)
         }
         setupWeatherLabel()
     }

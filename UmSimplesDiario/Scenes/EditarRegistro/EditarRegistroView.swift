@@ -16,8 +16,8 @@ class EditarRegistroView: UIView {
     let view = UIView(frame: .zero)
     let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    let cancelButton = UIBarButtonItem(systemItem: .cancel)
-    let saveButton = UIBarButtonItem(systemItem: .save)
+    let cancelButton = UIBarButtonItem(title: "cancelar")
+    let saveButton = UIBarButtonItem(title: "salvar")
     let tableView = UITableView(frame: .zero)
 
     let navigationMoreButtonItem: UIBarButtonItem = {

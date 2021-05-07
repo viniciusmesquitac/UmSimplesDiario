@@ -41,7 +41,7 @@ extension RegistroModel {
         default: return nil
         }
     }
-    
+
     var clima: UIImage? {
         let imageNamed = WeatherKeyResult.allCases[Int(registro.clima)]
             .rawValue.replacingOccurrences(of: " ", with: "_")

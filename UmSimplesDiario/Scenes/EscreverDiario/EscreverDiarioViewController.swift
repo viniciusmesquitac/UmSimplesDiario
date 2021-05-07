@@ -133,12 +133,10 @@ extension EscreverDiarioViewController {
             let isBodyEmpty = cell?.isBodyEmpty ?? false
             if !isBodyEmpty && !self.mainView.isTitleEmpty {
                 self.navigationItem.rightBarButtonItem = self.mainView.saveButton
-                
             } else {
                 self.navigationItem.rightBarButtonItem = self.mainView.cancelButton
             }
         }).disposed(by: self.disposeBag)
-    
         cell?.body.text = element
         return cell ?? UITableViewCell()
     }

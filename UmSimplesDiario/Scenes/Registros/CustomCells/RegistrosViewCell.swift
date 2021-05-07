@@ -115,10 +115,11 @@ class RegistrosViewCell: UITableViewCell {
     }
 
     func configure(_ registro: RegistroModel) {
+        let defaultTextEntry = "Registro vazio, escreva algo aqui!"
         self.setText(registro.titulo ?? "", in: self.titleEntry, limit: 24)
-        self.setText(registro.texto ?? "", in: self.descriptionEntry, limit: 30)
+        self.setText(registro.texto ?? defaultTextEntry, in: self.descriptionEntry, limit: 42)
         if registro.texto == "" {
-            self.descriptionEntry.text = "Registro vazio, escreva algo aqui!"
+            self.descriptionEntry.text = defaultTextEntry
         }
         self.dayLabel.text = registro.dia
         self.dayWeekLabel.text = registro.diaDaSemana
