@@ -105,7 +105,8 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             url: WeatherAPI.weatherCity(name: "Maracanau", stateCode: nil, countryCode: nil).url!)
         URLRequest.load(resource: resource).subscribe(onNext: { result in
             if let result = result?.weather.first?.description,
-               let key = WeatherKeyResult.allCases.filter({ $0.rawValue == result }).first  {
+               let key = WeatherKeyResult.allCases.filter({ $0.rawValue == result })
+                .first {
                     self.weather.accept(key)
             }
         }).disposed(by: disposeBag)

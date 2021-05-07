@@ -58,6 +58,7 @@
 		81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */; };
 		81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */; };
 		81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */; };
+		81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6972644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +139,7 @@
 		81F10B1625E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EscreverDiarioAcessoryView.swift; sourceTree = "<group>"; };
 		81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroViewController.swift; sourceTree = "<group>"; };
 		81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarRegistroCoordinator.swift; sourceTree = "<group>"; };
+		81F3D6972644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditarRegistroViewModel+Protocols.swift"; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,9 +357,9 @@
 		81F10A9625DFFD1F001F0ACB /* EditarRegistro */ = {
 			isa = PBXGroup;
 			children = (
+				81F3D6962644DBB2002966DB /* ViewModel */,
 				81F10B0825E6AEF0001F0ACB /* CustomCells */,
 				81F10AF325E6A987001F0ACB /* EditarRegistroViewController.swift */,
-				81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */,
 				81F10B0325E6ACAC001F0ACB /* EditarRegistroView.swift */,
 			);
 			path = EditarRegistro;
@@ -388,6 +390,15 @@
 				817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */,
 			);
 			path = ConfigurarRegistro;
+			sourceTree = "<group>";
+		};
+		81F3D6962644DBB2002966DB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				81F10AFE25E6ACA3001F0ACB /* EditarRegistroViewModel.swift */,
+				81F3D6972644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -692,6 +703,7 @@
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
 				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
+				81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
 				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,

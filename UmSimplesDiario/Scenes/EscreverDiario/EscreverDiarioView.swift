@@ -12,14 +12,13 @@ import RxCocoa
 import UITextView_Placeholder
 
 class EscreverDiarioView: UIView {
-    
+
     let view = UIView(frame: .zero)
     let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    let cancelButton = UIBarButtonItem(systemItem: .cancel)
-    let saveButton = UIBarButtonItem(systemItem: .save)
+    let cancelButton = UIBarButtonItem(title: "Cancelar")
+    let saveButton = UIBarButtonItem(title: "Salvar")
     let tableView = UITableView(frame: .zero)
-    
     var isTitleEmpty = false
     var isBodyEmpty = false
     
@@ -30,13 +29,12 @@ class EscreverDiarioView: UIView {
         button.tintColor = StyleSheet.Color.secundaryColor
         return button
     }()
-    
     let navigationBackButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
         button.tintColor = UIColor.systemBlue
         return button
     }()
-    
+
     let navigationMoreButtonItem: UIBarButtonItem = {
         let button = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: nil, action: nil)
         button.tintColor = UIColor.systemBlue

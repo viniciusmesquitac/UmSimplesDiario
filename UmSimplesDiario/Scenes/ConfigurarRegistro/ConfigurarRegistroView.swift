@@ -14,7 +14,6 @@ class ConfigurarRegistroView: UIView {
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let disposeBag = DisposeBag()
-    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
 
@@ -22,6 +21,16 @@ class ConfigurarRegistroView: UIView {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
         button.setImage(.remove, for: .normal)
+        button.layer.cornerRadius = 60/2
+        button.backgroundColor = .darkGray
+        return button
+    }()
+
+    let saveButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.tintColor = StyleSheet.Color.secundaryColor
+        button.setImage(.checkmark, for: .normal)
+        button.layer.cornerRadius = 60/2
         button.backgroundColor = .darkGray
         return button
     }()
@@ -40,16 +49,19 @@ class ConfigurarRegistroView: UIView {
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        setupDeleteButton()
+        setupStackView()
     }
 
-    func setupDeleteButton() {
-        view.addSubview(deleteButton)
-        deleteButton.snp.makeConstraints { make in
-            make.height.equalTo(59)
-            make.width.equalTo(59)
-            make.centerX.equalTo(view.snp.centerX)
-            make.centerY.equalTo(view.snp.centerY)
+    func setupStackView() {
+        let stackView = UIStackView(arrangedSubviews: [saveButton, deleteButton])
+        stackView.axis = .horizontal
+        stackView.spacing = 16
+        stackView.distribution = .fillEqually
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.height.equalTo(60)
+            make.width.equalTo(60 * stackView.subviews.count + (16 * stackView.subviews.count - 1)/2)
         }
     }
 }

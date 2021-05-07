@@ -11,7 +11,7 @@ class PresentationController: UIPresentationController {
 
   let blurEffectView: UIVisualEffectView!
   var tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer()
-  
+
   override init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?) {
       let blurEffect = UIBlurEffect(style: .dark)
       blurEffectView = UIVisualEffectView(effect: blurEffect)

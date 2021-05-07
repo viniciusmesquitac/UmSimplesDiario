@@ -47,6 +47,11 @@ class RegistroRepository: Repository {
         nil
     }
 
+    func save(object: Registro) {
+        service.save()
+    }
+
+    @discardableResult
     func delete(object: Registro) -> Registro? {
         service.delete(object: object)
     }

@@ -23,7 +23,7 @@ class RegistrosView: UIView {
         self.view.frame = self.bounds
         self.view.backgroundColor = .systemBackground
         insertSubview(view, belowSubview: indicatorContainer)
-        
+
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -55,7 +55,7 @@ class RegistrosView: UIView {
             make.centerY.equalToSuperview()
         }
     }
-    
+
     func emptyState(_ isEmpty: Bool) {
         if isEmpty {
             emptyStateLabel.isHidden = false

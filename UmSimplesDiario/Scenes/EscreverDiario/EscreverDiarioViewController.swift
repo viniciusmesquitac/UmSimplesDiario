@@ -128,7 +128,6 @@ extension EscreverDiarioViewController {
     func makeTextCell(with element: String, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
-        cell?.bind(escreverRegistroViewModel: viewModel, with: tableView)
         cell?.body.rx.text.subscribe(onNext: { _ in
             let isBodyEmpty = cell?.isBodyEmpty ?? false
             if !isBodyEmpty && !self.mainView.isTitleEmpty {

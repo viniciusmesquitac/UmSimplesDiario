@@ -17,10 +17,10 @@ enum RegistrosPath {
 }
 
 final class RegistrosCoordinator: Coordinator {
-    
+
     var navigationController: UINavigationController!
     var currentController: RegistrosViewController?
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -60,7 +60,9 @@ final class RegistrosCoordinator: Coordinator {
 
     func dismiss() {
         navigationController.dismiss(animated: true, completion: {
-            guard let viewController = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
+            guard let viewController = self.navigationController
+                    .viewControllers.first as? RegistrosViewController
+            else { return }
             viewController.viewModel.loadRegistros()
             self.navigationController.popViewController(animated: true)
         })

@@ -27,7 +27,7 @@ class RegistrosViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
+
     fileprivate let hourLabel: UILabel = {
         let label = UILabel()
         label.text = "12:24"

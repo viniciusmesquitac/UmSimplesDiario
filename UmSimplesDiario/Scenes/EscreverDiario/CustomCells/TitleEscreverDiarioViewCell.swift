@@ -16,12 +16,12 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     var rowHeight = BehaviorRelay<CGFloat>(value: 20)
     var isTitleEmpty = true
     let disposeBag = DisposeBag()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
-        
+
         setupTitle()
     }
 
@@ -37,7 +37,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         title.textColor = StyleSheet.Color.titleTextColor
         title.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
         title.delegate = self
-        
+
         title.rx.text.changed.subscribe(onNext: { text in
             if text != nil && text != "" {
                 self.isTitleEmpty = false
@@ -46,7 +46,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
             }
             self.rowHeight.accept(self.title.frame.height + 16)
         }).disposed(by: disposeBag)
-        
+
         title.font = StyleSheet.Font.primaryFont24
         self.title.snp.makeConstraints { make in
             make.top.equalTo(snp.top)
@@ -65,7 +65,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
             }
         }).disposed(by: self.disposeBag)
     }
-    
+
     func bind(escreverRegistroViewModel: EscreverDiarioViewModel, with tableView: UITableView) {
         title.rx.text.bind(to: escreverRegistroViewModel.titleText).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in

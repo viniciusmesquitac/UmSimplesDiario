@@ -17,10 +17,9 @@ struct RegistroDTO {
 }
 
 struct RegistroModel {
-    
     let registro: Registro
     let calendar = Calendar.current
-    
+
     init(registro: Registro) {
         self.registro = registro
     }

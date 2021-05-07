@@ -9,20 +9,20 @@ import UIKit
 import RxSwift
 
 class PesquisarRegistrosViewController: UIViewController {
-    
+
     let mainView = PesquisarRegistrosView()
     var viewModel: PesquisarRegistrosViewModel!
     let disposeBag = DisposeBag()
-    
+
     init(viewModel: PesquisarRegistrosViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.titleView = mainView.searchBar

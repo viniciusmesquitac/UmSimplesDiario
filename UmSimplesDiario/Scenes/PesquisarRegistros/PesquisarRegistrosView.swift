@@ -17,7 +17,6 @@ class PesquisarRegistrosView: UIView {
     func setupView() {
         self.view.backgroundColor = .systemBackground
         insertSubview(view, belowSubview: indicatorContainer)
-        
         searchBar.showsCancelButton = true
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -25,15 +24,12 @@ class PesquisarRegistrosView: UIView {
         
         setupTableView()
     }
-    
-    
+
     func setupTableView() {
         view.addSubview(tableView)
-        
         self.tableView.separatorStyle = .none
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
-    
 }

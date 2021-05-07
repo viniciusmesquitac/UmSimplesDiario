@@ -8,7 +8,7 @@
 import UIKit
 
 struct StyleSheet {
-    
+
     enum Color {
         static let primaryColor = UIColor(named: "primaryColor")
         static let secundaryColor = UIColor.lightGray
