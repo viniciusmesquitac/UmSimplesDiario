@@ -12,21 +12,21 @@ class HeaderEscreverDiarioView: UIView {
     let humorIconButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
-        button.setImage(StyleSheet.Image.Mood.happyMood, for: .normal)
+        button.setImage(StyleSheet.Image.happyMood, for: .normal)
         return button
     }()
     
     let ideaIconButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
-        button.setImage(StyleSheet.Image.Icon.ideaIcon, for: .normal)
+        button.setImage(StyleSheet.Image.ideaIcon, for: .normal)
         return button
     }()
     
     let weatherButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.tintColor = StyleSheet.Color.secundaryColor
-        button.setImage(StyleSheet.Image.Weather.fewClouds, for: .normal)
+        button.setImage(StyleSheet.Image.fewClouds, for: .normal)
         return button
     }()
     
@@ -46,9 +46,9 @@ class HeaderEscreverDiarioView: UIView {
 
     func changeHumor(_ value: Bool) {
         if value {
-            humorIconButton.setImage(StyleSheet.Image.Mood.sadMood, for: .normal)
+            humorIconButton.setImage(StyleSheet.Image.sadMood, for: .normal)
         } else {
-            humorIconButton.setImage(StyleSheet.Image.Mood.happyMood, for: .normal)
+            humorIconButton.setImage(StyleSheet.Image.happyMood, for: .normal)
         }
     }
 
