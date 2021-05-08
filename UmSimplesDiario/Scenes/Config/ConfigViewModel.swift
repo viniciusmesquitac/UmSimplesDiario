@@ -13,16 +13,20 @@ class ConfigViewModel: StaticViewModel {
         createSections()
     }
 
+    var securityBiometricTitle: String {
+        BiometricAuthentication().type == .faceID ? "Face ID": "Touch ID"
+    }
+
     private func createSections() {
         let customize = [
-            ConfigItem(cell: createCell(title: "Temas"), action: nil),
+            ConfigItem(cell: createCell(title: "Tema"), action: nil),
             ConfigItem(cell: createCell(title: "Fonte"), action: nil)
         ]
         let privacy = [
-            ConfigItem(cell: createSwitchCell(title: "Face ID"), action: nil)
+            ConfigItem(cell: createSwitchCell(title: securityBiometricTitle), action: nil)
         ]
         sections = [
-            ConfigSection(title: "Customizar", items: customize),
+            ConfigSection(title: "Customização", items: customize),
             ConfigSection(title: "Privacidade", items: privacy)
         ]
     }
@@ -35,9 +39,9 @@ class ConfigViewModel: StaticViewModel {
         let cell = UITableViewCell()
         cell.textLabel?.text = title
         cell.accessoryType = .disclosureIndicator
-//        cell.accessoryView?.backgroundColor = Stylesheet.Color.primaryColor
-//        cell.accessoryView?.tintColor = Stylesheet.Color.primaryColor
-//        cell.tintColor = Stylesheet.Color.primaryColor
+        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
+        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
+        cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
 
@@ -48,9 +52,9 @@ class ConfigViewModel: StaticViewModel {
         cell.contentView.isUserInteractionEnabled = false
         cell.selectionStyle = .none
         cell.textLabel?.text = title
-//        cell.accessoryView?.backgroundColor = Stylesheet.Color.primaryColor
-//        cell.accessoryView?.tintColor = Stylesheet.Color.primaryColor
-//        cell.tintColor = Stylesheet.Color.primaryColor
+        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
+        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
+        cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
 }

@@ -38,19 +38,17 @@ class ConfigurarRegistroViewModel: ConfigurarRegistroViewModelProtocol, Configur
 
 extension ConfigurarRegistroViewModel: ConfigurarRegistroViewModelOutput {
     func showAlert() {
-        let alertController = UIAlertController(title: "Deseja deletar esse registro?",
-                                                message: "Você irá deletar permanentemente este registro.",
-                                                preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Deletar", style: .default) { _ in
+        let title = "Deseja deletar esse registro?"
+        let message = "Você irá deletar permanentemente este registro."
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel)
+
+        let deleteAction = UIAlertAction(title: "Deletar", style: .default) { _ in
             self.repository.delete(object: self.registro)
             self.coordinator.dismissToRegistros()
         }
-
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { _ in
-           print("cancelado")
-        }
-
-        alertController.addAction(okAction)
+    
+        alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         self.coordinator.navigationController.dismiss(animated: true, completion: {
             self.coordinator.navigationController.present(alertController, animated: true)

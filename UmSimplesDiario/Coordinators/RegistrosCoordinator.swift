@@ -57,8 +57,7 @@ final class RegistrosCoordinator: Coordinator {
             print(modal)
 
         case .config:
-            let config = UINavigationController(rootViewController: ConfigViewController(viewModel: ConfigViewModel()))
-            self.navigationController.present(config, animated: true)
+            coordinate(to: ConfigCoordinator(navigationController: self.navigationController))
         }
     }
 
