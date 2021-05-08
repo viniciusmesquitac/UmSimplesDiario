@@ -37,6 +37,7 @@ class RegistrosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Registros"
+        self.navigationItem.leftBarButtonItem = mainView.settingsButton
         self.navigationItem.rightBarButtonItems = [mainView.composeButton, mainView.searchButton]
 
         mainView.setupView()

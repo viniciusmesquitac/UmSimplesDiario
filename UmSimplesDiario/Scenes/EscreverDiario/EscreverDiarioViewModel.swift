@@ -98,7 +98,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         var title = self.titleText.value
         let text = self.bodyText.value
         let weather = self.weather.value
-        if title == "" { title = "Sem titulo" }
+        if title == "" || title == nil { title = "Sem titulo" }
         let registro = RegistroDTO(title: title,
                                    text: text,
                                    mood: humor,

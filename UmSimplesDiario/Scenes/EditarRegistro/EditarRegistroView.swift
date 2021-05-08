@@ -21,7 +21,7 @@ class EditarRegistroView: UIView {
     let tableView = UITableView(frame: .zero)
 
     let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(image: StyleSheet.Image.iconMore)
         button.tintColor = UIColor.systemBlue
         return button
     }()

@@ -34,5 +34,7 @@ struct StyleSheet {
         static let clearSky = UIImage(named: "clear_sky")!
         static let thunderstorm = UIImage(named: "thunderstorm")!
         static let ideaIcon = UIImage(named: "ideaIcon")!
+        static let iconSettings = UIImage(named: "􀍟")!
+        static let iconMore = UIImage(named: "􀍠")!
     }
 }

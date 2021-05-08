@@ -14,6 +14,7 @@ enum RegistrosPath {
     case compose
     case editCompose(registro: Registro)
     case showIdea(idea: String)
+    case config
 }
 
 final class RegistrosCoordinator: Coordinator {
@@ -54,8 +55,11 @@ final class RegistrosCoordinator: Coordinator {
         case .showIdea(let idea):
             let modal = UIAlertAction(title: idea, style: .default, handler: nil)
             print(modal)
-        }
 
+        case .config:
+            let config = ConfigViewController()
+            self.navigationController.present(config, animated: true)
+        }
     }
 
     func dismiss() {

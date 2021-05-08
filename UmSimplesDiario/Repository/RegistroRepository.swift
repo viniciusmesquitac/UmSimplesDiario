@@ -35,7 +35,7 @@ class RegistroRepository: Repository {
     func add(object: RegistroDTO) -> Registro? {
         let registro = service.new()
         registro?.texto = object.text
-        registro?.titulo = object.text
+        registro?.titulo = object.title
         registro?.clima = object.weather.index
         registro?.humor = object.mood.rawValue
         registro?.date = object.date

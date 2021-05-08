@@ -36,7 +36,7 @@ class EscreverDiarioView: UIView {
     }()
 
     let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(image: UIImage(named: "􀍠"), style: .plain, target: nil, action: nil)
         button.tintColor = UIColor.systemBlue
         return button
     }()
