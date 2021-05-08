@@ -34,10 +34,10 @@ class RegistroRepository: Repository {
     @discardableResult
     func add(object: RegistroDTO) -> Registro? {
         let registro = service.new()
-        registro?.texto = object.texto
-        registro?.titulo = object.titulo
-        registro?.clima = object.clima.index
-        registro?.humor = object.humor.rawValue
+        registro?.texto = object.text
+        registro?.titulo = object.text
+        registro?.clima = object.weather.index
+        registro?.humor = object.mood.rawValue
         registro?.date = object.date
         if service.save() { return registro }
         return nil

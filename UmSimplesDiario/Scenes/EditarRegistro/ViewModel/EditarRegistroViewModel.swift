@@ -26,7 +26,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
     var disposeBag = DisposeBag()
     var registro: Registro
     var clima: WeatherKeyResult = .none
-    var humor: Humor = .none
+    var humor: Mood = .none
 
     var heightBody = CGFloat(120)
     var heightTitle = CGFloat(120)
@@ -55,10 +55,10 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
             if let humor = self.changeHumor.value {
                 self.changeHumor.accept(!humor)
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
-                self.humor = !humor ? .triste : .feliz
+                self.humor = !humor ? .sad : .happy
             } else {
                 self.changeHumor.accept(false)
-                self.humor = .feliz
+                self.humor = .happy
             }
             self.salvarRegistro()
         }).disposed(by: disposeBag)
@@ -95,7 +95,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
         case 2: self.changeHumor.accept(nil)
         default: self.changeHumor.accept(nil)
         }
-        self.humor = Humor.allCases[Int(registro.humor)]
+        self.humor = Mood.allCases[Int(registro.humor)]
         self.bodyText.accept(registro.texto)
         self.titleText.accept(registro.titulo)
         self.weather.accept(WeatherKeyResult.allCases[Int(registro.clima)])

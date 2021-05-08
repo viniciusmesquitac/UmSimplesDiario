@@ -28,7 +28,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var disposeBag = DisposeBag()
     var registro: Registro?
     var clima: WeatherKeyResult = .none
-    var humor: Humor = .none
+    var humor: Mood = .none
 
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
@@ -57,10 +57,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         humorButton.subscribe(onNext: {
             if let humor = self.changeHumor.value {
                 self.changeHumor.accept(!humor)
-                self.humor = !humor ? .triste : .feliz
+                self.humor = !humor ? .sad : .happy
             } else {
                 self.changeHumor.accept(false)
-                self.humor = .feliz
+                self.humor = .happy
             }
         }).disposed(by: disposeBag)
 
@@ -99,10 +99,10 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         let text = self.bodyText.value
         let weather = self.weather.value
         if title == "" { title = "Sem titulo" }
-        let registro = RegistroDTO(titulo: title,
-                                   texto: text,
-                                   humor: humor,
-                                   clima: weather)
+        let registro = RegistroDTO(title: title,
+                                   text: text,
+                                   mood: humor,
+                                   weather: weather)
         repository.add(object: registro)
     }
 }

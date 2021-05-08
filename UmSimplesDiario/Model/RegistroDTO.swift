@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 struct RegistroDTO {
-    var titulo: String?
-    var texto: String?
-    var humor: Humor
-    var clima: WeatherKeyResult
+    var title: String?
+    var text: String?
+    var mood: Mood
+    var weather: WeatherKeyResult
     let date = Date()
 }
 
@@ -40,25 +40,25 @@ extension RegistroModel {
         }
     }
 
-    var clima: UIImage? {
+    var weather: UIImage? {
         let imageNamed = WeatherKeyResult.allCases[Int(registro.clima)]
             .rawValue.replacingOccurrences(of: " ", with: "_")
         return UIImage(named: imageNamed)
     }
 
-    var dia: String {
+    var day: String {
         guard let date = registro.date else { return "09" }
         let day = String(calendar.component(.day, from: date))
         return day
     }
 
-    var mes: Int {
+    var month: Int {
         guard let date = registro.date else { return 0 }
         let month = calendar.component(.month, from: date)
         return month - 1
     }
 
-    var horario: String {
+    var time: String {
         guard let date = registro.date else { return "12:00" }
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
@@ -67,7 +67,7 @@ extension RegistroModel {
         }
         return "\(hour):\(minutes)"
     }
-    var diaDaSemana: String {
+    var daysOfWeek: String {
         guard let date = registro.date else { return "12:00" }
         let weekDay = calendar.component(.weekday, from: date)
         switch weekDay {

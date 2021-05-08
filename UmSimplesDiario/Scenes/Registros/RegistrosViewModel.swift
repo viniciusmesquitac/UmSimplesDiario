@@ -94,10 +94,10 @@ extension RegistrosViewModel {
 
     @discardableResult
     func makeSections(items: [Registro]) -> [SectionModel<String, Registro>] {
-        let sections = SectionCell.allCases.compactMap { mes -> SectionModel<String, Registro>? in
-            let registros = items.filter { RegistroModel(registro: $0).mes ==  mes.rawValue }
+        let sections = SectionCell.allCases.compactMap { month -> SectionModel<String, Registro>? in
+            let registros = items.filter { RegistroModel(registro: $0).month ==  month.rawValue }
             if !registros.isEmpty {
-                return SectionModel<String, Registro>(model: mes.sectionTitle, items: registros )
+                return SectionModel<String, Registro>(model: month.sectionTitle, items: registros )
             }
             return nil
         }

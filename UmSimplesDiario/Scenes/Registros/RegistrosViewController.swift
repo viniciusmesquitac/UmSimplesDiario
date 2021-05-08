@@ -93,7 +93,6 @@ extension RegistrosViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UITableViewHeaderFooterView()
-        view.backgroundColor = .clear
         view.backgroundView = UIView()
         return view
     }

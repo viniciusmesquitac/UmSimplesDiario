@@ -124,10 +124,10 @@ class RegistrosViewCell: UITableViewCell {
         if registro.texto == "" {
             self.descriptionEntry.text = defaultTextEntry
         }
-        self.dayLabel.text = registro.dia
-        self.dayWeekLabel.text = registro.diaDaSemana
-        self.hourLabel.text = registro.horario
-        self.weatherImage.image = registro.clima
+        self.dayLabel.text = registro.day
+        self.dayWeekLabel.text = registro.daysOfWeek
+        self.hourLabel.text = registro.time
+        self.weatherImage.image = registro.weather
         self.moodImage.image = registro.humor
     }
 
