@@ -38,6 +38,8 @@ class RegistrosView: UIView {
         self.tableView.tableHeaderView = UIView(frame: frame)
         self.tableView.contentInset = UIEdgeInsets(top: -height, left: .zero, bottom: .zero, right: .zero)
         self.tableView.separatorStyle = .none
+        self.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundSky"))
         self.tableView.estimatedRowHeight = UITableView.automaticDimension
 
         self.tableView.snp.makeConstraints { make in

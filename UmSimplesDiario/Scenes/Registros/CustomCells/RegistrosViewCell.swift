@@ -10,6 +10,8 @@ import UIKit
 class RegistrosViewCell: UITableViewCell {
     static let identifier = "registros"
 
+    var backgroundAlpha: CGFloat = 1.0
+
     fileprivate let dayLabel: UILabel = {
         let label = UILabel()
         label.text = "32"
@@ -55,6 +57,7 @@ class RegistrosViewCell: UITableViewCell {
         label.text = "Short Description that maybe end"
         label.textColor = StyleSheet.Color.secundaryColor
         label.adjustsFontSizeToFitWidth = true
+        label.sizeToFit()
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -78,10 +81,11 @@ class RegistrosViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
-        self.backgroundView?.backgroundColor = .systemBackground
+        self.backgroundView?.backgroundColor = .clear
+        self.backgroundColor = .clear
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
-        contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
+        contentView.layer.backgroundColor = UIColor.clear.cgColor
         contentView.layer.borderWidth = 1
         contentView.layer.borderColor = StyleSheet.Color.borderColor.cgColor
 
@@ -94,14 +98,14 @@ class RegistrosViewCell: UITableViewCell {
        if #available(iOS 13.0, *) {
            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             contentView.layer.borderColor = StyleSheet.Color.borderColor.cgColor
-            contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
+            contentView.layer.backgroundColor = UIColor.systemBackground.withAlphaComponent(backgroundAlpha).cgColor
            }
        }
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.backgroundColor = UIColor.systemBackground.cgColor
+        contentView.layer.backgroundColor = UIColor.systemBackground.withAlphaComponent(backgroundAlpha).cgColor
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
     }
 

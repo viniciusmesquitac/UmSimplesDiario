@@ -41,7 +41,6 @@ class RegistrosViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [mainView.composeButton, mainView.searchButton]
 
         mainView.setupView()
-        mainView.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
         self.view = mainView
         setup()
     }

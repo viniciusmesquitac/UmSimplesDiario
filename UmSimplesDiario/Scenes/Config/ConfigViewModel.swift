@@ -22,13 +22,13 @@ class ConfigViewModel: StaticViewModel {
             ConfigItem(cell: createSwitchCell(title: "Face ID"), action: nil)
         ]
         sections = [
-            ConfigSection(title: "Customização", items: customize),
+            ConfigSection(title: "Customizar", items: customize),
             ConfigSection(title: "Privacidade", items: privacy)
         ]
     }
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {
-//        UserDefaults.standard.setValue(sender.isOn, forKey: UserDefaultsEnum.isBiometricOn.rawValue)
+        UserDefaults.standard.setValue(sender.isOn, forKey: DefaultsEnum.isBiometricActive.rawValue)
     }
 
     internal func createCell(title: String) -> UITableViewCell {
@@ -43,7 +43,7 @@ class ConfigViewModel: StaticViewModel {
 
     internal func createSwitchCell(title: String) -> SwitchButtonTableViewCell {
         let cell = SwitchButtonTableViewCell()
-//        cell.switchButton.isOn = UserDefaults.standard.bool(forKey: UserDefaultsEnum.isBiometricOn.rawValue)
+        cell.switchButton.isOn = UserDefaults.standard.bool(forKey: DefaultsEnum.isBiometricActive.rawValue)
         cell.switchButton.addTarget(self, action: #selector(didTapSwitchButton), for: .touchUpInside)
         cell.contentView.isUserInteractionEnabled = false
         cell.selectionStyle = .none

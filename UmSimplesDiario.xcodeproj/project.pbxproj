@@ -68,6 +68,9 @@
 		81F3D6AD26470737002966DB /* ConfigSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6AC26470737002966DB /* ConfigSections.swift */; };
 		81F3D6AF2647074F002966DB /* ConfigViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6AE2647074F002966DB /* ConfigViewModel.swift */; };
 		81F3D6B1264707A3002966DB /* SwitchButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6B0264707A3002966DB /* SwitchButtonTableViewCell.swift */; };
+		81F3D6B426474A78002966DB /* DefaultsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6B326474A78002966DB /* DefaultsEnum.swift */; };
+		81F3D6B626474AE6002966DB /* BiometricAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6B526474AE6002966DB /* BiometricAuthentication.swift */; };
+		81F3D6B826474B61002966DB /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6B726474B61002966DB /* AlertMessage.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -158,6 +161,9 @@
 		81F3D6AC26470737002966DB /* ConfigSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigSections.swift; sourceTree = "<group>"; };
 		81F3D6AE2647074F002966DB /* ConfigViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewModel.swift; sourceTree = "<group>"; };
 		81F3D6B0264707A3002966DB /* SwitchButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchButtonTableViewCell.swift; sourceTree = "<group>"; };
+		81F3D6B326474A78002966DB /* DefaultsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsEnum.swift; sourceTree = "<group>"; };
+		81F3D6B526474AE6002966DB /* BiometricAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthentication.swift; sourceTree = "<group>"; };
+		81F3D6B726474B61002966DB /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -425,6 +431,7 @@
 		81F3D6A32646CAA0002966DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				81F3D6B226473F9F002966DB /* Util */,
 				81F3D6A72646CB6E002966DB /* Protocols */,
 				81F3D6A42646CAAE002966DB /* Extensions */,
 				81BA7BC225D16A320002D594 /* AppDelegate.swift */,
@@ -458,6 +465,16 @@
 				81F3D6B0264707A3002966DB /* SwitchButtonTableViewCell.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		81F3D6B226473F9F002966DB /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				81F3D6B326474A78002966DB /* DefaultsEnum.swift */,
+				81F3D6B526474AE6002966DB /* BiometricAuthentication.swift */,
+				81F3D6B726474B61002966DB /* AlertMessage.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -760,6 +777,7 @@
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
 				81F3D6AD26470737002966DB /* ConfigSections.swift in Sources */,
 				81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */,
+				81F3D6B826474B61002966DB /* AlertMessage.swift in Sources */,
 				81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */,
 				81BA7C5B25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift in Sources */,
 				81BA7D4325D609750002D594 /* PesquisarRegistrosView.swift in Sources */,
@@ -767,7 +785,9 @@
 				81F3D6A22645DCCF002966DB /* EscreverDiarioViewModel+Protocol.swift in Sources */,
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
 				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
+				81F3D6B626474AE6002966DB /* BiometricAuthentication.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
+				81F3D6B426474A78002966DB /* DefaultsEnum.swift in Sources */,
 				81F3D6B1264707A3002966DB /* SwitchButtonTableViewCell.swift in Sources */,
 				81F3D6AF2647074F002966DB /* ConfigViewModel.swift in Sources */,
 				81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */,
