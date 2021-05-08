@@ -36,5 +36,9 @@ struct StyleSheet {
         static let ideaIcon = UIImage(named: "ideaIcon")!
         static let iconSettings = UIImage(named: "􀍟")!
         static let iconMore = UIImage(named: "􀍠")!
+        static let iconTrash = UIImage(named: "􀈒")!
+        static let iconLock = UIImage(named: "􀎡")!
+        static let iconSave = UIImage(named: "􀈼")!
+
     }
 }

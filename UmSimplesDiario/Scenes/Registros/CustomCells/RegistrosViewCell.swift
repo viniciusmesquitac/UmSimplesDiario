@@ -12,7 +12,8 @@ class RegistrosViewCell: UITableViewCell {
 
     fileprivate let dayLabel: UILabel = {
         let label = UILabel()
-        label.text = "09"
+        label.text = "32"
+        label.textAlignment = .center
         label.textColor = StyleSheet.Color.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 38)
         label.adjustsFontSizeToFitWidth = true
@@ -145,6 +146,7 @@ class RegistrosViewCell: UITableViewCell {
         dayLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(16)
             make.top.equalTo(contentView.snp.top).offset(16)
+            make.width.equalTo(32)
         }
         dayWeekLabel.snp.makeConstraints { make in
             make.centerX.equalTo(dayLabel.snp.centerX)

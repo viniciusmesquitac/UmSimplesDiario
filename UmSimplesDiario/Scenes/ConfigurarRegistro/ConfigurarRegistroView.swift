@@ -12,26 +12,37 @@ import RxSwift
 class ConfigurarRegistroView: UIView {
 
     let view = UIView(frame: .zero)
-    let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    let indicatorContainer = UIView(frame: .zero)
     let disposeBag = DisposeBag()
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
 
-    let deleteButton: UIButton = {
+    let buttonSize = CGSize(width: 50, height: 50)
+
+    lazy var deleteButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
-        button.setImage(.remove, for: .normal)
-        button.layer.cornerRadius = 60/2
-        button.backgroundColor = .darkGray
+        button.tintColor = .systemRed
+        button.setImage(StyleSheet.Image.iconTrash, for: .normal)
+        button.layer.cornerRadius = buttonSize.height/2
+        button.backgroundColor = StyleSheet.Color.secundaryColor
         return button
     }()
 
-    let saveButton: UIButton = {
+    lazy var saveButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
-        button.setImage(.checkmark, for: .normal)
-        button.layer.cornerRadius = 60/2
-        button.backgroundColor = .darkGray
+        button.tintColor = .systemBlue
+        button.setImage(StyleSheet.Image.iconSave, for: .normal)
+        button.layer.cornerRadius = buttonSize.height/2
+        button.backgroundColor = StyleSheet.Color.secundaryColor
+        return button
+    }()
+
+    lazy var lockButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.tintColor = .systemYellow
+        button.setImage(StyleSheet.Image.iconLock, for: .normal)
+        button.layer.cornerRadius = buttonSize.height/2
+        button.backgroundColor = StyleSheet.Color.secundaryColor
         return button
     }()
 
@@ -39,6 +50,14 @@ class ConfigurarRegistroView: UIView {
         if !hasSetPointOrigin {
             hasSetPointOrigin = true
             pointOrigin = self.view.frame.origin
+        }
+    }
+
+    func setupButtons(_ buttons: [UIButton]) {
+        for button in buttons {
+            button.snp.makeConstraints { make in
+                make.size.equalTo(buttonSize)
+            }
         }
     }
 
@@ -53,15 +72,15 @@ class ConfigurarRegistroView: UIView {
     }
 
     func setupStackView() {
-        let stackView = UIStackView(arrangedSubviews: [saveButton, deleteButton])
+        let arrangedSubviews = [saveButton, deleteButton, lockButton]
+        setupButtons(arrangedSubviews)
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .horizontal
-        stackView.spacing = 16
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
+        stackView.spacing = 24
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(60 * stackView.subviews.count + (16 * stackView.subviews.count - 1)/2)
         }
     }
 }
