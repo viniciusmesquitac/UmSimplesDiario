@@ -48,7 +48,7 @@ class RegistroRepository: Repository {
     }
 
     func save(object: Registro) {
-        service.save()
+        _ = service.save()
     }
 
     @discardableResult

@@ -27,7 +27,7 @@ protocol EscreverDiarioViewModelOutput {
     var changeWeather: Observable<WeatherKeyResult> { get }
     var dataSourceOutput: Driver<[String?]> { get }
     var itemsDataSource: Observable<[SectionModel<String, EditarRegistroCellModel>]> { get }
-    func loadClima()
+    func loadClima(cityName: String)
 }
 
 protocol EscreverDiarioViewModelProtocol: ViewModel {

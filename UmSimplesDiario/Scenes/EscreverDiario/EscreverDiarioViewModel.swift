@@ -8,6 +8,8 @@
 import RxCocoa
 import RxSwift
 import RxDataSources
+import MapKit
+import CoreLocation
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
     var weather =  BehaviorRelay<WeatherKeyResult>(value: .none)
@@ -35,6 +37,8 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var heightBody = CGFloat(120)
     var heightTitle = CGFloat(120)
 
+    let locationManager = CLLocationManager()
+
     init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
@@ -61,7 +65,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         }).disposed(by: disposeBag)
 
         weatherButton.subscribe(onNext: {
-            self.loadClima()
+            self.askForLocationAuth()
         }).disposed(by: disposeBag)
     }
 
@@ -74,9 +78,13 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
             )])
     }
 
-    func loadClima() {
+    func askForLocationAuth() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    func loadClima(cityName: String) {
         let resource = Resource<WeatherResult>(
-            url: WeatherAPI.weatherCity(name: "Maracanau", stateCode: nil, countryCode: nil).url!)
+            url: WeatherAPI.weatherCity(name: cityName).url!)
         URLRequest.load(resource: resource).subscribe(onNext: { result in
             if let result = result?.weather.first?.description,
                let key = WeatherKeyResult.allCases.filter({ $0.rawValue == result })
@@ -89,11 +97,12 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     func criarRegistro() {
         var title = self.titleText.value
         let text = self.bodyText.value
+        let weather = self.weather.value
         if title == "" { title = "Sem titulo" }
         let registro = RegistroDTO(titulo: title,
                                    texto: text,
                                    humor: humor,
-                                   clima: clima)
+                                   clima: weather)
         repository.add(object: registro)
     }
 }

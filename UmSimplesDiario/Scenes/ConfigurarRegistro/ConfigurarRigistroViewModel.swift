@@ -45,11 +45,11 @@ extension ConfigurarRegistroViewModel: ConfigurarRegistroViewModelOutput {
             self.repository.delete(object: self.registro)
             self.coordinator.dismissToRegistros()
         }
-    
+
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { _ in
            print("cancelado")
         }
-    
+
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         self.coordinator.navigationController.dismiss(animated: true, completion: {

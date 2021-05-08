@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import MapKit
 import RxDataSources
 
 class EscreverDiarioViewController: UIViewController {
@@ -29,7 +30,7 @@ class EscreverDiarioViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        viewModel.locationManager.delegate = self
         if viewModel.registro != nil {
             navigationItem.leftBarButtonItems = [mainView.navigationBackButtonItem, mainView.navigationBarButtonTitle]
         } else {
@@ -75,12 +76,20 @@ extension EscreverDiarioViewController {
             .disposed(by: disposeBag)
 
         viewModel.humorButton.subscribe(onNext: { _ in
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
             self.mainView.headerView.updateHumor()
         }).disposed(by: disposeBag)
         viewModel.weatherButton.subscribe(onNext: { _ in
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
             self.mainView.headerView.updateClima()
         }).disposed(by: disposeBag)
 
+        viewModel.changeWeather.subscribe(onNext: { value in
+            DispatchQueue.main.async {
+                self.mainView.headerView.changeWeather(value)
+                self.mainView.headerView.updateClima()
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupInputs() {
@@ -140,5 +149,19 @@ extension EscreverDiarioViewController {
             }
         }).disposed(by: self.disposeBag)
         return cell ?? UITableViewCell()
+    }
+}
+
+extension EscreverDiarioViewController: CLLocationManagerDelegate {
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if manager.authorizationStatus == .authorizedWhenInUse {
+            guard let location = manager.location else { return print("Error: Location nil") }
+            location.placemark { placemark, _ in
+                guard let cityName = placemark?.city?
+                        .folding(options: .diacriticInsensitive, locale: .current)
+                else { return print("Error: City not found ") }
+                self.viewModel.loadClima(cityName: cityName)
+            }
+        }
     }
 }

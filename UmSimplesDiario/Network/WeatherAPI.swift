@@ -15,7 +15,7 @@ protocol Router {
 enum WeatherAPI: Router {
 
     case forecastByCityId
-    case weatherCity(name: String, stateCode: String?, countryCode: String?)
+    case weatherCity(name: String, stateCode: String = "", countryCode: String = "")
 
     var hostname: String {
             return "http://api.openweathermap.org/data/2.5/"
@@ -28,7 +28,8 @@ enum WeatherAPI: Router {
                     name: let cityName,
                     stateCode: let stateCode,
                     countryCode: let countryCode):
-                let value = "\(hostname)weather?q=\(cityName),\(String(describing: stateCode)),\(String(describing: countryCode))&appid=\(APISettings.API_KEY)"
+                let queries: [String] = ["\(cityName)", "\(stateCode)", "\(countryCode)"]
+                let value = "\(hostname)weather?q=\(queries.joined(separator: ","))&appid=\(APISettings.API_KEY)"
                 return URL( string: value)
 
             }

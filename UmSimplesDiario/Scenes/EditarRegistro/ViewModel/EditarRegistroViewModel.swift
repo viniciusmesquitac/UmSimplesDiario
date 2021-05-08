@@ -54,6 +54,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
         humorButton.subscribe(onNext: {
             if let humor = self.changeHumor.value {
                 self.changeHumor.accept(!humor)
+                UINotificationFeedbackGenerator().notificationOccurred(.success)
                 self.humor = !humor ? .triste : .feliz
             } else {
                 self.changeHumor.accept(false)
@@ -63,6 +64,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
         }).disposed(by: disposeBag)
 
         weatherButton.subscribe(onNext: {
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
             self.loadClima()
         }).disposed(by: disposeBag)
     }

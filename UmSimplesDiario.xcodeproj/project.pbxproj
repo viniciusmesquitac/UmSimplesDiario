@@ -63,6 +63,7 @@
 		81F3D69E264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D69D264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift */; };
 		81F3D6A026456C7C002966DB /* RegistrosViewModel+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D69F26456C7C002966DB /* RegistrosViewModel+Protocols.swift */; };
 		81F3D6A22645DCCF002966DB /* EscreverDiarioViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6A12645DCCF002966DB /* EscreverDiarioViewModel+Protocol.swift */; };
+		81F3D6A62646CAC9002966DB /* CPLPlacemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6A52646CAC9002966DB /* CPLPlacemark.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -148,6 +149,7 @@
 		81F3D69D264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConfigurarRegistrosViewModel+Protocol.swift"; sourceTree = "<group>"; };
 		81F3D69F26456C7C002966DB /* RegistrosViewModel+Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RegistrosViewModel+Protocols.swift"; sourceTree = "<group>"; };
 		81F3D6A12645DCCF002966DB /* EscreverDiarioViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EscreverDiarioViewModel+Protocol.swift"; sourceTree = "<group>"; };
+		81F3D6A52646CAC9002966DB /* CPLPlacemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPLPlacemark.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,8 +227,7 @@
 				81BA7CBB25D42CB30002D594 /* Service */,
 				81BA7C0A25D16F690002D594 /* Coordinators */,
 				81BA7C0525D16B6F0002D594 /* Scenes */,
-				81BA7BC225D16A320002D594 /* AppDelegate.swift */,
-				81BA7BC425D16A320002D594 /* SceneDelegate.swift */,
+				81F3D6A32646CAA0002966DB /* Shared */,
 				81BA7BCE25D16A340002D594 /* Assets.xcassets */,
 				81BA7BD025D16A340002D594 /* LaunchScreen.storyboard */,
 				81BA7BD325D16A340002D594 /* Info.plist */,
@@ -262,7 +263,6 @@
 				81BA7C0925D16F510002D594 /* PesquisarRegistros */,
 				81BA7C0825D16F480002D594 /* EscreverDiario */,
 				81BA7C0725D16F380002D594 /* Registros */,
-				81BA7C4325D173B60002D594 /* ViewModel.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -411,6 +411,33 @@
 				81F3D6972644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		81F3D6A32646CAA0002966DB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				81F3D6A72646CB6E002966DB /* Protocols */,
+				81F3D6A42646CAAE002966DB /* Extensions */,
+				81BA7BC225D16A320002D594 /* AppDelegate.swift */,
+				81BA7BC425D16A320002D594 /* SceneDelegate.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		81F3D6A42646CAAE002966DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				81F3D6A52646CAC9002966DB /* CPLPlacemark.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		81F3D6A72646CB6E002966DB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				81BA7C4325D173B60002D594 /* ViewModel.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -704,6 +731,7 @@
 				81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */,
 				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
 				81BA7DC325DBF9570002D594 /* PesquisarRegistrosCoordinator.swift in Sources */,
+				81F3D6A62646CAC9002966DB /* CPLPlacemark.swift in Sources */,
 				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,
 				81BA7CBD25D42CC00002D594 /* CoreDataService.swift in Sources */,
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
