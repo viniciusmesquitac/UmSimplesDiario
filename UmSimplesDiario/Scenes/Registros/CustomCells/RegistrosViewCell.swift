@@ -145,25 +145,24 @@ class RegistrosViewCell: UITableViewCell {
     func setupConstraints() {
         dayLabel.snp.makeConstraints { make in
             make.leading.equalTo(contentView.snp.leading).offset(16)
-            make.top.equalTo(contentView.snp.top).offset(16)
+            make.centerY.equalToSuperview().offset(-8)
             make.width.equalTo(32)
         }
         dayWeekLabel.snp.makeConstraints { make in
             make.centerX.equalTo(dayLabel.snp.centerX)
             make.top.equalTo(dayLabel.snp.bottom)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-16)
         }
         hourLabel.snp.makeConstraints { make in
             make.leading.equalTo(dayLabel.snp.trailing).offset(8)
-            make.top.equalTo(contentView.snp.top).offset(16)
+            make.centerY.equalTo(dayLabel).offset(-8)
         }
         titleEntry.snp.makeConstraints { make in
             make.leading.equalTo(dayLabel.snp.trailing).offset(8)
-            make.top.equalTo(hourLabel.snp.bottom)
+            make.top.equalTo(hourLabel.snp.bottom).offset(3)
         }
         descriptionEntry.snp.makeConstraints { make in
             make.leading.equalTo(titleEntry.snp.leading)
-            make.top.equalTo(titleEntry.snp.bottom)
+            make.top.equalTo(titleEntry.snp.bottom).offset(3)
             make.bottom.equalTo(contentView.snp.bottom).offset(-16)
         }
         weatherImage.snp.makeConstraints { make in
