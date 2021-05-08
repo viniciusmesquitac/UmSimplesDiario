@@ -81,6 +81,7 @@ extension RegistrosViewController {
         mainView.tableView.rx.itemSelected.bind(to: viewModel.inputs.selectedItem).disposed(by: disposeBag)
         mainView.composeButton.rx.tap.bind(to: viewModel.inputs.composeButton).disposed(by: disposeBag)
         mainView.searchButton.rx.tap.bind(to: viewModel.inputs.searchButton).disposed(by: disposeBag)
+        mainView.settingsButton.rx.tap.bind(to: viewModel.inputs.configButton).disposed(by: disposeBag)
         mainView.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         mainView.tableView.rx.itemDeleted.bind(to: viewModel.deletedItem).disposed(by: disposeBag)
     }

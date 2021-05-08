@@ -12,3 +12,7 @@ protocol ViewModel { }
 protocol WritableViewModel {
     var heightTitle: CGFloat { get set }
 }
+
+protocol StaticViewModel: ViewModel {
+    var sections: [ConfigSection] { get set }
+}

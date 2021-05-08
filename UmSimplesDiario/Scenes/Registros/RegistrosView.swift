@@ -17,7 +17,7 @@ class RegistrosView: UIView {
     let emptyStateLabel = UILabel()
     let composeButton = UIBarButtonItem(systemItem: .compose)
     let searchButton = UIBarButtonItem(systemItem: .search)
-    let settingsButton = UIBarButtonItem(image: StyleSheet.Image.iconSettings)
+    let settingsButton = UIBarButtonItem(title: "Configurar")
 
     // MARK: Setup View
     func setupView() {

@@ -13,6 +13,7 @@ protocol RegistrosViewModelInput {
     var selectedItem: BehaviorRelay<IndexPath?> { get }
     var deletedItem: BehaviorRelay<IndexPath?> { get }
     var composeButton: PublishSubject<Void> { get }
+    var configButton: PublishSubject<Void> { get }
     var searchButton: PublishSubject<Void> { get }
     var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
     var itemsDataSourceRelay: BehaviorRelay<[SectionModel<String, Registro>]> { get }

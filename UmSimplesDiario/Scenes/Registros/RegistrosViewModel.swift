@@ -13,6 +13,7 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     var deletedItem = BehaviorRelay<IndexPath?>(value: nil)
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, Registro>]>(value: [])
     var searchButton = PublishSubject<Void>()
+    var configButton = PublishSubject<Void>()
     var composeButton = PublishSubject<Void>()
     var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
 
@@ -45,6 +46,10 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
             self.registros.remove(at: row)
             self.makeSections(items: self.registros)
         }.disposed(by: disposeBag)
+
+        configButton.subscribe(onNext: { _ in
+            coordinator.route(to: .config)
+        }).disposed(by: disposeBag)
 
         composeButton.subscribe(onNext: { _ in
             coordinator.route(to: .compose)
