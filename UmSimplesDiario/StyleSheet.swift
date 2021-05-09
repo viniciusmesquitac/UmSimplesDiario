@@ -42,5 +42,8 @@ struct StyleSheet {
         static let iconLock = UIImage(named: "􀎡")!
         static let iconSave = UIImage(named: "􀈼")!
         static let iconBackButton = UIImage(named: "backButton")
+        static let iconKeyboard = UIImage(named: "iconKeyboard")!
+        static let iconMusic = UIImage(named: "iconMusic")!
+        static let iconImage = UIImage(named: "iconImage")!
     }
 }

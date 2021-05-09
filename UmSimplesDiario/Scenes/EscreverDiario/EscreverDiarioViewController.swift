@@ -19,6 +19,8 @@ class EscreverDiarioViewController: UIViewController {
     var heightBody = CGFloat(0)
     var heightTitle = CGFloat(0)
 
+    let imagePicker = UIImagePickerController()
+
     init(viewModel: EscreverDiarioViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -90,6 +92,15 @@ extension EscreverDiarioViewController {
                 self.mainView.headerView.updateClima()
             }
         }).disposed(by: disposeBag)
+
+        viewModel.imageButton.subscribe(onNext: { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .savedPhotosAlbum
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupInputs() {
@@ -139,7 +150,6 @@ extension EscreverDiarioViewController {
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
         cell?.bind(viewModel: viewModel, with: tableView)
         cell?.bodyTextView.text = element
-
         cell?.bodyTextView.rx.text.subscribe(onNext: { _ in
             let isBodyEmpty = cell?.isBodyEmpty ?? false
             if !isBodyEmpty && !self.mainView.isTitleEmpty {
@@ -163,5 +173,18 @@ extension EscreverDiarioViewController: CLLocationManagerDelegate {
                 self.viewModel.loadClima(cityName: cityName)
             }
         }
+    }
+}
+
+extension EscreverDiarioViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+           let cell = mainView.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? BodyEscreverDiarioViewCell {
+            cell.bodyTextView.setAttachment(image: pickedImage)
+            /*Not implented, should create a collection to attachments **/
+        }
+        dismiss(animated: true)
     }
 }

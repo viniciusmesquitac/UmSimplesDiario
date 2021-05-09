@@ -24,6 +24,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
+        acessoryView.keyboardDismissButton.addTarget(self, action: #selector(dimissKeyboard), for: .allEvents)
         self.selectionStyle = .none
         self.backgroundColor = StyleSheet.Color.backgroundColor
         setupBody()
@@ -31,6 +32,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
 
     func bind(viewModel: EditarRegistroViewModel, with tableView: UITableView) {
         bodyTextView.rx.text.bind(to: viewModel.bodyText).disposed(by: self.disposeBag)
+        acessoryView.imageAttachmentButton.rx.tap.bind(to: viewModel.imageButton).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightBody = height
             self.updateTableView(tableView)
@@ -39,6 +41,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
 
     func bind(viewModel: EscreverDiarioViewModel, with tableView: UITableView) {
         bodyTextView.rx.text.bind(to: viewModel.bodyText).disposed(by: self.disposeBag)
+        acessoryView.imageAttachmentButton.rx.tap.bind(to: viewModel.imageButton).disposed(by: self.disposeBag)
         self.rowHeight.subscribe(onNext: { height in
             viewModel.heightBody = height
             self.updateTableView(tableView)
@@ -67,6 +70,10 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
             make.leading.equalTo(snp.leading).offset(16)
             make.trailing.equalTo(snp.trailing).offset(-16)
         }
+    }
+
+    @objc func dimissKeyboard() {
+        self.bodyTextView.resignFirstResponder()
     }
 }
 

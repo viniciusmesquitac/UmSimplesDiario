@@ -15,6 +15,8 @@ class EditarRegistroViewController: UIViewController {
     var viewModel: EditarRegistroViewModel!
     let disposeBag = DisposeBag()
 
+    let imagePicker = UIImagePickerController()
+
     init(viewModel: EditarRegistroViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -81,6 +83,15 @@ extension EditarRegistroViewController {
                 self.mainView.headerView.updateClima()
             }
         }).disposed(by: disposeBag)
+
+        viewModel.imageButton.subscribe(onNext: { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .savedPhotosAlbum
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
+            }
+        }).disposed(by: disposeBag)
     }
 
     private func setupInputs() {
@@ -121,4 +132,17 @@ extension EditarRegistroViewController {
         return cell ?? UITableViewCell()
     }
 
+}
+
+extension EditarRegistroViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+           let cell = mainView.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? BodyEscreverDiarioViewCell {
+            cell.bodyTextView.setAttachment(image: pickedImage)
+            /*Not implented, should create a collection to attachments **/
+        }
+        dismiss(animated: true)
+    }
 }

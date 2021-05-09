@@ -19,6 +19,7 @@ class EditarRegistroViewModel: EditarRegistroViewModelProtocol, EditarRegistroVi
 
     var humorButton = PublishSubject<Void>()
     var moreButton = PublishSubject<Void>()
+    var imageButton = PublishSubject<Void>()
     var weatherButton = PublishSubject<Void>()
 
     var coordinator: EditarRegistroCoordinator

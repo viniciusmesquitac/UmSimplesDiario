@@ -45,8 +45,8 @@ class ConfigViewModel: StaticViewModel {
         let cell = UITableViewCell()
         cell.textLabel?.text = title
         cell.accessoryType = .disclosureIndicator
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
+        cell.accessoryView?.backgroundColor = StyleSheet.Color.activeButtonColor
+        cell.accessoryView?.tintColor = StyleSheet.Color.activeButtonColor
         cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
@@ -59,7 +59,7 @@ class ConfigViewModel: StaticViewModel {
         cell.selectionStyle = .none
         cell.textLabel?.text = title
         cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
+        cell.accessoryView?.tintColor = StyleSheet.Color.activeButtonColor
         cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }

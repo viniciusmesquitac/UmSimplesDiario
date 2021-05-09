@@ -8,7 +8,6 @@
 import UIKit
 
 extension UITextView {
-
     func setAttachment(image: UIImage) {
         /* A text attachment object contains either an NSData object or an FileWrapper object,
          which in turn holds the contents of the attached file. */

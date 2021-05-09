@@ -21,6 +21,7 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var cancelButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
     var humorButton = PublishSubject<Void>()
+    var imageButton = PublishSubject<Void>()
     var weatherButton = PublishSubject<Void>()
 
     var coordinator: RegistrosCoordinator
