@@ -24,7 +24,6 @@ class ThemeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "Temas"
-        self.navigationItem.rightBarButtonItem = mainView.saveButton
         self.mainView.tableView.delegate = self
         self.mainView.tableView.dataSource = self
         self.mainView.tableView.register(
@@ -32,7 +31,27 @@ class ThemeViewController: UIViewController {
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
         mainView.setupView()
         self.view = mainView
-        self.setup()
+    }
+
+    func updateTheme(inteface: UIUserInterfaceStyle, theme: Theme) {
+        switch theme {
+        case .kiminawa:
+            UserDefaults.standard.setValue(true, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        default:
+            UserDefaults.standard.setValue(false, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        }
+        viewModel?.coordinator.updateBackground()
+        Settings.shared.theme = inteface
+        mainView.tableView.reloadData()
+        UIView.transition(
+            with: self.view,
+            duration: 0.5,
+            options: .transitionCrossDissolve,
+            animations: {
+                self.view.window?.overrideUserInterfaceStyle = inteface
+            },
+            completion: nil
+        )
     }
 }
 
@@ -55,6 +74,8 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         item.action?()
         item.cell.accessoryType = .checkmark
+        updateTheme(inteface: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified,
+                    theme: Theme(rawValue: indexPath.row) ?? .systemDefault)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -62,20 +83,5 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         return cell
-    }
-}
-
-extension ThemeViewController {
-    func setup() {
-        self.setupInputs()
-        self.setupOutputs()
-    }
-
-    func setupInputs() {
-
-    }
-
-    func setupOutputs() {
-
     }
 }

@@ -37,7 +37,7 @@ class HeaderEscreverDiarioView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBackground
+        self.backgroundColor = StyleSheet.Color.backgroundColor
         setupHumorIconView()
     }
 
@@ -63,7 +63,7 @@ class HeaderEscreverDiarioView: UIView {
 
     func updateHumor() {
         self.humorIconButton.translatesAutoresizingMaskIntoConstraints = false
-        self.humorIconButton.tintColor = UIColor.systemBlue
+        self.humorIconButton.tintColor = StyleSheet.Color.activeButtonColor
         self.humorLabel.snp.makeConstraints { make in
             make.height.width.equalTo(0)
         }
@@ -76,7 +76,7 @@ class HeaderEscreverDiarioView: UIView {
     }
 
     func updateClima() {
-        self.weatherButton.tintColor = UIColor.systemBlue
+        self.weatherButton.tintColor = StyleSheet.Color.activeButtonColor
         self.weatherLabel.snp.makeConstraints { make in
             make.height.width.equalTo(0)
         }
@@ -100,8 +100,8 @@ class HeaderEscreverDiarioView: UIView {
 
     func setupHumorLabel() {
         addSubview(humorLabel)
-        humorLabel.setTitle("Humor", for: .normal)
-        humorLabel.titleLabel?.font = StyleSheet.Font.boldTitleFont12
+        humorLabel.setTitle("Inserir humor", for: .normal)
+        humorLabel.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         humorLabel.setTitleColor(StyleSheet.Color.titleTextColor, for: .normal)
         self.humorLabel.snp.makeConstraints { make in
             make.leading.equalTo(humorIconButton.snp.trailing).offset(8)

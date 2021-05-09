@@ -63,7 +63,7 @@ class ConfigurarRegistroView: UIView {
 
     func setupView() {
         self.view.frame = self.bounds
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = StyleSheet.Color.backgroundColor
         insertSubview(view, belowSubview: indicatorContainer)
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()

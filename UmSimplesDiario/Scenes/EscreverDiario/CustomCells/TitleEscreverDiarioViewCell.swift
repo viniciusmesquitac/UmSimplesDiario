@@ -22,6 +22,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
+        self.backgroundColor = StyleSheet.Color.backgroundColor
         self.selectionStyle = .none
         setupTitle()
 
@@ -41,6 +42,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         titleTextField.isScrollEnabled = false
         rowHeight.accept(titleTextField.frame.height + 100)
         titleTextField.textColor = StyleSheet.Color.titleTextColor
+        titleTextField.backgroundColor = StyleSheet.Color.backgroundColor
         titleTextField.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
         titleTextField.delegate = self
 

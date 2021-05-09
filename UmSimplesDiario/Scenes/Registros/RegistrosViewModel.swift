@@ -93,7 +93,7 @@ extension RegistrosViewModel {
 
     func makeCell(element: Registro, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RegistrosViewCell.identifier) as? RegistrosViewCell
-        cell?.contentView.backgroundColor = .clear
+        cell?.contentView.backgroundColor = StyleSheet.Color.contentEntryColor
         cell?.configure(RegistroModel(registro: element))
         return cell ?? UITableViewCell()
     }

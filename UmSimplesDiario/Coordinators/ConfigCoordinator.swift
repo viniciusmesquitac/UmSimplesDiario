@@ -43,4 +43,11 @@ final class ConfigCoordinator: Coordinator {
             self.navigationController.popViewController(animated: true)
         })
     }
+
+    func updateBackground() {
+        let firstViewController = self.navigationController.viewControllers.first
+        guard let registrosViewController = firstViewController as? RegistrosViewController else { return }
+        registrosViewController.mainView.updateBackground()
+        self.navigationController.popViewController(animated: true)
+    }
 }

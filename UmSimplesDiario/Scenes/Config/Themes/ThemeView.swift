@@ -10,8 +10,7 @@ import UIKit
 class ThemeView: UIView {
 
     let view = UIView(frame: .zero)
-    let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    let saveButton = UIBarButtonItem(title: "Salvar")
+    let indicatorContainer = UIView(frame: .zero)
     let tableView = UITableView(frame: .zero, style: .grouped)
 
     func setupView() {

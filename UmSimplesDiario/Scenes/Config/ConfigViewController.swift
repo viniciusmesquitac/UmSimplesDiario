@@ -22,9 +22,10 @@ class ConfigViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         self.navigationItem.title = "Configurações"
         self.tableView.backgroundView? = UIView()
-        self.tableView.backgroundView?.backgroundColor = .systemBackground
+        self.tableView.backgroundView?.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.register(
             SwitchButtonTableViewCell.self,
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)

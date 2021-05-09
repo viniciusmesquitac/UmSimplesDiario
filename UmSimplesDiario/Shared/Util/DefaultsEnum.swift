@@ -9,4 +9,5 @@ import Foundation
 
 enum DefaultsEnum: String {
     case isBiometricActive
+    case isBackgroundThemeActive
 }

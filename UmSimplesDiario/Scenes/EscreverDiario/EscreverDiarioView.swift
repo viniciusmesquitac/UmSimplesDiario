@@ -26,7 +26,7 @@ class EscreverDiarioView: UIView {
         let button = UIBarButtonItem(title: "title", style: .plain,
                                      target: nil, action: nil)
         button.isEnabled = false
-        button.tintColor = StyleSheet.Color.secundaryColor
+        button.tintColor = StyleSheet.Color.primaryColor
         return button
     }()
     let navigationBackButtonItem: UIBarButtonItem = {
@@ -36,7 +36,7 @@ class EscreverDiarioView: UIView {
     }()
 
     let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "􀍠"), style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(image: StyleSheet.Image.iconMore)
         button.tintColor = UIColor.systemBlue
         return button
     }()
@@ -44,6 +44,7 @@ class EscreverDiarioView: UIView {
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = .systemGray5
+        self.cancelButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in
@@ -56,7 +57,7 @@ class EscreverDiarioView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = .systemBackground
+        self.tableView.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.tableHeaderView = headerView
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

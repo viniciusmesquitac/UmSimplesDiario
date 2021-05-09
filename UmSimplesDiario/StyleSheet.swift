@@ -10,9 +10,11 @@ import UIKit
 struct StyleSheet {
 
     enum Color {
-        static let primaryColor = UIColor(named: "primaryColor")
+        static let primaryColor = UIColor(named: "primaryColor")!
         static let secundaryColor = UIColor.systemBackground
-        static let backgroundColor = UIColor.white
+        static let backgroundColor = UIColor(named: "backgroundColor")!
+        static let activeButtonColor = UIColor(named: "activeButtonColor")!
+        static let contentEntryColor = UIColor(named: "contentEntryColor")!
         static let borderColor = UIColor.systemGray5
         static let titleTextColor = UIColor.systemGray
         static let bodyTextColor = UIColor.black

@@ -17,6 +17,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
 
     var coordinator: ConfigCoordinator
     var sections = [ConfigSection]()
+    var selectedTheme: Theme = .systemDefault
 
     let disposeBag = DisposeBag()
 
@@ -36,12 +37,14 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
             ConfigItem(cell: createCell(title: "Padrão do sistema"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Claro"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Escuro"), action: unselectAllCells),
-            ConfigItem(cell: createCell(title: "Versão 君の名は。"), action: unselectAllCells)
+            ConfigItem(cell: createCell(title: "君の名は。"), action: unselectAllCells)
         ]
 
         sections = [
             ConfigSection(title: "Escolha um tema", items: themes)
         ]
+
+        selectCell(at: Settings.shared.theme.rawValue)
     }
 
     private func unselectAllCells() {
@@ -49,6 +52,12 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         for item in section {
             item.cell.accessoryType = .none
         }
+    }
+
+    private func selectCell(at index: Int) {
+        guard let section = sections.first?.items else { return }
+        let item = section[index]
+        item.cell.accessoryType = .checkmark
     }
 
 }
@@ -62,4 +71,11 @@ extension ThemeViewModel {
         cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
+}
+
+enum Theme: Int {
+    case systemDefault
+    case dark
+    case light
+    case kiminawa
 }

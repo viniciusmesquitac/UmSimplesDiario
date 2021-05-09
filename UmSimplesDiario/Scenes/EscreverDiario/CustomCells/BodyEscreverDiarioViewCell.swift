@@ -25,6 +25,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
         self.selectionStyle = .none
+        self.backgroundColor = StyleSheet.Color.backgroundColor
         setupBody()
     }
 
@@ -54,6 +55,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
 //        bodyTextView.inputAccessoryView = acessoryView
         rowHeight.accept(bodyTextView.frame.height + self.increaseRowHeight)
         bodyTextView.placeholder = "Escreva aqui e registre sua história!"
+        bodyTextView.backgroundColor = StyleSheet.Color.backgroundColor
         bodyTextView.font = StyleSheet.Font.primaryFont16
         bodyTextView.rx.text.subscribe(onNext: { text in
             self.isBodyEmpty = text == nil || text == ""

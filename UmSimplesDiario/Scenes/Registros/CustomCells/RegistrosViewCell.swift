@@ -55,9 +55,7 @@ class RegistrosViewCell: UITableViewCell {
     fileprivate var descriptionEntry: UILabel = {
         let label = UILabel()
         label.text = "Short Description that maybe end"
-        label.textColor = StyleSheet.Color.secundaryColor
-        label.adjustsFontSizeToFitWidth = true
-        label.sizeToFit()
+        label.textColor = StyleSheet.Color.titleTextColor
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -98,14 +96,16 @@ class RegistrosViewCell: UITableViewCell {
        if #available(iOS 13.0, *) {
            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
             contentView.layer.borderColor = StyleSheet.Color.borderColor.cgColor
-            contentView.layer.backgroundColor = UIColor.systemBackground.withAlphaComponent(backgroundAlpha).cgColor
+            contentView.layer.backgroundColor = StyleSheet.Color.contentEntryColor
+                .withAlphaComponent(backgroundAlpha).cgColor
            }
        }
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.backgroundColor = UIColor.systemBackground.withAlphaComponent(backgroundAlpha).cgColor
+        contentView.layer.backgroundColor = StyleSheet.Color.contentEntryColor
+            .withAlphaComponent(backgroundAlpha).cgColor
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8))
     }
 

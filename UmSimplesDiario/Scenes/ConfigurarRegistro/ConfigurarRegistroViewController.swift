@@ -24,6 +24,7 @@ class ConfigurarRegistroViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         mainView.setupView()
 
         mainView.rx

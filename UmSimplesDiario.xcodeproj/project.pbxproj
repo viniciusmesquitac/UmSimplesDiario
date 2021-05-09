@@ -76,6 +76,7 @@
 		81F3D6C02647564B002966DB /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6BF2647564B002966DB /* ThemeViewModel.swift */; };
 		81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */; };
 		81F3D6C426475CF2002966DB /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C326475CF2002966DB /* ThemeView.swift */; };
+		81F3D6C626476AD2002966DB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C526476AD2002966DB /* Settings.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +175,7 @@
 		81F3D6BF2647564B002966DB /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeViewModel+Protocol.swift"; sourceTree = "<group>"; };
 		81F3D6C326475CF2002966DB /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		81F3D6C526476AD2002966DB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -485,6 +487,7 @@
 				81F3D6B326474A78002966DB /* DefaultsEnum.swift */,
 				81F3D6B526474AE6002966DB /* BiometricAuthentication.swift */,
 				81F3D6B726474B61002966DB /* AlertMessage.swift */,
+				81F3D6C526476AD2002966DB /* Settings.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -829,6 +832,7 @@
 				81BA7C9125D2C1580002D594 /* EscreverDiarioViewModel.swift in Sources */,
 				817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */,
 				81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */,
+				81F3D6C626476AD2002966DB /* Settings.swift in Sources */,
 				81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */,
 				81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */,
 			);

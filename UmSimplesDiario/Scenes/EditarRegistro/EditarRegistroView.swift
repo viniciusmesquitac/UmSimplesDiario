@@ -28,6 +28,8 @@ class EditarRegistroView: UIView {
 
     func setupView() {
         self.view.frame = self.bounds
+        self.navigationMoreButtonItem.tintColor = StyleSheet.Color.activeButtonColor
+
         self.view.backgroundColor = .systemGray5
         insertSubview(view, belowSubview: indicatorContainer)
 
@@ -40,7 +42,7 @@ class EditarRegistroView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = .systemBackground
+        self.tableView.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.tableHeaderView = headerView
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

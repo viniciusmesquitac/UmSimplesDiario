@@ -15,7 +15,7 @@ class PesquisarRegistrosView: UIView {
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
 
     func setupView() {
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = StyleSheet.Color.backgroundColor
         insertSubview(view, belowSubview: indicatorContainer)
         searchBar.showsCancelButton = true
         view.snp.makeConstraints { make in
