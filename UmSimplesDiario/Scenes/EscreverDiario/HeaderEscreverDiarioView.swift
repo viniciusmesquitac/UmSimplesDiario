@@ -11,7 +11,7 @@ class HeaderEscreverDiarioView: UIView {
 
     let humorIconButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
+        button.tintColor = StyleSheet.Color.titleTextColor
         button.setImage(StyleSheet.Image.happyMood, for: .normal)
         return button
     }()
@@ -102,7 +102,7 @@ class HeaderEscreverDiarioView: UIView {
         addSubview(humorLabel)
         humorLabel.setTitle("Humor", for: .normal)
         humorLabel.titleLabel?.font = StyleSheet.Font.boldTitleFont12
-        humorLabel.setTitleColor(StyleSheet.Color.secundaryColor, for: .normal)
+        humorLabel.setTitleColor(StyleSheet.Color.titleTextColor, for: .normal)
         self.humorLabel.snp.makeConstraints { make in
             make.leading.equalTo(humorIconButton.snp.trailing).offset(8)
             make.centerY.equalTo(humorIconButton.snp.centerY)

@@ -74,6 +74,8 @@
 		81F3D6BC26475389002966DB /* ThemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6BB26475389002966DB /* ThemeViewController.swift */; };
 		81F3D6BE264753BF002966DB /* ConfigCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6BD264753BF002966DB /* ConfigCoordinator.swift */; };
 		81F3D6C02647564B002966DB /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6BF2647564B002966DB /* ThemeViewModel.swift */; };
+		81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */; };
+		81F3D6C426475CF2002966DB /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C326475CF2002966DB /* ThemeView.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +172,8 @@
 		81F3D6BB26475389002966DB /* ThemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewController.swift; sourceTree = "<group>"; };
 		81F3D6BD264753BF002966DB /* ConfigCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCoordinator.swift; sourceTree = "<group>"; };
 		81F3D6BF2647564B002966DB /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
+		81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeViewModel+Protocol.swift"; sourceTree = "<group>"; };
+		81F3D6C326475CF2002966DB /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,6 +494,8 @@
 			children = (
 				81F3D6BB26475389002966DB /* ThemeViewController.swift */,
 				81F3D6BF2647564B002966DB /* ThemeViewModel.swift */,
+				81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */,
+				81F3D6C326475CF2002966DB /* ThemeView.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -777,6 +783,7 @@
 				817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */,
 				817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */,
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
+				81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
 				81F10AB725E01166001F0ACB /* Registro+CoreDataClass.swift in Sources */,
@@ -796,6 +803,7 @@
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
 				81F3D6AD26470737002966DB /* ConfigSections.swift in Sources */,
 				81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */,
+				81F3D6C426475CF2002966DB /* ThemeView.swift in Sources */,
 				81F3D6B826474B61002966DB /* AlertMessage.swift in Sources */,
 				81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */,
 				81BA7C5B25D1AF7A0002D594 /* PesquisarRegistrosViewController.swift in Sources */,

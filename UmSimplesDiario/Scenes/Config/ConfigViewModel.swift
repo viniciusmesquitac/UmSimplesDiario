@@ -9,7 +9,10 @@ import UIKit
 
 class ConfigViewModel: StaticViewModel {
     var sections = [ConfigSection]()
-    init() {
+    var coordinator: ConfigCoordinator!
+
+    init(coordinator: ConfigCoordinator) {
+        self.coordinator = coordinator
         createSections()
     }
 
@@ -19,8 +22,7 @@ class ConfigViewModel: StaticViewModel {
 
     private func createSections() {
         let customize = [
-            ConfigItem(cell: createCell(title: "Tema"), action: nil),
-            ConfigItem(cell: createCell(title: "Fonte"), action: nil)
+            ConfigItem(cell: createCell(title: "Temas"), action: goToTheme)
         ]
         let privacy = [
             ConfigItem(cell: createSwitchCell(title: securityBiometricTitle), action: nil)
@@ -29,6 +31,10 @@ class ConfigViewModel: StaticViewModel {
             ConfigSection(title: "Customização", items: customize),
             ConfigSection(title: "Privacidade", items: privacy)
         ]
+    }
+
+    private func goToTheme() {
+        coordinator.route(to: .themes)
     }
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {

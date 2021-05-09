@@ -22,7 +22,7 @@ final class ConfigCoordinator: Coordinator {
 
     func start() {
         let navigationController = UINavigationController(
-            rootViewController: ConfigViewController(viewModel: ConfigViewModel()))
+            rootViewController: ConfigViewController(viewModel: ConfigViewModel(coordinator: self)))
         self.currentNavigationController = navigationController
         self.navigationController.present(navigationController, animated: true)
     }
@@ -30,7 +30,7 @@ final class ConfigCoordinator: Coordinator {
     func route(to route: Route) {
         switch route {
         case .themes:
-            let themesViewController = ThemeViewController(viewModel: ConfigViewModel())
+            let themesViewController = ThemeViewController(viewModel: ThemeViewModel(coordinator: self))
             self.currentNavigationController.pushViewController(themesViewController, animated: true)
         }
     }

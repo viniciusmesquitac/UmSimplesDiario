@@ -7,26 +7,43 @@
 
 import UIKit
 
-class ThemeViewController: UITableViewController {
+class ThemeViewController: UIViewController {
 
-    var viewModel: StaticViewModel?
+    var viewModel: ThemeViewModel?
+    var mainView = ThemeView()
 
-    init(viewModel: StaticViewModel) {
+    init(viewModel: ThemeViewModel) {
         self.viewModel = viewModel
-        super.init(style: .grouped)
+        super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Configurações"
-        self.tableView.backgroundView? = UIView()
-        self.tableView.backgroundView?.backgroundColor = .systemBackground
-        self.tableView.register(
+        self.navigationItem.title = "Temas"
+        self.mainView.tableView.register(
             SwitchButtonTableViewCell.self,
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
+        mainView.setupView()
+        self.view = mainView
+        self.setup()
+    }
+}
+
+extension ThemeViewController {
+    func setup() {
+        self.setupInputs()
+        self.setupOutputs()
+    }
+
+    func setupInputs() {
+
+    }
+
+    func setupOutputs() {
+
     }
 }

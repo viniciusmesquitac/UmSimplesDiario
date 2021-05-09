@@ -72,7 +72,7 @@ class ConfigurarRegistroView: UIView {
     }
 
     func setupStackView() {
-        let arrangedSubviews = [saveButton, deleteButton, lockButton]
+        let arrangedSubviews = [saveButton, deleteButton]
         setupButtons(arrangedSubviews)
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         stackView.axis = .horizontal
