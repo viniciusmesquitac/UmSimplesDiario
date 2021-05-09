@@ -15,7 +15,7 @@ class ThemeView: UIView {
 
     func setupView() {
         self.view.frame = self.bounds
-        self.view.backgroundColor = .systemGray5
+        self.view.backgroundColor = StyleSheet.Color.backgroundColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in
@@ -26,7 +26,7 @@ class ThemeView: UIView {
 
     func setupTableView() {
         view.addSubview(tableView)
-        self.tableView.backgroundColor = .systemBackground
+        self.tableView.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

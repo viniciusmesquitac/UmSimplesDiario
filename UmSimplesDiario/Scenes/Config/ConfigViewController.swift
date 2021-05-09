@@ -25,6 +25,7 @@ class ConfigViewController: UITableViewController {
         navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         self.navigationItem.title = "Configurações"
         self.tableView.backgroundView? = UIView()
+        self.view.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.backgroundView?.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.register(
             SwitchButtonTableViewCell.self,

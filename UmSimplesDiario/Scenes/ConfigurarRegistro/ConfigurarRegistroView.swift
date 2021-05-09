@@ -24,16 +24,16 @@ class ConfigurarRegistroView: UIView {
         button.tintColor = .systemRed
         button.setImage(StyleSheet.Image.iconTrash, for: .normal)
         button.layer.cornerRadius = buttonSize.height/2
-        button.backgroundColor = StyleSheet.Color.secundaryColor
+        button.backgroundColor = StyleSheet.Color.backgroundColor
         return button
     }()
 
     lazy var saveButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.tintColor = .systemBlue
+        button.tintColor = StyleSheet.Color.activeButtonColor
         button.setImage(StyleSheet.Image.iconSave, for: .normal)
         button.layer.cornerRadius = buttonSize.height/2
-        button.backgroundColor = StyleSheet.Color.secundaryColor
+        button.backgroundColor = StyleSheet.Color.backgroundColor
         return button
     }()
 
@@ -63,7 +63,7 @@ class ConfigurarRegistroView: UIView {
 
     func setupView() {
         self.view.frame = self.bounds
-        self.view.backgroundColor = StyleSheet.Color.backgroundColor
+        self.view.backgroundColor = StyleSheet.Color.modalBackgroundColor
         insertSubview(view, belowSubview: indicatorContainer)
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
