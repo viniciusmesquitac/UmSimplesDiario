@@ -26,6 +26,8 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         self.selectionStyle = .none
         setupTitle()
 
+        titleTextField.tag = 0
+        titleTextField.returnKeyType = .done
         titleTextField.rx.text.changed.subscribe(onNext: { text in
             self.isTitleEmpty = text == nil || text == ""
             self.rowHeight.accept(self.titleTextField.frame.height + 16)
@@ -45,7 +47,6 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         titleTextField.backgroundColor = StyleSheet.Color.backgroundColor
         titleTextField.textContainerInset = UIEdgeInsets(top: 16, left: 16, bottom: 8, right: 16)
         titleTextField.delegate = self
-
         titleTextField.font = StyleSheet.Font.primaryFont24
         self.titleTextField.snp.makeConstraints { make in
             make.top.leading.trailing.equalToSuperview()
@@ -71,9 +72,20 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
 
 extension TitleEscreverDiarioViewCell: UITextViewDelegate {
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textViewShouldChangeReturn(textView)
+        }
         guard text.rangeOfCharacter(from: CharacterSet.newlines) == nil else {
               return false
           }
           return true
+    }
+
+    func textViewShouldChangeReturn(_ textView: UITextView) {
+        if let nextField = self.superview?.viewWithTag(textView.tag + 1) as? UITextView {
+            nextField.becomeFirstResponder()
+        } else {
+            textView.resignFirstResponder()
+        }
     }
 }

@@ -50,6 +50,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     }
 
     func setupBody() {
+        bodyTextView.tag = 1
         addSubview(bodyTextView)
         bodyTextView.isScrollEnabled = false
 //        bodyTextView.inputAccessoryView = acessoryView
