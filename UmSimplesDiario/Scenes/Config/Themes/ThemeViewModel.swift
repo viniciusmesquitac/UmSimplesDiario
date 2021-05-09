@@ -8,6 +8,15 @@
 import RxSwift
 import RxCocoa
 
+
+enum Theme: Int {
+    case systemDefault
+    case dark
+    case light
+    case kiminawa
+}
+
+
 class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewModelOutput, StaticViewModel {
     var deleteButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
@@ -44,7 +53,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
             ConfigSection(title: "Escolha um tema", items: themes)
         ]
 
-        selectCell(at: Settings.shared.theme.rawValue)
+        selectCell(at: InterfaceStyleManager.shared.style.rawValue)
     }
 
     private func unselectAllCells() {
@@ -71,11 +80,4 @@ extension ThemeViewModel {
         cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
-}
-
-enum Theme: Int {
-    case systemDefault
-    case dark
-    case light
-    case kiminawa
 }

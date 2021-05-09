@@ -33,7 +33,7 @@ class ThemeViewController: UIViewController {
         self.view = mainView
     }
 
-    func updateTheme(inteface: UIUserInterfaceStyle, theme: Theme) {
+    func update(style: UIUserInterfaceStyle, theme: Theme) {
         switch theme {
         case .kiminawa:
             UserDefaults.standard.setValue(true, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
@@ -41,14 +41,14 @@ class ThemeViewController: UIViewController {
             UserDefaults.standard.setValue(false, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
         }
         viewModel?.coordinator.updateBackground()
-        Settings.shared.theme = inteface
+        InterfaceStyleManager.shared.style = style
         mainView.tableView.reloadData()
         UIView.transition(
             with: self.view,
             duration: 0.5,
             options: .transitionCrossDissolve,
             animations: {
-                self.view.window?.overrideUserInterfaceStyle = inteface
+                self.view.window?.overrideUserInterfaceStyle = style
             },
             completion: nil
         )
@@ -74,7 +74,7 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         item.action?()
         item.cell.accessoryType = .checkmark
-        updateTheme(inteface: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified,
+        update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified,
                     theme: Theme(rawValue: indexPath.row) ?? .systemDefault)
     }
 

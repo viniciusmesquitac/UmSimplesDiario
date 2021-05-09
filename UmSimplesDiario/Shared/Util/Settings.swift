@@ -7,68 +7,28 @@
 //
 import UIKit
 
-enum ConfigKeys {
+enum ConfigKeys: String {
     case theme
-    case notification
-
-    var key: String {
-        switch self {
-        case .theme:
-            return "theme"
-        case .notification:
-            return "notification"
-        }
-    }
 }
 
-class Settings {
-
-    static var shared = Settings()
+class InterfaceStyleManager {
     private var userDefaults: UserDefaults
-    var themeNames: [String]
+    static let shared = InterfaceStyleManager()
 
     private init () {
         userDefaults = UserDefaults.standard
-        themeNames = ["Padrão do Sistema", "Claro", "Escuro"]
     }
 
-    var theme: UIUserInterfaceStyle {
+    var style: UIUserInterfaceStyle {
         get {
-            if let raw = userDefaults.value(forKey: ConfigKeys.theme.key) as? Int {
-               return UIUserInterfaceStyle(
-                    rawValue: raw
-               )!
-            } else {
-                return .unspecified
+            if let rawValue = userDefaults.value(forKey: ConfigKeys.theme.rawValue) as? Int {
+               return UIUserInterfaceStyle(rawValue: rawValue)!
             }
+            return .unspecified
         }
 
         set {
-            userDefaults.setValue(
-                newValue.rawValue,
-                forKey: ConfigKeys.theme.key
-            )
+            userDefaults.setValue(newValue.rawValue, forKey: ConfigKeys.theme.rawValue)
         }
-    }
-
-    var notification: Bool {
-        get {
-            if let raw = userDefaults.value(forKey: ConfigKeys.notification.key) as? Bool {
-               return raw
-            } else {
-                return false
-            }
-        }
-
-        set {
-            userDefaults.setValue(
-                newValue,
-                forKey: ConfigKeys.notification.key
-            )
-        }
-    }
-
-    public func getSelectedThemeName() -> String {
-        return themeNames[theme.rawValue]
     }
 }

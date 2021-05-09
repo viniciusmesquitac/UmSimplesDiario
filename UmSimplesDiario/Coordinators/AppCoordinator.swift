@@ -14,7 +14,7 @@ final class AppCoordinator: Coordinator, AlertMessage {
 
     init(window: UIWindow) {
         self.window = window
-        window.overrideUserInterfaceStyle = Settings.shared.theme
+        window.overrideUserInterfaceStyle = InterfaceStyleManager.shared.style
         self.navigationController = UINavigationController()
     }
 
