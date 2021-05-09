@@ -8,14 +8,12 @@
 import RxSwift
 import RxCocoa
 
-
 enum Theme: Int {
     case systemDefault
     case dark
     case light
     case kiminawa
 }
-
 
 class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewModelOutput, StaticViewModel {
     var deleteButton = PublishSubject<Void>()
@@ -26,7 +24,9 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
 
     var coordinator: ConfigCoordinator
     var sections = [ConfigSection]()
-    var selectedTheme: Theme = .systemDefault
+    var theme: Theme = .systemDefault
+
+    var didUpdateTheme: ((_ style: UIUserInterfaceStyle) -> Void)?
 
     let disposeBag = DisposeBag()
 
@@ -69,6 +69,21 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         item.cell.accessoryType = .checkmark
     }
 
+    func update(style: UIUserInterfaceStyle) {
+        InterfaceStyleManager.shared.style = style
+        didUpdateTheme?(style)
+    }
+
+    func update(theme: Theme) {
+        switch theme {
+        case .kiminawa:
+            UserDefaults.standard.setValue(true, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        default:
+            UserDefaults.standard.setValue(false, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        }
+        coordinator.updateBackground()
+    }
+
 }
 
 extension ThemeViewModel {
@@ -77,6 +92,7 @@ extension ThemeViewModel {
         cell.textLabel?.text = title
         cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
         cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
+        cell.selectionStyle = .none
         cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }

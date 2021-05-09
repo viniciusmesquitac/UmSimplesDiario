@@ -31,27 +31,19 @@ class ThemeViewController: UIViewController {
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
         mainView.setupView()
         self.view = mainView
-    }
 
-    func update(style: UIUserInterfaceStyle, theme: Theme) {
-        switch theme {
-        case .kiminawa:
-            UserDefaults.standard.setValue(true, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
-        default:
-            UserDefaults.standard.setValue(false, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        viewModel?.didUpdateTheme = { style in
+            self.mainView.tableView.reloadData()
+            UIView.transition(
+                with: self.view,
+                duration: 0.5,
+                options: .transitionCrossDissolve,
+                animations: {
+                    self.view.window?.overrideUserInterfaceStyle = style
+                },
+                completion: nil
+            )
         }
-        viewModel?.coordinator.updateBackground()
-        InterfaceStyleManager.shared.style = style
-        mainView.tableView.reloadData()
-        UIView.transition(
-            with: self.view,
-            duration: 0.5,
-            options: .transitionCrossDissolve,
-            animations: {
-                self.view.window?.overrideUserInterfaceStyle = style
-            },
-            completion: nil
-        )
     }
 }
 
@@ -74,8 +66,8 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         item.action?()
         item.cell.accessoryType = .checkmark
-        update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified,
-                    theme: Theme(rawValue: indexPath.row) ?? .systemDefault)
+        viewModel?.update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified)
+        viewModel?.update(theme: Theme(rawValue: indexPath.row) ?? .systemDefault)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
