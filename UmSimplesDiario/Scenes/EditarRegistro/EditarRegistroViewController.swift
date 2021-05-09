@@ -128,6 +128,7 @@ extension EditarRegistroViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
         cell?.bind(viewModel: viewModel, with: tableView)
+        cell?.isUserInteractionEnabled = true
         cell?.bodyTextView.text = element
         return cell ?? UITableViewCell()
     }

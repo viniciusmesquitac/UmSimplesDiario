@@ -47,7 +47,6 @@ extension ConfigurarRegistroViewModel: ConfigurarRegistroViewModelOutput {
             self.repository.delete(object: self.registro)
             self.coordinator.dismissToRegistros()
         }
-    
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)
         self.coordinator.navigationController.dismiss(animated: true, completion: {

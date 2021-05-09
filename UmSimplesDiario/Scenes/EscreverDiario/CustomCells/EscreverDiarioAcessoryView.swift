@@ -42,16 +42,16 @@ class AcessoryViewEscreverDiario: UIView {
 
     func buildViewHierarchy() {
         self.addSubview(keyboardDismissButton)
-        self.addSubview(imageAttachmentButton)
+//        self.addSubview(imageAttachmentButton)
     }
 
     func setupConstraints() {
         keyboardDismissButton.snp.makeConstraints { make in
             make.top.bottom.trailing.equalToSuperview().inset(8)
         }
-        imageAttachmentButton.snp.makeConstraints { make in
-            make.top.bottom.leading.equalToSuperview().inset(8)
-        }
+//        imageAttachmentButton.snp.makeConstraints { make in
+//            make.top.bottom.leading.equalToSuperview().inset(8)
+//        }
     }
 
     required init?(coder: NSCoder) {

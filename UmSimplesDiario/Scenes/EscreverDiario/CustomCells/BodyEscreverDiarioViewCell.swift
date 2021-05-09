@@ -20,12 +20,19 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
 
     var isBodyEmpty = false
     let disposeBag = DisposeBag()
+    var positionTapped = BehaviorRelay<CGPoint>(value: .zero)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
         contentView.layer.cornerRadius = 8
+        bodyTextView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapResponse))
+        tap.delegate = self
+        bodyTextView.addGestureRecognizer(tap)
+        bodyTextView.delegate = self
         acessoryView.keyboardDismissButton.addTarget(self, action: #selector(dimissKeyboard), for: .allEvents)
         self.selectionStyle = .none
+        bodyTextView.isUserInteractionEnabled = true
         self.backgroundColor = StyleSheet.Color.backgroundColor
         setupBody()
     }
@@ -37,6 +44,21 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
             viewModel.heightBody = height
             self.updateTableView(tableView)
         }).disposed(by: self.disposeBag)
+
+        positionTapped.asObservable().subscribe(onNext: { value in
+            tableView.scrollRectToVisible(
+                CGRect(origin: CGPoint(x: .zero, y: value.y - 100),
+                       size: tableView.frame.size),
+                animated: true)
+        }).disposed(by: disposeBag)
+
+//        bodyTextView.rx.text.changed.skip(1).subscribe(onNext: { _ in
+//            tableView.scrollRectToVisible(
+//                CGRect(origin: CGPoint(x: .zero, y: self.positionTapped.value.y),
+//                       size: tableView.frame.size),
+//                animated: false)
+//        }).disposed(by: disposeBag)
+
     }
 
     func bind(viewModel: EscreverDiarioViewModel, with tableView: UITableView) {
@@ -75,6 +97,17 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     @objc func dimissKeyboard() {
         self.bodyTextView.resignFirstResponder()
     }
+
+    @objc func tapResponse(_ recognizer: UITapGestureRecognizer) {
+        let location: CGPoint = recognizer.location(in: bodyTextView)
+        self.positionTapped.accept(location)
+    }
+
+    override func gestureRecognizer(
+        _ gestureRecognizer: UIGestureRecognizer,
+        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
 
 extension UITableViewCell {
@@ -83,5 +116,13 @@ extension UITableViewCell {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
+    }
+}
+
+extension BodyEscreverDiarioViewCell: UITextViewDelegate {
+    func textViewShouldChangeReturn(_ textView: UITextView) {
+        let position = self.positionTapped.value
+        let newPosition = position.y + 50
+        self.positionTapped.accept(CGPoint(x: position.x, y: newPosition))
     }
 }
