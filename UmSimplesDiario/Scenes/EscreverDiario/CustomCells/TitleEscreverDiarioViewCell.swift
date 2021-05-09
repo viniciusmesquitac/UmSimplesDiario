@@ -27,7 +27,7 @@ class TitleEscreverDiarioViewCell: UITableViewCell {
         setupTitle()
 
         titleTextField.tag = 0
-        titleTextField.returnKeyType = .done
+        titleTextField.returnKeyType = .continue
         titleTextField.rx.text.changed.subscribe(onNext: { text in
             self.isTitleEmpty = text == nil || text == ""
             self.rowHeight.accept(self.titleTextField.frame.height + 16)

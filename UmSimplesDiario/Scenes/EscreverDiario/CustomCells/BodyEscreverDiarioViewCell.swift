@@ -15,7 +15,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
     var heightBody = CGFloat(120)
     let increaseRowHeight = CGFloat(500)
 
-    let acessoryView = AcessoryViewEscreverDiario(frame: CGRect(origin: .zero, size: CGSize(width: 10, height: 44)))
+    let acessoryView = AcessoryViewEscreverDiario(frame: CGRect(origin: .zero, size: CGSize(width: 10, height: 32)))
     let bodyTextView = UITextView()
 
     var isBodyEmpty = false
@@ -53,7 +53,7 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
         bodyTextView.tag = 1
         addSubview(bodyTextView)
         bodyTextView.isScrollEnabled = false
-//        bodyTextView.inputAccessoryView = acessoryView
+        bodyTextView.inputAccessoryView = acessoryView
         rowHeight.accept(bodyTextView.frame.height + self.increaseRowHeight)
         bodyTextView.placeholder = "Escreva aqui e registre sua história!"
         bodyTextView.backgroundColor = StyleSheet.Color.backgroundColor

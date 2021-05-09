@@ -77,6 +77,7 @@
 		81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */; };
 		81F3D6C426475CF2002966DB /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C326475CF2002966DB /* ThemeView.swift */; };
 		81F3D6C626476AD2002966DB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C526476AD2002966DB /* Settings.swift */; };
+		81F3D6C82648309E002966DB /* UITextView+Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C72648309E002966DB /* UITextView+Attachment.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -176,6 +177,7 @@
 		81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeViewModel+Protocol.swift"; sourceTree = "<group>"; };
 		81F3D6C326475CF2002966DB /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		81F3D6C526476AD2002966DB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		81F3D6C72648309E002966DB /* UITextView+Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Attachment.swift"; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -457,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				81F3D6A52646CAC9002966DB /* CPLPlacemark.swift */,
+				81F3D6C72648309E002966DB /* UITextView+Attachment.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				81F3D6AB264700A1002966DB /* ConfigViewController.swift in Sources */,
 				81BA7C0125D16B1E0002D594 /* Coordinator.swift in Sources */,
 				81BA7CBD25D42CC00002D594 /* CoreDataService.swift in Sources */,
+				81F3D6C82648309E002966DB /* UITextView+Attachment.swift in Sources */,
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,

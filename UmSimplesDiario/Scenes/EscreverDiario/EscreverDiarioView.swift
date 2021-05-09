@@ -23,14 +23,14 @@ class EscreverDiarioView: UIView {
     var isBodyEmpty = false
 
     let navigationBarButtonTitle: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "title", style: .plain,
+        let button = UIBarButtonItem(title: "Titulo", style: .plain,
                                      target: nil, action: nil)
         button.isEnabled = false
         button.tintColor = StyleSheet.Color.primaryColor
         return button
     }()
     let navigationBackButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(image: StyleSheet.Image.iconBackButton)
         button.tintColor = UIColor.systemBlue
         return button
     }()
@@ -45,6 +45,7 @@ class EscreverDiarioView: UIView {
         self.view.frame = self.bounds
         self.view.backgroundColor = .systemGray5
         self.cancelButton.tintColor = StyleSheet.Color.activeButtonColor
+        self.saveButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in

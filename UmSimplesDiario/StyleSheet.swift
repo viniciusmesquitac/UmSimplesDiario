@@ -17,7 +17,6 @@ struct StyleSheet {
         static let contentEntryColor = UIColor(named: "contentEntryColor")!
         static let borderColor = UIColor.systemGray5
         static let titleTextColor = UIColor.systemGray
-        static let bodyTextColor = UIColor.black
     }
 
     enum Font {
@@ -41,6 +40,6 @@ struct StyleSheet {
         static let iconTrash = UIImage(named: "􀈒")!
         static let iconLock = UIImage(named: "􀎡")!
         static let iconSave = UIImage(named: "􀈼")!
-
+        static let iconBackButton = UIImage(named: "backButton")
     }
 }
