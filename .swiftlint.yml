@@ -1,2 +1,2 @@
 excluded:
-  - Pods
+  - ${PWD}/Pods

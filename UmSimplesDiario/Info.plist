@@ -27,6 +27,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Identifique-se</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Utilizamos sua localização para verificar o clima</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Utilizamos sua localização para verificar o clima</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

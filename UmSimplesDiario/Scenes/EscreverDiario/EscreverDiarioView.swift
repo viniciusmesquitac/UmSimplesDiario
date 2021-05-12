@@ -11,61 +11,59 @@ import RxSwift
 import RxCocoa
 import UITextView_Placeholder
 
-
-fileprivate var isTitleEmpty = true
-fileprivate var isBodyEmpty = true
-
 class EscreverDiarioView: UIView {
-    
+
     let view = UIView(frame: .zero)
     let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-    let cancelButton = UIBarButtonItem(systemItem: .cancel)
-    let saveButton = UIBarButtonItem(systemItem: .save)
+    let cancelButton = UIBarButtonItem(title: "Cancelar")
+    let saveButton = UIBarButtonItem(title: "Salvar")
     let tableView = UITableView(frame: .zero)
-    
+    var isTitleEmpty = false
+    var isBodyEmpty = false
+
     let navigationBarButtonTitle: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "title",style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(title: "Titulo", style: .plain,
+                                     target: nil, action: nil)
         button.isEnabled = false
-        button.tintColor = StyleSheet.Color.secundaryColor
+        button.tintColor = StyleSheet.Color.primaryColor
         return button
     }()
-    
     let navigationBackButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "backButton"), style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(image: StyleSheet.Image.iconBackButton)
         button.tintColor = UIColor.systemBlue
         return button
     }()
-    
+
     let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: UIImage(named: "more"), style: .plain, target: nil, action: nil)
+        let button = UIBarButtonItem(image: StyleSheet.Image.iconMore)
         button.tintColor = UIColor.systemBlue
         return button
     }()
-    
+
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = .systemGray5
+        self.cancelButton.tintColor = StyleSheet.Color.activeButtonColor
+        self.saveButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+
         setupTableView()
     }
-    
+
     func setupTableView() {
         view.addSubview(tableView)
-        
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = .systemBackground
+        self.tableView.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.tableHeaderView = headerView
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
-    
 
     func setTitle(_ title: String) {
         if title.count < 20 {

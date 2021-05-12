@@ -7,34 +7,12 @@
 
 import RxCocoa
 import RxSwift
-
-protocol EscreverDiarioViewModelInput {
-    var cancelButton: PublishSubject<Void> { get }
-    var saveButton: PublishSubject<Void> { get }
-    var humorButton: PublishSubject<Void> { get }
-    var weatherButton: PublishSubject<Void> { get }
-    var weather: BehaviorRelay<Clima> { get }
-    var changeHumor: BehaviorRelay<Bool?> { get }
-    var titleText: BehaviorRelay<String?> { get }
-    var bodyText: BehaviorRelay<String?> { get }
-
-}
-
-protocol EscreverDiarioViewModelOutput {
-    var titleTextOutput: Observable<String?> { get }
-    var bodyTextOutput: Observable<String?> { get }
-    var changeWeather: Observable<Clima> { get }
-    var dataSourceOutput: Driver<[String?]> { get }
-    func loadClima()
-}
-
-protocol EscreverDiarioViewModelProtocol: ViewModel {
-    var inputs: EscreverDiarioViewModelInput { get }
-    var outputs: EscreverDiarioViewModelOutput { get }
-}
+import RxDataSources
+import MapKit
+import CoreLocation
 
 class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioViewModelInput {
-    var weather =  BehaviorRelay<Clima>(value: .none)
+    var weather =  BehaviorRelay<WeatherKeyResult>(value: .none)
 
     var changeHumor = BehaviorRelay<Bool?>(value: nil)
     var titleText = BehaviorRelay<String?>(value: nil)
@@ -43,22 +21,30 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
     var cancelButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
     var humorButton = PublishSubject<Void>()
+    var imageButton = PublishSubject<Void>()
     var weatherButton = PublishSubject<Void>()
 
     var coordinator: RegistrosCoordinator
     let repository = RegistroRepository()
     var disposeBag = DisposeBag()
     var registro: Registro?
-    var clima: Clima = .none
-    var humor: Humor = .none
+    var clima: WeatherKeyResult = .none
+    var humor: Mood = .none
 
     var inputs: EscreverDiarioViewModelInput { return self }
     var outputs: EscreverDiarioViewModelOutput { return self }
-    
+    var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, EditarRegistroCellModel>]>(value: [])
+
+    var heightBody = CGFloat(120)
+    var heightTitle = CGFloat(120)
+
+    let locationManager = CLLocationManager()
+
     init(coordinator: RegistrosCoordinator, registro: Registro?) {
         self.coordinator = coordinator
         self.registro = registro
-        self.titleText.accept("Sem titulo")
+
+        loadRegistro()
 
         cancelButton.subscribe(onNext: {
             coordinator.dismiss()
@@ -72,81 +58,59 @@ class EscreverDiarioViewModel: EscreverDiarioViewModelProtocol, EscreverDiarioVi
         humorButton.subscribe(onNext: {
             if let humor = self.changeHumor.value {
                 self.changeHumor.accept(!humor)
-                self.humor = !humor ? .triste : .feliz
+                self.humor = !humor ? .sad : .happy
             } else {
                 self.changeHumor.accept(false)
-                self.humor = .feliz
+                self.humor = .happy
             }
         }).disposed(by: disposeBag)
 
         weatherButton.subscribe(onNext: {
-            self.loadClima()
+            self.askForLocationAuth()
         }).disposed(by: disposeBag)
     }
 
-    func loadClima() {
-        let resource = Resource<WeatherResult>(url: WeatherAPI.weatherCity(name: "Maracanau", stateCode: nil, countryCode: nil).url!)
+    func loadRegistro() {
+        let titulo =  EditarRegistroCellModel.titulo("Sem titulo")
+        let texto = EditarRegistroCellModel.texto( "")
+        self.itemsDataSourceRelay
+            .accept([SectionModel(model: "",
+                                  items: [titulo, texto]
+            )])
+    }
+
+    func askForLocationAuth() {
+        locationManager.requestWhenInUseAuthorization()
+    }
+
+    func loadClima(cityName: String) {
+        let resource = Resource<WeatherResult>(
+            url: WeatherAPI.weatherCity(name: cityName).url!)
         URLRequest.load(resource: resource).subscribe(onNext: { result in
-            if let weather = result?.weather.first?.description {
-                switch weather {
-                case "clear sky":
-                    self.clima = .ceuLimpo
-                    self.weather.accept(self.clima)
-                case "few clouds":
-                    self.clima = .nuvens
-                    self.weather.accept(self.clima)
-                case "broken clouds":
-                    self.clima = .nuvens
-                    self.weather.accept(self.clima)
-                case "scattered clouds":
-                    self.clima = .nuvens
-                    self.weather.accept(self.clima)
-                case "rain":
-                    self.clima = .chuva
-                    self.weather.accept(self.clima)
-                case "moderate rain":
-                    self.clima = .chuva
-                    self.weather.accept(self.clima)
-                case "shower rain":
-                    self.clima = .chuvaComSol
-                    self.weather.accept(.chuvaComSol)
-                case "thunderstorm":
-                    self.clima = .tempestade
-                    self.weather.accept(.tempestade)
-                default:
-                    self.clima = .ceuLimpo
-                    self.weather.accept(.ceuLimpo)
-                }
+            if let result = result?.weather.first?.description,
+               let key = WeatherKeyResult.allCases.filter({ $0.rawValue == result })
+                .first {
+                    self.weather.accept(key)
             }
         }).disposed(by: disposeBag)
     }
 
     func criarRegistro() {
         var title = self.titleText.value
-        if title == "" { title = "Sem titulo" }
-        let registro = RegistroDTO(titulo: title,
-                                   texto: self.bodyText.value,
-                                   humor: humor,
-                                   clima: clima)
+        let text = self.bodyText.value
+        let weather = self.weather.value
+        if title == "" || title == nil { title = "Sem titulo" }
+        let registro = RegistroDTO(title: title,
+                                   text: text,
+                                   mood: humor,
+                                   weather: weather)
         repository.add(object: registro)
-    }
-
-    func salvarRegistro() {
-        if self.titleText.value == "" {
-            self.registro?.titulo = "Sem titulo"
-        } else {
-            self.registro?.titulo = self.titleText.value
-        }
-        self.registro?.texto = self.bodyText.value
-        self.registro?.humor = self.humor.rawValue
-        self.registro?.clima = self.clima.rawValue
-        _ = repository.service.save()
     }
 }
 
 extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
 
-    var changeWeather: Observable<Clima> {
+    var changeWeather: Observable<WeatherKeyResult> {
         self.inputs.weather.asObservable()
     }
 
@@ -161,5 +125,9 @@ extension EscreverDiarioViewModel: EscreverDiarioViewModelOutput {
     var dataSourceOutput: Driver<[String?]> {
         Driver.just([titleText.value, bodyText.value])
     }
-    
+
+    var itemsDataSource: Observable<[SectionModel<String, EditarRegistroCellModel>]> {
+        self.inputs.itemsDataSourceRelay.asObservable()
+    }
+
 }

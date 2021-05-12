@@ -8,40 +8,42 @@
 import UIKit
 
 struct StyleSheet {
-    
+
     enum Color {
-        static let primaryColor = UIColor(named: "primaryColor")
-        static let secundaryColor = UIColor.lightGray
-        static let backgroundColor = UIColor.white
+        static let primaryColor = UIColor(named: "primaryColor")!
+        static let secundaryColor = UIColor.systemBackground
+        static let backgroundColor = UIColor(named: "backgroundColor")!
+        static let activeButtonColor = UIColor(named: "activeButtonColor")!
+        static let contentEntryColor = UIColor(named: "contentEntryColor")!
+        static let modalBackgroundColor = UIColor(named: "modalBackgroundColor")!
         static let borderColor = UIColor.systemGray5
-        
         static let titleTextColor = UIColor.systemGray
-        static let bodyTextColor = UIColor.black
     }
-    
+
     enum Font {
         static let boldTitleFont16 = UIFont.boldSystemFont(ofSize: 16)
         static let primaryFont16 = UIFont.systemFont(ofSize: 16)
         static let primaryFont24 = UIFont.systemFont(ofSize: 24)
         static let boldTitleFont12 = UIFont.boldSystemFont(ofSize: 16)
     }
-    
+
     enum Image {
-        enum Mood {
-            static let happyMood = UIImage(named: "happyMood")!
-            static let sadMood = UIImage(named: "sadMood")!
-        }
-        
-        enum Weather {
-            static let fewClouds = UIImage(named: "few_clouds")!
-            static let rain = UIImage(named: "rain")!
-            static let showerRain = UIImage(named: "shower_rain")!
-            static let clearSky = UIImage(named: "clear_sky")!
-            static let thunderstorm = UIImage(named: "thunderstorm")!
-        }
-        
-        enum Icon {
-            static let ideaIcon = UIImage(named: "ideaIcon")!
-        }
+        static let happyMood = UIImage(named: "happyMood")!
+        static let sadMood = UIImage(named: "sadMood")!
+        static let fewClouds = UIImage(named: "few_clouds")!
+        static let rain = UIImage(named: "rain")!
+        static let showerRain = UIImage(named: "shower_rain")!
+        static let clearSky = UIImage(named: "clear_sky")!
+        static let thunderstorm = UIImage(named: "thunderstorm")!
+        static let ideaIcon = UIImage(named: "ideaIcon")!
+        static let iconSettings = UIImage(named: "􀍟")!
+        static let iconMore = UIImage(named: "􀍠")!
+        static let iconTrash = UIImage(named: "􀈒")!
+        static let iconLock = UIImage(named: "􀎡")!
+        static let iconSave = UIImage(named: "􀈼")!
+        static let iconBackButton = UIImage(named: "backButton")
+        static let iconKeyboard = UIImage(named: "iconKeyboard")!
+        static let iconMusic = UIImage(named: "iconMusic")!
+        static let iconImage = UIImage(named: "iconImage")!
     }
 }

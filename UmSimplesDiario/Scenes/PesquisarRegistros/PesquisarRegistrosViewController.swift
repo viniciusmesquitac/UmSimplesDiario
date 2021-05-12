@@ -9,27 +9,28 @@ import UIKit
 import RxSwift
 
 class PesquisarRegistrosViewController: UIViewController {
-    
+
     let mainView = PesquisarRegistrosView()
     var viewModel: PesquisarRegistrosViewModel!
     let disposeBag = DisposeBag()
-    
+
     init(viewModel: PesquisarRegistrosViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         navigationItem.titleView = mainView.searchBar
         mainView.searchBar.becomeFirstResponder()
-        
         mainView.setupView()
-        mainView.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
+        mainView.tableView.register(RegistrosViewCell.self,
+                                    forCellReuseIdentifier: RegistrosViewCell.identifier)
         self.view = mainView
         setup()
     }

@@ -15,6 +15,8 @@ class EditarRegistroViewController: UIViewController {
     var viewModel: EditarRegistroViewModel!
     let disposeBag = DisposeBag()
 
+    let imagePicker = UIImagePickerController()
+
     init(viewModel: EditarRegistroViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -26,6 +28,7 @@ class EditarRegistroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         navigationItem.rightBarButtonItem = mainView.navigationMoreButtonItem
         mainView.tableView.register(TitleEscreverDiarioViewCell.self,
                                     forCellReuseIdentifier: TitleEscreverDiarioViewCell.identifier)
@@ -74,12 +77,19 @@ extension EditarRegistroViewController {
             }
         }).disposed(by: disposeBag)
 
-        viewModel.changeWeather.asObservable().subscribe(onNext: { value in
+        viewModel.changeWeather.subscribe(onNext: { value in
             DispatchQueue.main.async {
-                if value != .none {
-                    self.mainView.headerView.changeWeather(value)
-                    self.mainView.headerView.updateClima()
-                }
+                self.mainView.headerView.changeWeather(value)
+                self.mainView.headerView.updateClima()
+            }
+        }).disposed(by: disposeBag)
+
+        viewModel.imageButton.subscribe(onNext: { _ in
+            if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+                self.imagePicker.delegate = self
+                self.imagePicker.sourceType = .savedPhotosAlbum
+                self.imagePicker.allowsEditing = false
+                self.present(self.imagePicker, animated: true, completion: nil)
             }
         }).disposed(by: disposeBag)
     }
@@ -110,7 +120,7 @@ extension EditarRegistroViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: TitleEscreverDiarioViewCell.identifier) as? TitleEscreverDiarioViewCell
         cell?.bind(viewModel: viewModel, with: tableView)
-        cell?.title.text = element
+        cell?.titleTextField.text = element
         return cell ?? UITableViewCell()
     }
 
@@ -118,8 +128,22 @@ extension EditarRegistroViewController {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: BodyEscreverDiarioViewCell.identifier) as? BodyEscreverDiarioViewCell
         cell?.bind(viewModel: viewModel, with: tableView)
-        cell?.body.text = element
+        cell?.isUserInteractionEnabled = true
+        cell?.bodyTextView.text = element
         return cell ?? UITableViewCell()
     }
 
+}
+
+extension EditarRegistroViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+           let cell = mainView.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? BodyEscreverDiarioViewCell {
+            cell.bodyTextView.setAttachment(image: pickedImage)
+            /*Not implented, should create a collection to attachments **/
+        }
+        dismiss(animated: true)
+    }
 }

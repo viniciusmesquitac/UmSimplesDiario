@@ -9,25 +9,23 @@ import Foundation
 import UIKit
 
 struct RegistroDTO {
-    var titulo: String?
-    var texto: String?
-    var humor: Humor
-    var clima: Clima
+    var title: String?
+    var text: String?
+    var mood: Mood
+    var weather: WeatherKeyResult
     let date = Date()
 }
 
 struct RegistroModel {
-    
     let registro: Registro
     let calendar = Calendar.current
-    
+
     init(registro: Registro) {
         self.registro = registro
     }
 }
 
 extension RegistroModel {
-    
     var titulo: String? {
         registro.titulo
     }
@@ -36,46 +34,31 @@ extension RegistroModel {
     }
     var humor: UIImage? {
         switch registro.humor {
-        case 0: return StyleSheet.Image.Mood.happyMood
-        case 1: return StyleSheet.Image.Mood.sadMood
+        case 0: return StyleSheet.Image.happyMood
+        case 1: return StyleSheet.Image.sadMood
         default: return nil
         }
     }
-    
-    
-    var clima: UIImage? {
-        switch registro.clima {
-        case 0:
-            return StyleSheet.Image.Weather.clearSky
-        case 1:
-            return StyleSheet.Image.Weather.fewClouds
-        case 2:
-            return StyleSheet.Image.Weather.rain
-        case 3:
-            return StyleSheet.Image.Weather.rain
-        case 4:
-            return StyleSheet.Image.Weather.thunderstorm
-        case 5:
-            return nil
-        default:
-            return nil
 
-        }
+    var weather: UIImage? {
+        let imageNamed = WeatherKeyResult.allCases[Int(registro.clima)]
+            .rawValue.replacingOccurrences(of: " ", with: "_")
+        return UIImage(named: imageNamed)
     }
-    
-    var dia: String {
+
+    var day: String {
         guard let date = registro.date else { return "09" }
         let day = String(calendar.component(.day, from: date))
         return day
     }
-    
-    var mes: Int {
+
+    var month: Int {
         guard let date = registro.date else { return 0 }
         let month = calendar.component(.month, from: date)
         return month - 1
     }
-    
-    var horario: String {
+
+    var time: String {
         guard let date = registro.date else { return "12:00" }
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
@@ -84,15 +67,17 @@ extension RegistroModel {
         }
         return "\(hour):\(minutes)"
     }
-    
-    var diaDaSemana: String {
+    var daysOfWeek: String {
         guard let date = registro.date else { return "12:00" }
         let weekDay = calendar.component(.weekday, from: date)
         switch weekDay {
-        case 2: return "Seg"; case 3: return "Ter";
-        case 4: return "Qua"; case 5: return "Qui";
-        case 6: return "Sex"; case 7: return "Sáb";
-        case 1: return "Dom";
+        case 2: return "Seg"
+        case 3: return "Ter"
+        case 4: return "Qua"
+        case 5: return "Qui"
+        case 6: return "Sex"
+        case 7: return "Sáb"
+        case 1: return "Dom"
         default:
             return "Seg"
         }

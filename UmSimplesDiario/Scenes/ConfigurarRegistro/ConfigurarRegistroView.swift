@@ -12,17 +12,37 @@ import RxSwift
 class ConfigurarRegistroView: UIView {
 
     let view = UIView(frame: .zero)
-    let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+    let indicatorContainer = UIView(frame: .zero)
     let disposeBag = DisposeBag()
-    
     var hasSetPointOrigin = false
     var pointOrigin: CGPoint?
 
-    let deleteButton: UIButton = {
+    let buttonSize = CGSize(width: 50, height: 50)
+
+    lazy var deleteButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
-        button.setImage(.remove, for: .normal)
-        button.backgroundColor = .darkGray
+        button.tintColor = .systemRed
+        button.setImage(StyleSheet.Image.iconTrash, for: .normal)
+        button.layer.cornerRadius = buttonSize.height/2
+        button.backgroundColor = StyleSheet.Color.backgroundColor
+        return button
+    }()
+
+    lazy var saveButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.tintColor = StyleSheet.Color.activeButtonColor
+        button.setImage(StyleSheet.Image.iconSave, for: .normal)
+        button.layer.cornerRadius = buttonSize.height/2
+        button.backgroundColor = StyleSheet.Color.backgroundColor
+        return button
+    }()
+
+    lazy var lockButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.tintColor = .systemYellow
+        button.setImage(StyleSheet.Image.iconLock, for: .normal)
+        button.layer.cornerRadius = buttonSize.height/2
+        button.backgroundColor = StyleSheet.Color.secundaryColor
         return button
     }()
 
@@ -33,23 +53,34 @@ class ConfigurarRegistroView: UIView {
         }
     }
 
+    func setupButtons(_ buttons: [UIButton]) {
+        for button in buttons {
+            button.snp.makeConstraints { make in
+                make.size.equalTo(buttonSize)
+            }
+        }
+    }
+
     func setupView() {
         self.view.frame = self.bounds
-        self.view.backgroundColor = .systemBackground
+        self.view.backgroundColor = StyleSheet.Color.modalBackgroundColor
         insertSubview(view, belowSubview: indicatorContainer)
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        setupDeleteButton()
+        setupStackView()
     }
 
-    func setupDeleteButton() {
-        view.addSubview(deleteButton)
-        deleteButton.snp.makeConstraints { make in
-            make.height.equalTo(59)
-            make.width.equalTo(59)
-            make.centerX.equalTo(view.snp.centerX)
-            make.centerY.equalTo(view.snp.centerY)
+    func setupStackView() {
+        let arrangedSubviews = [saveButton, deleteButton]
+        setupButtons(arrangedSubviews)
+        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
+        stackView.axis = .horizontal
+        stackView.distribution = .fill
+        stackView.spacing = 24
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
         }
     }
 }

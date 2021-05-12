@@ -6,14 +6,22 @@
 //
 
 import Foundation
+// swiftlint:disable identifier_name
 
-enum Clima: Int16, CaseIterable {
-    case ceuLimpo
-    case nuvens
-    case chuva
-    case chuvaComSol
-    case tempestade
+enum WeatherKeyResult: String, CaseIterable {
+    case clearSky = "clear sky"
+    case fewClounds = "few clouds"
+    case brokenClounds = "broken clouds"
+    case scatteredClounds = "scattered clouds"
+    case rain = "rain"
+    case thunderstorm
+    case moderateRain = "moderate rain"
+    case showerRain = "shower rain"
     case none
+
+    var index: Int16 {
+        return Int16(WeatherKeyResult.allCases.firstIndex(of: self)!)
+    }
 }
 
 struct Weather: Decodable {

@@ -12,9 +12,8 @@ class ConfigurarRegistroViewController: UIViewController {
 
     let mainView = ConfigurarRegistroView()
     var viewModel: ConfigurarRegistroViewModel!
-    
     let disposeBag = DisposeBag()
-    
+
     init(viewModel: ConfigurarRegistroViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -23,11 +22,11 @@ class ConfigurarRegistroViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         mainView.setupView()
-        
+
         mainView.rx
           .panGesture()
             .when(.began, .changed, .ended)
@@ -38,20 +37,15 @@ class ConfigurarRegistroViewController: UIViewController {
           })
           .disposed(by: disposeBag)
         self.view = mainView
-        
         setup()
     }
-    
     func setup() {
         setupOutputs()
         setupInputs()
     }
-    
-    func setupOutputs() {
-        
-    }
-    
+    func setupOutputs() { }
     func setupInputs() {
         mainView.deleteButton.rx.tap.bind(to: viewModel.deleteButton).disposed(by: disposeBag)
+        mainView.saveButton.rx.tap.bind(to: viewModel.saveButton).disposed(by: disposeBag)
     }
 }

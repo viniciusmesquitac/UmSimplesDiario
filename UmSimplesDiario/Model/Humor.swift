@@ -7,8 +7,8 @@
 
 import Foundation
 
-enum Humor: Int16, CaseIterable {
-    case feliz
-    case triste
+enum Mood: Int16, CaseIterable {
+    case happy
+    case sad
     case none
 }

@@ -9,31 +9,11 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-protocol RegistrosViewModelInput {
-    var selectedItem: BehaviorRelay<IndexPath?> { get }
-    var deletedItem: BehaviorRelay<IndexPath?> { get }
-    var composeButton: PublishSubject<Void> { get }
-    var searchButton: PublishSubject<Void> { get }
-    var listaRegistrosRelay: BehaviorRelay<[Registro]> { get }
-    var itemsDataSourceRelay: BehaviorRelay<[SectionModel<String, Registro>]> { get }
-}
-
-protocol RegistrosViewModelOutput {
-    var registrosObservable: Observable<[Registro]> { get }
-    var registrosOutput: Observable<[Registro]> { get }
-    var itemsDataSource: Observable<[SectionModel<String, Registro>]> { get }
-    func loadRegistros()
-}
-
-protocol RegistrosViewModelProtocol: ViewModel {
-    var inputs: RegistrosViewModelInput { get }
-    var outputs: RegistrosViewModelOutput { get }
-}
-
 class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
     var deletedItem = BehaviorRelay<IndexPath?>(value: nil)
     var itemsDataSourceRelay = BehaviorRelay<[SectionModel<String, Registro>]>(value: [])
     var searchButton = PublishSubject<Void>()
+    var configButton = PublishSubject<Void>()
     var composeButton = PublishSubject<Void>()
     var selectedItem = BehaviorRelay<IndexPath?>(value: nil)
 
@@ -66,6 +46,10 @@ class RegistrosViewModel: RegistrosViewModelProtocol, RegistrosViewModelInput {
             self.registros.remove(at: row)
             self.makeSections(items: self.registros)
         }.disposed(by: disposeBag)
+
+        configButton.subscribe(onNext: { _ in
+            coordinator.route(to: .config)
+        }).disposed(by: disposeBag)
 
         composeButton.subscribe(onNext: { _ in
             coordinator.route(to: .compose)
@@ -109,16 +93,17 @@ extension RegistrosViewModel {
 
     func makeCell(element: Registro, from tableView: UITableView) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RegistrosViewCell.identifier) as? RegistrosViewCell
+        cell?.contentView.backgroundColor = StyleSheet.Color.contentEntryColor
         cell?.configure(RegistroModel(registro: element))
         return cell ?? UITableViewCell()
     }
 
     @discardableResult
     func makeSections(items: [Registro]) -> [SectionModel<String, Registro>] {
-        let sections = SectionCell.allCases.compactMap { mes -> SectionModel<String, Registro>? in
-            let registros = items.filter { RegistroModel(registro: $0).mes ==  mes.rawValue }
+        let sections = SectionCell.allCases.compactMap { month -> SectionModel<String, Registro>? in
+            let registros = items.filter { RegistroModel(registro: $0).month ==  month.rawValue }
             if !registros.isEmpty {
-                return SectionModel<String, Registro>(model: mes.sectionTitle, items: registros )
+                return SectionModel<String, Registro>(model: month.sectionTitle, items: registros )
             }
             return nil
         }

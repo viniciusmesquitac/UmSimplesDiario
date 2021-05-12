@@ -14,13 +14,14 @@ enum RegistrosPath {
     case compose
     case editCompose(registro: Registro)
     case showIdea(idea: String)
+    case config
 }
 
 final class RegistrosCoordinator: Coordinator {
-    
+
     var navigationController: UINavigationController!
     var currentController: RegistrosViewController?
-    
+
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
@@ -54,13 +55,17 @@ final class RegistrosCoordinator: Coordinator {
         case .showIdea(let idea):
             let modal = UIAlertAction(title: idea, style: .default, handler: nil)
             print(modal)
-        }
 
+        case .config:
+            coordinate(to: ConfigCoordinator(navigationController: self.navigationController))
+        }
     }
 
     func dismiss() {
         navigationController.dismiss(animated: true, completion: {
-            guard let viewController = self.navigationController.viewControllers.first as? RegistrosViewController else { return }
+            guard let viewController = self.navigationController
+                    .viewControllers.first as? RegistrosViewController
+            else { return }
             viewController.viewModel.loadRegistros()
             self.navigationController.popViewController(animated: true)
         })
