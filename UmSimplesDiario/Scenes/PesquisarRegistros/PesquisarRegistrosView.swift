@@ -27,6 +27,7 @@ class PesquisarRegistrosView: UIView {
     func setupTableView() {
         view.addSubview(tableView)
         self.tableView.separatorStyle = .none
+        self.tableView.rowHeight = 100
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

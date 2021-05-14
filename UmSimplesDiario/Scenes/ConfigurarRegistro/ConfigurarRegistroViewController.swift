@@ -25,7 +25,6 @@ class ConfigurarRegistroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.setupView()
-
         mainView.rx
           .panGesture()
             .when(.began, .changed, .ended)

@@ -70,7 +70,7 @@ extension ThemeViewModel {
         InterfaceStyleManager.shared.theme = theme
         ThemeManager.shared.apply(theme)
     }
-    
+
     func update(background: Background) {
         InterfaceStyleManager.shared.background = background
     }

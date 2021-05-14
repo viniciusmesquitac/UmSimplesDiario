@@ -68,6 +68,10 @@ class ConfigurarRegistroView: UIView {
         view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 24
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         setupStackView()
     }
 
@@ -92,10 +96,14 @@ extension ConfigurarRegistroView {
 
         view.frame.origin = CGPoint(x: 0, y: self.pointOrigin!.y + translation.y)
         if sender.state == .ended {
+
             let dragVelocity = sender.velocity(in: view)
             if dragVelocity.y >= 1300 {
                 coordinator.dismiss()
             } else {
+                if view.frame.origin.y >= 100 {
+                    coordinator.dismiss()
+                }
                 // Set back to original position of the view controller
                 UIView.animate(withDuration: 0.3) {
                     self.view.frame.origin = self.pointOrigin ?? CGPoint(x: 0, y: 400)

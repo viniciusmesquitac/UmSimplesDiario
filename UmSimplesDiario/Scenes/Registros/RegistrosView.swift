@@ -40,7 +40,7 @@ class RegistrosView: UIView {
         self.tableView.contentInset = UIEdgeInsets(top: -height, left: .zero, bottom: .zero, right: .zero)
         self.tableView.separatorStyle = .none
         self.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
-        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = 100
 
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
