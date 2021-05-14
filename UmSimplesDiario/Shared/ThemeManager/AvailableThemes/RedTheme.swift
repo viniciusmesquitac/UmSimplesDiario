@@ -18,7 +18,8 @@ class RedTheme: ThemeProtocol {
             buttonAssets: ButtonAssets(
                 normalBackgroundColor: .red,
                 selectedBackgroundColor: .red,
-                disabledBackgroundColor: .red
+                disabledBackgroundColor: .red,
+                tintColor: .red
             ),
             switchAssets: SwitchAssets(
                 isOnColor: .red,

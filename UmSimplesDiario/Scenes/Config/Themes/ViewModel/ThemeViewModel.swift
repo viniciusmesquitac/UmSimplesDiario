@@ -57,8 +57,10 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
         selectCellColor(at: InterfaceStyleManager.shared.theme.rawValue)
     }
-    
-    // MARK: - Updates
+}
+
+// MARK: - Updates
+extension ThemeViewModel {
     func update(style: UIUserInterfaceStyle) {
         InterfaceStyleManager.shared.style = style
         didUpdateTheme?(style)
@@ -68,8 +70,11 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         InterfaceStyleManager.shared.theme = theme
         ThemeManager.shared.apply(theme)
     }
+    
+    func update(background: Background) {
+        InterfaceStyleManager.shared.background = background
+    }
 }
-
 
 // MARK: - Create Datasource
 extension ThemeViewModel {

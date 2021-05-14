@@ -16,6 +16,7 @@ struct ButtonAssets {
     var normalBackgroundColor: UIColor
     var selectedBackgroundColor: UIColor
     var disabledBackgroundColor: UIColor
+    var tintColor: UIColor
 }
 
 struct SwitchAssets {

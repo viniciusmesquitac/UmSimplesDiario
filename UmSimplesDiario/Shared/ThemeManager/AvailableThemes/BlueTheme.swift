@@ -18,7 +18,8 @@ class BlueTheme: ThemeProtocol {
             buttonAssets: ButtonAssets(
                 normalBackgroundColor: .blue,
                 selectedBackgroundColor: .blue,
-                disabledBackgroundColor: .blue
+                disabledBackgroundColor: .blue,
+                tintColor: .blue
             ),
             switchAssets: SwitchAssets(
                 isOnColor: .blue,

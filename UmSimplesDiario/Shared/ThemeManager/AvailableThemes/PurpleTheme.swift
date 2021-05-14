@@ -16,9 +16,10 @@ class PurpleTheme: ThemeProtocol {
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(
-                normalBackgroundColor: .brown,
-                selectedBackgroundColor: .black,
-                disabledBackgroundColor: .black
+                normalBackgroundColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),
+                selectedBackgroundColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),
+                disabledBackgroundColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),
+                tintColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
             ),
             switchAssets: SwitchAssets(
                 isOnColor: .purple,

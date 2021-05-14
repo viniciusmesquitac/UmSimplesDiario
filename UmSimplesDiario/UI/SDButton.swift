@@ -14,6 +14,5 @@ class SDButton: UIButton {
     }
 
     @objc dynamic func setBackgroundColor(color: UIColor, for state: UIButton.State) {
-        
     }
 }

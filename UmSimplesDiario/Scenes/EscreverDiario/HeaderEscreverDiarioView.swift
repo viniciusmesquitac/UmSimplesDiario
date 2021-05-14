@@ -9,30 +9,27 @@ import UIKit
 
 class HeaderEscreverDiarioView: UIView {
 
-    let humorIconButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.titleTextColor
+    let humorIconButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.happyMood, for: .normal)
         return button
     }()
 
-    let ideaIconButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
+    let ideaIconButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.ideaIcon, for: .normal)
         return button
     }()
 
-    let weatherButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
+    let weatherButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.fewClouds, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
 
-    let humorLabel = UIButton(frame: .zero)
-    let weatherLabel = UIButton(frame: .zero)
+    let humorLabel = SDButton(frame: .zero)
+    let weatherLabel = SDButton(frame: .zero)
     let ideaLabel = SDLabel()
 
     override init(frame: CGRect) {
@@ -63,7 +60,6 @@ class HeaderEscreverDiarioView: UIView {
 
     func updateHumor() {
         self.humorIconButton.translatesAutoresizingMaskIntoConstraints = false
-        self.humorIconButton.tintColor = StyleSheet.Color.activeButtonColor
         self.humorLabel.snp.makeConstraints { make in
             make.height.width.equalTo(0)
         }
@@ -76,7 +72,6 @@ class HeaderEscreverDiarioView: UIView {
     }
 
     func updateClima() {
-        self.weatherButton.tintColor = StyleSheet.Color.activeButtonColor
         self.weatherLabel.snp.makeConstraints { make in
             make.height.width.equalTo(0)
         }

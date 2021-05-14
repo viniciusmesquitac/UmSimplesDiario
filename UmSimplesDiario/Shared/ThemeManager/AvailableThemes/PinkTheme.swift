@@ -12,13 +12,14 @@ class PinkTheme: ThemeProtocol {
     var assets: Themeable {
         return ThemeAssets(
             labelAssets: LabelAssets(
-                textColor: StyleSheet.Color.primaryColor,
+                textColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(
-                normalBackgroundColor: .purple,
-                selectedBackgroundColor: .purple,
-                disabledBackgroundColor: .purple
+                normalBackgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
+                selectedBackgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
+                disabledBackgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
+                tintColor:#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
             ),
             switchAssets: SwitchAssets(
                 isOnColor: .purple,

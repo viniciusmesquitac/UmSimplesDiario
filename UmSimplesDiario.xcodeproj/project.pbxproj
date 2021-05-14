@@ -14,6 +14,7 @@
 		8100C0D6264EE667002F2B80 /* RedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D5264EE667002F2B80 /* RedTheme.swift */; };
 		8100C0D8264EE671002F2B80 /* PinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D7264EE671002F2B80 /* PinkTheme.swift */; };
 		8100C0DA264EE67A002F2B80 /* PurpleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */; };
+		8100C0DD264EF6C2002F2B80 /* SDImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DC264EF6C2002F2B80 /* SDImageView.swift */; };
 		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
@@ -124,6 +125,7 @@
 		8100C0D5264EE667002F2B80 /* RedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedTheme.swift; sourceTree = "<group>"; };
 		8100C0D7264EE671002F2B80 /* PinkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkTheme.swift; sourceTree = "<group>"; };
 		8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleTheme.swift; sourceTree = "<group>"; };
+		8100C0DC264EF6C2002F2B80 /* SDImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDImageView.swift; sourceTree = "<group>"; };
 		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
@@ -582,6 +584,7 @@
 				81FE0997264ED20E000D9243 /* SDLabel.swift */,
 				81FE0999264ED350000D9243 /* SDView.swift */,
 				8100C0D3264ED6B0002F2B80 /* SDBarButtonItem.swift */,
+				8100C0DC264EF6C2002F2B80 /* SDImageView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				81BA7D4325D609750002D594 /* PesquisarRegistrosView.swift in Sources */,
 				81BA7BFC25D16B040002D594 /* AppCoordinator.swift in Sources */,
 				81F3D6A22645DCCF002966DB /* EscreverDiarioViewModel+Protocol.swift in Sources */,
+				8100C0DD264EF6C2002F2B80 /* SDImageView.swift in Sources */,
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
 				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
 				81FE0986264ECCB2000D9243 /* Theme.swift in Sources */,

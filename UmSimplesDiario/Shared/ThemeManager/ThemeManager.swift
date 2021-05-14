@@ -20,6 +20,8 @@ struct ThemeManager {
         updateLabel(using: appTheme.assets.labelAssets)
         updateBarButtonItem(using: appTheme.assets.buttonAssets)
         updateNavbar(using: appTheme.assets.buttonAssets)
+        updateButton(using: appTheme.assets.buttonAssets)
+        updateImageView(using: appTheme.assets.buttonAssets)
         // 3
         appTheme.extension?()
         // 4
@@ -38,15 +40,18 @@ struct ThemeManager {
     }
 
     func updateButton(using themeAssets: ButtonAssets) {
-        SDButton.appearance().backgroundColor = themeAssets.normalBackgroundColor
+        SDButton.appearance().tintColor = themeAssets.tintColor
     }
 
     func updateBarButtonItem(using themeAssets: ButtonAssets) {
-        SDBarButtonItem.appearance().tintColor = themeAssets.normalBackgroundColor
+        SDBarButtonItem.appearance().tintColor = themeAssets.tintColor
+    }
+
+    func updateImageView(using themeAssets: ButtonAssets) {
+        SDImageView.appearance().tintColor = themeAssets.tintColor
     }
 
     func updateNavbar(using themeAssets: ButtonAssets) {
-        UINavigationBar.appearance().tintColor = themeAssets.normalBackgroundColor
-        UITabBar.appearance().barTintColor = themeAssets.normalBackgroundColor
+        UINavigationBar.appearance().tintColor = themeAssets.tintColor
     }
 }
