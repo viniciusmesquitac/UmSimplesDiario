@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxDataSources
 
 class PesquisarRegistrosViewController: UIViewController {
 
