@@ -86,7 +86,7 @@
 		81F3D6D3264B3615002966DB /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6D2264B3615002966DB /* Styles.swift */; };
 		81FE0986264ECCB2000D9243 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0985264ECCB2000D9243 /* Theme.swift */; };
 		81FE0988264ECCC5000D9243 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0987264ECCC5000D9243 /* ThemeProtocol.swift */; };
-		81FE098A264ECCE7000D9243 /* LabelAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0989264ECCE7000D9243 /* LabelAssets.swift */; };
+		81FE098A264ECCE7000D9243 /* UIAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0989264ECCE7000D9243 /* UIAssets.swift */; };
 		81FE098C264ECCF7000D9243 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE098B264ECCF7000D9243 /* ThemeManager.swift */; };
 		81FE098F264ECE19000D9243 /* BlueTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE098E264ECE19000D9243 /* BlueTheme.swift */; };
 		81FE0991264ECE37000D9243 /* ThemeAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0990264ECE37000D9243 /* ThemeAssets.swift */; };
@@ -202,7 +202,7 @@
 		81F3D6D2264B3615002966DB /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		81FE0985264ECCB2000D9243 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		81FE0987264ECCC5000D9243 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
-		81FE0989264ECCE7000D9243 /* LabelAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAssets.swift; sourceTree = "<group>"; };
+		81FE0989264ECCE7000D9243 /* UIAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAssets.swift; sourceTree = "<group>"; };
 		81FE098B264ECCF7000D9243 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		81FE098E264ECE19000D9243 /* BlueTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueTheme.swift; sourceTree = "<group>"; };
 		81FE0990264ECE37000D9243 /* ThemeAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAssets.swift; sourceTree = "<group>"; };
@@ -548,7 +548,7 @@
 				81FE098D264ECE09000D9243 /* AvailableThemes */,
 				81FE0985264ECCB2000D9243 /* Theme.swift */,
 				81FE0987264ECCC5000D9243 /* ThemeProtocol.swift */,
-				81FE0989264ECCE7000D9243 /* LabelAssets.swift */,
+				81FE0989264ECCE7000D9243 /* UIAssets.swift */,
 				81FE098B264ECCF7000D9243 /* ThemeManager.swift */,
 				81FE0990264ECE37000D9243 /* ThemeAssets.swift */,
 			);
@@ -856,7 +856,7 @@
 				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
 				81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */,
-				81FE098A264ECCE7000D9243 /* LabelAssets.swift in Sources */,
+				81FE098A264ECCE7000D9243 /* UIAssets.swift in Sources */,
 				81F3D6A026456C7C002966DB /* RegistrosViewModel+Protocols.swift in Sources */,
 				81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,

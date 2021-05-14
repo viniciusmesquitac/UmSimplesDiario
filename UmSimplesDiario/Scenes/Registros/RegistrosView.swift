@@ -23,9 +23,6 @@ class RegistrosView: UIView {
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = StyleSheet.Color.backgroundColor
-//        self.composeButton.tintColor = StyleSheet.Color.activeButtonColor
-//        self.searchButton.tintColor = StyleSheet.Color.activeButtonColor
-//        self.settingsButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in

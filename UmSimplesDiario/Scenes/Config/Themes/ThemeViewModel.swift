@@ -39,7 +39,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         let themes = [
             ConfigItem(cell: createCell(title: "Padrão do sistema"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Claro"), action: unselectAllCells),
-            ConfigItem(cell: createCell(title: "Escuro"), action: unselectAllCells),
+            ConfigItem(cell: createCell(title: "Escuro"), action: unselectAllCells)
         ]
 
         let mainColors = [
@@ -55,6 +55,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         ]
 
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
+        selectCellColor(at: InterfaceStyleManager.shared.theme.rawValue)
     }
 
     private func unselectAllCellsColors(_ sender: Any) {
@@ -77,12 +78,19 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         item.cell.accessoryType = .checkmark
     }
 
+    private func selectCellColor(at index: Int) {
+        guard let section = sections.last?.items else { return }
+        let item = section[index]
+        item.cell.accessoryType = .checkmark
+    }
+
     func update(style: UIUserInterfaceStyle) {
         InterfaceStyleManager.shared.style = style
         didUpdateTheme?(style)
     }
 
     func update(theme: Theme) {
+        InterfaceStyleManager.shared.theme = theme
         ThemeManager.shared.apply(theme)
     }
 }

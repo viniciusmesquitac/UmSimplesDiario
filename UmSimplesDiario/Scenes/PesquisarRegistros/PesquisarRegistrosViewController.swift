@@ -25,7 +25,6 @@ class PesquisarRegistrosViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         navigationItem.titleView = mainView.searchBar
         mainView.searchBar.becomeFirstResponder()
         mainView.setupView()

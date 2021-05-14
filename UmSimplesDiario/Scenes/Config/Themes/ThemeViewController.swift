@@ -66,13 +66,11 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         item.action?(Void.self)
         item.cell.accessoryType = .checkmark
-        
         switch indexPath.section {
         case 0:
             viewModel?.update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified)
         default:
             viewModel?.update(theme: Theme(rawValue: indexPath.row) ?? .red)
-
         }
     }
 

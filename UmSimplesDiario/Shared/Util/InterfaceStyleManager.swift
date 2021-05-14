@@ -8,6 +8,7 @@
 import UIKit
 
 enum ConfigKeys: String {
+    case style
     case theme
 }
 
@@ -21,10 +22,23 @@ class InterfaceStyleManager {
 
     var style: UIUserInterfaceStyle {
         get {
-            if let rawValue = userDefaults.value(forKey: ConfigKeys.theme.rawValue) as? Int {
+            if let rawValue = userDefaults.value(forKey: ConfigKeys.style.rawValue) as? Int {
                return UIUserInterfaceStyle(rawValue: rawValue)!
             }
             return .unspecified
+        }
+
+        set {
+            userDefaults.setValue(newValue.rawValue, forKey: ConfigKeys.style.rawValue)
+        }
+    }
+    
+    var theme: Theme {
+        get {
+            if let rawValue = userDefaults.value(forKey: ConfigKeys.theme.rawValue) as? Int {
+               return Theme(rawValue: rawValue)!
+            }
+            return .blue
         }
 
         set {

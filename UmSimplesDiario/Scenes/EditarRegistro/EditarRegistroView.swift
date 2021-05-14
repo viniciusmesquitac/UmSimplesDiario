@@ -20,16 +20,13 @@ class EditarRegistroView: UIView {
     let saveButton = UIBarButtonItem(title: "Salvar")
     let tableView = UITableView(frame: .zero)
 
-    let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: StyleSheet.Image.iconMore)
-        button.tintColor = UIColor.systemBlue
+    let navigationMoreButtonItem: SDBarButtonItem = {
+        let button = SDBarButtonItem(image: StyleSheet.Image.iconMore)
         return button
     }()
 
     func setupView() {
         self.view.frame = self.bounds
-        self.navigationMoreButtonItem.tintColor = StyleSheet.Color.activeButtonColor
-
         self.view.backgroundColor = .systemGray5
         insertSubview(view, belowSubview: indicatorContainer)
 

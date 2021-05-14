@@ -28,7 +28,6 @@ class EditarRegistroViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         navigationItem.rightBarButtonItem = mainView.navigationMoreButtonItem
         mainView.tableView.register(TitleEscreverDiarioViewCell.self,
                                     forCellReuseIdentifier: TitleEscreverDiarioViewCell.identifier)
