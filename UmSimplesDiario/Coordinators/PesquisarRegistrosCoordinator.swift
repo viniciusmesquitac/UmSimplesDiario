@@ -23,7 +23,8 @@ final class PesquisarRegistrosCoordinator: Coordinator {
         let viewModel = PesquisarRegistrosViewModel(coordinator: self, registros: registros)
         let pesquisarRegistrosViewController = PesquisarRegistrosViewController(viewModel: viewModel)
         currentNavigationController.setViewControllers([pesquisarRegistrosViewController], animated: false)
-        currentNavigationController.modalPresentationStyle = .fullScreen
+        currentNavigationController.modalPresentationStyle = .overFullScreen
+        currentNavigationController.modalTransitionStyle = .crossDissolve
         self.navigationController.present(currentNavigationController, animated: true)
     }
 
@@ -33,11 +34,6 @@ final class PesquisarRegistrosCoordinator: Coordinator {
     }
 
     func dismiss() {
-        navigationController.dismiss(animated: true, completion: {
-            let firstViewController = self.navigationController.viewControllers.first
-            guard let registrosViewController =  firstViewController as? RegistrosViewController else { return }
-            registrosViewController.viewModel.loadRegistros()
-            self.navigationController.popViewController(animated: true)
-        })
+        navigationController.dismiss(animated: true)
     }
 }
