@@ -49,7 +49,7 @@ extension ConfigViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = viewModel?.sections[indexPath.section].items[indexPath.row] else { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        item.action?(Void.self)
+        item.action?()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

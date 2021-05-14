@@ -57,15 +57,43 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
         selectCellColor(at: InterfaceStyleManager.shared.theme.rawValue)
     }
+    
+    // MARK: - Updates
+    func update(style: UIUserInterfaceStyle) {
+        InterfaceStyleManager.shared.style = style
+        didUpdateTheme?(style)
+    }
 
-    private func unselectAllCellsColors(_ sender: Any) {
+    func update(theme: Theme) {
+        InterfaceStyleManager.shared.theme = theme
+        ThemeManager.shared.apply(theme)
+    }
+}
+
+
+// MARK: - Create Datasource
+extension ThemeViewModel {
+    internal func createCell(title: String) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = title
+        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
+        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
+        cell.selectionStyle = .none
+        cell.tintColor = StyleSheet.Color.primaryColor
+        return cell
+    }
+}
+
+// MARK: - Actions
+extension ThemeViewModel {
+    private func unselectAllCellsColors() {
         guard let section = sections.last?.items else { return }
         for item in section {
             item.cell.accessoryType = .none
         }
     }
 
-    private func unselectAllCells(_ sender: Any) {
+    private func unselectAllCells() {
         guard let section = sections.first?.items else { return }
         for item in section {
             item.cell.accessoryType = .none
@@ -84,25 +112,4 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         item.cell.accessoryType = .checkmark
     }
 
-    func update(style: UIUserInterfaceStyle) {
-        InterfaceStyleManager.shared.style = style
-        didUpdateTheme?(style)
-    }
-
-    func update(theme: Theme) {
-        InterfaceStyleManager.shared.theme = theme
-        ThemeManager.shared.apply(theme)
-    }
-}
-
-extension ThemeViewModel {
-    internal func createCell(title: String) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = title
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
-        cell.selectionStyle = .none
-        cell.tintColor = StyleSheet.Color.primaryColor
-        return cell
-    }
 }

@@ -255,6 +255,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8100C0DB264EF25F002F2B80 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				81F3D6BF2647564B002966DB /* ThemeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		81BA7BB625D16A320002D594 = {
 			isa = PBXGroup;
 			children = (
@@ -534,8 +542,8 @@
 		81F3D6B9264752B6002966DB /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				8100C0DB264EF25F002F2B80 /* ViewModel */,
 				81F3D6BB26475389002966DB /* ThemeViewController.swift */,
-				81F3D6BF2647564B002966DB /* ThemeViewModel.swift */,
 				81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */,
 				81F3D6C326475CF2002966DB /* ThemeView.swift */,
 			);

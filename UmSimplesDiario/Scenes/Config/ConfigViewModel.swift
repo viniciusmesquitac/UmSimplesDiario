@@ -33,7 +33,7 @@ class ConfigViewModel: StaticViewModel {
         ]
     }
 
-    private func goToTheme(_ sender: Any) {
+    private func goToTheme() {
         coordinator.route(to: .themes)
     }
 

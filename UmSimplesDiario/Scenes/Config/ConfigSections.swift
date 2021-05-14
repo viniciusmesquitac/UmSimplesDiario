@@ -14,5 +14,5 @@ struct ConfigSection {
 
 struct ConfigItem {
     let cell: UITableViewCell
-    let action: ((_ sender: Any) -> Void)?
+    let action: (() -> Void)?
 }

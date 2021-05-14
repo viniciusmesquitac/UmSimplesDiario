@@ -64,7 +64,7 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let item = viewModel?.sections[indexPath.section].items[indexPath.row] else { return }
         tableView.deselectRow(at: indexPath, animated: true)
-        item.action?(Void.self)
+        item.action?()
         item.cell.accessoryType = .checkmark
         switch indexPath.section {
         case 0:
