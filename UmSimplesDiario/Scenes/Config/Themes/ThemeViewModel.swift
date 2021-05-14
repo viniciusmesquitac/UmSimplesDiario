@@ -8,13 +8,6 @@
 import RxSwift
 import RxCocoa
 
-enum Theme: Int {
-    case systemDefault
-    case dark
-    case light
-    case kiminawa
-}
-
 class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewModelOutput, StaticViewModel {
     var deleteButton = PublishSubject<Void>()
     var saveButton = PublishSubject<Void>()
@@ -24,7 +17,8 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
 
     var coordinator: ConfigCoordinator
     var sections = [ConfigSection]()
-    var theme: Theme = .systemDefault
+    var theme: Styles = .systemDefault
+    var background: Background = .none
 
     var didUpdateTheme: ((_ style: UIUserInterfaceStyle) -> Void)?
 
@@ -46,7 +40,8 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
             ConfigItem(cell: createCell(title: "Padrão do sistema"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Claro"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Escuro"), action: unselectAllCells),
-            ConfigItem(cell: createCell(title: "君の名は。"), action: unselectAllCells)
+            ConfigItem(cell: createCell(title: "Blue Sky"), action: unselectAllCells),
+            ConfigItem(cell: createCell(title: "Pink"), action: unselectAllCells)
         ]
 
         sections = [
@@ -56,7 +51,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
     }
 
-    private func unselectAllCells() {
+    private func unselectAllCells(_ sender: Any) {
         guard let section = sections.first?.items else { return }
         for item in section {
             item.cell.accessoryType = .none
@@ -69,21 +64,24 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         item.cell.accessoryType = .checkmark
     }
 
-    func update(style: UIUserInterfaceStyle) {
+    private func update(style: UIUserInterfaceStyle) {
         InterfaceStyleManager.shared.style = style
         didUpdateTheme?(style)
     }
 
-    func update(theme: Theme) {
+    func update(theme: Styles) {
+        /* Verify background is setted */
         switch theme {
-        case .kiminawa:
-            UserDefaults.standard.setValue(true, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        case .blue:
+            print("Change colors")
+        case .pink:
+            print("Change colors")
         default:
-            UserDefaults.standard.setValue(false, forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+            print("Padroes")
         }
+        update(style: UIUserInterfaceStyle.init(rawValue: theme.rawValue) ?? .unspecified)
         coordinator.updateBackground()
     }
-
 }
 
 extension ThemeViewModel {

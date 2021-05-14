@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		21F545F09B5B040647A9FB8D /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */; };
 		3AADFC5D9838860C039D13CA /* Pods_UmSimplesDiarioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */; };
+		8100C0D2264ED600002F2B80 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D1264ED600002F2B80 /* UIWindow.swift */; };
+		8100C0D4264ED6B0002F2B80 /* SDBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D3264ED6B0002F2B80 /* SDBarButtonItem.swift */; };
 		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
@@ -76,8 +78,19 @@
 		81F3D6C02647564B002966DB /* ThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6BF2647564B002966DB /* ThemeViewModel.swift */; };
 		81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */; };
 		81F3D6C426475CF2002966DB /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C326475CF2002966DB /* ThemeView.swift */; };
-		81F3D6C626476AD2002966DB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C526476AD2002966DB /* Settings.swift */; };
+		81F3D6C626476AD2002966DB /* InterfaceStyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C526476AD2002966DB /* InterfaceStyleManager.swift */; };
 		81F3D6C82648309E002966DB /* UITextView+Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6C72648309E002966DB /* UITextView+Attachment.swift */; };
+		81F3D6D3264B3615002966DB /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F3D6D2264B3615002966DB /* Styles.swift */; };
+		81FE0986264ECCB2000D9243 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0985264ECCB2000D9243 /* Theme.swift */; };
+		81FE0988264ECCC5000D9243 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0987264ECCC5000D9243 /* ThemeProtocol.swift */; };
+		81FE098A264ECCE7000D9243 /* LabelAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0989264ECCE7000D9243 /* LabelAssets.swift */; };
+		81FE098C264ECCF7000D9243 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE098B264ECCF7000D9243 /* ThemeManager.swift */; };
+		81FE098F264ECE19000D9243 /* BlueTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE098E264ECE19000D9243 /* BlueTheme.swift */; };
+		81FE0991264ECE37000D9243 /* ThemeAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0990264ECE37000D9243 /* ThemeAssets.swift */; };
+		81FE0994264ED196000D9243 /* SDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0993264ED196000D9243 /* SDButton.swift */; };
+		81FE0996264ED1D8000D9243 /* SDNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0995264ED1D8000D9243 /* SDNavigation.swift */; };
+		81FE0998264ED20E000D9243 /* SDLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0997264ED20E000D9243 /* SDLabel.swift */; };
+		81FE099A264ED350000D9243 /* SDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FE0999264ED350000D9243 /* SDView.swift */; };
 		8F9C320F660A9A3AF86FEC6F /* Pods_UmSimplesDiario.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +116,8 @@
 		5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6325CDD0DB65906C0C32626D /* Pods-UmSimplesDiario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.release.xcconfig"; sourceTree = "<group>"; };
 		6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiarioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8100C0D1264ED600002F2B80 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		8100C0D3264ED6B0002F2B80 /* SDBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDBarButtonItem.swift; sourceTree = "<group>"; };
 		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
@@ -176,8 +191,19 @@
 		81F3D6BF2647564B002966DB /* ThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeViewModel.swift; sourceTree = "<group>"; };
 		81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ThemeViewModel+Protocol.swift"; sourceTree = "<group>"; };
 		81F3D6C326475CF2002966DB /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
-		81F3D6C526476AD2002966DB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		81F3D6C526476AD2002966DB /* InterfaceStyleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceStyleManager.swift; sourceTree = "<group>"; };
 		81F3D6C72648309E002966DB /* UITextView+Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Attachment.swift"; sourceTree = "<group>"; };
+		81F3D6D2264B3615002966DB /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		81FE0985264ECCB2000D9243 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		81FE0987264ECCC5000D9243 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		81FE0989264ECCE7000D9243 /* LabelAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelAssets.swift; sourceTree = "<group>"; };
+		81FE098B264ECCF7000D9243 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		81FE098E264ECE19000D9243 /* BlueTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueTheme.swift; sourceTree = "<group>"; };
+		81FE0990264ECE37000D9243 /* ThemeAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeAssets.swift; sourceTree = "<group>"; };
+		81FE0993264ED196000D9243 /* SDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDButton.swift; sourceTree = "<group>"; };
+		81FE0995264ED1D8000D9243 /* SDNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDNavigation.swift; sourceTree = "<group>"; };
+		81FE0997264ED20E000D9243 /* SDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDLabel.swift; sourceTree = "<group>"; };
+		81FE0999264ED350000D9243 /* SDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDView.swift; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +275,7 @@
 		81BA7BC125D16A320002D594 /* UmSimplesDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81FE0992264ED18B000D9243 /* UI */,
 				81F10AA225E00F0A001F0ACB /* Repository */,
 				81BA7C5F25D2AC0C0002D594 /* Network */,
 				81BA7C3A25D1736E0002D594 /* Model */,
@@ -446,6 +473,7 @@
 		81F3D6A32646CAA0002966DB /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				81FE0984264DE162000D9243 /* ThemeManager */,
 				81F3D6B226473F9F002966DB /* Util */,
 				81F3D6A72646CB6E002966DB /* Protocols */,
 				81F3D6A42646CAAE002966DB /* Extensions */,
@@ -460,6 +488,7 @@
 			children = (
 				81F3D6A52646CAC9002966DB /* CPLPlacemark.swift */,
 				81F3D6C72648309E002966DB /* UITextView+Attachment.swift */,
+				8100C0D1264ED600002F2B80 /* UIWindow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -490,7 +519,8 @@
 				81F3D6B326474A78002966DB /* DefaultsEnum.swift */,
 				81F3D6B526474AE6002966DB /* BiometricAuthentication.swift */,
 				81F3D6B726474B61002966DB /* AlertMessage.swift */,
-				81F3D6C526476AD2002966DB /* Settings.swift */,
+				81F3D6C526476AD2002966DB /* InterfaceStyleManager.swift */,
+				81F3D6D2264B3615002966DB /* Styles.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -504,6 +534,39 @@
 				81F3D6C326475CF2002966DB /* ThemeView.swift */,
 			);
 			path = Themes;
+			sourceTree = "<group>";
+		};
+		81FE0984264DE162000D9243 /* ThemeManager */ = {
+			isa = PBXGroup;
+			children = (
+				81FE098D264ECE09000D9243 /* AvailableThemes */,
+				81FE0985264ECCB2000D9243 /* Theme.swift */,
+				81FE0987264ECCC5000D9243 /* ThemeProtocol.swift */,
+				81FE0989264ECCE7000D9243 /* LabelAssets.swift */,
+				81FE098B264ECCF7000D9243 /* ThemeManager.swift */,
+				81FE0990264ECE37000D9243 /* ThemeAssets.swift */,
+			);
+			path = ThemeManager;
+			sourceTree = "<group>";
+		};
+		81FE098D264ECE09000D9243 /* AvailableThemes */ = {
+			isa = PBXGroup;
+			children = (
+				81FE098E264ECE19000D9243 /* BlueTheme.swift */,
+			);
+			path = AvailableThemes;
+			sourceTree = "<group>";
+		};
+		81FE0992264ED18B000D9243 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				81FE0993264ED196000D9243 /* SDButton.swift */,
+				81FE0995264ED1D8000D9243 /* SDNavigation.swift */,
+				81FE0997264ED20E000D9243 /* SDLabel.swift */,
+				81FE0999264ED350000D9243 /* SDView.swift */,
+				8100C0D3264ED6B0002F2B80 /* SDBarButtonItem.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		E8A836F27DDD01AE3689DC04 /* Pods */ = {
@@ -776,19 +839,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				81F3D69E264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift in Sources */,
+				81FE099A264ED350000D9243 /* SDView.swift in Sources */,
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
+				8100C0D2264ED600002F2B80 /* UIWindow.swift in Sources */,
 				81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
 				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
 				81BA7C5625D1AB0E0002D594 /* EscreverDiarioViewController.swift in Sources */,
 				81F10B0425E6ACAC001F0ACB /* EditarRegistroView.swift in Sources */,
+				81FE098A264ECCE7000D9243 /* LabelAssets.swift in Sources */,
 				81F3D6A026456C7C002966DB /* RegistrosViewModel+Protocols.swift in Sources */,
 				81F10AB825E01166001F0ACB /* Registro+CoreDataProperties.swift in Sources */,
 				81BA7C0C25D16F800002D594 /* RegistrosCoordinator.swift in Sources */,
 				81F3D6C02647564B002966DB /* ThemeViewModel.swift in Sources */,
+				81FE0991264ECE37000D9243 /* ThemeAssets.swift in Sources */,
 				817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */,
 				817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */,
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
+				81FE0988264ECCC5000D9243 /* ThemeProtocol.swift in Sources */,
 				81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */,
 				81BA7C1C25D16FBE0002D594 /* RegistrosViewModel.swift in Sources */,
 				81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */,
@@ -796,6 +864,7 @@
 				81F10B2C25E975C7001F0ACB /* ConfigurarRegistroViewController.swift in Sources */,
 				81BA7DC925DD3B4D0002D594 /* BodyEscreverDiarioViewCell.swift in Sources */,
 				81F3D6BE264753BF002966DB /* ConfigCoordinator.swift in Sources */,
+				81FE098C264ECCF7000D9243 /* ThemeManager.swift in Sources */,
 				81F10B1725E6BF96001F0ACB /* EscreverDiarioAcessoryView.swift in Sources */,
 				81BA7DE425DD4BB40002D594 /* RegistrosViewCell.swift in Sources */,
 				81BA7C4425D173B60002D594 /* ViewModel.swift in Sources */,
@@ -807,9 +876,13 @@
 				81F3D6C82648309E002966DB /* UITextView+Attachment.swift in Sources */,
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
+				81F3D6D3264B3615002966DB /* Styles.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
 				81F3D6AD26470737002966DB /* ConfigSections.swift in Sources */,
+				81FE0998264ED20E000D9243 /* SDLabel.swift in Sources */,
+				81FE0994264ED196000D9243 /* SDButton.swift in Sources */,
 				81F10AF425E6A987001F0ACB /* EditarRegistroViewController.swift in Sources */,
+				81FE0996264ED1D8000D9243 /* SDNavigation.swift in Sources */,
 				81F3D6C426475CF2002966DB /* ThemeView.swift in Sources */,
 				81F3D6B826474B61002966DB /* AlertMessage.swift in Sources */,
 				81BA7C7325D2B09A0002D594 /* APISettings.swift in Sources */,
@@ -819,12 +892,14 @@
 				81F3D6A22645DCCF002966DB /* EscreverDiarioViewModel+Protocol.swift in Sources */,
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
 				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
+				81FE0986264ECCB2000D9243 /* Theme.swift in Sources */,
 				81F3D6B626474AE6002966DB /* BiometricAuthentication.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
 				81F3D6B426474A78002966DB /* DefaultsEnum.swift in Sources */,
 				81F3D6B1264707A3002966DB /* SwitchButtonTableViewCell.swift in Sources */,
 				81F3D6AF2647074F002966DB /* ConfigViewModel.swift in Sources */,
 				81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */,
+				81FE098F264ECE19000D9243 /* BlueTheme.swift in Sources */,
 				81BA7C2225D170260002D594 /* RegistrosView.swift in Sources */,
 				81F3D69C2645667B002966DB /* PesquisarRegistrosViewModel+Protocol.swift in Sources */,
 				81F10B0F25E6BF41001F0ACB /* TitleEscreverDiarioViewCell.swift in Sources */,
@@ -835,8 +910,9 @@
 				81F3D6BC26475389002966DB /* ThemeViewController.swift in Sources */,
 				81BA7C9125D2C1580002D594 /* EscreverDiarioViewModel.swift in Sources */,
 				817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */,
+				8100C0D4264ED6B0002F2B80 /* SDBarButtonItem.swift in Sources */,
 				81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */,
-				81F3D6C626476AD2002966DB /* Settings.swift in Sources */,
+				81F3D6C626476AD2002966DB /* InterfaceStyleManager.swift in Sources */,
 				81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */,
 				81BA7D5725D6C73F0002D594 /* HeaderEscreverDiarioView.swift in Sources */,
 			);
@@ -1008,7 +1084,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1029,7 +1105,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

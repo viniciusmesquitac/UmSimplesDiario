@@ -15,17 +15,17 @@ class RegistrosView: UIView {
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let tableView = UITableView(frame: .zero)
     let emptyStateLabel = UILabel()
-    let composeButton = UIBarButtonItem(systemItem: .compose)
-    let searchButton = UIBarButtonItem(systemItem: .search)
-    let settingsButton = UIBarButtonItem(image: StyleSheet.Image.iconSettings)
+    let composeButton = SDBarButtonItem(systemItem: .compose)
+    let searchButton = SDBarButtonItem(systemItem: .search)
+    let settingsButton = SDBarButtonItem(image: StyleSheet.Image.iconSettings)
 
     // MARK: Setup View
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = StyleSheet.Color.backgroundColor
-        self.composeButton.tintColor = StyleSheet.Color.activeButtonColor
-        self.searchButton.tintColor = StyleSheet.Color.activeButtonColor
-        self.settingsButton.tintColor = StyleSheet.Color.activeButtonColor
+//        self.composeButton.tintColor = StyleSheet.Color.activeButtonColor
+//        self.searchButton.tintColor = StyleSheet.Color.activeButtonColor
+//        self.settingsButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in

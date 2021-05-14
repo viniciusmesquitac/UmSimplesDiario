@@ -13,7 +13,7 @@ struct StyleSheet {
         static let primaryColor = UIColor(named: "primaryColor")!
         static let secundaryColor = UIColor.systemBackground
         static let backgroundColor = UIColor(named: "backgroundColor")!
-        static let activeButtonColor = UIColor(named: "activeButtonColor")!
+        static var activeButtonColor = UIColor(named: "activeButtonColor")!
         static let contentEntryColor = UIColor(named: "contentEntryColor")!
         static let modalBackgroundColor = UIColor(named: "modalBackgroundColor")!
         static let borderColor = UIColor.systemGray5

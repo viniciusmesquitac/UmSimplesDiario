@@ -47,6 +47,7 @@ final class ConfigCoordinator: Coordinator {
     func updateBackground() {
         let firstViewController = self.navigationController.viewControllers.first
         guard let registrosViewController = firstViewController as? RegistrosViewController else { return }
+        StyleSheet.Color.activeButtonColor = .brown
         registrosViewController.mainView.updateBackground()
         let isBackgroundActive = UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
         registrosViewController.navigationController?.navigationBar.prefersLargeTitles = !isBackgroundActive
