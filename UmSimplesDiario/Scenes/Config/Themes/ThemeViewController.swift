@@ -66,7 +66,14 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         item.action?(Void.self)
         item.cell.accessoryType = .checkmark
-        viewModel?.update(theme: Styles(rawValue: indexPath.row) ?? .systemDefault)
+        
+        switch indexPath.section {
+        case 0:
+            viewModel?.update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified)
+        default:
+            viewModel?.update(theme: Theme(rawValue: indexPath.row) ?? .red)
+
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

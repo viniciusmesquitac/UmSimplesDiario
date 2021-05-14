@@ -7,20 +7,25 @@
 
 import Foundation
 
-enum Theme {
-    case red
-    case green
+enum Theme: Int, CaseIterable {
     case blue
+    case red
+    case pink
+    case purple
 }
 
 extension Theme {
 
     var appTheme: ThemeProtocol {
         switch self {
-            case .red: return BlueTheme()
-            case .green: return BlueTheme()
-            case .blue: return BlueTheme()
+        case .blue:
+            return BlueTheme()
+        case .red:
+            return RedTheme()
+        case .pink:
+            return PinkTheme()
+        case .purple:
+            return PurpleTheme()
         }
     }
-
 }

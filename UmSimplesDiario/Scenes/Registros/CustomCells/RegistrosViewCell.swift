@@ -12,8 +12,8 @@ class RegistrosViewCell: UITableViewCell {
 
     var backgroundAlpha: CGFloat = 1.0
 
-    fileprivate let dayLabel: UILabel = {
-        let label = UILabel()
+    fileprivate let dayLabel: SDLabel = {
+        let label = SDLabel()
         label.text = "32"
         label.textAlignment = .center
         label.textColor = StyleSheet.Color.primaryColor
@@ -23,8 +23,8 @@ class RegistrosViewCell: UITableViewCell {
         return label
     }()
 
-    fileprivate let dayWeekLabel: UILabel = {
-        let label = UILabel()
+    fileprivate let dayWeekLabel: SDLabel = {
+        let label = SDLabel()
         label.text = "Fri"
         label.textColor = StyleSheet.Color.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 14)
@@ -33,8 +33,8 @@ class RegistrosViewCell: UITableViewCell {
         return label
     }()
 
-    fileprivate let hourLabel: UILabel = {
-        let label = UILabel()
+    fileprivate let hourLabel: SDLabel = {
+        let label = SDLabel()
         label.text = "12:24"
         label.textColor = StyleSheet.Color.primaryColor
         label.font = UIFont.boldSystemFont(ofSize: 12)
@@ -43,19 +43,17 @@ class RegistrosViewCell: UITableViewCell {
         return label
     }()
 
-    fileprivate var titleEntry: UILabel = {
-        let label = UILabel()
+    fileprivate var titleEntry: SDLabel = {
+        let label = SDLabel()
         label.text = "Beautiful Day"
-        label.textColor = StyleSheet.Color.primaryColor
         label.font = StyleSheet.Font.boldTitleFont16
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
-    fileprivate var descriptionEntry: UILabel = {
-        let label = UILabel()
+    fileprivate var descriptionEntry: SDLabel = {
+        let label = SDLabel()
         label.text = "Short Description that maybe end"
-        label.textColor = StyleSheet.Color.titleTextColor
         label.font = UIFont.boldSystemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -63,7 +61,6 @@ class RegistrosViewCell: UITableViewCell {
 
     fileprivate var moodImage: UIImageView = {
         let image = UIImageView(image: StyleSheet.Image.happyMood)
-        image.tintColor = StyleSheet.Color.primaryColor
         image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -73,7 +70,6 @@ class RegistrosViewCell: UITableViewCell {
         let image = UIImageView(image: StyleSheet.Image.fewClouds)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
-        image.tintColor = StyleSheet.Color.primaryColor
         return image
     }()
 

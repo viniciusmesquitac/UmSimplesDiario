@@ -40,7 +40,6 @@ class RegistrosViewController: UIViewController {
         self.navigationItem.title = "Registros"
         self.navigationItem.leftBarButtonItem = mainView.settingsButton
         self.navigationItem.rightBarButtonItems = [mainView.composeButton, mainView.searchButton]
-        ThemeManager.shared.apply(.blue)
         mainView.setupView()
         self.view = mainView
         setup()

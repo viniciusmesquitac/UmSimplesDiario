@@ -40,15 +40,28 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
             ConfigItem(cell: createCell(title: "Padrão do sistema"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Claro"), action: unselectAllCells),
             ConfigItem(cell: createCell(title: "Escuro"), action: unselectAllCells),
-            ConfigItem(cell: createCell(title: "Blue Sky"), action: unselectAllCells),
-            ConfigItem(cell: createCell(title: "Pink"), action: unselectAllCells)
+        ]
+
+        let mainColors = [
+            ConfigItem(cell: createCell(title: "Azul"), action: unselectAllCellsColors),
+            ConfigItem(cell: createCell(title: "Vermelho"), action: unselectAllCellsColors),
+            ConfigItem(cell: createCell(title: "Rosa"), action: unselectAllCellsColors),
+            ConfigItem(cell: createCell(title: "Roxo"), action: unselectAllCellsColors)
         ]
 
         sections = [
-            ConfigSection(title: "Escolha um tema", items: themes)
+            ConfigSection(title: "Escolha um tema", items: themes),
+            ConfigSection(title: "Cor principal", items: mainColors)
         ]
 
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
+    }
+
+    private func unselectAllCellsColors(_ sender: Any) {
+        guard let section = sections.last?.items else { return }
+        for item in section {
+            item.cell.accessoryType = .none
+        }
     }
 
     private func unselectAllCells(_ sender: Any) {
@@ -64,23 +77,13 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         item.cell.accessoryType = .checkmark
     }
 
-    private func update(style: UIUserInterfaceStyle) {
+    func update(style: UIUserInterfaceStyle) {
         InterfaceStyleManager.shared.style = style
         didUpdateTheme?(style)
     }
 
-    func update(theme: Styles) {
-        /* Verify background is setted */
-        switch theme {
-        case .blue:
-            print("Change colors")
-        case .pink:
-            print("Change colors")
-        default:
-            print("Padroes")
-        }
-        update(style: UIUserInterfaceStyle.init(rawValue: theme.rawValue) ?? .unspecified)
-        coordinator.updateBackground()
+    func update(theme: Theme) {
+        ThemeManager.shared.apply(theme)
     }
 }
 

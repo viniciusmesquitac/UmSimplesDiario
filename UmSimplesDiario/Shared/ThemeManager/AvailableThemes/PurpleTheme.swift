@@ -1,13 +1,13 @@
 //
-//  BlueTheme.swift
+//  PurpleTheme.swift
 //  UmSimplesDiario
 //
 //  Created by Vinicius Mesquita on 14/05/21.
 //
 
-import UIKit
+import Foundation
 
-class BlueTheme: ThemeProtocol {
+class PurpleTheme: ThemeProtocol {
 
     var assets: Themeable {
         return ThemeAssets(
@@ -16,12 +16,12 @@ class BlueTheme: ThemeProtocol {
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(
-                normalBackgroundColor: .blue,
-                selectedBackgroundColor: .blue,
-                disabledBackgroundColor: .blue
+                normalBackgroundColor: .brown,
+                selectedBackgroundColor: .black,
+                disabledBackgroundColor: .black
             ),
             switchAssets: SwitchAssets(
-                isOnColor: .blue,
+                isOnColor: .purple,
                 isOnDefault: true
             )
         )

@@ -11,6 +11,9 @@
 		3AADFC5D9838860C039D13CA /* Pods_UmSimplesDiarioTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */; };
 		8100C0D2264ED600002F2B80 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D1264ED600002F2B80 /* UIWindow.swift */; };
 		8100C0D4264ED6B0002F2B80 /* SDBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D3264ED6B0002F2B80 /* SDBarButtonItem.swift */; };
+		8100C0D6264EE667002F2B80 /* RedTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D5264EE667002F2B80 /* RedTheme.swift */; };
+		8100C0D8264EE671002F2B80 /* PinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D7264EE671002F2B80 /* PinkTheme.swift */; };
+		8100C0DA264EE67A002F2B80 /* PurpleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */; };
 		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
@@ -118,6 +121,9 @@
 		6AAAB80E005C25684D2D9A06 /* Pods_UmSimplesDiarioTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiarioTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8100C0D1264ED600002F2B80 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		8100C0D3264ED6B0002F2B80 /* SDBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDBarButtonItem.swift; sourceTree = "<group>"; };
+		8100C0D5264EE667002F2B80 /* RedTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedTheme.swift; sourceTree = "<group>"; };
+		8100C0D7264EE671002F2B80 /* PinkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkTheme.swift; sourceTree = "<group>"; };
+		8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleTheme.swift; sourceTree = "<group>"; };
 		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
@@ -553,6 +559,9 @@
 			isa = PBXGroup;
 			children = (
 				81FE098E264ECE19000D9243 /* BlueTheme.swift */,
+				8100C0D5264EE667002F2B80 /* RedTheme.swift */,
+				8100C0D7264EE671002F2B80 /* PinkTheme.swift */,
+				8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */,
 			);
 			path = AvailableThemes;
 			sourceTree = "<group>";
@@ -877,6 +886,7 @@
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
 				81F3D6D3264B3615002966DB /* Styles.swift in Sources */,
+				8100C0D6264EE667002F2B80 /* RedTheme.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
 				81F3D6AD26470737002966DB /* ConfigSections.swift in Sources */,
 				81FE0998264ED20E000D9243 /* SDLabel.swift in Sources */,
@@ -906,7 +916,9 @@
 				81BA7C3C25D1737A0002D594 /* RegistroDTO.swift in Sources */,
 				81BA7C1725D16FB00002D594 /* RegistrosViewController.swift in Sources */,
 				81F10B3A25E97645001F0ACB /* EditarRegistroCoordinator.swift in Sources */,
+				8100C0D8264EE671002F2B80 /* PinkTheme.swift in Sources */,
 				81BA7CC225D42DE80002D594 /* Humor.swift in Sources */,
+				8100C0DA264EE67A002F2B80 /* PurpleTheme.swift in Sources */,
 				81F3D6BC26475389002966DB /* ThemeViewController.swift in Sources */,
 				81BA7C9125D2C1580002D594 /* EscreverDiarioViewModel.swift in Sources */,
 				817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */,

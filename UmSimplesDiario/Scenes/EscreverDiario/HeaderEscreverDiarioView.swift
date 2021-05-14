@@ -33,7 +33,7 @@ class HeaderEscreverDiarioView: UIView {
 
     let humorLabel = UIButton(frame: .zero)
     let weatherLabel = UIButton(frame: .zero)
-    let ideaLabel = UILabel()
+    let ideaLabel = SDLabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

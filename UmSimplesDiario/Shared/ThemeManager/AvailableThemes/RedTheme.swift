@@ -1,13 +1,13 @@
 //
-//  BlueTheme.swift
+//  RedTheme.swift
 //  UmSimplesDiario
 //
 //  Created by Vinicius Mesquita on 14/05/21.
 //
 
-import UIKit
+import Foundation
 
-class BlueTheme: ThemeProtocol {
+class RedTheme: ThemeProtocol {
 
     var assets: Themeable {
         return ThemeAssets(
@@ -16,12 +16,12 @@ class BlueTheme: ThemeProtocol {
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(
-                normalBackgroundColor: .blue,
-                selectedBackgroundColor: .blue,
-                disabledBackgroundColor: .blue
+                normalBackgroundColor: .red,
+                selectedBackgroundColor: .red,
+                disabledBackgroundColor: .red
             ),
             switchAssets: SwitchAssets(
-                isOnColor: .blue,
+                isOnColor: .red,
                 isOnDefault: true
             )
         )

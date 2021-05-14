@@ -19,6 +19,7 @@ struct ThemeManager {
         // 2
         updateLabel(using: appTheme.assets.labelAssets)
         updateBarButtonItem(using: appTheme.assets.buttonAssets)
+        updateNavbar(using: appTheme.assets.buttonAssets)
         // 3
         appTheme.extension?()
         // 4
@@ -42,5 +43,10 @@ struct ThemeManager {
 
     func updateBarButtonItem(using themeAssets: ButtonAssets) {
         SDBarButtonItem.appearance().tintColor = themeAssets.normalBackgroundColor
+    }
+
+    func updateNavbar(using themeAssets: ButtonAssets) {
+        UINavigationBar.appearance().tintColor = themeAssets.normalBackgroundColor
+        UITabBar.appearance().barTintColor = themeAssets.normalBackgroundColor
     }
 }
