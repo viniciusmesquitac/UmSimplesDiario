@@ -36,7 +36,7 @@ class ThemeViewController: UIViewController {
             self.mainView.tableView.reloadData()
             UIView.transition(
                 with: self.view,
-                duration: 0.5,
+                duration: 0.33,
                 options: .transitionCrossDissolve,
                 animations: {
                     self.view.window?.overrideUserInterfaceStyle = style

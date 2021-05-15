@@ -44,10 +44,8 @@ class ConfigViewModel: StaticViewModel {
     internal func createCell(title: String) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = title
-        cell.accessoryType = .disclosureIndicator
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.activeButtonColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.activeButtonColor
-        cell.tintColor = StyleSheet.Color.primaryColor
+        var image = StyleSheet.Image.iconDisclousure
+        cell.accessoryView = UIImageView(image: image)
         return cell
     }
 
@@ -58,9 +56,6 @@ class ConfigViewModel: StaticViewModel {
         cell.contentView.isUserInteractionEnabled = false
         cell.selectionStyle = .none
         cell.textLabel?.text = title
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.activeButtonColor
-        cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
 }

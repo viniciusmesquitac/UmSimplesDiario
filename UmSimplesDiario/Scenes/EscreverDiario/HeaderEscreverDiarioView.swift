@@ -103,7 +103,7 @@ class HeaderEscreverDiarioView: UIView {
     func setupHumorLabel() {
         addSubview(humorLabel)
         humorLabel.setTitle("Inserir humor", for: .normal)
-        humorLabel.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        humorLabel.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         humorLabel.setTitleColor(StyleSheet.Color.titleTextColor, for: .normal)
         self.humorLabel.snp.makeConstraints { make in
             make.leading.equalTo(humorIconButton.snp.trailing).offset(8)

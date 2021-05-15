@@ -81,10 +81,7 @@ extension ThemeViewModel {
     internal func createCell(title: String) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = title
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.primaryColor
         cell.selectionStyle = .none
-        cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
 }

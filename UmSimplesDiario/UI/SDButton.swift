@@ -21,14 +21,14 @@ class SDButton: UIButton {
             if isSelected {
                 tintColor = currentColor
             } else {
-                tintColor = .darkGray
+                tintColor = .systemGray2
             }
         }
     }
 
     @objc dynamic func setBackgroundColor(color: UIColor, for state: UIButton.State) { }
 
-    @objc dynamic func setTintColor(color: UIColor, for state: UIButton.State) {
+    @objc dynamic func setTintColor(color: UIColor) {
         self.currentColor = color
     }
 }

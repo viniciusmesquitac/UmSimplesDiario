@@ -14,7 +14,7 @@ class RegistrosView: UIView {
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let tableView = UITableView(frame: .zero)
-    let emptyStateLabel = UILabel()
+    let emptyState = EmptyStateView()
     let composeButton = SDBarButtonItem(systemItem: .compose)
     let searchButton = SDBarButtonItem(systemItem: .search)
     let settingsButton = SDBarButtonItem(image: StyleSheet.Image.iconSettings)
@@ -50,7 +50,7 @@ class RegistrosView: UIView {
         } else {
             self.tableView.backgroundView = nil
         }
-        setupEmptyStateLabel()
+        setupEmptyState()
     }
 
     func updateBackground() {
@@ -65,17 +65,75 @@ class RegistrosView: UIView {
         }
     }
 
-    func setupEmptyStateLabel() {
-        view.addSubview(emptyStateLabel)
-        self.emptyStateLabel.text = "Lista de registros vazia."
-        self.emptyStateLabel.textColor = UIColor.systemGray2
-        self.emptyStateLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+    func setupEmptyState() {
+        view.addSubview(emptyState)
+        self.emptyState.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 
     func emptyState(_ isEmpty: Bool) {
-        emptyStateLabel.isHidden = !isEmpty
+        emptyState.isHidden = !isEmpty
         tableView.isScrollEnabled = !isEmpty
+    }
+}
+
+class EmptyStateView: UIView {
+
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Lista de registros vazia."
+        label.font = .boldSystemFont(ofSize: 18)
+        label.textColor = UIColor.systemGray2
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+
+    let subTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Para começar a escrever toque no icone"
+        label.textColor = UIColor.systemGray2
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = StyleSheet.Image.iconCompose
+        imageView.tintColor = .systemGray2
+        return imageView
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        buildViewHierarchy()
+        setupConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    func buildViewHierarchy() {
+        addSubview(titleLabel)
+        addSubview(subTitleLabel)
+        addSubview(imageView)
+    }
+
+    func setupConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        subTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
+        }
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(8)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(24)
+        }
     }
 }

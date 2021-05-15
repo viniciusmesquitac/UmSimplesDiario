@@ -12,7 +12,7 @@ class RedTheme: ThemeProtocol {
     var assets: Themeable {
         return ThemeAssets(
             labelAssets: LabelAssets(
-                textColor: StyleSheet.Color.primaryColor,
+                textColor: .red,
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(
