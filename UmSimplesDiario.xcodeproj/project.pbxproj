@@ -15,6 +15,8 @@
 		8100C0D8264EE671002F2B80 /* PinkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D7264EE671002F2B80 /* PinkTheme.swift */; };
 		8100C0DA264EE67A002F2B80 /* PurpleTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */; };
 		8100C0DD264EF6C2002F2B80 /* SDImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DC264EF6C2002F2B80 /* SDImageView.swift */; };
+		8100C0E0265044F9002F2B80 /* BackgroundsSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */; };
+		8100C0E226508823002F2B80 /* BackgroundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */; };
 		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
@@ -126,6 +128,8 @@
 		8100C0D7264EE671002F2B80 /* PinkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinkTheme.swift; sourceTree = "<group>"; };
 		8100C0D9264EE67A002F2B80 /* PurpleTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleTheme.swift; sourceTree = "<group>"; };
 		8100C0DC264EF6C2002F2B80 /* SDImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDImageView.swift; sourceTree = "<group>"; };
+		8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsSelectionCell.swift; sourceTree = "<group>"; };
+		8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsViewModel.swift; sourceTree = "<group>"; };
 		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
@@ -260,9 +264,19 @@
 		8100C0DB264EF25F002F2B80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */,
 				81F3D6BF2647564B002966DB /* ThemeViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8100C0DE265044E5002F2B80 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */,
+				8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */,
+			);
+			path = CustomCells;
 			sourceTree = "<group>";
 		};
 		81BA7BB625D16A320002D594 = {
@@ -544,9 +558,9 @@
 		81F3D6B9264752B6002966DB /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				8100C0DE265044E5002F2B80 /* CustomCells */,
 				8100C0DB264EF25F002F2B80 /* ViewModel */,
 				81F3D6BB26475389002966DB /* ThemeViewController.swift */,
-				81F3D6C1264757FF002966DB /* ThemeViewModel+Protocol.swift */,
 				81F3D6C326475CF2002966DB /* ThemeView.swift */,
 			);
 			path = Themes;
@@ -915,9 +929,11 @@
 				81BA7C9625D2C1630002D594 /* EscreverDiarioView.swift in Sources */,
 				81F10AFF25E6ACA3001F0ACB /* EditarRegistroViewModel.swift in Sources */,
 				81FE0986264ECCB2000D9243 /* Theme.swift in Sources */,
+				8100C0E226508823002F2B80 /* BackgroundsViewModel.swift in Sources */,
 				81F3D6B626474AE6002966DB /* BiometricAuthentication.swift in Sources */,
 				81BA7CB725D42C990002D594 /* RegistroRepository.swift in Sources */,
 				81F3D6B426474A78002966DB /* DefaultsEnum.swift in Sources */,
+				8100C0E0265044F9002F2B80 /* BackgroundsSelectionCell.swift in Sources */,
 				81F3D6B1264707A3002966DB /* SwitchButtonTableViewCell.swift in Sources */,
 				81F3D6AF2647074F002966DB /* ConfigViewModel.swift in Sources */,
 				81F3D6982644DBC6002966DB /* EditarRegistroViewModel+Protocols.swift in Sources */,

@@ -26,6 +26,8 @@ class ThemeView: UIView {
 
     func setupTableView() {
         view.addSubview(tableView)
+        self.tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 64 + 16
         self.tableView.backgroundColor = StyleSheet.Color.backgroundColor
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

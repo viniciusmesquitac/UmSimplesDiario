@@ -8,5 +8,9 @@
 import UIKit
 
 class SDImageView: UIImageView {
-    
+    override var tintColor: UIColor? {
+        didSet {
+            self.layer.borderColor = self.tintColor?.cgColor
+        }
+    }
 }

@@ -29,6 +29,9 @@ class ThemeViewController: UIViewController {
         self.mainView.tableView.register(
             SwitchButtonTableViewCell.self,
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
+        self.mainView.tableView.register(
+            BackgrondsSelectionCell.self,
+            forCellReuseIdentifier: BackgrondsSelectionCell.identifier)
         mainView.setupView()
         self.view = mainView
 
@@ -47,7 +50,11 @@ class ThemeViewController: UIViewController {
     }
 }
 
-extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
+extension ThemeViewController: UITableViewDelegate, UITableViewDataSource, BackgroundsDelegate {
+
+    func didSelectBackground(at index: Int) {
+        print("oi")
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.sections[section].items.count ?? 0
@@ -77,6 +84,10 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = viewModel?.sections[indexPath.section].items[indexPath.row].cell else {
             return UITableViewCell()
+        }
+        if let cell = cell as? BackgrondsSelectionCell {
+            cell.delegate = self
+            return cell
         }
         return cell
     }

@@ -49,9 +49,14 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
             ConfigItem(cell: createCell(title: "Roxo"), action: unselectAllCellsColors)
         ]
 
+        let backgrounds = [
+            ConfigItem(cell: createBackgroundSelection(), action: nil)
+        ]
+
         sections = [
             ConfigSection(title: "Escolha um tema", items: themes),
-            ConfigSection(title: "Cor principal", items: mainColors)
+            ConfigSection(title: "Cor principal", items: mainColors),
+            ConfigSection(title: "Backgrounds", items: backgrounds)
         ]
 
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
@@ -84,14 +89,23 @@ extension ThemeViewModel {
         cell.selectionStyle = .none
         return cell
     }
+
+    func createBackgroundSelection() -> BackgrondsSelectionCell {
+        let cell = BackgrondsSelectionCell()
+        cell.selectionStyle = .none
+        cell.layoutIfNeeded()
+        return cell
+    }
 }
 
 // MARK: - Actions
 extension ThemeViewModel {
     private func unselectAllCellsColors() {
-        guard let section = sections.last?.items else { return }
-        for item in section {
-            item.cell.accessoryType = .none
+        if sections.indices.contains(1) {
+            let section = sections[1].items
+            for item in section {
+                item.cell.accessoryType = .none
+            }
         }
     }
 
@@ -109,9 +123,11 @@ extension ThemeViewModel {
     }
 
     private func selectCellColor(at index: Int) {
-        guard let section = sections.last?.items else { return }
-        let item = section[index]
-        item.cell.accessoryType = .checkmark
+        if sections.indices.contains(1) {
+            let section = sections[1].items
+            let item = section[index]
+            item.cell.accessoryType = .checkmark
+        }
     }
 
 }

@@ -120,9 +120,5 @@ extension UITableViewCell {
 }
 
 extension BodyEscreverDiarioViewCell: UITextViewDelegate {
-    func textViewShouldChangeReturn(_ textView: UITextView) {
-        let position = self.positionTapped.value
-        let newPosition = position.y + 50
-        self.positionTapped.accept(CGPoint(x: position.x, y: newPosition))
-    }
+    
 }
