@@ -48,10 +48,11 @@ class RegistrosViewCell: UITableViewCell {
         return label
     }()
 
-    fileprivate var descriptionEntry: SDLabel = {
-        let label = SDLabel()
+    fileprivate var descriptionEntry: UILabel = {
+        let label = UILabel()
         label.text = "Short Description that maybe end"
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .lightGray
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
