@@ -5,7 +5,7 @@
 //  Created by Vinicius Mesquita on 14/05/21.
 //
 
-import Foundation
+import UIKit
 
 class PinkTheme: ThemeProtocol {
 
@@ -19,7 +19,7 @@ class PinkTheme: ThemeProtocol {
                 normalBackgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
                 selectedBackgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
                 disabledBackgroundColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
-                tintColor:#colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+                tintColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
             ),
             switchAssets: SwitchAssets(
                 isOnColor: .purple,

@@ -9,10 +9,6 @@ import UIKit
 
 struct ThemeManager {
 
-    static let shared = ThemeManager()
-
-    private init() { }
-
     func apply(_ theme: Theme) {
         // 1
         let appTheme = theme.appTheme
@@ -41,6 +37,7 @@ struct ThemeManager {
 
     func updateButton(using themeAssets: ButtonAssets) {
         SDButton.appearance().tintColor = themeAssets.tintColor
+        SDButton.appearance().setTintColor(color: themeAssets.tintColor, for: .selected)
     }
 
     func updateBarButtonItem(using themeAssets: ButtonAssets) {

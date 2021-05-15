@@ -8,11 +8,27 @@
 import UIKit
 
 class SDButton: UIButton {
+
+    var currentColor: UIColor = .darkGray
+
     @objc dynamic var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set (newValue) { layer.cornerRadius = newValue }
     }
 
-    @objc dynamic func setBackgroundColor(color: UIColor, for state: UIButton.State) {
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                tintColor = currentColor
+            } else {
+                tintColor = .darkGray
+            }
+        }
+    }
+
+    @objc dynamic func setBackgroundColor(color: UIColor, for state: UIButton.State) { }
+
+    @objc dynamic func setTintColor(color: UIColor, for state: UIButton.State) {
+        self.currentColor = color
     }
 }

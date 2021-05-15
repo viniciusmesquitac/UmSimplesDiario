@@ -14,7 +14,7 @@ import UITextView_Placeholder
 class EditarRegistroView: UIView {
 
     let view = UIView(frame: .zero)
-    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
+    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 64)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let cancelButton = UIBarButtonItem(title: "Cancelar")
     let saveButton = UIBarButtonItem(title: "Salvar")

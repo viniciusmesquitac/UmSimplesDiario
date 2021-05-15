@@ -68,7 +68,7 @@ extension ThemeViewModel {
 
     func update(theme: Theme) {
         InterfaceStyleManager.shared.theme = theme
-        ThemeManager.shared.apply(theme)
+        ThemeManager().apply(theme)
     }
 
     func update(background: Background) {
