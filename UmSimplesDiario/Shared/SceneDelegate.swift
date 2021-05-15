@@ -23,6 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
+        if UserDefaults.standard.bool(forKey: DefaultsEnum.isBiometricActive.rawValue) {
+            BiometricAuthentication().identify { success, _ in
+                if !success { exit(EXIT_SUCCESS) }
+            }
+        }
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 }

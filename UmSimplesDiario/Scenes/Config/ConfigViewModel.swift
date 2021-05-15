@@ -38,14 +38,19 @@ class ConfigViewModel: StaticViewModel {
     }
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {
-        UserDefaults.standard.setValue(sender.isOn, forKey: DefaultsEnum.isBiometricActive.rawValue)
+        BiometricAuthentication().identify { success, _ in
+            if !success {
+                exit(EXIT_SUCCESS)
+            } else {
+                UserDefaults.standard.setValue(sender.isOn, forKey: DefaultsEnum.isBiometricActive.rawValue)
+            }
+        }
     }
 
     internal func createCell(title: String) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = title
-        var image = StyleSheet.Image.iconDisclousure
-        cell.accessoryView = UIImageView(image: image)
+        cell.accessoryView = UIImageView(image: StyleSheet.Image.iconDisclousure)
         return cell
     }
 
