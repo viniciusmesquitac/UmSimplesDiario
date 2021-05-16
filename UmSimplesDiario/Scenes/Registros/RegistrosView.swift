@@ -45,8 +45,9 @@ class RegistrosView: UIView {
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        if UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue) {
-            self.tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundSky"))
+        let backgroundName = InterfaceStyleManager.shared.background.rawValue
+        if backgroundName != Background.allCases.first?.rawValue {
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: backgroundName))
         } else {
             self.tableView.backgroundView = nil
         }
@@ -54,14 +55,15 @@ class RegistrosView: UIView {
     }
 
     func updateBackground() {
-        if UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue) {
-            self.tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundSky"))
-            self.tableView.backgroundView?.alpha = 0.0
-            UIView.animate(withDuration: 0.5) {
-                self.tableView.backgroundView?.alpha = 1
-            }
+        let backgroundName = InterfaceStyleManager.shared.background.rawValue
+        if backgroundName != Background.allCases.first?.rawValue {
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: backgroundName))
         } else {
             self.tableView.backgroundView = nil
+        }
+        self.tableView.backgroundView?.alpha = 0.0
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.backgroundView?.alpha = 1
         }
     }
 

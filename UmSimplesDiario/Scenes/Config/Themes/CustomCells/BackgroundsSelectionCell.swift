@@ -48,6 +48,8 @@ class BackgrondsSelectionCell: UITableViewCell {
                                           verticalFittingPriority: UILayoutPriority) -> CGSize {
         self.collectionView.reloadData()
         self.collectionView.layoutIfNeeded()
+        self.collectionView.contentInset = UIEdgeInsets(
+            top: 0, left: 16, bottom: 0, right: 0)
         self.contentView.layoutIfNeeded()
         return self.collectionView.contentSize
     }
@@ -70,7 +72,7 @@ class BackgrondsSelectionCell: UITableViewCell {
 // MARK: - DataSource
 extension BackgrondsSelectionCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return Background.allCases.count
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -79,11 +81,19 @@ extension BackgrondsSelectionCell: UICollectionViewDataSource, UICollectionViewD
                 withReuseIdentifier: BackgroundCell.identifier, for: indexPath) as? BackgroundCell else {
             return UICollectionViewCell()
         }
+        let background = Background.allCases[indexPath.row]
+        cell.setImage(image: background)
+        if background == InterfaceStyleManager.shared.background {
+            cell.isSelected = true
+        }
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let cell = collectionView.cellForItem(at: indexPath) as? BackgroundCell else { return }
+        for cell in collectionView.visibleCells {
+            cell.isSelected = false
+        }
         cell.isSelected = true
         delegate?.didSelectBackground(at: indexPath.row)
     }
@@ -101,7 +111,7 @@ class BackgroundCell: UICollectionViewCell {
 
     let imageView: SDImageView = {
         let imageView = SDImageView()
-        imageView.backgroundColor = .darkGray
+        imageView.backgroundColor = .lightGray
         imageView.image = UIImage(named: "noneBackground")
         imageView.contentMode = .scaleToFill
         imageView.layer.cornerRadius = 8
@@ -115,6 +125,10 @@ class BackgroundCell: UICollectionViewCell {
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(8)
         }
+    }
+
+    func setImage(image: Background) {
+        imageView.image = UIImage(named: image.rawValue)
     }
 
     required init?(coder: NSCoder) {

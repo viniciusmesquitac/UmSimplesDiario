@@ -49,10 +49,10 @@ class InterfaceStyleManager {
 
     var background: Background {
         get {
-            if let rawValue = userDefaults.value(forKey: ConfigKeys.background.rawValue) as? Int {
+            if let rawValue = userDefaults.value(forKey: ConfigKeys.background.rawValue) as? String {
                return Background(rawValue: rawValue)!
             }
-            return .none
+            return .noneBackground
         }
 
         set {

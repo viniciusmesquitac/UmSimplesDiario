@@ -30,7 +30,7 @@ class ConfigurarRegistroView: UIView {
 
     lazy var saveButton: UIButton = {
         let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.activeButtonColor
+        button.tintColor = .systemBlue
         button.setImage(StyleSheet.Image.iconSave, for: .normal)
         button.layer.cornerRadius = buttonSize.height/2
         button.backgroundColor = StyleSheet.Color.backgroundColor

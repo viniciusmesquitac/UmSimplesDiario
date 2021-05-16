@@ -12,7 +12,7 @@ class PurpleTheme: ThemeProtocol {
     var assets: Themeable {
         return ThemeAssets(
             labelAssets: LabelAssets(
-                textColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1),
+                textColor: StyleSheet.Color.primaryColor,
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(

@@ -11,11 +11,9 @@ enum Styles: Int {
     case systemDefault
     case dark
     case light
-    case blue
-    case pink
 }
 
-enum Background: Int {
-    case blueSky
-    case none
+enum Background: String, CaseIterable {
+    case noneBackground
+    case blueSkyBackground
 }

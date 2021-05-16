@@ -49,7 +49,7 @@ final class ConfigCoordinator: Coordinator {
         guard let registrosViewController = firstViewController as? RegistrosViewController else { return }
         StyleSheet.Color.activeButtonColor = .brown
         registrosViewController.mainView.updateBackground()
-        let isBackgroundActive = UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        let isBackgroundActive = InterfaceStyleManager.shared.background != Background.allCases.first
         registrosViewController.navigationController?.navigationBar.prefersLargeTitles = !isBackgroundActive
         self.navigationController.popViewController(animated: true)
     }

@@ -12,7 +12,7 @@ class BlueTheme: ThemeProtocol {
     var assets: Themeable {
         return ThemeAssets(
             labelAssets: LabelAssets(
-                textColor: #colorLiteral(red: 0.03389982507, green: 0.4683263302, blue: 0.9233158827, alpha: 1),
+                textColor: StyleSheet.Color.primaryColor,
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(

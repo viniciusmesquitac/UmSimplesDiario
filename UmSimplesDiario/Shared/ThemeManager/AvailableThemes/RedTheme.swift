@@ -12,7 +12,7 @@ class RedTheme: ThemeProtocol {
     var assets: Themeable {
         return ThemeAssets(
             labelAssets: LabelAssets(
-                textColor: #colorLiteral(red: 1, green: 0.2324135602, blue: 0.2480118871, alpha: 1),
+                textColor: StyleSheet.Color.primaryColor,
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(

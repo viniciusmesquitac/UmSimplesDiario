@@ -53,7 +53,9 @@ class ThemeViewController: UIViewController {
 extension ThemeViewController: UITableViewDelegate, UITableViewDataSource, BackgroundsDelegate {
 
     func didSelectBackground(at index: Int) {
-        print("oi")
+        let background = Background.allCases[index]
+        InterfaceStyleManager.shared.background = background
+        viewModel?.coordinator.updateBackground()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

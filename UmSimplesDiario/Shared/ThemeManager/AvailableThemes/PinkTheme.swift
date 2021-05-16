@@ -12,7 +12,7 @@ class PinkTheme: ThemeProtocol {
     var assets: Themeable {
         return ThemeAssets(
             labelAssets: LabelAssets(
-                textColor: #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1),
+                textColor: StyleSheet.Color.primaryColor,
                 font: .systemFont(ofSize: 12, weight: .black)
             ),
             buttonAssets: ButtonAssets(

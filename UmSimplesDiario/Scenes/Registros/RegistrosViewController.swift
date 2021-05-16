@@ -29,7 +29,7 @@ class RegistrosViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let isBackgroundActive = UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue)
+        let isBackgroundActive = InterfaceStyleManager.shared.background != Background.allCases.first
         navigationController?.navigationBar.prefersLargeTitles = !isBackgroundActive
         navigationItem.largeTitleDisplayMode = .always
         viewModel.loadRegistros()

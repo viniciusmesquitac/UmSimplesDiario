@@ -18,7 +18,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
     var coordinator: ConfigCoordinator
     var sections = [ConfigSection]()
     var theme: Styles = .systemDefault
-    var background: Background = .none
+    var background: Background = .noneBackground
 
     var didUpdateTheme: ((_ style: UIUserInterfaceStyle) -> Void)?
 
