@@ -68,6 +68,9 @@ class RegistrosView: UIView {
     }
 
     func setupEmptyState() {
+        emptyState.titleLabel.textColor = StyleSheet.Color.primaryColor
+        emptyState.subTitleLabel.textColor = StyleSheet.Color.primaryColor
+        emptyState.imageView.tintColor = StyleSheet.Color.primaryColor
         view.addSubview(emptyState)
         self.emptyState.snp.makeConstraints { make in
             make.edges.equalToSuperview()
