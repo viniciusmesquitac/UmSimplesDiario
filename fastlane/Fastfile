@@ -41,6 +41,6 @@ end
              export_method: “app-store”,
              include_bitcode: false,
              clean: true)
-          pilot(ipa: "./UmSimplesDiario/UmSimplesDiario/ipa/UmSimplesDiario.ipa")
+          pilot(ipa: "../UmSimplesDiario/UmSimplesDiario/ipa/UmSimplesDiario.ipa")
        end
 end
