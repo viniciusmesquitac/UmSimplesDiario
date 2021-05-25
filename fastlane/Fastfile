@@ -18,8 +18,8 @@ platform :ios do
       desc “Install pod dependencies”
       lane :install_pods do
          cocoapods(
-             podfile: "../UmSimplesDiario/PodFile",
-             use_bundle_exec: true)
+             podfile: "./PodFile",
+             use_bundle_exec: false)
 end
       
       desc "Incrementing Build Number"
