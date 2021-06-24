@@ -19,7 +19,7 @@ class RedTheme: ThemeProtocol {
                 normalBackgroundColor: #colorLiteral(red: 1, green: 0.2324135602, blue: 0.2480118871, alpha: 1),
                 selectedBackgroundColor: #colorLiteral(red: 1, green: 0.2324135602, blue: 0.2480118871, alpha: 1),
                 disabledBackgroundColor: #colorLiteral(red: 1, green: 0.2324135602, blue: 0.2480118871, alpha: 1),
-                tintColor: #colorLiteral(red: 1, green: 0.2324135602, blue: 0.2480118871, alpha: 1)
+                tintColor: #colorLiteral(red: 1, green: 0.231372549, blue: 0.2470588235, alpha: 1)
             ),
             switchAssets: SwitchAssets(
                 isOnColor: .red,
