@@ -14,7 +14,7 @@ import UITextView_Placeholder
 class EscreverDiarioView: UIView {
 
     let view = UIView(frame: .zero)
-    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
+    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 64)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let cancelButton = UIBarButtonItem(title: "Cancelar")
     let saveButton = UIBarButtonItem(title: "Salvar")
@@ -22,30 +22,24 @@ class EscreverDiarioView: UIView {
     var isTitleEmpty = false
     var isBodyEmpty = false
 
-    let navigationBarButtonTitle: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "Titulo", style: .plain,
-                                     target: nil, action: nil)
+    let navigationBarButtonTitle: SDBarButtonItem = {
+        let button = SDBarButtonItem(title: "Titulo")
         button.isEnabled = false
-        button.tintColor = StyleSheet.Color.primaryColor
         return button
     }()
-    let navigationBackButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: StyleSheet.Image.iconBackButton)
-        button.tintColor = UIColor.systemBlue
+    let navigationBackButtonItem: SDBarButtonItem = {
+        let button = SDBarButtonItem(image: StyleSheet.Image.iconBackButton)
         return button
     }()
 
     let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: StyleSheet.Image.iconMore)
-        button.tintColor = UIColor.systemBlue
+        let button = SDBarButtonItem(image: StyleSheet.Image.iconMore)
         return button
     }()
 
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = .systemGray5
-        self.cancelButton.tintColor = StyleSheet.Color.activeButtonColor
-        self.saveButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in

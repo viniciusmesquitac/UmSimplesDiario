@@ -31,7 +31,11 @@ class PesquisarRegistrosViewModel: PesquisarRegistrosViewModelProtocol, Pesquisa
 
         searchBarText.subscribe(onNext: { text in
             guard let text = text else { return }
-            let filtered = registros.filter { $0.titulo?.contains(text) ?? false || $0.texto?.contains(text) ?? false }
+            let filtered = registros.filter {
+                $0.titulo?.contains(text) ?? false ||
+                $0.texto?.contains(text) ?? false ||
+                RegistroModel(registro: $0).day.contains(text)
+            }
             self.registros = filtered
             self.inputs.listaRegistrosRelay.accept(filtered)
         }).disposed(by: disposeBag)

@@ -9,25 +9,22 @@ import UIKit
 
 class AcessoryViewEscreverDiario: UIView {
 
-    let keyboardDismissButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.activeButtonColor
+    let keyboardDismissButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.iconKeyboard, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
 
-    let imageAttachmentButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.activeButtonColor
+    let imageAttachmentButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.iconImage, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
 
-    let deleteEntryButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.activeButtonColor
+    let deleteEntryButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.iconTrash, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
         return button

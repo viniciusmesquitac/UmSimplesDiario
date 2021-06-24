@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "happyMood2.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "happyMood2@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "happyMood2@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "happyHumor.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

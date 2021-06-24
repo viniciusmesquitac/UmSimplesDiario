@@ -38,16 +38,19 @@ class ConfigViewModel: StaticViewModel {
     }
 
     @objc func didTapSwitchButton(_ sender: UISwitch) {
-        UserDefaults.standard.setValue(sender.isOn, forKey: DefaultsEnum.isBiometricActive.rawValue)
+        BiometricAuthentication().identify { success, _ in
+            if !success {
+                exit(EXIT_SUCCESS)
+            } else {
+                UserDefaults.standard.setValue(sender.isOn, forKey: DefaultsEnum.isBiometricActive.rawValue)
+            }
+        }
     }
 
     internal func createCell(title: String) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = title
-        cell.accessoryType = .disclosureIndicator
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.activeButtonColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.activeButtonColor
-        cell.tintColor = StyleSheet.Color.primaryColor
+        cell.accessoryView = UIImageView(image: StyleSheet.Image.iconDisclousure)
         return cell
     }
 
@@ -58,9 +61,6 @@ class ConfigViewModel: StaticViewModel {
         cell.contentView.isUserInteractionEnabled = false
         cell.selectionStyle = .none
         cell.textLabel?.text = title
-        cell.accessoryView?.backgroundColor = StyleSheet.Color.primaryColor
-        cell.accessoryView?.tintColor = StyleSheet.Color.activeButtonColor
-        cell.tintColor = StyleSheet.Color.primaryColor
         return cell
     }
 }

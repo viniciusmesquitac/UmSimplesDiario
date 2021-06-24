@@ -14,18 +14,15 @@ class RegistrosView: UIView {
     let view = UIView(frame: .zero)
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let tableView = UITableView(frame: .zero)
-    let emptyStateLabel = UILabel()
-    let composeButton = UIBarButtonItem(systemItem: .compose)
-    let searchButton = UIBarButtonItem(systemItem: .search)
-    let settingsButton = UIBarButtonItem(image: StyleSheet.Image.iconSettings)
+    let emptyState = EmptyStateView()
+    let composeButton = SDBarButtonItem(systemItem: .compose)
+    let searchButton = SDBarButtonItem(systemItem: .search)
+    let settingsButton = SDBarButtonItem(image: StyleSheet.Image.iconSettings)
 
     // MARK: Setup View
     func setupView() {
         self.view.frame = self.bounds
         self.view.backgroundColor = StyleSheet.Color.backgroundColor
-        self.composeButton.tintColor = StyleSheet.Color.activeButtonColor
-        self.searchButton.tintColor = StyleSheet.Color.activeButtonColor
-        self.settingsButton.tintColor = StyleSheet.Color.activeButtonColor
         insertSubview(view, belowSubview: indicatorContainer)
 
         view.snp.makeConstraints { make in
@@ -43,42 +40,105 @@ class RegistrosView: UIView {
         self.tableView.contentInset = UIEdgeInsets(top: -height, left: .zero, bottom: .zero, right: .zero)
         self.tableView.separatorStyle = .none
         self.tableView.register(RegistrosViewCell.self, forCellReuseIdentifier: RegistrosViewCell.identifier)
-        self.tableView.estimatedRowHeight = UITableView.automaticDimension
+        self.tableView.rowHeight = 100
 
         self.tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        if UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue) {
-            self.tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundSky"))
+        let backgroundName = InterfaceStyleManager.shared.background.rawValue
+        if backgroundName != Background.allCases.first?.rawValue {
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: backgroundName))
         } else {
             self.tableView.backgroundView = nil
         }
-        setupEmptyStateLabel()
+        setupEmptyState()
     }
 
     func updateBackground() {
-        if UserDefaults.standard.bool(forKey: DefaultsEnum.isBackgroundThemeActive.rawValue) {
-            self.tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundSky"))
-            self.tableView.backgroundView?.alpha = 0.0
-            UIView.animate(withDuration: 0.5) {
-                self.tableView.backgroundView?.alpha = 1
-            }
+        let backgroundName = InterfaceStyleManager.shared.background.rawValue
+        if backgroundName != Background.allCases.first?.rawValue {
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: backgroundName))
         } else {
             self.tableView.backgroundView = nil
         }
+        self.tableView.backgroundView?.alpha = 0.0
+        UIView.animate(withDuration: 0.5) {
+            self.tableView.backgroundView?.alpha = 1
+        }
     }
 
-    func setupEmptyStateLabel() {
-        view.addSubview(emptyStateLabel)
-        self.emptyStateLabel.text = "Lista de registros vazia."
-        self.emptyStateLabel.textColor = UIColor.systemGray2
-        self.emptyStateLabel.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+    func setupEmptyState() {
+        emptyState.titleLabel.textColor = StyleSheet.Color.primaryColor
+        emptyState.subTitleLabel.textColor = StyleSheet.Color.primaryColor
+        emptyState.imageView.tintColor = StyleSheet.Color.primaryColor
+        view.addSubview(emptyState)
+        self.emptyState.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
     }
 
     func emptyState(_ isEmpty: Bool) {
-        emptyStateLabel.isHidden = !isEmpty
+        emptyState.isHidden = !isEmpty
         tableView.isScrollEnabled = !isEmpty
+    }
+}
+
+class EmptyStateView: UIView {
+
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Lista de registros vazia."
+        label.font = .boldSystemFont(ofSize: 18)
+        label.textColor = UIColor.systemGray2
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+
+    let subTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Para começar a escrever toque no icone"
+        label.textColor = UIColor.systemGray2
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        return label
+    }()
+
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = StyleSheet.Image.iconCompose
+        imageView.tintColor = .systemGray2
+        return imageView
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        buildViewHierarchy()
+        setupConstraints()
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
+    func buildViewHierarchy() {
+        addSubview(titleLabel)
+        addSubview(subTitleLabel)
+        addSubview(imageView)
+    }
+
+    func setupConstraints() {
+        titleLabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        subTitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(4)
+            make.centerX.equalToSuperview()
+        }
+        imageView.snp.makeConstraints { make in
+            make.top.equalTo(subTitleLabel.snp.bottom).offset(8)
+            make.centerX.equalToSuperview()
+            make.width.height.equalTo(24)
+        }
     }
 }

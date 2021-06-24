@@ -8,32 +8,34 @@
 import UIKit
 
 class HeaderEscreverDiarioView: UIView {
+    
+    let humorIconSize = CGSize(width: 24, height: 24)
+    let weatherIconSize = CGSize(width: 32, height: 32)
 
-    let humorIconButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.titleTextColor
+    let humorIconButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.happyMood, for: .normal)
+        button.isSelected = false
         return button
     }()
 
-    let ideaIconButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
+    let ideaIconButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.ideaIcon, for: .normal)
         return button
     }()
 
-    let weatherButton: UIButton = {
-        let button = UIButton(frame: .zero)
-        button.tintColor = StyleSheet.Color.secundaryColor
+    let weatherButton: SDButton = {
+        let button = SDButton(frame: .zero)
         button.setImage(StyleSheet.Image.fewClouds, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
+        button.isSelected = false
         return button
     }()
 
-    let humorLabel = UIButton(frame: .zero)
-    let weatherLabel = UIButton(frame: .zero)
-    let ideaLabel = UILabel()
+    let humorLabel = SDButton(frame: .zero)
+    let weatherLabel = SDButton(frame: .zero)
+    let ideaLabel = SDLabel()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,14 +48,16 @@ class HeaderEscreverDiarioView: UIView {
     }
 
     func changeHumor(_ value: Bool) {
+        humorIconButton.isSelected = true
         if value {
-            humorIconButton.setImage(StyleSheet.Image.sadMood, for: .normal)
+            humorIconButton.setImage(StyleSheet.Image.sadMood, for: .selected)
         } else {
-            humorIconButton.setImage(StyleSheet.Image.happyMood, for: .normal)
+            humorIconButton.setImage(StyleSheet.Image.happyMood, for: .selected)
         }
     }
 
     func changeWeather(_ value: WeatherKeyResult) {
+        weatherButton.isSelected = true
         let imageNamed = value.rawValue.split(separator: " ").joined(separator: "_")
         guard let image = UIImage(named: imageNamed) else {
             return
@@ -63,7 +67,6 @@ class HeaderEscreverDiarioView: UIView {
 
     func updateHumor() {
         self.humorIconButton.translatesAutoresizingMaskIntoConstraints = false
-        self.humorIconButton.tintColor = StyleSheet.Color.activeButtonColor
         self.humorLabel.snp.makeConstraints { make in
             make.height.width.equalTo(0)
         }
@@ -71,12 +74,11 @@ class HeaderEscreverDiarioView: UIView {
         self.humorIconButton.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(24)
             make.leading.equalTo(snp.leading).offset(24)
-            make.height.width.equalTo(16)
+            make.height.width.equalTo(humorIconSize.height)
         }
     }
 
     func updateClima() {
-        self.weatherButton.tintColor = StyleSheet.Color.activeButtonColor
         self.weatherLabel.snp.makeConstraints { make in
             make.height.width.equalTo(0)
         }
@@ -84,7 +86,7 @@ class HeaderEscreverDiarioView: UIView {
         self.weatherButton.snp.makeConstraints { make in
             make.centerY.equalTo(humorIconButton.snp.centerY)
             make.trailing.equalTo(snp.trailing).offset(-16)
-            make.height.width.equalTo(24)
+            make.height.width.equalTo(weatherIconSize.height)
         }
     }
 
@@ -93,7 +95,7 @@ class HeaderEscreverDiarioView: UIView {
         self.humorIconButton.snp.makeConstraints { make in
             make.top.equalTo(snp.top).offset(24)
             make.leading.equalTo(snp.leading).offset(24)
-            make.height.width.equalTo(16)
+            make.height.width.equalTo(humorIconSize.height)
         }
         setupHumorLabel()
     }
@@ -101,10 +103,10 @@ class HeaderEscreverDiarioView: UIView {
     func setupHumorLabel() {
         addSubview(humorLabel)
         humorLabel.setTitle("Inserir humor", for: .normal)
-        humorLabel.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        humorLabel.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         humorLabel.setTitleColor(StyleSheet.Color.titleTextColor, for: .normal)
         self.humorLabel.snp.makeConstraints { make in
-            make.leading.equalTo(humorIconButton.snp.trailing).offset(8)
+            make.leading.equalTo(humorIconButton.snp.trailing).offset(16)
             make.centerY.equalTo(humorIconButton.snp.centerY)
         }
         setupWeatherButtonView()
@@ -115,7 +117,7 @@ class HeaderEscreverDiarioView: UIView {
         self.weatherButton.snp.makeConstraints { make in
             make.centerY.equalTo(humorIconButton.snp.centerY)
             make.leading.equalTo(humorLabel.snp.trailing).offset(16)
-            make.height.height.equalTo(16)
+            make.height.width.equalTo(weatherIconSize.height)
         }
         setupWeatherLabel()
     }

@@ -16,16 +16,21 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios release
+### ios install_pods
 ```
-fastlane ios release
+fastlane ios install_pods
 ```
-Description of what the lane does
-### ios beta
+Install pod dependencies
+### ios increment_build
 ```
-fastlane ios beta
+fastlane ios increment_build
 ```
-
+Incrementing Build Number
+### ios build_ipa
+```
+fastlane ios build_ipa
+```
+Archive and Build IPA
 
 ----
 

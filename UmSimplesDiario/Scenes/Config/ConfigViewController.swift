@@ -22,7 +22,6 @@ class ConfigViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         self.navigationItem.title = "Configurações"
         self.tableView.backgroundView? = UIView()
         self.view.backgroundColor = StyleSheet.Color.backgroundColor

@@ -14,22 +14,19 @@ import UITextView_Placeholder
 class EditarRegistroView: UIView {
 
     let view = UIView(frame: .zero)
-    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 45)))
+    let headerView = HeaderEscreverDiarioView(frame: CGRect(origin: .zero, size: CGSize(width: 50, height: 64)))
     let indicatorContainer = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
     let cancelButton = UIBarButtonItem(title: "Cancelar")
     let saveButton = UIBarButtonItem(title: "Salvar")
     let tableView = UITableView(frame: .zero)
 
-    let navigationMoreButtonItem: UIBarButtonItem = {
-        let button = UIBarButtonItem(image: StyleSheet.Image.iconMore)
-        button.tintColor = UIColor.systemBlue
+    let navigationMoreButtonItem: SDBarButtonItem = {
+        let button = SDBarButtonItem(image: StyleSheet.Image.iconMore)
         return button
     }()
 
     func setupView() {
         self.view.frame = self.bounds
-        self.navigationMoreButtonItem.tintColor = StyleSheet.Color.activeButtonColor
-
         self.view.backgroundColor = .systemGray5
         insertSubview(view, belowSubview: indicatorContainer)
 

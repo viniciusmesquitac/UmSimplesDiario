@@ -14,17 +14,33 @@
 # update_fastlane
 
 default_platform(:ios)
-
 platform :ios do
-  desc "Description of what the lane does"
-  lane :release do
-    build_app(scheme: "",
-	     workspace: "",
-	     include_bitcode: true)
-  end
- lane :beta do
-   build_app(scheme: "UmSimplesDiario")
-  upload_to_testflight
-  slack(message: "Successfully distributed a new beta build")
- end
+      desc “Install pod dependencies”
+      lane :install_pods do
+         cocoapods(
+             podfile: "./Podfile",
+             use_bundle_exec: false)
+end
+      
+      desc "Incrementing Build Number"
+      lane :increment_build do
+           current_build_number = latest_testflight_build_number(version: "1.0.2")
+           increment_build_number(
+           build_number: current_build_number + 1
+           )
+      end
+      desc “Archive and Build IPA”
+      lane :build_ipa do
+       install_pods
+       increment_build
+          gym(
+             workspace: "../UmSimplesDiario/UmSimplesDiario.xcworkspace",
+             scheme: "UmSimplesDiario",
+             output_directory: "../UmSimplesDiario/UmSimplesDiario/ipa",
+             output_name: "UmSimplesDiario.ipa",
+             export_method: “app-store”,
+             include_bitcode: false,
+             clean: true)
+          pilot(ipa: "../UmSimplesDiario/UmSimplesDiario/ipa/UmSimplesDiario.ipa")
+       end
 end

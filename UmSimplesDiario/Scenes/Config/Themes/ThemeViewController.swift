@@ -29,6 +29,9 @@ class ThemeViewController: UIViewController {
         self.mainView.tableView.register(
             SwitchButtonTableViewCell.self,
             forCellReuseIdentifier: SwitchButtonTableViewCell.identifier)
+        self.mainView.tableView.register(
+            BackgrondsSelectionCell.self,
+            forCellReuseIdentifier: BackgrondsSelectionCell.identifier)
         mainView.setupView()
         self.view = mainView
 
@@ -36,7 +39,7 @@ class ThemeViewController: UIViewController {
             self.mainView.tableView.reloadData()
             UIView.transition(
                 with: self.view,
-                duration: 0.5,
+                duration: 0.33,
                 options: .transitionCrossDissolve,
                 animations: {
                     self.view.window?.overrideUserInterfaceStyle = style
@@ -47,7 +50,13 @@ class ThemeViewController: UIViewController {
     }
 }
 
-extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
+extension ThemeViewController: UITableViewDelegate, UITableViewDataSource, BackgroundsDelegate {
+
+    func didSelectBackground(at index: Int) {
+        let background = Background.allCases[index]
+        InterfaceStyleManager.shared.background = background
+        viewModel?.coordinator.updateBackground()
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel?.sections[section].items.count ?? 0
@@ -66,13 +75,21 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: true)
         item.action?()
         item.cell.accessoryType = .checkmark
-        viewModel?.update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified)
-        viewModel?.update(theme: Theme(rawValue: indexPath.row) ?? .systemDefault)
+        switch indexPath.section {
+        case 0:
+            viewModel?.update(style: UIUserInterfaceStyle(rawValue: indexPath.row) ?? .unspecified)
+        default:
+            viewModel?.update(theme: Theme(rawValue: indexPath.row) ?? .red)
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = viewModel?.sections[indexPath.section].items[indexPath.row].cell else {
             return UITableViewCell()
+        }
+        if let cell = cell as? BackgrondsSelectionCell {
+            cell.delegate = self
+            return cell
         }
         return cell
     }

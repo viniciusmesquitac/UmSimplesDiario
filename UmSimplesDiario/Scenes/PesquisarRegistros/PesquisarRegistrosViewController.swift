@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxDataSources
 
 class PesquisarRegistrosViewController: UIViewController {
 
@@ -25,7 +26,6 @@ class PesquisarRegistrosViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.tintColor = StyleSheet.Color.activeButtonColor
         navigationItem.titleView = mainView.searchBar
         mainView.searchBar.becomeFirstResponder()
         mainView.setupView()
@@ -53,6 +53,17 @@ extension PesquisarRegistrosViewController {
                            cellType: RegistrosViewCell.self)) { _, element, cell in
                 cell.configure(RegistroModel(registro: element))
             }.disposed(by: disposeBag)
+
+        viewModel.outputs.registrosOutput.subscribe(onNext: { registros in
+            if self.viewModel.searchBarText.value == nil || self.viewModel.searchBarText.value == "" {
+                self.mainView.emptyState.titleLabel.text = "Pesquisar Registro"
+                self.mainView.emptyState.subTitleLabel.isHidden = false
+            } else {
+                self.mainView.emptyState.titleLabel.text = "Nenhum Resultado"
+                self.mainView.emptyState.subTitleLabel.isHidden = true
+            }
+            self.mainView.emptyState(registros.isEmpty)
+        }).disposed(by: self.disposeBag)
     }
 
     private func setupInputs() {

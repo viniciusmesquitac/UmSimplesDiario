@@ -13,7 +13,7 @@ struct StyleSheet {
         static let primaryColor = UIColor(named: "primaryColor")!
         static let secundaryColor = UIColor.systemBackground
         static let backgroundColor = UIColor(named: "backgroundColor")!
-        static let activeButtonColor = UIColor(named: "activeButtonColor")!
+        static var activeButtonColor = UIColor(named: "activeButtonColor")!
         static let contentEntryColor = UIColor(named: "contentEntryColor")!
         static let modalBackgroundColor = UIColor(named: "modalBackgroundColor")!
         static let borderColor = UIColor.systemGray5
@@ -45,5 +45,7 @@ struct StyleSheet {
         static let iconKeyboard = UIImage(named: "iconKeyboard")!
         static let iconMusic = UIImage(named: "iconMusic")!
         static let iconImage = UIImage(named: "iconImage")!
+        static let iconDisclousure = UIImage(named: "􀆊")!
+        static let iconCompose = UIImage(named: "􀈎")!
     }
 }

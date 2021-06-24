@@ -93,6 +93,15 @@ extension EscreverDiarioViewController {
             }
         }).disposed(by: disposeBag)
 
+        viewModel.changeHumor.asObservable().subscribe(onNext: { value in
+            DispatchQueue.main.async {
+                if let humor = value {
+                    self.mainView.headerView.changeHumor(humor)
+                    self.mainView.headerView.updateHumor()
+                }
+            }
+        }).disposed(by: disposeBag)
+
         viewModel.imageButton.subscribe(onNext: { _ in
             if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
                 self.imagePicker.delegate = self
@@ -179,7 +188,7 @@ extension EscreverDiarioViewController: CLLocationManagerDelegate {
 extension EscreverDiarioViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(
         _ picker: UIImagePickerController,
-        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
            let cell = mainView.tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? BodyEscreverDiarioViewCell {
             cell.bodyTextView.setAttachment(image: pickedImage)
