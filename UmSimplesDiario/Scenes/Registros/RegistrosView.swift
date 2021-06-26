@@ -57,7 +57,7 @@ class RegistrosView: UIView {
     func updateBackground() {
         let backgroundName = InterfaceStyleManager.shared.background.rawValue
         if backgroundName != Background.allCases.first?.rawValue {
-            self.tableView.backgroundView = UIImageView(image: UIImage(named: backgroundName))
+            self.tableView.backgroundView = UIImageView(image: UIImage(named: backgroundName)?.blurImage(radius: 3))
         } else {
             self.tableView.backgroundView = nil
         }

@@ -17,6 +17,8 @@
 		8100C0DD264EF6C2002F2B80 /* SDImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DC264EF6C2002F2B80 /* SDImageView.swift */; };
 		8100C0E0265044F9002F2B80 /* BackgroundsSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */; };
 		8100C0E226508823002F2B80 /* BackgroundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */; };
+		811BDA082687754200ED012F /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811BDA072687754200ED012F /* TabBarCoordinator.swift */; };
+		811BDA0A268779B500ED012F /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811BDA09268779B500ED012F /* Background.swift */; };
 		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
@@ -130,6 +132,8 @@
 		8100C0DC264EF6C2002F2B80 /* SDImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDImageView.swift; sourceTree = "<group>"; };
 		8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsSelectionCell.swift; sourceTree = "<group>"; };
 		8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsViewModel.swift; sourceTree = "<group>"; };
+		811BDA072687754200ED012F /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		811BDA09268779B500ED012F /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
@@ -398,6 +402,7 @@
 				81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */,
 				81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */,
 				81F3D6BD264753BF002966DB /* ConfigCoordinator.swift */,
+				811BDA072687754200ED012F /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -551,6 +556,7 @@
 				81F3D6B726474B61002966DB /* AlertMessage.swift */,
 				81F3D6C526476AD2002966DB /* InterfaceStyleManager.swift */,
 				81F3D6D2264B3615002966DB /* Styles.swift */,
+				811BDA09268779B500ED012F /* Background.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -876,6 +882,7 @@
 				81FE099A264ED350000D9243 /* SDView.swift in Sources */,
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
 				8100C0D2264ED600002F2B80 /* UIWindow.swift in Sources */,
+				811BDA0A268779B500ED012F /* Background.swift in Sources */,
 				81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
 				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
@@ -910,6 +917,7 @@
 				81F3D6C82648309E002966DB /* UITextView+Attachment.swift in Sources */,
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
+				811BDA082687754200ED012F /* TabBarCoordinator.swift in Sources */,
 				81F3D6D3264B3615002966DB /* Styles.swift in Sources */,
 				8100C0D6264EE667002F2B80 /* RedTheme.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
