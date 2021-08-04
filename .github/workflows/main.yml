@@ -23,9 +23,12 @@ jobs:
       with:
         key: ${{ secrets.SSH_KEY }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
+        
     - name: Set up Fastlane
       run: bundle install
+  
+    - name: Update Fastlane
+      run: bundle update fastlane
 
     - name: Build & Deploy to Testflight
       run: bundle exec fastlane upload_testflight
