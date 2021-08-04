@@ -34,3 +34,4 @@ jobs:
         APP_STORE_CONNECT_APPLE_ID: ${{ secrets.APP_STORE_CONNECT_APPLE_ID }}
         FASTLANE_ITC_TEAM_ID: ${{ secrets.FASTLANE_ITC_TEAM_ID }}
         APPLE_ID: ${{ secrets.APPLE_ID }}
+        FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
