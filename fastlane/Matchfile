@@ -1,2 +1,2 @@
-git_url("https://github.com/viniciusmesquitac/UmSimplesDiarioCertificates")
+git_url("git@github.com:viniciusmesquitac/UmSimplesDiarioCertificates.git")
 git_branch "certificates"
