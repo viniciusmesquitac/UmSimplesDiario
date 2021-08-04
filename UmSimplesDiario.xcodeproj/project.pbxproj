@@ -17,9 +17,12 @@
 		8100C0DD264EF6C2002F2B80 /* SDImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DC264EF6C2002F2B80 /* SDImageView.swift */; };
 		8100C0E0265044F9002F2B80 /* BackgroundsSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */; };
 		8100C0E226508823002F2B80 /* BackgroundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */; };
+		811BDA082687754200ED012F /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811BDA072687754200ED012F /* TabBarCoordinator.swift */; };
+		811BDA0A268779B500ED012F /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811BDA09268779B500ED012F /* Background.swift */; };
 		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
+		81AD70BB26B1BCFE0093E973 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 81AD70BA26B1BCFE0093E973 /* fastlane */; };
 		81BA7BC325D16A320002D594 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC225D16A320002D594 /* AppDelegate.swift */; };
 		81BA7BC525D16A320002D594 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BC425D16A320002D594 /* SceneDelegate.swift */; };
 		81BA7BCD25D16A320002D594 /* UmSimplesDiario.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 81BA7BCB25D16A320002D594 /* UmSimplesDiario.xcdatamodeld */; };
@@ -118,6 +121,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B0250084EC71CC1A03AF233 /* Pods-UmSimplesDiarioTests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.adhoc.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		3A81DAA88FA86F6045E31094 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6325CDD0DB65906C0C32626D /* Pods-UmSimplesDiario.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,9 +134,12 @@
 		8100C0DC264EF6C2002F2B80 /* SDImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDImageView.swift; sourceTree = "<group>"; };
 		8100C0DF265044F9002F2B80 /* BackgroundsSelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsSelectionCell.swift; sourceTree = "<group>"; };
 		8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsViewModel.swift; sourceTree = "<group>"; };
+		811BDA072687754200ED012F /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
+		811BDA09268779B500ED012F /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
+		81AD70BA26B1BCFE0093E973 /* fastlane */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fastlane; sourceTree = SOURCE_ROOT; };
 		81BA7BBF25D16A320002D594 /* UmSimplesDiario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UmSimplesDiario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81BA7BC225D16A320002D594 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81BA7BC425D16A320002D594 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,9 +223,11 @@
 		81FE0995264ED1D8000D9243 /* SDNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDNavigation.swift; sourceTree = "<group>"; };
 		81FE0997264ED20E000D9243 /* SDLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDLabel.swift; sourceTree = "<group>"; };
 		81FE0999264ED350000D9243 /* SDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDView.swift; sourceTree = "<group>"; };
+		8270168AE027C03CACDE8C43 /* Pods-UmSimplesDiario.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.adhoc.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.adhoc.xcconfig"; sourceTree = "<group>"; };
 		91DBE402C88954FC1A6188A4 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		95A81D0097D60EA1578D593F /* Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario_UmSimplesDiarioUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB46B3280F2F1D2DC102CFA6 /* Pods_UmSimplesDiario.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UmSimplesDiario.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC0A35972A2A236ED16AE627 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.adhoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario-UmSimplesDiarioUITests.adhoc.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario-UmSimplesDiarioUITests/Pods-UmSimplesDiario-UmSimplesDiarioUITests.adhoc.xcconfig"; sourceTree = "<group>"; };
 		FBF36D0CB2D0C71D60E701A5 /* Pods-UmSimplesDiario.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiario.debug.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiario/Pods-UmSimplesDiario.debug.xcconfig"; sourceTree = "<group>"; };
 		FF34AC9D6614282604C7E3AE /* Pods-UmSimplesDiarioTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UmSimplesDiarioTests.release.xcconfig"; path = "Target Support Files/Pods-UmSimplesDiarioTests/Pods-UmSimplesDiarioTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -305,6 +314,7 @@
 		81BA7BC125D16A320002D594 /* UmSimplesDiario */ = {
 			isa = PBXGroup;
 			children = (
+				81AD70BA26B1BCFE0093E973 /* fastlane */,
 				81FE0992264ED18B000D9243 /* UI */,
 				81F10AA225E00F0A001F0ACB /* Repository */,
 				81BA7C5F25D2AC0C0002D594 /* Network */,
@@ -398,6 +408,7 @@
 				81BA7DC225DBF9570002D594 /* PesquisarRegistrosCoordinator.swift */,
 				81F10B3925E97645001F0ACB /* EditarRegistroCoordinator.swift */,
 				81F3D6BD264753BF002966DB /* ConfigCoordinator.swift */,
+				811BDA072687754200ED012F /* TabBarCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -551,6 +562,7 @@
 				81F3D6B726474B61002966DB /* AlertMessage.swift */,
 				81F3D6C526476AD2002966DB /* InterfaceStyleManager.swift */,
 				81F3D6D2264B3615002966DB /* Styles.swift */,
+				811BDA09268779B500ED012F /* Background.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -612,6 +624,9 @@
 				3A81DAA88FA86F6045E31094 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.release.xcconfig */,
 				5F3A892BFBD9B9B5980E0FDA /* Pods-UmSimplesDiarioTests.debug.xcconfig */,
 				FF34AC9D6614282604C7E3AE /* Pods-UmSimplesDiarioTests.release.xcconfig */,
+				8270168AE027C03CACDE8C43 /* Pods-UmSimplesDiario.adhoc.xcconfig */,
+				EC0A35972A2A236ED16AE627 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.adhoc.xcconfig */,
+				0B0250084EC71CC1A03AF233 /* Pods-UmSimplesDiarioTests.adhoc.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -727,6 +742,7 @@
 			files = (
 				81F10ACC25E012E4001F0ACB /* .swiftlint.yml in Resources */,
 				81BA7BD225D16A340002D594 /* LaunchScreen.storyboard in Resources */,
+				81AD70BB26B1BCFE0093E973 /* fastlane in Resources */,
 				81BA7BCF25D16A340002D594 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -876,6 +892,7 @@
 				81FE099A264ED350000D9243 /* SDView.swift in Sources */,
 				81BA7CC725D42E570002D594 /* Schema.swift in Sources */,
 				8100C0D2264ED600002F2B80 /* UIWindow.swift in Sources */,
+				811BDA0A268779B500ED012F /* Background.swift in Sources */,
 				81F10A9E25E00E09001F0ACB /* SectionCell.swift in Sources */,
 				81BA7C4E25D183430002D594 /* StyleSheet.swift in Sources */,
 				81F10B0A25E6AEFE001F0ACB /* EditarRegistroCellModel.swift in Sources */,
@@ -910,6 +927,7 @@
 				81F3D6C82648309E002966DB /* UITextView+Attachment.swift in Sources */,
 				81BA7C6125D2AD110002D594 /* URLSession+Extensions.swift in Sources */,
 				81BA7C6E25D2ADA40002D594 /* WeatherAPI.swift in Sources */,
+				811BDA082687754200ED012F /* TabBarCoordinator.swift in Sources */,
 				81F3D6D3264B3615002966DB /* Styles.swift in Sources */,
 				8100C0D6264EE667002F2B80 /* RedTheme.swift in Sources */,
 				81BA7D3E25D608E20002D594 /* PesquisarRegistrosViewModel.swift in Sources */,
@@ -1001,6 +1019,135 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		81AD70CA26B308B50093E973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Adhoc;
+		};
+		81AD70CB26B308B50093E973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8270168AE027C03CACDE8C43 /* Pods-UmSimplesDiario.adhoc.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = 3A46XCK2VP;
+				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.UmSimplesDiario;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc viniciusmesquita.UmSimplesDiario";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Adhoc;
+		};
+		81AD70CC26B308B50093E973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B0250084EC71CC1A03AF233 /* Pods-UmSimplesDiarioTests.adhoc.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A46XCK2VP;
+				INFOPLIST_FILE = UmSimplesDiarioTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.UmSimplesDiarioTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UmSimplesDiario.app/UmSimplesDiario";
+			};
+			name = Adhoc;
+		};
+		81AD70CD26B308B50093E973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC0A35972A2A236ED16AE627 /* Pods-UmSimplesDiario-UmSimplesDiarioUITests.adhoc.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3A46XCK2VP;
+				INFOPLIST_FILE = UmSimplesDiarioUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.UmSimplesDiarioUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = UmSimplesDiario;
+			};
+			name = Adhoc;
+		};
 		81BA7BEA25D16A340002D594 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1123,8 +1270,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1134,6 +1282,7 @@
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.UmSimplesDiario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development viniciusmesquita.UmSimplesDiario";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1145,9 +1294,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 3A46XCK2VP;
 				INFOPLIST_FILE = UmSimplesDiario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1157,7 +1306,7 @@
 				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = viniciusmesquita.UmSimplesDiario;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore viniciusmesquita.UmSimplesDiario";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1258,6 +1407,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81BA7BEA25D16A340002D594 /* Debug */,
+				81AD70CA26B308B50093E973 /* Adhoc */,
 				81BA7BEB25D16A340002D594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1267,6 +1417,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81BA7BED25D16A340002D594 /* Debug */,
+				81AD70CB26B308B50093E973 /* Adhoc */,
 				81BA7BEE25D16A340002D594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1276,6 +1427,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81BA7BF025D16A340002D594 /* Debug */,
+				81AD70CC26B308B50093E973 /* Adhoc */,
 				81BA7BF125D16A340002D594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1285,6 +1437,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				81BA7BF325D16A340002D594 /* Debug */,
+				81AD70CD26B308B50093E973 /* Adhoc */,
 				81BA7BF425D16A340002D594 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

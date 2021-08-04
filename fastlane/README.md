@@ -16,21 +16,36 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios install_pods
+### ios build_appstore
 ```
-fastlane ios install_pods
+fastlane ios build_appstore
 ```
-Install pod dependencies
-### ios increment_build
+Build
+### ios upload_testflight
 ```
-fastlane ios increment_build
+fastlane ios upload_testflight
 ```
-Incrementing Build Number
-### ios build_ipa
+Upload to Test Flight
+### ios getTeamNames
 ```
-fastlane ios build_ipa
+fastlane ios getTeamNames
 ```
-Archive and Build IPA
+
+### ios inc
+```
+fastlane ios inc
+```
+Increment Build Number
+### ios download_keys
+```
+fastlane ios download_keys
+```
+Download keys
+### ios create_keys
+```
+fastlane ios create_keys
+```
+Create keys for new developers
 
 ----
 
