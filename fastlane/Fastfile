@@ -18,7 +18,13 @@ platform :ios do
 
   desc "Build"
   lane :build_appstore do
+    if is_ci
+      puts "Running on CI!"
   
+      setup_ci(
+          force: true
+      )
+    end
     match(type: "appstore", readonly: true)
     cocoapods
 
