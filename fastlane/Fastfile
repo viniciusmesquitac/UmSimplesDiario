@@ -19,7 +19,7 @@ platform :ios do
   desc "Build"
   lane :build_appstore do
     if is_ci
-      puts "Running on Github action!"
+      puts "Running on Github action"
   
       setup_ci(
           force: true
