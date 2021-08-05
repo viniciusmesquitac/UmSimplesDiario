@@ -21,17 +21,15 @@ final class ConfigCoordinator: Coordinator {
     }
 
     func start() {
-        let navigationController = UINavigationController(
-            rootViewController: ConfigViewController(viewModel: ConfigViewModel(coordinator: self)))
-        self.currentNavigationController = navigationController
-        self.navigationController.present(navigationController, animated: true)
+        let controller = ConfigViewController(viewModel: ConfigViewModel(coordinator: self))
+        self.navigationController.pushViewController(controller, animated: true)
     }
 
     func route(to route: Route) {
         switch route {
         case .themes:
             let themesViewController = ThemeViewController(viewModel: ThemeViewModel(coordinator: self))
-            self.currentNavigationController.pushViewController(themesViewController, animated: true)
+            self.navigationController.pushViewController(themesViewController, animated: true)
         }
     }
 
@@ -49,8 +47,6 @@ final class ConfigCoordinator: Coordinator {
         guard let registrosViewController = firstViewController as? RegistrosViewController else { return }
         StyleSheet.Color.activeButtonColor = .brown
         registrosViewController.mainView.updateBackground()
-        let isBackgroundActive = InterfaceStyleManager.shared.background != Background.allCases.first
-        registrosViewController.navigationController?.navigationBar.prefersLargeTitles = !isBackgroundActive
         self.navigationController.popViewController(animated: true)
     }
 }

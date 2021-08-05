@@ -32,7 +32,6 @@ final class EditarRegistroCoordinator: NSObject, Coordinator {
         configurarRegistroViewController.modalPresentationStyle = .custom
             configurarRegistroViewController.transitioningDelegate = self
             navigationController.present(configurarRegistroViewController, animated: true, completion: nil)
-        print("Configure")
     }
 
     func dismiss() {

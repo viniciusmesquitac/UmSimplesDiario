@@ -29,8 +29,7 @@ class RegistrosViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let isBackgroundActive = InterfaceStyleManager.shared.background != Background.allCases.first
-        navigationController?.navigationBar.prefersLargeTitles = !isBackgroundActive
+        navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
         viewModel.loadRegistros()
     }
@@ -40,6 +39,18 @@ class RegistrosViewController: UIViewController {
         self.navigationItem.title = "Registros"
         self.navigationItem.leftBarButtonItem = mainView.settingsButton
         self.navigationItem.rightBarButtonItems = [mainView.composeButton, mainView.searchButton]
+
+        if #available(iOS 13.0, *) {
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.configureWithOpaqueBackground()
+            navBarAppearance.titleTextAttributes = [.foregroundColor: StyleSheet.Color.primaryColor]
+            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: StyleSheet.Color.primaryColor]
+            navBarAppearance.backgroundColor = StyleSheet.Color.modalBackgroundColor.withAlphaComponent(0.8)
+            self.navigationController?.navigationBar.standardAppearance = navBarAppearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+        }
+
+        self.navigationController?.navigationBar.isTranslucent = true
         mainView.setupView()
         self.view = mainView
         setup()
