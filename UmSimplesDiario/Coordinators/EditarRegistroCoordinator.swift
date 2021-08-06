@@ -29,9 +29,7 @@ final class EditarRegistroCoordinator: NSObject, Coordinator {
     func showConfigure(registro: Registro) {
         let viewModel = ConfigurarRegistroViewModel(coordinator: self, registro: registro)
         let configurarRegistroViewController = ConfigurarRegistroViewController(viewModel: viewModel)
-        configurarRegistroViewController.modalPresentationStyle = .custom
-            configurarRegistroViewController.transitioningDelegate = self
-            navigationController.present(configurarRegistroViewController, animated: true, completion: nil)
+        navigationController.presentPanModal(configurarRegistroViewController)
     }
 
     func dismiss() {
@@ -42,12 +40,5 @@ final class EditarRegistroCoordinator: NSObject, Coordinator {
         navigationController.dismiss(animated: true, completion: {
             self.navigationController.popViewController(animated: true)
         })
-    }
-}
-
-extension EditarRegistroCoordinator: UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController,
-                                presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        PresentationController(presentedViewController: presented, presenting: presenting)
     }
 }

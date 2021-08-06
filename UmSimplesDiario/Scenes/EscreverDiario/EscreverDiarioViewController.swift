@@ -33,6 +33,7 @@ class EscreverDiarioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.locationManager.delegate = self
+        // For avoiding that the text cursor disappears behind the keyboard, adjust the text for it
         if viewModel.registro != nil {
             navigationItem.leftBarButtonItems = [mainView.navigationBackButtonItem, mainView.navigationBarButtonTitle]
         } else {

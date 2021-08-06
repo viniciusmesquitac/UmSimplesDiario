@@ -19,7 +19,6 @@
 		8100C0E226508823002F2B80 /* BackgroundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */; };
 		811BDA082687754200ED012F /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811BDA072687754200ED012F /* TabBarCoordinator.swift */; };
 		811BDA0A268779B500ED012F /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811BDA09268779B500ED012F /* Background.swift */; };
-		817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F79FB25F01827002F0856 /* PresentationViewController.swift */; };
 		817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */; };
 		817F7A0925F026A4002F0856 /* ConfigurarRigistroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */; };
 		81AD70BB26B1BCFE0093E973 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = 81AD70BA26B1BCFE0093E973 /* fastlane */; };
@@ -136,7 +135,6 @@
 		8100C0E126508823002F2B80 /* BackgroundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundsViewModel.swift; sourceTree = "<group>"; };
 		811BDA072687754200ED012F /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		811BDA09268779B500ED012F /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		817F79FB25F01827002F0856 /* PresentationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationViewController.swift; sourceTree = "<group>"; };
 		817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRegistroView.swift; sourceTree = "<group>"; };
 		817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurarRigistroViewModel.swift; sourceTree = "<group>"; };
 		81AD70BA26B1BCFE0093E973 /* fastlane */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fastlane; sourceTree = SOURCE_ROOT; };
@@ -494,7 +492,6 @@
 			isa = PBXGroup;
 			children = (
 				81F10B2B25E975C7001F0ACB /* ConfigurarRegistroViewController.swift */,
-				817F79FB25F01827002F0856 /* PresentationViewController.swift */,
 				817F7A0025F01E0F002F0856 /* ConfigurarRegistroView.swift */,
 				817F7A0825F026A4002F0856 /* ConfigurarRigistroViewModel.swift */,
 				81F3D69D264567B1002966DB /* ConfigurarRegistrosViewModel+Protocol.swift */,
@@ -905,7 +902,6 @@
 				81F3D6C02647564B002966DB /* ThemeViewModel.swift in Sources */,
 				81FE0991264ECE37000D9243 /* ThemeAssets.swift in Sources */,
 				817F7A0125F01E0F002F0856 /* ConfigurarRegistroView.swift in Sources */,
-				817F79FC25F01827002F0856 /* PresentationViewController.swift in Sources */,
 				81BA7C7825D2B5660002D594 /* Weather.swift in Sources */,
 				81FE0988264ECCC5000D9243 /* ThemeProtocol.swift in Sources */,
 				81F3D6C2264757FF002966DB /* ThemeViewModel+Protocol.swift in Sources */,
