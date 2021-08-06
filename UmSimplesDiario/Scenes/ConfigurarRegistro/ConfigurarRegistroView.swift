@@ -84,31 +84,9 @@ class ConfigurarRegistroView: UIView {
         stackView.spacing = 24
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.top.equalToSuperview().offset(24)
+            make.centerX.equalToSuperview()
         }
     }
-}
-
-extension ConfigurarRegistroView {
-    func panGestureRecognizerAction(sender: UIPanGestureRecognizer, coordinator: EditarRegistroCoordinator) {
-        let translation = sender.translation(in: view)
-        guard translation.y >= 0 else { return }
-
-        view.frame.origin = CGPoint(x: 0, y: self.pointOrigin!.y + translation.y)
-        if sender.state == .ended {
-
-            let dragVelocity = sender.velocity(in: view)
-            if dragVelocity.y >= 1300 {
-                coordinator.dismiss()
-            } else {
-                if view.frame.origin.y >= 100 {
-                    coordinator.dismiss()
-                }
-                // Set back to original position of the view controller
-                UIView.animate(withDuration: 0.3) {
-                    self.view.frame.origin = self.pointOrigin ?? CGPoint(x: 0, y: 400)
-                }
-            }
-        }
-    }
+    var initial = CGRect.zero
 }

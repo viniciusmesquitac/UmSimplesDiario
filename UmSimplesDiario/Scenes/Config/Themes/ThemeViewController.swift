@@ -53,8 +53,20 @@ class ThemeViewController: UIViewController {
 extension ThemeViewController: UITableViewDelegate, UITableViewDataSource, BackgroundsDelegate {
 
     func didSelectBackground(at index: Int) {
-        let background = Background.allCases[index]
-        InterfaceStyleManager.shared.background = background
+        let theme = traitCollection.userInterfaceStyle
+        switch theme {
+        case .dark:
+            let background = Background.allCases.filter { $0.type == .darkMode ||  $0.type == .systemMode }[index]
+            InterfaceStyleManager.shared.background = background
+        case .light:
+            let background = Background.allCases.filter { $0.type == .lightMode ||  $0.type == .systemMode }[index]
+            InterfaceStyleManager.shared.background = background
+        case .unspecified:
+            let background = Background.allCases.filter { $0.type == .systemMode }[index]
+            InterfaceStyleManager.shared.background = background
+        @unknown default:
+            fatalError()
+        }
         viewModel?.coordinator.updateBackground()
     }
 
@@ -92,5 +104,13 @@ extension ThemeViewController: UITableViewDelegate, UITableViewDataSource, Backg
             return cell
         }
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 2 && indexPath.row == 0 {
+            return 200
+        } else {
+            return UITableView.automaticDimension
+        }
     }
 }

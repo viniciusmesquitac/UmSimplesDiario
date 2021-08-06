@@ -52,13 +52,6 @@ class BodyEscreverDiarioViewCell: UITableViewCell {
                 animated: true)
         }).disposed(by: disposeBag)
 
-//        bodyTextView.rx.text.changed.skip(1).subscribe(onNext: { _ in
-//            tableView.scrollRectToVisible(
-//                CGRect(origin: CGPoint(x: .zero, y: self.positionTapped.value.y),
-//                       size: tableView.frame.size),
-//                animated: false)
-//        }).disposed(by: disposeBag)
-
     }
 
     func bind(viewModel: EscreverDiarioViewModel, with tableView: UITableView) {

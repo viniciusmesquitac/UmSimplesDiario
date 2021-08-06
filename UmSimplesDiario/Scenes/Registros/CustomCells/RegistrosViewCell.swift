@@ -10,7 +10,7 @@ import UIKit
 class RegistrosViewCell: UITableViewCell {
     static let identifier = "registros"
 
-    var backgroundAlpha: CGFloat = 1.0
+    var backgroundAlpha: CGFloat = 0.8
 
     fileprivate let dayLabel: SDLabel = {
         let label = SDLabel()

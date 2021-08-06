@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import PanModal
 
 class ConfigurarRegistroViewController: UIViewController {
 
@@ -25,15 +26,6 @@ class ConfigurarRegistroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView.setupView()
-        mainView.rx
-          .panGesture()
-            .when(.began, .changed, .ended)
-          .subscribe(onNext: { sender in
-            self.mainView.panGestureRecognizerAction(
-                sender: sender,
-                coordinator: self.viewModel.coordinator)
-          })
-          .disposed(by: disposeBag)
         self.view = mainView
         setup()
     }
@@ -45,5 +37,24 @@ class ConfigurarRegistroViewController: UIViewController {
     func setupInputs() {
         mainView.deleteButton.rx.tap.bind(to: viewModel.deleteButton).disposed(by: disposeBag)
         mainView.saveButton.rx.tap.bind(to: viewModel.saveButton).disposed(by: disposeBag)
+    }
+}
+
+extension ConfigurarRegistroViewController: PanModalPresentable {
+
+    var panScrollable: UIScrollView? {
+        return nil
+    }
+
+    var shortFormHeight: PanModalHeight {
+        return .contentHeight(view.frame.height/3.5)
+    }
+    
+    var longFormHeight: PanModalHeight {
+        return .maxHeightWithTopInset(view.frame.height/2)
+    }
+
+    var showDragIndicator: Bool {
+        return false
     }
 }
