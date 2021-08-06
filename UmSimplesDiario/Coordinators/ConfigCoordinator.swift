@@ -47,6 +47,5 @@ final class ConfigCoordinator: Coordinator {
         guard let registrosViewController = firstViewController as? RegistrosViewController else { return }
         StyleSheet.Color.activeButtonColor = .brown
         registrosViewController.mainView.updateBackground()
-        self.navigationController.popViewController(animated: true)
     }
 }

@@ -92,7 +92,6 @@ extension ThemeViewModel {
 
     func createBackgroundSelection() -> BackgrondsSelectionCell {
         let cell = BackgrondsSelectionCell()
-        cell.selectionStyle = .none
         cell.layoutIfNeeded()
         return cell
     }

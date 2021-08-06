@@ -20,7 +20,7 @@ class BackgrondsSelectionCell: UITableViewCell {
     let flowLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
-        flowLayout.itemSize = CGSize(width: 72, height: 72)
+        flowLayout.itemSize = CGSize(width: 200, height: 200)
         return flowLayout
     }()
 
@@ -43,15 +43,9 @@ class BackgrondsSelectionCell: UITableViewCell {
         setupConstraints()
     }
 
-    override func systemLayoutSizeFitting(_ targetSize: CGSize,
-                                          withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
-                                          verticalFittingPriority: UILayoutPriority) -> CGSize {
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
         self.collectionView.reloadData()
-        self.collectionView.layoutIfNeeded()
-        self.collectionView.contentInset = UIEdgeInsets(
-            top: 0, left: 16, bottom: 0, right: 0)
-        self.contentView.layoutIfNeeded()
-        return self.collectionView.contentSize
     }
 
     func buildViewHierarchy() {
@@ -72,7 +66,17 @@ class BackgrondsSelectionCell: UITableViewCell {
 // MARK: - DataSource
 extension BackgrondsSelectionCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Background.allCases.count
+        let theme = traitCollection.userInterfaceStyle
+        switch theme {
+        case .dark:
+            return Background.allCases.filter { $0.type == .darkMode || $0.type == .systemMode }.count
+        case .light:
+            return Background.allCases.filter { $0.type == .lightMode || $0.type == .systemMode }.count
+        case .unspecified:
+            return Background.allCases.filter { $0.type == .systemMode }.count
+        @unknown default:
+            fatalError()
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -81,7 +85,18 @@ extension BackgrondsSelectionCell: UICollectionViewDataSource, UICollectionViewD
                 withReuseIdentifier: BackgroundCell.identifier, for: indexPath) as? BackgroundCell else {
             return UICollectionViewCell()
         }
-        let background = Background.allCases[indexPath.row]
+        let theme = traitCollection.userInterfaceStyle
+        var background = Background.allCases[indexPath.row]
+        switch theme {
+        case .dark:
+            background = Background.allCases.filter { $0.type == .darkMode || $0.type == .systemMode }[indexPath.row]
+        case .light:
+            background = Background.allCases.filter { $0.type == .lightMode || $0.type == .systemMode }[indexPath.row]
+        case .unspecified:
+            background = Background.allCases.filter { $0.type == .systemMode }[indexPath.row]
+        @unknown default:
+            fatalError()
+        }
         cell.setImage(image: background)
         if background == InterfaceStyleManager.shared.background {
             cell.isSelected = true

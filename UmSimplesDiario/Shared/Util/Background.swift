@@ -22,7 +22,7 @@ enum Background: String, CaseIterable {
     
     var type: BackgroudType {
         switch self {
-        case .blueSkyBackground: return .darkMode
+        case .blueSkyBackground: return .lightMode
         case .pinkGalaxyBackground: return .lightMode
         case .darkGalaxyBackground: return .darkMode
         case .orangeBackground: return .darkMode
