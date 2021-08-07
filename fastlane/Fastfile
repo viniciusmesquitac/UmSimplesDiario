@@ -87,7 +87,6 @@ platform :ios do
   end
 
   lane :tests do
-    cocoapods
     sh "xcrun simctl create iphone-11-14-4 'iPhone 11' com.apple.CoreSimulator.SimRuntime.iOS-14-4"
     scan(
       devices: ["iphone-11-14-4"],
