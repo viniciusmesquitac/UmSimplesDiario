@@ -49,7 +49,7 @@ extension ConfigurarRegistroViewController: PanModalPresentable {
     var shortFormHeight: PanModalHeight {
         return .contentHeight(view.frame.height/3.5)
     }
-    
+
     var longFormHeight: PanModalHeight {
         return .maxHeightWithTopInset(view.frame.height/2)
     }
