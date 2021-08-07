@@ -9,6 +9,14 @@ jobs:
   build:
     runs-on: macOS-latest
     steps:
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        
+    - name: Set up Bundle
+      run: bundle install
+
      # Step to run automated tests
     - uses: actions/checkout@v1
     - name: Run tests
