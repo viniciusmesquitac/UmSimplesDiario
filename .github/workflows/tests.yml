@@ -1,0 +1,17 @@
+name: Test coverage
+
+on:
+  workflow_dispatch:
+  pull_request:
+   branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+     # Step to run automated tests
+    - uses: actions/checkout@v1
+    - name: Run tests
+      run: |
+        fastlane tests
+  
