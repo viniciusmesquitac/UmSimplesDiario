@@ -22,7 +22,6 @@ jobs:
       run: bundle update fastlane
 
      # Step to run automated tests
-    - uses: actions/checkout@v1
     - name: Run tests
       run: |
         fastlane tests
