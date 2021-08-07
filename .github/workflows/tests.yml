@@ -1,0 +1,28 @@
+name: Test coverage
+
+on:
+  workflow_dispatch:
+  pull_request:
+   branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Ruby
+      uses: actions/setup-ruby@v1
+      with:
+        ruby-version: 2.7
+        
+    - name: Set up Fastlane
+      run: bundle install
+  
+    - name: Update Fastlane
+      run: bundle update fastlane
+
+     # Step to run automated tests
+    - name: Run tests
+      run: |
+        fastlane tests
+  

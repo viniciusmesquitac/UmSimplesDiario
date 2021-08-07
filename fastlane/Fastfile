@@ -15,14 +15,13 @@
 
 default_platform(:ios)
 platform :ios do
-
   desc "Build"
   lane :build_appstore do
     if is_ci
       puts "Running on Github action"
-  
+
       setup_ci(
-          force: true
+        force: true,
       )
     end
     match(type: "appstore", readonly: true)
@@ -30,7 +29,7 @@ platform :ios do
 
     build_app(
       workspace: ENV["WORKSPACE"],
-      scheme: ENV["SCHEME"]
+      scheme: ENV["SCHEME"],
     )
   end
 
@@ -87,4 +86,14 @@ platform :ios do
     match(type: "appstore")
   end
 
+  lane :tests do
+    sh "xcrun simctl create iphone-11-14-4 'iPhone 11' com.apple.CoreSimulator.SimRuntime.iOS-14-4"
+    scan(
+      devices: ["iphone-11-14-4"],
+      scheme: ENV["SCHEME"],
+      clean: true,
+      code_coverage: true,
+      only_testing: [ENV["TESTS_DIRECTORY"]],
+    )
+  end
 end
