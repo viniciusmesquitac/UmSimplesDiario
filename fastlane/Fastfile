@@ -90,7 +90,7 @@ platform :ios do
     sh "xcrun simctl create iphone-11-14-4 'iPhone 11' com.apple.CoreSimulator.SimRuntime.iOS-14-4"
     scan(
       devices: ["iphone-11-14-4"],
-      scheme: ENV["WORKSPACE"],
+      scheme: ENV["SCHEME"],
       clean: true,
       code_coverage: true,
       only_testing: [ENV["TESTS_DIRECTORY"]],
