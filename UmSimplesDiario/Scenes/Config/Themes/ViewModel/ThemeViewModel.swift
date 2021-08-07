@@ -56,7 +56,7 @@ class ThemeViewModel: ThemeViewModelProtocol, ThemeViewModelInput, ThemeViewMode
         sections = [
             ConfigSection(title: "Escolha um tema", items: themes),
             ConfigSection(title: "Cor principal", items: mainColors),
-            ConfigSection(title: "Backgrounds", items: backgrounds)
+            ConfigSection(title: "Plano de fundo", items: backgrounds)
         ]
 
         selectCell(at: InterfaceStyleManager.shared.style.rawValue)
