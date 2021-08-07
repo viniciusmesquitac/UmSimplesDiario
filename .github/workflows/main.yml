@@ -32,6 +32,9 @@ jobs:
       
     - name: get session
       run: bundle exec fastlane spaceauth
+      env:
+        APPLE_ID: ${{ secrets.APPLE_ID }}
+        FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
 
     - name: Build & Deploy to Testflight
       run: bundle exec fastlane upload_testflight
